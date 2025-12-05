@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scooby Menu - Features</title>
+    <link rel="shortcut icon" href="assets/images/icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #050508;
+            --bg-secondary: #0a0a12;
+            --bg-card: #0f0f1a;
+            --bg-card-hover: #1a1a2e;
+            --accent-cyan: #00d4ff;
+            --accent-purple: #9d4edd;
+            --accent-pink: #ff006e;
+            --accent-gradient: linear-gradient(135deg, #00d4ff 0%, #9d4edd 50%, #ff006e 100%);
+            --accent-glow: 0 0 30px rgba(0, 212, 255, 0.3), 0 0 60px rgba(157, 78, 221, 0.2);
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b8;
+            --text-dim: #555566;
+            --border-color: #1a1a2e;
+            --glass: rgba(15, 15, 26, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(0, 212, 255, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(157, 78, 221, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(255, 0, 110, 0.08) 0%, transparent 50%);
+            animation: bgFloat 25s ease-in-out infinite;
+        }
+
+        .bg-animation::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        @keyframes bgFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            33% { transform: translate(-2%, 2%) rotate(1deg) scale(1.02); }
+            66% { transform: translate(2%, -1%) rotate(-1deg) scale(0.98); }
+        }
+
+        /* Floating Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            animation: float 15s infinite ease-in-out;
+            box-shadow: 0 0 10px var(--accent-cyan);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
+        }
+
+        /* Header */
+        header {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 100px 20px 80px;
+            background: linear-gradient(180deg, rgba(10, 10, 18, 0.95) 0%, transparent 100%);
+        }
+
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: var(--glass);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 40px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-btn:hover {
+            background: var(--accent-gradient);
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: var(--accent-glow);
+        }
+
+        .back-btn::before {
+            content: '\2190';
+            font-size: 1.2rem;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 5rem;
+            font-weight: 900;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-shadow: 0 0 60px rgba(0, 212, 255, 0.5);
+            animation: logoGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes logoGlow {
+            from { filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.5)); }
+            to { filter: drop-shadow(0 0 40px rgba(157, 78, 221, 0.5)); }
+        }
+
+        .tagline {
+            font-size: 1.4rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            margin-bottom: 50px;
+            letter-spacing: 2px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 24px 32px;
+            background: var(--glass);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .stat:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .stat-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 8px;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(5, 5, 8, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 20px;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-btn {
+            padding: 12px 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(157, 78, 221, 0.2));
+            color: var(--text-primary);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+        }
+
+        /* Main Content */
+        main {
+            position: relative;
+            z-index: 10;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 20px 100px;
+        }
+
+        /* Category Section */
+        .category {
+            margin-bottom: 80px;
+            scroll-margin-top: 100px;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 32px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+            position: relative;
+        }
+
+        .category-header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100px;
+            height: 2px;
+            background: var(--accent-gradient);
+        }
+
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-gradient);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .category-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .category-count {
+            margin-left: auto;
+            padding: 10px 20px;
+            background: var(--glass);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--accent-cyan);
+            font-weight: 600;
+        }
+
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--accent-cyan);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.15);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-name::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-cyan);
+        }
+
+        .feature-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Subcategory */
+        .subcategory {
+            margin-bottom: 40px;
+        }
+
+        .subcategory-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent-cyan);
+            margin-bottom: 20px;
+            padding-left: 16px;
+            border-left: 4px solid var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Feature List (compact) */
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 12px;
+        }
+
+        .feature-item {
+            padding: 16px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .feature-item:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--accent-purple);
+            transform: translateX(4px);
+        }
+
+        .feature-item::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent-purple);
+            border-radius: 50%;
+            flex-shrink: 0;
+            box-shadow: 0 0 8px var(--accent-purple);
+        }
+
+        /* Footer */
+        footer {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            padding: 12px 24px;
+            background: var(--glass);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .footer-link:hover {
+            background: var(--accent-gradient);
+            border-color: transparent;
+            box-shadow: var(--accent-glow);
+        }
+
+        .footer-text {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .footer-brand {
+            font-family: 'Orbitron', sans-serif;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo { font-size: 2.8rem; letter-spacing: 2px; }
+            .tagline { font-size: 1rem; }
+            .stats { gap: 20px; }
+            .stat { padding: 16px 20px; }
+            .stat-number { font-size: 2rem; }
+            .category-header { flex-wrap: wrap; }
+            .category-count { margin-left: 0; margin-top: 12px; }
+            .category-title { font-size: 1.5rem; }
+            .feature-grid, .feature-list {
+                grid-template-columns: 1fr;
+            }
+            header { padding: 60px 20px 50px; }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--accent-cyan), var(--accent-purple));
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, var(--accent-purple), var(--accent-pink));
+        }
+
+        /* Selection */
+        ::selection {
+            background: rgba(0, 212, 255, 0.3);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+    <div class="particles">
+        <div class="particle" style="left: 10%; animation-delay: 0s; animation-duration: 12s;"></div>
+        <div class="particle" style="left: 20%; animation-delay: 2s; animation-duration: 14s;"></div>
+        <div class="particle" style="left: 30%; animation-delay: 4s; animation-duration: 16s;"></div>
+        <div class="particle" style="left: 40%; animation-delay: 1s; animation-duration: 13s;"></div>
+        <div class="particle" style="left: 50%; animation-delay: 3s; animation-duration: 15s;"></div>
+        <div class="particle" style="left: 60%; animation-delay: 5s; animation-duration: 11s;"></div>
+        <div class="particle" style="left: 70%; animation-delay: 2.5s; animation-duration: 17s;"></div>
+        <div class="particle" style="left: 80%; animation-delay: 1.5s; animation-duration: 14s;"></div>
+        <div class="particle" style="left: 90%; animation-delay: 4.5s; animation-duration: 12s;"></div>
+    </div>
+
+    <header>
+        <div class="header-content">
+            <a href="index.html" target="_blank" class="back-btn">Back to Home</a>
+            <h1 class="logo">Scooby</h1>
+            <p class="tagline">Advanced GTA V Enhancement Menu</p>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">Features</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">Categories</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Heist Tools</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#self" class="nav-btn">Self</a>
+            <a href="#vehicle" class="nav-btn">Vehicle</a>
+            <a href="#world" class="nav-btn">World</a>
+            <a href="#network" class="nav-btn">Network</a>
+            <a href="#recovery" class="nav-btn">Recovery</a>
+            <a href="#night" class="nav-btn">Night Tools</a>
+            <a href="#heist" class="nav-btn">Heist</a>
+            <a href="#business" class="nav-btn">Business</a>
+            <a href="#casino" class="nav-btn">Casino</a>
+            <a href="#settings" class="nav-btn">Settings</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- SELF -->
+        <section id="self" class="category">
+            <div class="category-header">
+                <div class="category-icon">&#128170;</div>
+                <h2 class="category-title">Self</h2>
+                <span class="category-count">40+ features</span>
+            </div>
+
+            <div class="subcategory">
+                <h3 class="subcategory-title">Health & Protection</h3>
+                <div class="feature-list">
+                    <div class="feature-item">God Mode</div>
+                    <div class="feature-item">No Ragdoll</div>
+                    <div class="feature-item">Health Regeneration</div>
+                    <div class="feature-item">Auto Heal</div>
+                    <div class="feature-item">Auto Armor</div>
+                    <div class="feature-item">Disable Critical Hits</div>
+                </div>
+            </div>
+
+            <div class="subcategory">
+                <h3 class="subcategory-title">Visibility</h3>
+                <div class="feature-list">
+                    <div class="feature-item">Invisibility</div>
+                    <div class="feature-item">Off The Radar</div>
+                    <div class="feature-item">Ghost Mode</div>
+                    <div class="feature-item">Night Vision</div>
+                    <div class="feature-item">Thermal Vision</div>
+                    <div class="feature-item">Hide Radar/HUD</div>
+                </div>
+            </div>
+
+            <div class="subcategory">
+                <h3 class="subcategory-title">Powers & Abilities</h3>
+                <div class="feature-list">
+                    <div class="feature-item">Forcefield</div>
+                    <div class="feature-item">Superman Flight</div>
+                    <div class="feature-item">Noclip</div>
+                    <div class="feature-item">Telekinesis</div>
+                    <div class="feature-item">Electric Touch</div>
+                    <div class="feature-item">Flaming Fists</div>
+                    <div class="feature-item">Walk On Air</div>
+                    <div class="feature-item">Super Run</div>
+                    <div class="feature-item">Super Jump</div>
+                    <div class="feature-item">Beast Jump</div>
+                    <div class="feature-item">Dash</div>
+                    <div class="feature-item">Aura Effects</div>
+                </div>
+            </div>
+
+            <div class="subcategory">
+                <h3 class="subcategory-title">Movement & Traversal</h3>
+                <div class="feature-list">
+                    <div class="feature-item">Infinite Stamina</div>
+                    <div class="feature-item">Unlimited Oxygen</div>
+                    <div class="feature-item">Speed Boost</div>
+                    <div class="feature-item">No Idle Kick</div>
+                    <div class="feature-item">Freecam</div>
+                    <div class="feature-item">Paraglider</div>
+                </div>
+            </div>
+
+            <div class="subcategory">
+                <h3 class="subcategory-title">Wanted Level</h3>
+                <div class="feature-list">
+                    <div class="feature-item">Never Wanted</div>
+                    <div class="feature-item">Clear Wanted Level</div>
+                    <div class="feature-item">Freeze Wanted Level</div>
+                    <div class="feature-item">Set Custom Level (1-5)</div>
+                </div>
+            </div>
+
+            <div class="subcategory">
+                <h3 class="subcategory-title">Teleportation</h3>
+                <div class="feature-list">
+                    <div class="feature-item">Teleport to Waypoint</div>
+                    <div class="feature-item">Teleport to Objective</div>
+                    <div class="feature-item">Teleport Forward</div>
+                    <div class="feature-item">Teleport to Aim</div>
+                    <div class="feature-item">Mark & Recall</div>
+                    <div class="feature-item">Saved Locations</div>
+                    <div class="feature-item">IPL Teleport</div>
+                </div>
+            </div>
+
+            <div class="subcategory">
+                <h3 class="subcategory-title">Tools</h3>
+                <div class="feature-list">
+                    <div class="feature-item">Outfit Editor</div>
+                    <div class="feature-item">Weapons Manager</div>
+                    <div class="feature-item">Skip Cutscenes</div>
+                    <div class="feature-item">Clone Self</div>
+                    <div class="feature-item">Mobile Radio</div>
+                    <div class="feature-item">Keep Clean</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VEHICLE -->
+        <section id="vehicle" class="category">
+            <div class="category-header">
+                <div class="category-icon">&#128663;</div>
+                <h2 class="category-title">Vehicle</h2>
+                <span class="category-count">35+ features</span>
+            </div>
+
+            <div class="subcategory">
+                <h3 class="subcategory-title">Protection & Repair</h3>
+                <div class="feature-list">
+                    <div class="feature-item">Vehicle God Mode</div>
+                    <div class="feature-item">Keep Fixed</div>
+                    <div class="feature-item">Repair Vehicle</div>
+                    <div class="feature-item">Fix All Vehicles</div>
+                    <div class="feature-item">Max Vehicle</div>
+                </div>
+            </div>
+
+            <div class="subcategory">
+                <h3 class="subcategory-title">Speed & Boost</h3>
+                <div class="feature-list">
+                    <div class="feature-item">Nitro Boost</div>
+                    <div class="feature-item">Horn Boost</div>
+                    <div class="feature-item">Catapult</div>
+                    <div class="feature-item">Wheelie</div>
+                    <div class="feature-item">Tornado Spin</div>
+                </div>
+            </div>
+
+            <div class="subcategory">
+                <h3 class="subcategory-title">Handling & Physics</h3>
+                <div class="feature-list">
+                    <div class="feature-item">Drive On Water</div>
+                    <div class="feature-item">Vehicle Jump</div>
+                    <div class="feature-item">Stick to Ground</div>
+                    <div class="feature-item">Drift Mode</div>
+                    <div class="feature-item">Hydraulics</div>
+                    <div class="feature-item">Instant Brake</div>
+                </div>
+            </div>
+
+            <div class="subcategory">
+                <h3 class="subcategory-title">Flight & Movement</h3>
+                <div class="feature-list">
+                    <div class="feature-item">Vehicle Fly</div>
+                    <div class="feature-item">Submarine Mode</div>
+                    <div class="feature-item">No Collision</div>
+                    <div class="feature-item">Tank Mode</div>
+                    <div class="feature-item">Auto Pilot</div>
+                    <div class="feature-item">Drive to Waypoint</div>
+                </div>
+            </div>
+
+            <div class="subcategory">
+                <h3 class="subcategory-title">Appearance & Misc</h3>
+                <div class="feature-list">
+                    <div class="feature-item">Rainbow Paint</div>
+                    <div class="feature-item">Vehicle Invisible</div>
+                    <div class="feature-item">Lower Stance</div>
+                    <div class="feature-item">Speedometer</div>
+                    <div class="feature-item">Seatbelt</div>
+                    <div class="feature-item">LSC Bypass</div>
+                </div>
+            </div>
+
+            <div class="subcategory">
+                <h3 class="subcategory-title">Tools</h3>
+                <div class="feature-list">
+                    <div class="feature-item">Vehicle Spawner</div>
+                    <div class="feature-item">Vehicle Editor</div>
+                    <div class="feature-item">Saved Vehicles</div>
+                    <div class="feature-item">3D Vehicle Preview</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORLD -->
+        <section id="world" class="category">
+            <div class="category-header">
+                <div class="category-icon">&#127758;</div>
+                <h2 class="category-title">World</h2>
+                <span class="category-count">30+ features</span>
+            </div>
+
+            <div class="subcategory">
+                <h3 class="subcategory-title">Weather & Time</h3>
+                <div class="feature-list">
+                    <div class="feature-item">Weather Control</div>
+                    <div class="feature-item">Force Weather</div>
+                    <div class="feature-item">Time Control</div>
+                    <div class="feature-item">Freeze Time</div>
+                    <div class="feature-item">Blackout</div>
+                </div>
+            </div>
+
+            <div class="subcategory">
+                <h3 class="subcategory-title">Chaos & Destruction</h3>
+                <div class="feature-list">
+                    <div class="feature-item">Chaos Mode</div>
+                    <div class="feature-item">Airstrike</div>
+                    <div class="feature-item">Nuke</div>
+                    <div class="feature-item">Meteor Strike</div>
+                    <div class="feature-item">Lightning Storm</div>
+                    <div class="feature-item">Tsunami</div>
+                    <div class="feature-item">Black Hole</div>
+                    <div class="feature-item">Fireworks</div>
+                </div>
+            </div>
+
+            <div class="subcategory">
+                <h3 class="subcategory-title">Peds & Vehicles Control</h3>
+                <div class="feature-list">
+                    <div class="feature-item">Kill All Peds/Enemies</div>
+                    <div class="feature-item">Delete Peds/Vehicles</div>
+                    <div class="feature-item">Freeze Peds/Vehicles</div>
+                    <div class="feature-item">Ped Riot Mode</div>
+                    <div class="feature-item">Angry Planes</div>
+                    <div class="feature-item">Ped/Vehicle Rain</div>
+                </div>
+            </div>
+
+            <div class="subcategory">
+                <h3 class="subcategory-title">ESP System</h3>
+                <div class="feature-list">
+                    <div class="feature-item">Player ESP</div>
+                    <div class="feature-item">Ped ESP</div>
+                    <div class="feature-item">Object ESP</div>
+                    <div class="feature-item">Skeleton Display</div>
+                    <div class="feature-item">Distance Display</div>
+                    <div class="feature-item">Name/Health Display</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NETWORK -->
+        <section id="network" class="category">
+            <div class="category-header">
+                <div class="category-icon">&#128279;</div>
+                <h2 class="category-title">Network</h2>
+                <span class="category-count">25+ features</span>
+            </div>
+
+            <div class="subcategory">
+                <h3 class="subcategory-title">Session Management</h3>
+                <div class="feature-list">
+                    <div class="feature-item">Session Browser</div>
+                    <div class="feature-item">Join by Username</div>
+                    <div class="feature-item">Join by RID</div>
+                    <div class="feature-item">Fast Join</div>
+                    <div class="feature-item">Force Script Host</div>
+                </div>
+            </div>
+
+            <div class="subcategory">
+                <h3 class="subcategory-title">All Players Actions</h3>
+                <div class="feature-list">
+                    <div class="feature-item">Kill All</div>
+                    <div class="feature-item">Explode All</div>
+                    <div class="feature-item">Kick All (Host/CEO)</div>
+                    <div class="feature-item">Teleport All</div>
+                    <div class="feature-item">Set Bounty All</div>
+                    <div class="feature-item">Delete All Vehicles</div>
+                </div>
+            </div>
+
+            <div class="subcategory">
+                <h3 class="subcategory-title">Per-Player Options</h3>
+                <div class="feature-list">
+                    <div class="feature-item">Spectate</div>
+                    <div class="feature-item">Player Info (IP, RID, etc)</div>
+                    <div class="feature-item">Teleport To/Bring</div>
+                    <div class="feature-item">Multiple Kick Types</div>
+                    <div class="feature-item">Trolling Options</div>
+                    <div class="feature-item">Set Bounty</div>
+                </div>
+            </div>
+
+            <div class="subcategory">
+                <h3 class="subcategory-title">Spoofing</h3>
+                <div class="feature-list">
+                    <div class="feature-item">Spoof Region</div>
+                    <div class="feature-item">Spoof Language</div>
+                    <div class="feature-item">Spoof Player Count</div>
+                    <div class="feature-item">Cheater Pool Access</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RECOVERY -->
+        <section id="recovery" class="category">
+            <div class="category-header">
+                <div class="category-icon">&#128176;</div>
+                <h2 class="category-title">Recovery</h2>
+                <span class="category-count">20+ features</span>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-name">Unlock All</div>
+                    <div class="feature-desc">Unlock all clothing, vehicles, weapons, collectibles, liveries, and trade prices</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">Unlock Bunker Research</div>
+                    <div class="feature-desc">Unlock all weapon mods, ammo types, vehicle upgrades, and Mk II liveries</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">Set Rank</div>
+                    <div class="feature-desc">Set your rank up to level 8000</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">Set LSCM Tier</div>
+                    <div class="feature-desc">Set Car Meet tier up to 1000</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">Arena War AP</div>
+                    <div class="feature-desc">Add Arena Points instantly</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">Stat Editor</div>
+                    <div class="feature-desc">Modify any game statistic</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">Free Appearance Change</div>
+                    <div class="feature-desc">Skip change limits and cooldowns</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">RP Multiplier Override</div>
+                    <div class="feature-desc">Custom RP earning rates</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NIGHT TOOLS -->
+        <section id="night" class="category">
+            <div class="category-header">
+                <div class="category-icon">&#127769;</div>
+                <h2 class="category-title">Night Tools</h2>
+                <span class="category-count">100+ features</span>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-name">Heist Tool</div>
+                    <div class="feature-desc">Complete control over all heists - setup, cuts, completion, cooldowns</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">Business Tool</div>
+                    <div class="feature-desc">Manage bunker, hangar, nightclub, cargo, and money fronts</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">Money Tool</div>
+                    <div class="feature-desc">Casino games, easy money loops, bank editor, stats editor</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">Dev Tool</div>
+                    <div class="feature-desc">Global/Local/Stat/Packed Stat editors for advanced users</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HEIST -->
+        <section id="heist" class="category">
+            <div class="category-header">
+                <div class="category-icon">&#128142;</div>
+                <h2 class="category-title">Heist Tools</h2>
+                <span class="category-count">6 heist types</span>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-name">Cayo Perico</div>
+                    <div class="feature-desc">Difficulty, approach, loadout, primary/secondary targets, loot amounts, custom cuts, cooldown skip</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">Diamond Casino</div>
+                    <div class="feature-desc">Approach, target, crew selection, auto-complete hacks, custom cuts</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">Apartment Heists</div>
+                    <div class="feature-desc">Fleeca, Prison Break, Humane Labs, Series A, Pacific Standard - full control</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">Doomsday</div>
+                    <div class="feature-desc">Act selection, mission controls, auto-complete hacks, custom cuts</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">Auto Shop Contracts</div>
+                    <div class="feature-desc">Contract selection, custom payouts, cooldown skip</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">Salvage Yard</div>
+                    <div class="feature-desc">3 vehicle slots, robbery/vehicle/mod selection, payout multiplier</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BUSINESS -->
+        <section id="business" class="category">
+            <div class="category-header">
+                <div class="category-icon">&#127970;</div>
+                <h2 class="category-title">Business Tools</h2>
+                <span class="category-count">5 business types</span>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-name">Bunker</div>
+                    <div class="feature-desc">Sale price multiplier, resupply, auto supplier, production trigger, stats editor</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">Hangar Cargo</div>
+                    <div class="feature-desc">Sale price multiplier, resupply, auto supplier, cooldown skip, stats editor</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">Nightclub</div>
+                    <div class="feature-desc">Sale price, safe management, popularity control, cooldown skip</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">Special Cargo</div>
+                    <div class="feature-desc">Price multiplier, crate control, auto supplier, cooldown skip</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">Money Fronts</div>
+                    <div class="feature-desc">Overall/Acid Lab/Bar heat control - lock, maximize, minimize</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CASINO -->
+        <section id="casino" class="category">
+            <div class="category-header">
+                <div class="category-icon">&#127920;</div>
+                <h2 class="category-title">Casino</h2>
+                <span class="category-count">5 games</span>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-name">Lucky Wheel</div>
+                    <div class="feature-desc">Select exact prize - vehicles, cash, RP, clothing, and more</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">Slot Machines</div>
+                    <div class="feature-desc">Force win or lose on any slot machine</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">Roulette</div>
+                    <div class="feature-desc">Force ball to land on specific numbers (13, 16)</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">Blackjack</div>
+                    <div class="feature-desc">Reveal dealer's hidden card, force trick wins</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">Poker</div>
+                    <div class="feature-desc">Reveal all cards, give winnings, trick wins</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">Chips Control</div>
+                    <div class="feature-desc">Bypass geo-block, set chips limits, acquire/trade limits</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SETTINGS -->
+        <section id="settings" class="category">
+            <div class="category-header">
+                <div class="category-icon">&#9881;</div>
+                <h2 class="category-title">Settings & UI</h2>
+                <span class="category-count">15+ features</span>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-name">Custom Hotkeys</div>
+                    <div class="feature-desc">Bind any feature to keyboard shortcuts with search and management</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">Overlay</div>
+                    <div class="feature-desc">FPS counter, watermark, session info, player count - draggable</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">Background Effects</div>
+                    <div class="feature-desc">Snowflakes, wireframe grid, floating particles - all customizable</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">Theme Customization</div>
+                    <div class="feature-desc">Colors, sizing, accent colors, glow effects, rainbow mode</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">Lua Scripts</div>
+                    <div class="feature-desc">Load and manage custom Lua scripts for extended functionality</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">Debug Mode</div>
+                    <div class="feature-desc">Developer tools, global/local variable inspection, script debugging</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html" target="_blank" class="footer-link">Home</a>
+            <a href="https://discord.gg/vu2QuFk5FT" target="_blank" class="footer-link">Discord</a>
+            <a href="https://t.me/ScoobyOnTop" target="_blank" class="footer-link">Telegram</a>
+            <a href="https://scooby.sell.app/product/scooby-premium" target="_blank" class="footer-link">Purchase</a>
+        </div>
+        <p class="footer-text">
+            <span class="footer-brand">SCOOBY</span> &mdash; Feature-rich GTA V enhancement
+        </p>
+    </footer>
+
+    <script>
+        // Active nav state on scroll
+        const sections = document.querySelectorAll('.category');
+        const navBtns = document.querySelectorAll('.nav-btn');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navBtns.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('href') === '#' + current) {
+                    btn.classList.add('active');
+                }
+            });
+        });
+
+        // Add more floating particles dynamically
+        const particlesContainer = document.querySelector('.particles');
+        for (let i = 0; i < 6; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 10 + 's';
+            particle.style.animationDuration = 10 + Math.random() * 10 + 's';
+            particle.style.background = i % 2 === 0 ? 'var(--accent-purple)' : 'var(--accent-cyan)';
+            particle.style.boxShadow = i % 2 === 0 ? '0 0 10px var(--accent-purple)' : '0 0 10px var(--accent-cyan)';
+            particlesContainer.appendChild(particle);
+        }
+    </script>
+</body>
+</html>
