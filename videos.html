@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Videos - Scooby GTA V Mod Menu</title>
+<meta name="description" content="Watch Scooby mod menu videos, tutorials, and showcases. See the best GTA 5 mod menu in action with heist editor, money recovery, and more features.">
+<meta name="keywords" content="Scooby mod menu videos, GTA 5 mod menu showcase, mod menu tutorial, GTA 5 heist editor video, mod menu gameplay">
+<link rel="shortcut icon" href="assets/images/icon.png">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Core Style Sheets -->
+<link rel="stylesheet" href="assets/css/master.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+
+<style>
+    :root {
+        --bg-primary: #050508;
+        --bg-secondary: #0a0a12;
+        --bg-card: #0f0f1a;
+        --bg-card-hover: #1a1a2e;
+        --accent-cyan: #00d4ff;
+        --accent-purple: #9d4edd;
+        --accent-pink: #ff006e;
+        --accent-gradient: linear-gradient(135deg, #00d4ff 0%, #9d4edd 50%, #ff006e 100%);
+        --text-primary: #ffffff;
+        --text-secondary: #a0a0b8;
+        --border-color: #1a1a2e;
+        --glass: rgba(15, 15, 26, 0.85);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        min-height: 100vh;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: var(--bg-primary); }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--accent-cyan), var(--accent-purple)); border-radius: 5px; }
+
+    /* Navbar */
+    .navbar {
+        backdrop-filter: blur(20px);
+        background: rgba(5, 5, 8, 0.9) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 15px 0 !important;
+    }
+
+    .navbar-nav {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .navbar-nav li { margin: 0 !important; }
+
+    .navbar-nav li a {
+        color: rgba(255, 255, 255, 0.7) !important;
+        background: transparent !important;
+        padding: 10px 18px !important;
+        border-radius: 8px !important;
+        border: none !important;
+        transition: all 0.3s ease !important;
+        font-family: 'Inter', sans-serif !important;
+        font-weight: 500 !important;
+        font-size: 14px !important;
+    }
+
+    .navbar-nav li a:hover {
+        color: #ffffff !important;
+        background: rgba(255, 255, 255, 0.05) !important;
+    }
+
+    @media (max-width: 992px) {
+        .navbar-nav {
+            flex-direction: column;
+            gap: 5px;
+            padding: 20px 0;
+        }
+    }
+
+    /* Page Header */
+    .page-header {
+        padding: 150px 0 80px;
+        text-align: center;
+        position: relative;
+        background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    }
+
+    .page-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 50% 0%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+        pointer-events: none;
+    }
+
+    .page-title {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 3.5rem;
+        font-weight: 800;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 20px;
+        letter-spacing: 3px;
+    }
+
+    .page-subtitle {
+        color: var(--text-secondary);
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    /* Videos Section */
+    .videos-section {
+        padding: 80px 0;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .videos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+    }
+
+    .video-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 20px;
+        overflow: hidden;
+        transition: all 0.4s ease;
+    }
+
+    .video-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--accent-cyan);
+        box-shadow: 0 20px 60px rgba(0, 212, 255, 0.15);
+    }
+
+    .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+    }
+
+    .video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    .video-info {
+        padding: 25px;
+    }
+
+    .video-info h3 {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.1rem;
+        color: var(--text-primary);
+        margin-bottom: 10px;
+        letter-spacing: 1px;
+    }
+
+    .video-info p {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .video-tag {
+        display: inline-block;
+        padding: 5px 12px;
+        background: rgba(0, 212, 255, 0.1);
+        border: 1px solid rgba(0, 212, 255, 0.3);
+        border-radius: 20px;
+        color: var(--accent-cyan);
+        font-size: 0.75rem;
+        font-weight: 600;
+        margin-top: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    /* Featured Video */
+    .featured-video {
+        margin-bottom: 60px;
+    }
+
+    .featured-video .video-card {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .featured-badge {
+        background: var(--accent-gradient);
+        color: white;
+        padding: 8px 20px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-family: 'Orbitron', sans-serif;
+    }
+
+    /* Section Title */
+    .section-title {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.8rem;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 40px;
+        text-align: center;
+        letter-spacing: 2px;
+    }
+
+    /* Footer */
+    .footer {
+        background: var(--bg-secondary);
+        border-top: 1px solid var(--border-color);
+        padding: 40px 0;
+        text-align: center;
+    }
+
+    .footer-brand {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.5rem;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 700;
+        letter-spacing: 3px;
+    }
+
+    .footer-text {
+        color: var(--text-secondary);
+        margin-top: 10px;
+        font-size: 0.9rem;
+    }
+
+    .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--accent-cyan);
+        text-decoration: none;
+        margin-top: 20px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .back-link:hover {
+        color: var(--accent-purple);
+        transform: translateX(-5px);
+    }
+
+    @media (max-width: 768px) {
+        .page-title { font-size: 2.5rem; }
+        .videos-grid { grid-template-columns: 1fr; }
+    }
+</style>
+</head>
+<body>
+
+    <!--== Header ==-->
+    <nav class="navbar navbar-default navbar-fixed navbar-transparent white bootsnav on no-full no-border studio">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                    <i class="tr-icon ion-android-menu"></i>
+                </button>
+                <div class="logo">
+                    <a href="index.html"><img class="logo logo-display" src="assets/images/logo-white.png" alt=""></a>
+                </div>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-menu">
+                <ul class="nav navbar-nav navbar-center" data-in="fadeIn" data-out="fadeOut">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#gallery">Gallery</a></li>
+                    <li><a href="index.html#pricing">Purchase</a></li>
+                    <li><a href="videos.html" class="active">Videos</a></li>
+                    <li><a href="https://whatwhatboy.com/fsl" target="_blank">FSL</a></li>
+                    <li><a href="Scooby.zip" target="_blank">Download</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--== Page Header ==-->
+    <div class="page-header">
+        <div class="container">
+            <h1 class="page-title">VIDEOS</h1>
+            <p class="page-subtitle">Watch Scooby mod menu showcases, tutorials, and feature demonstrations</p>
+        </div>
+    </div>
+
+    <!--== Videos Section ==-->
+    <section class="videos-section">
+        <div class="container">
+
+            <!--== Featured Video ==-->
+            <div class="featured-video">
+                <h2 class="section-title">FEATURED</h2>
+                <div class="video-card">
+                    <div class="featured-badge">Featured Showcase</div>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/URjT9feLa0I?si=Oz6s2gZkzuCFjVGe" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Scooby Mod Menu - Full Showcase</h3>
+                        <p>Experience the full power of Scooby mod menu with this comprehensive showcase featuring heist editor, business tools, player features, and more.</p>
+                        <span class="video-tag">Official</span>
+                    </div>
+                </div>
+            </div>
+
+            <!--== More Videos ==-->
+            <h2 class="section-title">MORE VIDEOS</h2>
+            <div class="videos-grid">
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/URjT9feLa0I?si=Oz6s2gZkzuCFjVGe" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Heist Editor Tutorial</h3>
+                        <p>Learn how to use the powerful heist editor to create custom heists.</p>
+                        <span class="video-tag">Tutorial</span>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/URjT9feLa0I?si=Oz6s2gZkzuCFjVGe" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Business Tool Features</h3>
+                        <p>Maximize your earnings with the business tool features.</p>
+                        <span class="video-tag">Guide</span>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/URjT9feLa0I?si=Oz6s2gZkzuCFjVGe" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Player Features Overview</h3>
+                        <p>Explore all the player enhancement features available in Scooby.</p>
+                        <span class="video-tag">Overview</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="index.html" class="back-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    Back to Home
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!--== Footer ==-->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-brand">SCOOBY</div>
+            <p class="footer-text">Premium GTA V Enhancement Menu</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/master.js"></script>
+
+</body>
+</html>
