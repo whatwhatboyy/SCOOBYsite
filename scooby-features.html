@@ -10,20 +10,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #050508;
-            --bg-secondary: #0a0a12;
-            --bg-card: #0f0f1a;
-            --bg-card-hover: #1a1a2e;
-            --accent-cyan: #00d4ff;
-            --accent-purple: #9d4edd;
-            --accent-pink: #ff006e;
-            --accent-gradient: linear-gradient(135deg, #00d4ff 0%, #9d4edd 50%, #ff006e 100%);
-            --accent-glow: 0 0 30px rgba(0, 212, 255, 0.3), 0 0 60px rgba(157, 78, 221, 0.2);
+            --bg-primary: #1a1a1a;
+            --bg-secondary: #222222;
+            --bg-card: #252528;
+            --bg-card-hover: #2d2d30;
+            --accent-cyan: #00c8c8;
+            --accent-purple: #00c8c8;
+            --accent-pink: #00c8c8;
+            --accent-gradient: linear-gradient(135deg, #00c8c8 0%, #00b4b4 50%, #009999 100%);
+            --accent-glow: 0 0 30px rgba(0, 200, 200, 0.3), 0 0 60px rgba(0, 200, 200, 0.2);
             --text-primary: #ffffff;
-            --text-secondary: #a0a0b8;
-            --text-dim: #555566;
-            --border-color: #1a1a2e;
-            --glass: rgba(15, 15, 26, 0.8);
+            --text-secondary: #888888;
+            --text-dim: #555555;
+            --border-color: #333333;
+            --glass: rgba(30, 30, 30, 0.9);
         }
 
         * {
@@ -446,6 +446,40 @@
             border-radius: 50%;
             flex-shrink: 0;
             box-shadow: 0 0 8px var(--accent-purple);
+        }
+
+        /* Premium Locked Styles */
+        .feature-item.premium-locked,
+        .feature-card.premium-locked {
+            opacity: 0.6;
+        }
+
+        .feature-item.premium-locked::before {
+            background: #666;
+            box-shadow: 0 0 8px rgba(100, 100, 100, 0.3);
+        }
+
+        .feature-card.premium-locked .feature-name::before {
+            background: #666;
+            box-shadow: 0 0 10px rgba(100, 100, 100, 0.3);
+        }
+
+        .feature-card.premium-locked:hover {
+            border-color: #666;
+            box-shadow: none;
+        }
+
+        .premium-badge {
+            background: linear-gradient(135deg, #00c8c8 0%, #009999 100%);
+            color: white;
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-left: auto;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: 'Orbitron', sans-serif;
         }
 
         /* Footer */
@@ -932,8 +966,8 @@
                     <div class="feature-name">Heist Tool</div>
                     <div class="feature-desc">Complete control over all heists - setup, cuts, completion, cooldowns</div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-name">Business Tool</div>
+                <div class="feature-card premium-locked">
+                    <div class="feature-name">Business Tool <span class="premium-badge">Premium</span></div>
                     <div class="feature-desc">Manage bunker, hangar, nightclub, cargo, and money fronts</div>
                 </div>
                 <div class="feature-card">
@@ -992,24 +1026,24 @@
             </div>
 
             <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-name">Bunker</div>
+                <div class="feature-card premium-locked">
+                    <div class="feature-name">Bunker <span class="premium-badge">Premium</span></div>
                     <div class="feature-desc">Sale price multiplier, resupply, auto supplier, production trigger, stats editor</div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-name">Hangar Cargo</div>
+                <div class="feature-card premium-locked">
+                    <div class="feature-name">Hangar Cargo <span class="premium-badge">Premium</span></div>
                     <div class="feature-desc">Sale price multiplier, resupply, auto supplier, cooldown skip, stats editor</div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-name">Nightclub</div>
+                <div class="feature-card premium-locked">
+                    <div class="feature-name">Nightclub <span class="premium-badge">Premium</span></div>
                     <div class="feature-desc">Sale price, safe management, popularity control, cooldown skip</div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-name">Special Cargo</div>
+                <div class="feature-card premium-locked">
+                    <div class="feature-name">Special Cargo <span class="premium-badge">Premium</span></div>
                     <div class="feature-desc">Price multiplier, crate control, auto supplier, cooldown skip</div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-name">Money Fronts</div>
+                <div class="feature-card premium-locked">
+                    <div class="feature-name">Money Fronts <span class="premium-badge">Premium</span></div>
                     <div class="feature-desc">Overall/Acid Lab/Bar heat control - lock, maximize, minimize</div>
                 </div>
             </div>
@@ -1076,8 +1110,8 @@
                     <div class="feature-name">Theme Customization</div>
                     <div class="feature-desc">Colors, sizing, accent colors, glow effects, rainbow mode</div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-name">Lua Scripts</div>
+                <div class="feature-card premium-locked">
+                    <div class="feature-name">Lua Scripts <span class="premium-badge">Premium</span></div>
                     <div class="feature-desc">Load and manage custom Lua scripts for extended functionality</div>
                 </div>
                 <div class="feature-card">
