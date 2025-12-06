@@ -929,11 +929,10 @@
                     <ul class="nav navbar-nav navbar-center" data-in="fadeIn" data-out="fadeOut">
                         <li><a class="page-scroll" href="#home">Home</a></li>
                         <li><a class="page-scroll" href="#about">About</a></li>
-                        <li><a class="page-scroll" href="#gallery">Gallery</a></li>
                         <li><a class="page-scroll" href="#pricing">Purchase</a></li>
                         <li><a class="page-scroll" href="videos.html">Videos</a></li>
                         <li><a class="page-scroll" href="https://whatwhatboy.com/fsl" target="_blank">FSL</a></li>
-                        <li><a class="page-scroll" href="Scooby.zip" target="_blank">Download</a></li>
+                        
                     </ul>
                 </div>
                 <!--== /.navbar-collapse ==-->
@@ -1023,11 +1022,43 @@
         <!--== Pricing Section Start ==-->
         <section class="modern-section section-darker" id="pricing">
             <div class="container">
-                <div class="row">
-                    <!-- Pricing Box -->
-                    <div class="col-md-4">
-                        <div class="modern-card pricing-modern animate-in">
-                            <h3>PREMIUM</h3>
+                <h2 class="modern-title animate-in" style="margin-bottom: 50px;">CHOOSE YOUR PLAN</h2>
+
+                <div class="row" style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+                    <!-- Free Version Card -->
+                    <div class="col-md-4" style="flex: 0 0 auto; max-width: 380px;">
+                        <div class="modern-card pricing-modern animate-in" style="border-color: #2a2a4e; height: 100%;">
+                            <div style="background: linear-gradient(135deg, #1a1a2e 0%, #2a2a4e 100%); margin: -40px -40px 30px -40px; padding: 25px 40px; border-radius: 20px 20px 0 0;">
+                                <h3 style="margin: 0;">FREE</h3>
+                            </div>
+                            <div class="price" style="background: linear-gradient(135deg, #a0a0b8 0%, #ffffff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">$0</div>
+                            <p style="color: var(--text-secondary); margin-bottom: 20px;">Try before you buy</p>
+
+                            <ul class="feature-list-modern">
+                                 <li></li>
+                                <li>Player Options</li>
+                                <li>Vehicle Spawner</li>
+                                <li>Teleport Options</li>
+                                <li>Weapons Optiions</li>
+                                 <li>Heist Editor</li>
+                                      <li>Modded Outfits & Vehicles</li>
+                            </ul>
+
+                            <div class="button-group-modern" style="margin-top: auto;">
+                                <a href="https://whatwhatboy.com/scoobyontop.html" target="_blank" class="btn-modern" style="width: 100%; background: linear-gradient(135deg, #2a2a4e 0%, #3a3a5e 100%); border-color: #4a4a6e;">
+                                    Get Free Key
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Premium Version Card -->
+                    <div class="col-md-4" style="flex: 0 0 auto; max-width: 380px;">
+                        <div class="modern-card pricing-modern animate-in" style="border-color: var(--accent-cyan); box-shadow: 0 0 40px rgba(0, 212, 255, 0.15); height: 100%; position: relative;">
+                            <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent-gradient); padding: 6px 20px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; font-family: 'Orbitron', sans-serif;">RECOMMENDED</div>
+                            <div style="background: var(--accent-gradient); margin: -40px -40px 30px -40px; padding: 25px 40px; border-radius: 20px 20px 0 0;">
+                                <h3 style="margin: 0; color: white; -webkit-text-fill-color: white;">PREMIUM</h3>
+                            </div>
                             <div class="price">$10</div>
                             <p style="color: var(--text-secondary); margin-bottom: 20px;">One-time payment, lifetime access</p>
 
@@ -1042,26 +1073,30 @@
                                 <li>200+ Features Total</li>
                             </ul>
 
-                            <div class="button-group-modern">
-                                <a href="#" onclick="openPaymentModal(); return false;" class="btn-modern btn-primary-modern">
+                            <div class="button-group-modern" style="margin-top: auto;">
+                                <a href="#" onclick="openPaymentModal(); return false;" class="btn-modern btn-primary-modern" style="width: 100%;">
                                     Purchase Now
                                 </a>
-                                <a href="https://whatwhatboy.com/scoobyontop.html" target="_blank" class="btn-modern">
-                                    Free Version
-                                </a>
-                                <a href="scooby-features.html" target="_blank" class="btn-modern">
+                                <a href="scooby-features.html" target="_blank" class="btn-modern" style="width: 100%;">
                                     View All Features
                                 </a>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Video Box -->
-                    <div class="col-md-8">
-                        <div class="modern-card video-modern animate-in">
+                <!-- Video Showcase -->
+                <div class="row" style="margin-top: 60px;">
+                    <div class="col-md-12">
+                        <div class="modern-card video-modern animate-in" style="max-width: 900px; margin: 0 auto;">
                             <h2>SHOWCASE</h2>
                             <div class="video-wrapper">
-                                <iframe width="100%" height="400" src="https://www.youtube.com/embed/URjT9feLa0I?si=Oz6s2gZkzuCFjVGe" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <div style="width: 100%; height: 400px; background: linear-gradient(135deg, #0a0a12 0%, #1a1a2e 100%); display: flex; align-items: center; justify-content: center; flex-direction: column; color: #a0a0b8; border-radius: 14px;">
+                                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity: 0.5; margin-bottom: 15px;">
+                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                    </svg>
+                                    <p>Video coming soon</p>
+                                </div>
                             </div>
                         </div>
                     </div>
