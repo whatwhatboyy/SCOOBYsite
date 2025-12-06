@@ -16,18 +16,18 @@
 
 <style>
     :root {
-        --bg-primary: #050508;
-        --bg-secondary: #0a0a12;
-        --bg-card: #0f0f1a;
-        --bg-card-hover: #1a1a2e;
-        --accent-cyan: #00d4ff;
-        --accent-purple: #9d4edd;
-        --accent-pink: #ff006e;
-        --accent-gradient: linear-gradient(135deg, #00d4ff 0%, #9d4edd 50%, #ff006e 100%);
+        --bg-primary: #1a1a1a;
+        --bg-secondary: #222222;
+        --bg-card: #252528;
+        --bg-card-hover: #2d2d30;
+        --accent-cyan: #00c8c8;
+        --accent-purple: #00c8c8;
+        --accent-pink: #00c8c8;
+        --accent-gradient: linear-gradient(135deg, #00c8c8 0%, #00b4b4 50%, #009999 100%);
         --text-primary: #ffffff;
-        --text-secondary: #a0a0b8;
-        --border-color: #1a1a2e;
-        --glass: rgba(15, 15, 26, 0.85);
+        --text-secondary: #888888;
+        --border-color: #333333;
+        --glass: rgba(30, 30, 30, 0.9);
     }
 
     * {
@@ -73,15 +73,7 @@
         padding: 0 30px;
         display: flex;
         align-items: center;
-        justify-content: center;
-    }
-
-    .navbar-logo {
-        display: none;
-    }
-
-    .navbar-logo img {
-        height: 40px;
+        justify-content: space-between;
     }
 
     .navbar-nav {
@@ -149,7 +141,7 @@
         font-family: 'Orbitron', sans-serif;
         font-size: 3.5rem;
         font-weight: 800;
-        background: linear-gradient(135deg, #00d4ff 0%, #9d4edd 50%, #ff006e 100%);
+        background: linear-gradient(135deg, #00c8c8 0%, #00b4b4 50%, #009999 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -157,6 +149,7 @@
         margin-bottom: 20px;
         letter-spacing: 3px;
         display: inline-block;
+        text-shadow: 0 0 40px rgba(0, 200, 200, 0.3);
     }
 
     .page-subtitle {
@@ -168,12 +161,28 @@
 
     /* Gradient Text Fix */
     .gradient-text {
-        background: linear-gradient(135deg, #00d4ff 0%, #9d4edd 50%, #ff006e 100%);
+        background: linear-gradient(135deg, #00c8c8 0%, #00b4b4 50%, #009999 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
         color: transparent;
         display: inline-block;
+    }
+
+    /* Navbar Brand Text */
+    .navbar-brand-text {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--accent-cyan) !important;
+        text-decoration: none;
+        letter-spacing: 3px;
+        text-shadow: 0 0 20px rgba(0, 200, 200, 0.5);
+        transition: all 0.3s ease;
+    }
+
+    .navbar-brand-text:hover {
+        text-shadow: 0 0 30px rgba(0, 200, 200, 0.8);
     }
 
     /* Videos Section */
@@ -304,7 +313,7 @@
     .section-title {
         font-family: 'Orbitron', sans-serif;
         font-size: 1.8rem;
-        background: linear-gradient(135deg, #00d4ff 0%, #9d4edd 50%, #ff006e 100%);
+        background: linear-gradient(135deg, #00c8c8 0%, #00b4b4 50%, #009999 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -326,14 +335,11 @@
     .footer-brand {
         font-family: 'Orbitron', sans-serif;
         font-size: 1.5rem;
-        background: linear-gradient(135deg, #00d4ff 0%, #9d4edd 50%, #ff006e 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        color: transparent;
+        color: var(--accent-cyan);
         font-weight: 700;
         letter-spacing: 3px;
         display: inline-block;
+        text-shadow: 0 0 20px rgba(0, 200, 200, 0.5);
     }
 
     .footer-text {
@@ -390,9 +396,7 @@
     <!--== Header ==-->
     <nav class="navbar-custom">
         <div class="navbar-inner">
-            <a href="index.html" class="navbar-logo">
-                <img src="assets/images/logo-white.png" alt="Scooby">
-            </a>
+            <a href="index.html" class="navbar-brand-text">SCOOBY</a>
             <ul class="navbar-nav">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#about">About</a></li>
