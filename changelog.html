@@ -349,6 +349,83 @@
         transform: translateX(-5px);
     }
 
+    /* Animations */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            box-shadow: 0 0 0 0 rgba(0, 200, 200, 0.4);
+        }
+        50% {
+            box-shadow: 0 0 0 10px rgba(0, 200, 200, 0);
+        }
+    }
+
+    .version-card {
+        animation: fadeInUp 0.6s ease forwards;
+        opacity: 0;
+    }
+
+    .version-card:nth-child(1) { animation-delay: 0.1s; }
+    .version-card:nth-child(2) { animation-delay: 0.2s; }
+    .version-card:nth-child(3) { animation-delay: 0.3s; }
+    .version-card:nth-child(4) { animation-delay: 0.4s; }
+
+    .page-title {
+        animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .page-subtitle {
+        animation: fadeInUp 0.8s ease forwards;
+        animation-delay: 0.2s;
+        opacity: 0;
+    }
+
+    .section-title {
+        animation: fadeInUp 0.6s ease forwards;
+    }
+
+    .version-badge {
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+    /* Section Divider */
+    .section-divider {
+        display: flex;
+        align-items: center;
+        margin: 60px 0 40px;
+        gap: 20px;
+    }
+
+    .section-divider::before,
+    .section-divider::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(0, 200, 200, 0.3), transparent);
+    }
+
+    .section-divider h2 {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.5rem;
+        background: linear-gradient(135deg, #00c8c8 0%, #00b4b4 50%, #009999 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        letter-spacing: 3px;
+        margin: 0;
+        white-space: nowrap;
+    }
+
     @media (max-width: 768px) {
         .page-title { font-size: 2.5rem; }
         .version-title { font-size: 1.4rem; }
@@ -502,7 +579,9 @@
             </div>
 
             <!--== Loader Section ==-->
-            <h2 class="section-title" style="margin-top: 80px;">LOADER</h2>
+            <div class="section-divider">
+                <h2>LOADER</h2>
+            </div>
 
             <!--== Loader v1.1 ==-->
             <div class="version-card">
