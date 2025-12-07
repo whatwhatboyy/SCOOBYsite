@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Changelog - Scooby GTA V Mod Menu</title>
+<meta name="description" content="Scooby mod menu changelog and version history. See all updates, new features, and improvements for GTA 5.">
+<meta name="keywords" content="Scooby mod menu changelog, GTA 5 mod menu updates, Scooby version history">
+<link rel="shortcut icon" href="assets/images/icon.png">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+        --bg-primary: #1a1a1a;
+        --bg-secondary: #222222;
+        --bg-card: #252528;
+        --bg-card-hover: #2d2d30;
+        --accent-cyan: #00c8c8;
+        --accent-purple: #00c8c8;
+        --accent-pink: #00c8c8;
+        --accent-gradient: linear-gradient(135deg, #00c8c8 0%, #00b4b4 50%, #009999 100%);
+        --text-primary: #ffffff;
+        --text-secondary: #888888;
+        --border-color: #333333;
+        --glass: rgba(30, 30, 30, 0.9);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html, body {
+        background: #050508 !important;
+        background-color: #050508 !important;
+    }
+
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--bg-primary) !important;
+        color: var(--text-primary);
+        min-height: 100vh;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: var(--bg-primary); }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--accent-cyan), var(--accent-purple)); border-radius: 5px; }
+
+    /* Navbar */
+    .navbar-custom {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        background: rgba(5, 5, 8, 0.95) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 20px 0;
+    }
+
+    .navbar-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .navbar-nav {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar-nav li {
+        list-style: none;
+    }
+
+    .navbar-nav li a {
+        color: rgba(255, 255, 255, 0.7);
+        background: transparent;
+        padding: 12px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
+        font-size: 14px;
+        display: block;
+    }
+
+    .navbar-nav li a:hover,
+    .navbar-nav li a.active {
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.08);
+    }
+
+    @media (max-width: 768px) {
+        .navbar-nav {
+            gap: 2px;
+        }
+        .navbar-nav li a {
+            padding: 10px 12px;
+            font-size: 12px;
+        }
+    }
+
+    /* Navbar Brand Text */
+    .navbar-brand-text {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--accent-cyan) !important;
+        text-decoration: none;
+        letter-spacing: 3px;
+        text-shadow: 0 0 20px rgba(0, 200, 200, 0.5);
+        transition: all 0.3s ease;
+    }
+
+    .navbar-brand-text:hover {
+        text-shadow: 0 0 30px rgba(0, 200, 200, 0.8);
+    }
+
+    /* Page Header */
+    .page-header {
+        padding: 150px 0 80px;
+        text-align: center;
+        position: relative;
+        background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    }
+
+    .page-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 50% 0%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+        pointer-events: none;
+    }
+
+    .page-title {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 3.5rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #00c8c8 0%, #00b4b4 50%, #009999 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 20px;
+        letter-spacing: 3px;
+        display: inline-block;
+        text-shadow: 0 0 40px rgba(0, 200, 200, 0.3);
+    }
+
+    .page-subtitle {
+        color: #a0a0b8;
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Changelog Section */
+    .changelog-section {
+        padding: 80px 0;
+        background: var(--bg-primary);
+    }
+
+    .version-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 20px;
+        margin-bottom: 40px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .version-card:hover {
+        border-color: var(--accent-cyan);
+        box-shadow: 0 10px 40px rgba(0, 200, 200, 0.1);
+    }
+
+    .version-header {
+        background: linear-gradient(135deg, rgba(0, 200, 200, 0.1) 0%, rgba(0, 200, 200, 0.05) 100%);
+        padding: 25px 30px;
+        border-bottom: 1px solid var(--border-color);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .version-title {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--accent-cyan);
+        letter-spacing: 2px;
+    }
+
+    .version-badge {
+        display: inline-block;
+        padding: 8px 16px;
+        background: var(--accent-gradient);
+        border-radius: 20px;
+        color: white;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-family: 'Orbitron', sans-serif;
+    }
+
+    .version-badge.coming-soon {
+        background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%);
+    }
+
+    .version-content {
+        padding: 30px;
+    }
+
+    .feature-category {
+        margin-bottom: 30px;
+    }
+
+    .feature-category:last-child {
+        margin-bottom: 0;
+    }
+
+    .category-title {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.1rem;
+        color: var(--accent-cyan);
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(0, 200, 200, 0.2);
+        letter-spacing: 1px;
+    }
+
+    .feature-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .feature-list li {
+        color: var(--text-secondary);
+        padding: 8px 0;
+        padding-left: 25px;
+        position: relative;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .feature-list li::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 14px;
+        width: 8px;
+        height: 8px;
+        background: var(--accent-cyan);
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(0, 200, 200, 0.5);
+    }
+
+    .feature-list li strong {
+        color: var(--text-primary);
+    }
+
+    .sub-feature-list {
+        list-style: none;
+        padding: 0;
+        margin: 10px 0 0 20px;
+    }
+
+    .sub-feature-list li {
+        padding: 4px 0;
+        padding-left: 20px;
+        font-size: 0.9rem;
+    }
+
+    .sub-feature-list li::before {
+        width: 6px;
+        height: 6px;
+        top: 10px;
+        background: rgba(0, 200, 200, 0.5);
+    }
+
+    /* Footer */
+    .footer {
+        background: #0a0a12;
+        border-top: 1px solid #1a1a2e;
+        padding: 40px 0;
+        text-align: center;
+    }
+
+    .footer-brand {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.5rem;
+        color: var(--accent-cyan);
+        font-weight: 700;
+        letter-spacing: 3px;
+        display: inline-block;
+        text-shadow: 0 0 20px rgba(0, 200, 200, 0.5);
+    }
+
+    .footer-text {
+        color: var(--text-secondary);
+        margin-top: 10px;
+        font-size: 0.9rem;
+    }
+
+    .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--accent-cyan);
+        text-decoration: none;
+        margin-top: 20px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .back-link:hover {
+        color: var(--accent-purple);
+        transform: translateX(-5px);
+    }
+
+    @media (max-width: 768px) {
+        .page-title { font-size: 2.5rem; }
+        .version-title { font-size: 1.4rem; }
+        .version-header { padding: 20px; }
+        .version-content { padding: 20px; }
+    }
+</style>
+</head>
+<body>
+
+    <!--== Header ==-->
+    <nav class="navbar-custom">
+        <div class="navbar-inner">
+            <a href="index.html" class="navbar-brand-text">SCOOBY</a>
+            <ul class="navbar-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="index.html#pricing">Purchase</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="changelog.html" class="active">Changelog</a></li>
+                <li><a href="https://whatwhatboy.com/fsl" target="_blank">FSL</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--== Page Header ==-->
+    <div class="page-header">
+        <div class="container">
+            <h1 class="page-title">CHANGELOG</h1>
+            <p class="page-subtitle">Version history and updates for Scooby GTA V Enhanced Edition</p>
+        </div>
+    </div>
+
+    <!--== Changelog Section ==-->
+    <section class="changelog-section">
+        <div class="container">
+
+            <!--== Version 2.1 ==-->
+            <div class="version-card">
+                <div class="version-header">
+                    <h2 class="version-title">v2.1</h2>
+                    <span class="version-badge">Latest</span>
+                </div>
+                <div class="version-content">
+
+                    <div class="feature-category">
+                        <h3 class="category-title">COMBAT FEATURES</h3>
+                        <ul class="feature-list">
+                            <li><strong>Aimbot</strong> - Multiple hit bones, adjustable FOV, activation modes, smooth aiming, auto-fire, visibility checks, target indicators</li>
+                            <li><strong>Silent Aim</strong> - Separate system with FOV targeting, shoot through walls option, custom FOV circle</li>
+                            <li><strong>Magic Bullet</strong> - Bullets hit through walls, adjustable damage, silent mode, target indicators</li>
+                            <li><strong>Triggerbot</strong> - Auto-fire on crosshair, burst fire mode, magnet mode with snap aiming</li>
+                            <li><strong>Hitmarkers</strong> - Visual/sound feedback, custom colors for hits/headshots/kills, rainbow mode</li>
+                            <li><strong>Damage Indicators</strong> - Floating damage numbers, critical hit colors, stack rapid damage</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-category">
+                        <h3 class="category-title">POWERS</h3>
+                        <ul class="feature-list">
+                            <li><strong>Telekinesis</strong> - Grab entities, 10 action modes (Hold, Throw, Ragdoll, Spin, Orbit, etc.)</li>
+                            <li><strong>Forcefield</strong> - Push peds/vehicles away, adjustable radius and force</li>
+                            <li><strong>Aura</strong> - Visual aura effect, multiple types, rainbow mode, push entities</li>
+                            <li><strong>Electric Touch</strong> - Zap nearby entities with multiple effects</li>
+                            <li><strong>Flaming Fists</strong> - Explosive/burn/ragdoll on punch, one punch kill</li>
+                            <li><strong>Dash</strong> - Shift + WASD dash with invincibility and visual effects</li>
+                            <li><strong>Paraglider</strong> - Glide with boost/dive controls, auto-activate on fall</li>
+                            <li><strong>Shockwave Ball</strong> - Energy balls with Push, Pull, Bounce, Homing, Black Hole modes</li>
+                            <li><strong>God Slap</strong> - Dash and slap with explosive/burn/launch options</li>
+                            <li><strong>Walk On Air</strong> - Invisible platform at adjustable height</li>
+                            <li><strong>Matrix</strong> - Slow-motion bullet time effect</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-category">
+                        <h3 class="category-title">ESP FEATURES</h3>
+                        <ul class="feature-list">
+                            <li><strong>Player ESP</strong> - Names, distance, skeleton, box, tracelines with custom colors</li>
+                            <li><strong>Ped ESP</strong> - Names, weapons, distance, skeleton, box, tracelines</li>
+                            <li><strong>Vehicle ESP</strong> - Names, distance, box, health display</li>
+                            <li><strong>Crosshair</strong> - Multiple styles (Cross, Circle, Dot, Spinning), rainbow fade</li>
+                            <li><strong>Health Bars</strong> - Position options, armor bar, custom colors</li>
+                            <li><strong>Box Settings</strong> - Full/Corners/3D, rounded corners, glow effects</li>
+                            <li><strong>Skeleton Settings</strong> - Outline, glow, head dot styles</li>
+                            <li><strong>Tracelines</strong> - Multiple origins, curve/fade/dashed options</li>
+                            <li><strong>Projectile Trails</strong> - Bullet/throwable trails, rainbow mode, impact boxes</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-category">
+                        <h3 class="category-title">WEAPON FEATURES</h3>
+                        <ul class="feature-list">
+                            <li><strong>No Recoil / No Spread</strong> - Perfect accuracy</li>
+                            <li><strong>Custom Weapons</strong> - Gravity Gun, Vehicle Gun, Paint Gun with rainbow</li>
+                            <li><strong>Weapon Globals</strong> - Infinite ammo/clip, rapid fire, fire ammo, explosive ammo, damage multipliers</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-category">
+                        <h3 class="category-title">MOVEMENT & TELEPORT</h3>
+                        <ul class="feature-list">
+                            <li><strong>Noclip / Freecam</strong> - Fly through walls with adjustable speed</li>
+                            <li><strong>Super Jump / Beast Jump</strong> - Enhanced jump abilities</li>
+                            <li><strong>Super Run / Superman</strong> - Enhanced speed and flying</li>
+                            <li><strong>Blink Teleport</strong> - Quick forward teleport with marker styles</li>
+                            <li><strong>Mark & Recall</strong> - Save and return to positions</li>
+                            <li><strong>Quick Teleports</strong> - Waypoint, objective, aim, vehicle teleports</li>
+                            <li><strong>IPL Loader</strong> - Load/unload interiors with teleport</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-category">
+                        <h3 class="category-title">UI & BUG FIXES</h3>
+                        <ul class="feature-list">
+                            <li>Organized ESP into tabs (Main, Crosshair, Debug, Visuals, Settings)</li>
+                            <li>Organized Weapons into tabs (Main, Aimbot)</li>
+                            <li>Fixed Triggerbot not detecting peds inside vehicles</li>
+                            <li>Fixed Silent Aim functionality</li>
+                            <li>Fixed Magic Bullet activation modes</li>
+                            <li>Fixed ESP box settings display issues</li>
+                            <li>Fixed multiple ImGui duplicate ID errors</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <!--== Version 2.0 ==-->
+            <div class="version-card">
+                <div class="version-header">
+                    <h2 class="version-title">v2.0</h2>
+                    <span class="version-badge">Released</span>
+                </div>
+                <div class="version-content">
+                    <div class="feature-category">
+                        <h3 class="category-title">INITIAL RELEASE</h3>
+                        <ul class="feature-list">
+                            <li>Full GTA V Enhanced Edition support</li>
+                            <li>Complete menu system with all core features</li>
+                            <li>Heist Editor integration</li>
+                            <li>Player options and protections</li>
+                            <li>Vehicle spawner and customization</li>
+                            <li>Weapon modifications</li>
+                            <li>Teleport system</li>
+                            <li>World options</li>
+                            <li>Recovery features</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--== Loader Section ==-->
+            <h2 class="section-title" style="margin-top: 80px;">LOADER</h2>
+
+            <!--== Loader v1.1 ==-->
+            <div class="version-card">
+                <div class="version-header">
+                    <h2 class="version-title">v1.1</h2>
+                    <span class="version-badge">Latest</span>
+                </div>
+                <div class="version-content">
+                    <div class="feature-category">
+                        <h3 class="category-title">IMPROVEMENTS</h3>
+                        <ul class="feature-list">
+                            <li>Fixed icons</li>
+                            <li>Faster injecting time</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--== Loader v1.0 ==-->
+            <div class="version-card">
+                <div class="version-header">
+                    <h2 class="version-title">v1.0</h2>
+                    <span class="version-badge">Released</span>
+                </div>
+                <div class="version-content">
+                    <div class="feature-category">
+                        <h3 class="category-title">INITIAL RELEASE</h3>
+                        <ul class="feature-list">
+                            <li>Initial loader release</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="index.html" class="back-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    Back to Home
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!--== Footer ==-->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-brand">SCOOBY</div>
+            <p class="footer-text">Premium GTA V Enhancement Menu</p>
+        </div>
+    </footer>
+
+</body>
+</html>
