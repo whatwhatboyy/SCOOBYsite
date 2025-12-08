@@ -977,6 +977,38 @@
         .page-title { font-size: 2.5rem; }
         .videos-grid { grid-template-columns: 1fr; }
     }
+
+    /* Scroll animation for cards */
+    .animate-card {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .animate-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Mouse follow shine effect */
+    .video-card::before {
+        content: '';
+        position: absolute;
+        top: var(--mouse-y, 50%);
+        left: var(--mouse-x, 50%);
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, rgba(0, 212, 212, 0.15) 0%, transparent 70%);
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 1;
+    }
+
+    .video-card:hover::before {
+        opacity: 1;
+    }
 </style>
 </head>
 <body>
@@ -1144,5 +1176,47 @@
         </div>
     </footer>
 
+    <script>
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.video-card').forEach(el => {
+            el.classList.add('animate-card');
+            observer.observe(el);
+        });
+
+        // Parallax effect on mouse move
+        document.addEventListener('mousemove', (e) => {
+            const particles = document.querySelectorAll('.particle');
+            const x = (e.clientX / window.innerWidth - 0.5) * 10;
+            const y = (e.clientY / window.innerHeight - 0.5) * 10;
+            particles.forEach((p, i) => {
+                const speed = (i % 5 + 1) * 0.3;
+                p.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+            });
+        });
+
+        // Add shine effect on card hover
+        document.querySelectorAll('.video-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
 </body>
 </html>
