@@ -1034,7 +1034,7 @@
     .social-btn {
         display: inline-flex;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
         padding: 16px 32px;
         background: var(--glass);
         border: 1px solid var(--border-color);
@@ -1042,19 +1042,51 @@
         color: var(--text-primary);
         text-decoration: none;
         font-weight: 600;
-        transition: all 0.3s ease;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .social-btn::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+        transform: translate(-50%, -50%);
+        transition: all 0.5s ease;
+        border-radius: 50%;
+    }
+
+    .social-btn:hover::before {
+        width: 200%;
+        height: 200%;
+    }
+
+    .social-btn:hover {
+        transform: translateY(-3px);
+    }
+
+    .social-btn svg {
+        transition: transform 0.3s ease;
+    }
+
+    .social-btn:hover svg {
+        transform: scale(1.15);
     }
 
     .social-btn.discord:hover {
         background: linear-gradient(135deg, #5865F2, #7289da);
         border-color: transparent;
-        box-shadow: 0 10px 40px rgba(88, 101, 242, 0.4);
+        box-shadow: 0 15px 50px rgba(88, 101, 242, 0.5), 0 0 30px rgba(88, 101, 242, 0.3);
     }
 
     .social-btn.telegram:hover {
         background: linear-gradient(135deg, #0088cc, #00aced);
         border-color: transparent;
-        box-shadow: 0 10px 40px rgba(0, 136, 204, 0.4);
+        box-shadow: 0 15px 50px rgba(0, 136, 204, 0.5), 0 0 30px rgba(0, 136, 204, 0.3);
     }
 
     /* Footer */

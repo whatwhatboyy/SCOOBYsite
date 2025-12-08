@@ -16,18 +16,19 @@
 
 <style>
     :root {
-        --bg-primary: #1a1a1a;
-        --bg-secondary: #222222;
-        --bg-card: #252528;
-        --bg-card-hover: #2d2d30;
-        --accent-cyan: #00c8c8;
-        --accent-purple: #00c8c8;
-        --accent-pink: #00c8c8;
-        --accent-gradient: linear-gradient(135deg, #00c8c8 0%, #00b4b4 50%, #009999 100%);
+        --bg-primary: #0a0a0f;
+        --bg-secondary: #0f0f16;
+        --bg-card: #14141c;
+        --bg-card-hover: #1a1a24;
+        --accent-cyan: #00d4d4;
+        --accent-purple: #00b8b8;
+        --accent-pink: #009999;
+        --accent-gradient: linear-gradient(135deg, #00e5e5 0%, #00c8c8 50%, #00a0a0 100%);
+        --accent-glow: rgba(0, 212, 212, 0.5);
         --text-primary: #ffffff;
-        --text-secondary: #888888;
-        --border-color: #333333;
-        --glass: rgba(30, 30, 30, 0.9);
+        --text-secondary: #8a8a9a;
+        --border-color: #2a2a3a;
+        --glass: rgba(20, 20, 30, 0.8);
     }
 
     * {
@@ -36,22 +37,92 @@
         box-sizing: border-box;
     }
 
-    html, body {
-        background: #050508 !important;
-        background-color: #050508 !important;
+    html {
+        scroll-behavior: smooth;
     }
 
     body {
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        background: var(--bg-primary) !important;
+        background: var(--bg-primary);
         color: var(--text-primary);
         min-height: 100vh;
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    /* Animated Background */
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:
+            radial-gradient(ellipse at 20% 20%, rgba(0, 212, 212, 0.08) 0%, transparent 50%),
+            radial-gradient(ellipse at 80% 80%, rgba(0, 180, 180, 0.06) 0%, transparent 50%),
+            radial-gradient(ellipse at 50% 50%, rgba(0, 150, 150, 0.04) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: 0;
+        animation: bgPulse 15s ease-in-out infinite alternate;
+    }
+
+    @keyframes bgPulse {
+        0% { opacity: 0.6; }
+        100% { opacity: 1; }
+    }
+
+    /* Floating Particles */
+    .particles-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+        overflow: hidden;
+    }
+
+    .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: var(--accent-cyan);
+        border-radius: 50%;
+        opacity: 0;
+        animation: floatParticle 20s infinite;
+        box-shadow: 0 0 10px var(--accent-glow);
+    }
+
+    @keyframes floatParticle {
+        0% {
+            opacity: 0;
+            transform: translateY(100vh) scale(0);
+        }
+        10% {
+            opacity: 0.6;
+        }
+        90% {
+            opacity: 0.6;
+        }
+        100% {
+            opacity: 0;
+            transform: translateY(-100vh) scale(1);
+        }
     }
 
     /* Custom Scrollbar */
-    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: var(--bg-primary); }
-    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--accent-cyan), var(--accent-purple)); border-radius: 5px; }
+    ::-webkit-scrollbar-thumb {
+        background: var(--accent-gradient);
+        border-radius: 10px;
+        box-shadow: 0 0 10px var(--accent-glow);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        box-shadow: 0 0 20px var(--accent-glow);
+    }
 
     /* ========================================
        REDESIGNED NAVBAR - MODERN & SLEEK
@@ -263,10 +334,12 @@
 
     /* Page Header */
     .page-header {
-        padding: 150px 0 80px;
+        padding: 160px 0 100px;
         text-align: center;
         position: relative;
         background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+        overflow: hidden;
+        z-index: 1;
     }
 
     .page-header::before {
@@ -276,35 +349,75 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: radial-gradient(circle at 50% 0%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+        background:
+            radial-gradient(circle at 50% 0%, rgba(0, 212, 212, 0.15) 0%, transparent 50%),
+            radial-gradient(circle at 20% 80%, rgba(0, 180, 180, 0.08) 0%, transparent 40%),
+            radial-gradient(circle at 80% 60%, rgba(0, 150, 150, 0.08) 0%, transparent 40%);
         pointer-events: none;
+        animation: headerGlow 8s ease-in-out infinite alternate;
+    }
+
+    .page-header::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(0, 212, 212, 0.3), transparent);
+    }
+
+    @keyframes headerGlow {
+        0% { opacity: 0.7; }
+        100% { opacity: 1; }
     }
 
     .page-title {
         font-family: 'Orbitron', sans-serif;
-        font-size: 3.5rem;
-        font-weight: 800;
-        background: linear-gradient(135deg, #00c8c8 0%, #00b4b4 50%, #009999 100%);
+        font-size: 4rem;
+        font-weight: 900;
+        background: var(--accent-gradient);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
         color: transparent;
-        margin-bottom: 20px;
-        letter-spacing: 3px;
+        margin-bottom: 25px;
+        letter-spacing: 8px;
         display: inline-block;
-        text-shadow: 0 0 40px rgba(0, 200, 200, 0.3);
+        position: relative;
+        animation: titleGlow 3s ease-in-out infinite alternate;
+    }
+
+    .page-title::before {
+        content: 'VIDEOS';
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        filter: blur(20px);
+        opacity: 0.5;
+        z-index: -1;
+    }
+
+    @keyframes titleGlow {
+        0% { filter: drop-shadow(0 0 20px rgba(0, 212, 212, 0.3)); }
+        100% { filter: drop-shadow(0 0 40px rgba(0, 212, 212, 0.6)); }
     }
 
     .page-subtitle {
-        color: #a0a0b8;
+        color: var(--text-secondary);
         font-size: 1.2rem;
         max-width: 600px;
         margin: 0 auto;
+        line-height: 1.8;
     }
 
     /* Gradient Text Fix */
     .gradient-text {
-        background: linear-gradient(135deg, #00c8c8 0%, #00b4b4 50%, #009999 100%);
+        background: var(--accent-gradient);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -356,34 +469,90 @@
 
     /* Videos Section */
     .videos-section {
-        padding: 80px 0;
+        padding: 100px 0;
         background: var(--bg-primary);
+        position: relative;
+        z-index: 1;
+    }
+
+    .videos-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:
+            radial-gradient(circle at 10% 20%, rgba(0, 212, 212, 0.05) 0%, transparent 40%),
+            radial-gradient(circle at 90% 80%, rgba(0, 180, 180, 0.05) 0%, transparent 40%);
+        pointer-events: none;
     }
 
     .container {
-        max-width: 1200px;
+        max-width: 1300px;
         margin: 0 auto;
-        padding: 0 20px;
+        padding: 0 30px;
+        position: relative;
+        z-index: 1;
     }
 
     .videos-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 30px;
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        gap: 35px;
     }
 
     .video-card {
-        background: var(--bg-card);
-        border: 1px solid var(--border-color);
-        border-radius: 20px;
+        background: linear-gradient(145deg, rgba(20, 20, 28, 0.9) 0%, rgba(16, 16, 24, 0.95) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 24px;
         overflow: hidden;
-        transition: all 0.4s ease;
+        transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+        position: relative;
+        backdrop-filter: blur(10px);
+    }
+
+    .video-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--accent-gradient);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        z-index: 10;
+    }
+
+    .video-card::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 50% 0%, rgba(0, 212, 212, 0.1) 0%, transparent 50%);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
     }
 
     .video-card:hover {
-        transform: translateY(-10px);
-        border-color: var(--accent-cyan);
-        box-shadow: 0 20px 60px rgba(0, 212, 255, 0.15);
+        transform: translateY(-15px) scale(1.02);
+        border-color: rgba(0, 212, 212, 0.3);
+        box-shadow:
+            0 30px 80px rgba(0, 0, 0, 0.4),
+            0 0 50px rgba(0, 212, 212, 0.15),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .video-card:hover::before {
+        opacity: 1;
+    }
+
+    .video-card:hover::after {
+        opacity: 1;
     }
 
     .video-wrapper {
@@ -391,7 +560,19 @@
         padding-bottom: 56.25%;
         height: 0;
         overflow: hidden;
-        background: #000;
+        background: linear-gradient(135deg, #080810 0%, #0a0a14 100%);
+    }
+
+    .video-wrapper::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, 0.5) 100%);
+        z-index: 1;
+        pointer-events: none;
     }
 
     .video-wrapper iframe {
@@ -413,7 +594,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background: linear-gradient(135deg, #0a0a12 0%, #1a1a2e 100%);
+        background: linear-gradient(135deg, #0a0a12 0%, #14142a 100%);
         color: var(--text-secondary);
     }
 
@@ -425,29 +606,35 @@
     }
 
     .video-info {
-        padding: 25px;
-        background: var(--bg-card);
+        padding: 28px;
+        background: transparent;
+        position: relative;
     }
 
     .video-info h3 {
         font-family: 'Orbitron', sans-serif;
-        font-size: 1.1rem;
+        font-size: 1.15rem;
         color: var(--text-primary);
-        margin-bottom: 10px;
+        margin-bottom: 12px;
         letter-spacing: 1px;
+        transition: color 0.3s ease;
+    }
+
+    .video-card:hover .video-info h3 {
+        color: var(--accent-cyan);
     }
 
     .video-info p {
         color: var(--text-secondary);
         font-size: 0.9rem;
-        line-height: 1.6;
+        line-height: 1.7;
     }
 
     .video-tag {
         display: inline-block;
-        padding: 5px 12px;
-        background: rgba(0, 212, 255, 0.1);
-        border: 1px solid rgba(0, 212, 255, 0.3);
+        padding: 6px 14px;
+        background: rgba(0, 212, 212, 0.08);
+        border: 1px solid rgba(0, 212, 212, 0.25);
         border-radius: 20px;
         color: var(--accent-cyan);
         font-size: 0.75rem;
@@ -455,60 +642,160 @@
         margin-top: 15px;
         text-transform: uppercase;
         letter-spacing: 1px;
+        transition: all 0.3s ease;
+    }
+
+    .video-card:hover .video-tag {
+        background: rgba(0, 212, 212, 0.15);
+        border-color: var(--accent-cyan);
+        box-shadow: 0 0 15px rgba(0, 212, 212, 0.2);
     }
 
     /* Featured Video */
     .featured-video {
-        margin-bottom: 60px;
+        margin-bottom: 80px;
+        position: relative;
+    }
+
+    .featured-video::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        height: 80%;
+        background: radial-gradient(ellipse, rgba(0, 212, 212, 0.1) 0%, transparent 60%);
+        pointer-events: none;
+        z-index: 0;
     }
 
     .featured-video .video-card {
-        max-width: 900px;
+        max-width: 950px;
         margin: 0 auto;
+        position: relative;
+        z-index: 1;
+        border: 2px solid rgba(0, 212, 212, 0.2);
+    }
+
+    .featured-video .video-card:hover {
+        border-color: rgba(0, 212, 212, 0.5);
     }
 
     .featured-badge {
         background: var(--accent-gradient);
         color: white;
-        padding: 8px 20px;
+        padding: 12px 25px;
         font-size: 0.8rem;
         font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 2px;
+        letter-spacing: 3px;
         font-family: 'Orbitron', sans-serif;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .featured-badge::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        animation: shimmerBadge 3s infinite;
+    }
+
+    @keyframes shimmerBadge {
+        0% { left: -100%; }
+        100% { left: 100%; }
     }
 
     /* Section Title */
     .section-title {
         font-family: 'Orbitron', sans-serif;
-        font-size: 1.8rem;
-        background: linear-gradient(135deg, #00c8c8 0%, #00b4b4 50%, #009999 100%);
+        font-size: 2rem;
+        font-weight: 800;
+        background: var(--accent-gradient);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
         color: transparent;
-        margin-bottom: 40px;
+        margin-bottom: 50px;
         text-align: center;
-        letter-spacing: 2px;
+        letter-spacing: 4px;
         display: block;
+        position: relative;
+    }
+
+    .section-title::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 3px;
+        background: var(--accent-gradient);
+        margin: 20px auto 0;
+        border-radius: 3px;
+        box-shadow: 0 0 15px var(--accent-glow);
+    }
+
+    /* Section Divider */
+    .section-divider {
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(0, 212, 212, 0.3), transparent);
+        margin: 60px 0;
     }
 
     /* Footer */
     .footer {
-        background: #0a0a12;
-        border-top: 1px solid #1a1a2e;
-        padding: 40px 0;
+        background: linear-gradient(180deg, var(--bg-primary) 0%, #060609 100%);
+        border-top: 1px solid rgba(0, 212, 212, 0.1);
+        padding: 60px 0 40px;
         text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .footer::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(0, 212, 212, 0.4), transparent);
+    }
+
+    .footer::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50%;
+        height: 100%;
+        background: radial-gradient(ellipse at 50% 0%, rgba(0, 212, 212, 0.08) 0%, transparent 60%);
+        pointer-events: none;
+    }
+
+    .footer-content {
+        position: relative;
+        z-index: 1;
     }
 
     .footer-brand {
         font-family: 'Orbitron', sans-serif;
-        font-size: 1.5rem;
-        color: var(--accent-cyan);
-        font-weight: 700;
-        letter-spacing: 3px;
+        font-size: 1.8rem;
+        font-weight: 900;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        letter-spacing: 5px;
         display: inline-block;
-        text-shadow: 0 0 20px rgba(0, 200, 200, 0.5);
+        filter: drop-shadow(0 0 20px rgba(0, 212, 212, 0.4));
+        margin-bottom: 15px;
     }
 
     .footer-text {
@@ -517,36 +804,97 @@
         font-size: 0.9rem;
     }
 
+    .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 25px;
+        flex-wrap: wrap;
+    }
+
+    .footer-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .footer-links a::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: var(--accent-cyan);
+        transition: width 0.3s ease;
+    }
+
+    .footer-links a:hover {
+        color: var(--accent-cyan);
+    }
+
+    .footer-links a:hover::after {
+        width: 100%;
+    }
+
     .back-link {
         display: inline-flex;
         align-items: center;
-        gap: 8px;
+        gap: 10px;
         color: var(--accent-cyan);
         text-decoration: none;
-        margin-top: 20px;
+        margin-top: 30px;
+        padding: 12px 24px;
+        border: 1px solid rgba(0, 212, 212, 0.3);
+        border-radius: 30px;
         font-weight: 500;
         transition: all 0.3s ease;
+        background: rgba(0, 212, 212, 0.05);
     }
 
     .back-link:hover {
-        color: var(--accent-purple);
+        background: rgba(0, 212, 212, 0.15);
+        border-color: var(--accent-cyan);
         transform: translateX(-5px);
+        box-shadow: 0 0 20px rgba(0, 212, 212, 0.2);
+    }
+
+    .footer-copyright {
+        margin-top: 40px;
+        padding-top: 25px;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        color: rgba(255, 255, 255, 0.3);
+        font-size: 0.8rem;
     }
 
     /* Coming Soon Notice */
     .coming-soon {
         text-align: center;
         padding: 60px 20px;
-        background: #0f0f1a;
-        border: 1px solid #1a1a2e;
-        border-radius: 20px;
+        background: linear-gradient(145deg, rgba(15, 15, 26, 0.9) 0%, rgba(10, 10, 18, 0.95) 100%);
+        border: 1px solid rgba(0, 212, 212, 0.1);
+        border-radius: 24px;
         margin-top: 40px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .coming-soon::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--accent-gradient);
     }
 
     .coming-soon h3 {
         font-family: 'Orbitron', sans-serif;
         font-size: 1.5rem;
-        color: #00d4ff;
+        color: var(--accent-cyan);
         margin-bottom: 15px;
     }
 
@@ -590,6 +938,9 @@
     .videos-grid .video-card:nth-child(4) { animation-delay: 0.4s; }
     .videos-grid .video-card:nth-child(5) { animation-delay: 0.5s; }
     .videos-grid .video-card:nth-child(6) { animation-delay: 0.6s; }
+    .videos-grid .video-card:nth-child(7) { animation-delay: 0.7s; }
+    .videos-grid .video-card:nth-child(8) { animation-delay: 0.8s; }
+    .videos-grid .video-card:nth-child(9) { animation-delay: 0.9s; }
 
     .featured-video .video-card {
         animation: glow 3s ease-in-out infinite;
@@ -629,6 +980,22 @@
 </style>
 </head>
 <body>
+
+    <!--== Floating Particles Background ==-->
+    <div class="particles-bg">
+        <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="left: 20%; animation-delay: 2s;"></div>
+        <div class="particle" style="left: 30%; animation-delay: 4s;"></div>
+        <div class="particle" style="left: 40%; animation-delay: 1s;"></div>
+        <div class="particle" style="left: 50%; animation-delay: 3s;"></div>
+        <div class="particle" style="left: 60%; animation-delay: 5s;"></div>
+        <div class="particle" style="left: 70%; animation-delay: 2.5s;"></div>
+        <div class="particle" style="left: 80%; animation-delay: 1.5s;"></div>
+        <div class="particle" style="left: 90%; animation-delay: 4.5s;"></div>
+        <div class="particle" style="left: 15%; animation-delay: 6s;"></div>
+        <div class="particle" style="left: 45%; animation-delay: 7s;"></div>
+        <div class="particle" style="left: 75%; animation-delay: 8s;"></div>
+    </div>
 
     <!--== Header ==-->
     <nav class="navbar-custom">
@@ -727,6 +1094,26 @@
                         <span class="video-tag">Showcase</span>
                     </div>
                 </div>
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/g-fVUf9roGw" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Scooby Features</h3>
+                        <p>Explore the powerful features of Scooby mod menu.</p>
+                        <span class="video-tag">Features</span>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/uF3-DG4pdgU" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Scooby Gameplay</h3>
+                        <p>See Scooby mod menu gameplay demonstration.</p>
+                        <span class="video-tag">Gameplay</span>
+                    </div>
+                </div>
             </div>
 
             <div style="text-align: center; margin-top: 50px;">
@@ -742,8 +1129,18 @@
     <!--== Footer ==-->
     <footer class="footer">
         <div class="container">
-            <div class="footer-brand">SCOOBY</div>
-            <p class="footer-text">Premium GTA V Enhancement Menu</p>
+            <div class="footer-content">
+                <div class="footer-brand">SCOOBY</div>
+                <p class="footer-text">Premium GTA V Enhancement Menu</p>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#about">About</a>
+                    <a href="index.html#pricing">Purchase</a>
+                    <a href="videos.html">Videos</a>
+                    <a href="changelog.html">Changelog</a>
+                </div>
+                <p class="footer-copyright">&copy; 2025 Scooby. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
