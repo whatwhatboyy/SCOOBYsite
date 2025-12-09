@@ -67,9 +67,82 @@
         color: var(--text-primary);
         overflow-x: hidden;
         position: relative;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
     }
 
-    /* Animated Background */
+    /* Text Selection */
+    ::selection {
+        background: rgba(0, 212, 212, 0.3);
+        color: #fff;
+    }
+
+    ::-moz-selection {
+        background: rgba(0, 212, 212, 0.3);
+        color: #fff;
+    }
+
+    /* Loading Screen */
+    .loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #0a0a0f;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 99999;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+
+    .loading-screen.hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    .loading-logo {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 3.5rem;
+        font-weight: 800;
+        letter-spacing: 8px;
+        background: linear-gradient(135deg, #00e5e5 0%, #00c8c8 50%, #00a0a0 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 0 0 60px rgba(0, 212, 212, 0.5);
+        margin-bottom: 40px;
+    }
+
+    .loading-bar-container {
+        width: 200px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    .loading-bar {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, #00e5e5, #00c8c8, #00a0a0);
+        border-radius: 4px;
+        transition: width 0.3s ease;
+    }
+
+    .loading-text {
+        margin-top: 20px;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.5);
+        letter-spacing: 2px;
+    }
+
+    /* Static Background */
     body::before {
         content: '';
         position: fixed;
@@ -83,12 +156,6 @@
             radial-gradient(ellipse at 50% 50%, rgba(0, 150, 150, 0.04) 0%, transparent 70%);
         pointer-events: none;
         z-index: 0;
-        animation: bgPulse 15s ease-in-out infinite alternate;
-    }
-
-    @keyframes bgPulse {
-        0% { opacity: 0.6; }
-        100% { opacity: 1; }
     }
 
     /* Custom Scrollbar */
@@ -101,6 +168,28 @@
     }
     ::-webkit-scrollbar-thumb:hover {
         box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    /* Focus States for Accessibility */
+    a:focus-visible, button:focus-visible {
+        outline: 2px solid var(--accent-cyan);
+        outline-offset: 2px;
+    }
+
+    /* Firefox Performance Fix - disable expensive backdrop-filter */
+    @-moz-document url-prefix() {
+        .navbar,
+        .navbar-nav,
+        .modern-card,
+        .btn-modern,
+        .pricing-card,
+        .feature-card,
+        .faq-item,
+        .modal-content {
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            background: rgba(15, 15, 22, 0.98) !important;
+        }
     }
 
     /* Global Animations */
@@ -221,12 +310,6 @@
             var(--accent-cyan) 50%,
             rgba(0, 212, 212, 0.3) 85%,
             transparent 100%);
-        animation: navbarGlow 3s ease-in-out infinite;
-    }
-
-    @keyframes navbarGlow {
-        0%, 100% { opacity: 0.6; filter: blur(0px); }
-        50% { opacity: 1; filter: blur(1px); }
     }
 
     /* Subtle noise texture overlay */
@@ -493,55 +576,6 @@
             radial-gradient(ellipse at center, rgba(0, 150, 150, 0.05) 0%, transparent 70%);
         pointer-events: none;
         z-index: 2;
-        animation: heroGlow 8s ease-in-out infinite alternate;
-    }
-
-    @keyframes heroGlow {
-        0% { opacity: 0.7; }
-        100% { opacity: 1; }
-    }
-
-    /* Floating Orbs */
-    .floating-orb {
-        position: absolute;
-        border-radius: 50%;
-        filter: blur(60px);
-        pointer-events: none;
-        animation: floatOrb 20s ease-in-out infinite;
-    }
-
-    .orb-1 {
-        width: 400px;
-        height: 400px;
-        background: rgba(0, 212, 212, 0.15);
-        top: 10%;
-        left: -5%;
-        animation-delay: 0s;
-    }
-
-    .orb-2 {
-        width: 300px;
-        height: 300px;
-        background: rgba(0, 180, 180, 0.1);
-        top: 60%;
-        right: -5%;
-        animation-delay: -5s;
-    }
-
-    .orb-3 {
-        width: 200px;
-        height: 200px;
-        background: rgba(0, 150, 150, 0.12);
-        bottom: 20%;
-        left: 30%;
-        animation-delay: -10s;
-    }
-
-    @keyframes floatOrb {
-        0%, 100% { transform: translate(0, 0) scale(1); }
-        25% { transform: translate(30px, -30px) scale(1.05); }
-        50% { transform: translate(-20px, 20px) scale(0.95); }
-        75% { transform: translate(20px, 30px) scale(1.02); }
     }
 
     /* Section Styles */
@@ -728,18 +762,6 @@
     .pricing-card-premium::before {
         content: '';
         position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: conic-gradient(from 0deg, transparent, rgba(0, 200, 200, 0.15), transparent 30%);
-        animation: rotateBg 8s linear infinite;
-        pointer-events: none;
-    }
-
-    .pricing-card-premium::after {
-        content: '';
-        position: absolute;
         top: 0;
         left: 0;
         right: 0;
@@ -748,51 +770,9 @@
         pointer-events: none;
     }
 
-    @keyframes rotateBg {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-    }
-
     .pricing-card-premium:hover {
-        box-shadow: 0 0 80px rgba(0, 200, 200, 0.35), 0 25px 70px rgba(0, 200, 200, 0.25) !important;
-        transform: translateY(-18px) scale(1.02) !important;
-    }
-
-    /* Pricing Card Shine Effect */
-    .pricing-card-premium .pricing-shine {
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 50%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-        animation: cardShine 4s ease-in-out infinite;
-        pointer-events: none;
-    }
-
-    @keyframes cardShine {
-        0%, 100% { left: -100%; }
-        50% { left: 150%; }
-    }
-
-    /* Pricing Card Glow Border Animation */
-    .pricing-card-premium .glow-border {
-        position: absolute;
-        top: -2px;
-        left: -2px;
-        right: -2px;
-        bottom: -2px;
-        background: linear-gradient(45deg, var(--accent-cyan), transparent, var(--accent-cyan));
-        background-size: 400% 400%;
-        border-radius: 26px;
-        z-index: -1;
-        animation: glowMove 3s ease infinite;
-        opacity: 0.5;
-    }
-
-    @keyframes glowMove {
-        0%, 100% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
+        box-shadow: 0 0 60px rgba(0, 200, 200, 0.3), 0 20px 60px rgba(0, 200, 200, 0.2) !important;
+        transform: translateY(-15px) !important;
     }
 
     /* Feature list improvements */
@@ -877,12 +857,6 @@
         font-size: 1.5rem;
         font-weight: 800;
         color: #ff6b6b;
-        animation: blink 1s infinite;
-    }
-
-    @keyframes blink {
-        0%, 50% { opacity: 1; }
-        51%, 100% { opacity: 0.3; }
     }
 
     .countdown-expired {
@@ -891,12 +865,6 @@
         font-size: 1rem;
         font-weight: 700;
         letter-spacing: 2px;
-        animation: pulse 1.5s infinite;
-    }
-
-    @keyframes pulse {
-        0%, 100% { opacity: 1; transform: scale(1); }
-        50% { opacity: 0.8; transform: scale(1.02); }
     }
 
     .popular-badge {
@@ -1079,12 +1047,6 @@
         background: var(--accent-gradient);
         border-color: transparent;
         box-shadow: 0 4px 20px rgba(0, 212, 212, 0.3);
-        animation: btnPulse 2s ease-in-out infinite;
-    }
-
-    @keyframes btnPulse {
-        0%, 100% { box-shadow: 0 4px 20px rgba(0, 212, 212, 0.3); }
-        50% { box-shadow: 0 4px 30px rgba(0, 212, 212, 0.5), 0 0 15px rgba(0, 212, 212, 0.2); }
     }
 
     .btn-primary-modern:hover {
@@ -1092,7 +1054,6 @@
             0 15px 50px rgba(0, 212, 212, 0.5),
             0 0 30px rgba(0, 212, 212, 0.3);
         transform: translateY(-5px) scale(1.02);
-        animation: none;
     }
 
     .button-group-modern {
@@ -1101,6 +1062,29 @@
         gap: 15px;
         justify-content: center;
         margin-top: 30px;
+    }
+
+    /* Secondary Button Style */
+    .btn-secondary-modern {
+        background: transparent;
+        border: 2px solid var(--accent-cyan);
+        color: var(--accent-cyan);
+    }
+
+    .btn-secondary-modern:hover {
+        background: rgba(0, 212, 212, 0.1);
+        box-shadow: 0 0 25px rgba(0, 212, 212, 0.3);
+    }
+
+    /* Button Icon Enhancement */
+    .btn-modern i,
+    .btn-modern svg {
+        transition: transform 0.3s ease;
+    }
+
+    .btn-modern:hover i,
+    .btn-modern:hover svg {
+        transform: translateX(3px);
     }
 
     /* Scroll Animation Classes */
@@ -1331,63 +1315,25 @@
         width: 100%;
         height: 100%;
         background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
-        animation: glowLineMove 3s ease-in-out infinite;
+        /* Removed animation for performance */
     }
 
-    @keyframes glowLineMove {
-        0% { left: -100%; }
-        100% { left: 100%; }
-    }
-
-    /* Enhanced Text Glow Effect */
+    /* Static Text Glow Effect */
     .text-glow {
-        animation: textGlow 2s ease-in-out infinite alternate;
+        text-shadow: 0 0 10px rgba(0, 212, 212, 0.5), 0 0 20px rgba(0, 212, 212, 0.3);
     }
 
-    @keyframes textGlow {
-        from {
-            text-shadow: 0 0 10px rgba(0, 212, 212, 0.5), 0 0 20px rgba(0, 212, 212, 0.3);
-        }
-        to {
-            text-shadow: 0 0 20px rgba(0, 212, 212, 0.8), 0 0 40px rgba(0, 212, 212, 0.5), 0 0 60px rgba(0, 212, 212, 0.3);
-        }
-    }
-
-    /* Floating badge animation */
+    /* Static badge styling */
     .float-badge {
-        animation: floatBadge 3s ease-in-out infinite;
+        transform: translateX(-50%);
     }
 
-    @keyframes floatBadge {
-        0%, 100% { transform: translateX(-50%) translateY(0); }
-        50% { transform: translateX(-50%) translateY(-5px); }
-    }
-
-    /* Pulse ring effect */
+    /* Static ring effect */
     .pulse-ring {
         position: relative;
     }
 
-    .pulse-ring::after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 100%;
-        height: 100%;
-        border: 2px solid var(--accent-cyan);
-        border-radius: inherit;
-        transform: translate(-50%, -50%);
-        animation: pulseRing 2s ease-out infinite;
-        pointer-events: none;
-    }
-
-    @keyframes pulseRing {
-        0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
-        100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
-    }
-
-    /* Gradient border animation */
+    /* Static gradient border */
     .gradient-border {
         position: relative;
         background: var(--bg-card);
@@ -1402,15 +1348,29 @@
         right: -2px;
         bottom: -2px;
         background: linear-gradient(45deg, var(--accent-cyan), transparent, var(--accent-purple), transparent, var(--accent-cyan));
-        background-size: 300% 300%;
         border-radius: inherit;
         z-index: -1;
-        animation: gradientBorder 4s ease infinite;
     }
 
-    @keyframes gradientBorder {
-        0%, 100% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
+    /* Smooth Link Underline Effect */
+    .link-underline {
+        position: relative;
+        text-decoration: none;
+    }
+
+    .link-underline::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent-gradient);
+        transition: width 0.3s ease;
+    }
+
+    .link-underline:hover::after {
+        width: 100%;
     }
 
     /* Enhanced Icon Hover */
@@ -1421,6 +1381,223 @@
     .icon-hover:hover {
         transform: rotate(15deg) scale(1.2);
         filter: drop-shadow(0 0 15px var(--accent-cyan));
+    }
+
+    /* Image Hover Zoom Effect */
+    .img-zoom {
+        overflow: hidden;
+        border-radius: 12px;
+    }
+
+    .img-zoom img {
+        transition: transform 0.4s ease;
+    }
+
+    .img-zoom:hover img {
+        transform: scale(1.05);
+    }
+
+    /* Subtle Lift Effect */
+    .hover-lift {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hover-lift:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Glow Border on Hover */
+    .hover-glow {
+        transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        border: 1px solid transparent;
+    }
+
+    .hover-glow:hover {
+        border-color: rgba(0, 212, 212, 0.3);
+        box-shadow: 0 0 20px rgba(0, 212, 212, 0.2);
+    }
+
+    /* Text Gradient Effect */
+    .text-gradient {
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    /* Shimmer Text Effect (on hover only) */
+    .text-shimmer {
+        position: relative;
+        display: inline-block;
+    }
+
+    .text-shimmer::before {
+        content: attr(data-text);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 0;
+        overflow: hidden;
+        color: var(--accent-cyan);
+        transition: width 0.4s ease;
+    }
+
+    .text-shimmer:hover::before {
+        width: 100%;
+    }
+
+    /* Badge Styles */
+    .badge-modern {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        background: rgba(0, 212, 212, 0.1);
+        border: 1px solid rgba(0, 212, 212, 0.3);
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--accent-cyan);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .badge-success {
+        background: rgba(0, 200, 100, 0.1);
+        border-color: rgba(0, 200, 100, 0.3);
+        color: #00c864;
+    }
+
+    .badge-warning {
+        background: rgba(255, 180, 0, 0.1);
+        border-color: rgba(255, 180, 0, 0.3);
+        color: #ffb400;
+    }
+
+    /* Tooltip */
+    .tooltip-modern {
+        position: relative;
+    }
+
+    .tooltip-modern::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-5px);
+        padding: 8px 14px;
+        background: rgba(20, 20, 30, 0.95);
+        border: 1px solid rgba(0, 212, 212, 0.3);
+        border-radius: 8px;
+        font-size: 0.85rem;
+        color: var(--text-primary);
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        z-index: 1000;
+    }
+
+    .tooltip-modern:hover::after {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(-10px);
+    }
+
+    /* Divider */
+    .divider-modern {
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(0, 212, 212, 0.3), transparent);
+        margin: 30px 0;
+    }
+
+    /* Highlight Box */
+    .highlight-box {
+        padding: 20px;
+        background: rgba(0, 212, 212, 0.05);
+        border-left: 3px solid var(--accent-cyan);
+        border-radius: 0 12px 12px 0;
+    }
+
+    /* Disabled State */
+    .disabled {
+        opacity: 0.5;
+        pointer-events: none;
+        cursor: not-allowed;
+    }
+
+    /* Scroll to Top Button */
+    .scroll-top-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: var(--accent-gradient);
+        border: none;
+        border-radius: 12px;
+        color: white;
+        font-size: 1.2rem;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 20px rgba(0, 212, 212, 0.4);
+    }
+
+    .scroll-top-btn.visible {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .scroll-top-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0, 212, 212, 0.5);
+    }
+
+    /* Navbar Scroll Effect */
+    .navbar.scrolled {
+        background: rgba(10, 10, 15, 0.98) !important;
+        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Section Fade In */
+    .section-animate {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .section-animate.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Stagger Children Animation */
+    .stagger-children > * {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .stagger-children.visible > *:nth-child(1) { transition-delay: 0.1s; }
+    .stagger-children.visible > *:nth-child(2) { transition-delay: 0.2s; }
+    .stagger-children.visible > *:nth-child(3) { transition-delay: 0.3s; }
+    .stagger-children.visible > *:nth-child(4) { transition-delay: 0.4s; }
+    .stagger-children.visible > *:nth-child(5) { transition-delay: 0.5s; }
+    .stagger-children.visible > *:nth-child(6) { transition-delay: 0.6s; }
+
+    .stagger-children.visible > * {
+        opacity: 1;
+        transform: translateY(0);
     }
 
     /* Number Counter Animation */
@@ -1765,15 +1942,8 @@
         height: 4px;
         background: var(--accent-cyan);
         border-radius: 50%;
-        animation: floatUp 15s infinite ease-in-out;
         box-shadow: 0 0 10px var(--accent-cyan);
-    }
-
-    @keyframes floatUp {
-        0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-        10% { opacity: 1; }
-        90% { opacity: 1; }
-        100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
+        opacity: 0.5;
     }
 
     /* Animations */
@@ -1908,12 +2078,6 @@
         font-weight: 700;
         color: var(--accent-cyan);
         box-shadow: 0 0 30px rgba(0, 200, 200, 0.3);
-        animation: pulse-glow 1s ease-in-out infinite;
-    }
-
-    @keyframes pulse-glow {
-        0%, 100% { box-shadow: 0 0 30px rgba(0, 200, 200, 0.3); }
-        50% { box-shadow: 0 0 50px rgba(0, 200, 200, 0.5); }
     }
 
     .freekey-modal h3 {
@@ -2355,16 +2519,24 @@
 </head>
 <body>
 
+    <!-- SCOOBY Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-logo">SCOOBY</div>
+        <div class="loading-bar-container">
+            <div class="loading-bar" id="loadingBar"></div>
+        </div>
+        <div class="loading-text">LOADING</div>
+    </div>
+
     <!-- Floating Particles -->
     <div class="floating-particles" id="particles"></div>
 
-    <!--== Loader Start ==-->
-    <div id="loader-overlay" style="display:none;">
-        <div class="loader">
-            <div class="spinner-double-dot-in"></div>
-        </div>
-    </div>
-    <!--== Loader End ==-->
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
 
     <!--== Wrapper Start ==-->
     <div class="wrapper">
@@ -3141,6 +3313,97 @@
     })();
     </script>
 
+    <!-- Loading Screen Script -->
+    <script>
+    (function() {
+        const loadingScreen = document.getElementById('loadingScreen');
+        const loadingBar = document.getElementById('loadingBar');
+
+        if (!loadingScreen || !loadingBar) return;
+
+        let progress = 0;
+        const interval = setInterval(() => {
+            progress += Math.random() * 15 + 5;
+            if (progress >= 100) {
+                progress = 100;
+                loadingBar.style.width = '100%';
+                clearInterval(interval);
+                setTimeout(() => {
+                    loadingScreen.classList.add('hidden');
+                }, 200);
+            } else {
+                loadingBar.style.width = progress + '%';
+            }
+        }, 100);
+
+        // Fallback - hide after 2 seconds max
+        setTimeout(() => {
+            loadingScreen.classList.add('hidden');
+        }, 2000);
+    })();
+    </script>
+
+    <!-- Scroll Effects Script -->
+    <script>
+    (function() {
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        const navbar = document.querySelector('.navbar');
+
+        // Scroll to top button
+        if (scrollTopBtn) {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 400) {
+                    scrollTopBtn.classList.add('visible');
+                } else {
+                    scrollTopBtn.classList.remove('visible');
+                }
+            }, { passive: true });
+
+            scrollTopBtn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        // Navbar scroll effect
+        if (navbar) {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            }, { passive: true });
+        }
+
+        // Section fade in on scroll
+        const sections = document.querySelectorAll('.section-animate');
+        if (sections.length > 0) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => observer.observe(section));
+        }
+
+        // Stagger children animation
+        const staggerContainers = document.querySelectorAll('.stagger-children');
+        if (staggerContainers.length > 0) {
+            const staggerObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            staggerContainers.forEach(container => staggerObserver.observe(container));
+        }
+    })();
+    </script>
 
 </body>
 </html>

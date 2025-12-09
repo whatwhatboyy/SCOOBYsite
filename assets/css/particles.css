@@ -63,8 +63,7 @@ h1 {
     position: relative; /* Ajoutez cette propriété pour positionner correctement le formulaire */
     border-radius: 20px; /* Coins arrondis */
     padding: 20px; /* Espacement interne */
-    backdrop-filter: blur(6px); /* Ajoutez l'effet de flou */
-    -webkit-backdrop-filter: blur(px); /* Pour la prise en charge de navigateurs basés sur WebKit */
+    /* backdrop-filter disabled for Firefox performance */
 }
 /* CSS pour le bouton */
 .submitButton {
@@ -163,45 +162,18 @@ h1 {
 }
 
 .particle {
-	opacity: 0;
+	opacity: 0.3;
 	position: fixed;
 	background-color: rgba(255, 255, 255, 0.5);
 	background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-	-webkit-animation: particleAnim 3s ease-in-out infinite;
-	animation: particleAnim 3s ease-in-out infinite;
+	/* Animation disabled for performance */
 	border-radius: 100%;
-	 margin: 0; /* Supprime les marges par défaut du body */
-    padding: 0; /* Supprime les espacements par défaut du body */
-    height: 100vh; /* Occupera la hauteur complète de la fenêtre */
+	margin: 0;
+    padding: 0;
+    height: 100vh;
 	width: 100vh;
 }
 
-@-webkit-keyframes particleAnim {
-	0% {
-		opacity: 0;
-		transform: translateY(-0%);
-	}
-	15% {
-		opacity: 1;
-	}
-	100% {
-		opacity: 0;
-		transform: translateY(-1500%);
-	}
-}
-
-@keyframes particleAnim {
-	0% {
-		opacity: 0;
-		transform: translateY(-0%);
-	}
-	25% {
-		opacity: 1;
-	}
-	100% {
-		opacity: 0;
-		transform: translateY(-1500%);
-	}
-}
+/* Particle animations disabled for performance */
