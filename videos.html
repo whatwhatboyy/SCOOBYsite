@@ -9,6 +9,12 @@
 <meta name="keywords" content="Scooby mod menu videos, GTA 5 mod menu showcase, mod menu tutorial, GTA 5 heist editor video, mod menu gameplay">
 <link rel="shortcut icon" href="assets/images/icon.png">
 
+<!-- DNS Prefetch for external resources -->
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<link rel="dns-prefetch" href="//www.youtube.com">
+<link rel="dns-prefetch" href="//i.ytimg.com">
+
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -974,8 +980,21 @@
     }
 
     @media (max-width: 768px) {
-        .page-title { font-size: 2.5rem; }
+        .page-title { font-size: 2.5rem; letter-spacing: 4px; }
+        .page-subtitle { font-size: 1rem; padding: 0 15px; }
+        .videos-grid { grid-template-columns: 1fr; gap: 25px; }
+        .section-title { font-size: 1.5rem; letter-spacing: 2px; }
+        .video-info { padding: 20px; }
+        .video-info h3 { font-size: 1rem; }
+    }
+
+    @media (max-width: 480px) {
+        .page-header { padding: 130px 0 60px; }
+        .page-title { font-size: 2rem; letter-spacing: 3px; }
+        .videos-section { padding: 60px 0; }
+        .container { padding: 0 15px; }
         .videos-grid { grid-template-columns: 1fr; }
+        .featured-video { margin-bottom: 50px; }
     }
 
     /* Scroll animation for cards */
@@ -1063,7 +1082,7 @@
                 <div class="video-card">
                     <div class="featured-badge">Featured Showcase</div>
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/dQlk6rBV8-E" title="Scooby Mod Menu - Full Showcase" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/dQlk6rBV8-E" title="Scooby Mod Menu - Full Showcase" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <div class="video-info">
                         <h3>Scooby Mod Menu - Full Showcase</h3>
@@ -1078,7 +1097,7 @@
             <div class="videos-grid">
                 <div class="video-card">
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/3f38QmWox10" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/3f38QmWox10" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <div class="video-info">
                         <h3>Scooby Showcase</h3>
@@ -1088,7 +1107,7 @@
                 </div>
                 <div class="video-card">
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/dQlk6rBV8-E" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/dQlk6rBV8-E" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <div class="video-info">
                         <h3>Scooby Showcase</h3>
@@ -1098,7 +1117,7 @@
                 </div>
                 <div class="video-card">
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/XrvRZOCLQnM" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/XrvRZOCLQnM" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <div class="video-info">
                         <h3>Scooby Showcase</h3>
@@ -1108,7 +1127,7 @@
                 </div>
                 <div class="video-card">
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/BJAc1vXm05U" title="Scooby Aimbot & ESP" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/BJAc1vXm05U" title="Scooby Aimbot & ESP" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <div class="video-info">
                         <h3>Aimbot & ESP</h3>
@@ -1118,7 +1137,7 @@
                 </div>
                 <div class="video-card">
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/Gm6VSqcSfsc" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/Gm6VSqcSfsc" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <div class="video-info">
                         <h3>Scooby Showcase</h3>
@@ -1128,7 +1147,7 @@
                 </div>
                 <div class="video-card">
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/g-fVUf9roGw" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/g-fVUf9roGw" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <div class="video-info">
                         <h3>Scooby Features</h3>
@@ -1138,7 +1157,7 @@
                 </div>
                 <div class="video-card">
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/uF3-DG4pdgU" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/uF3-DG4pdgU" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <div class="video-info">
                         <h3>Scooby Gameplay</h3>
@@ -1148,7 +1167,7 @@
                 </div>
                 <div class="video-card">
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/VGpLWTQAIlk" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/VGpLWTQAIlk" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <div class="video-info">
                         <h3>Scooby Showcase</h3>
@@ -1158,7 +1177,7 @@
                 </div>
                 <div class="video-card">
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/DmXhOpx4JNE" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/DmXhOpx4JNE" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <div class="video-info">
                         <h3>Scooby Showcase</h3>
@@ -1168,7 +1187,7 @@
                 </div>
                 <div class="video-card">
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/c8sbdin-oWA" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/c8sbdin-oWA" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <div class="video-info">
                         <h3>Scooby Showcase</h3>
@@ -1178,7 +1197,7 @@
                 </div>
                 <div class="video-card">
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/nLNAjp5URVY" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/nLNAjp5URVY" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <div class="video-info">
                         <h3>Scooby Showcase</h3>
@@ -1188,7 +1207,7 @@
                 </div>
                 <div class="video-card">
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/V30NPl1V0Kc" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/V30NPl1V0Kc" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <div class="video-info">
                         <h3>Scooby Showcase</h3>
@@ -1198,7 +1217,7 @@
                 </div>
                 <div class="video-card">
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/Dy-R6RHfUXA" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/Dy-R6RHfUXA" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <div class="video-info">
                         <h3>Scooby Showcase</h3>
@@ -1208,7 +1227,7 @@
                 </div>
                 <div class="video-card">
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/P79wDoh4bHc" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/P79wDoh4bHc" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <div class="video-info">
                         <h3>Scooby Showcase</h3>
@@ -1218,7 +1237,7 @@
                 </div>
                 <div class="video-card">
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/-UGBw6emFrk" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/-UGBw6emFrk" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <div class="video-info">
                         <h3>Scooby Showcase</h3>
@@ -1228,7 +1247,7 @@
                 </div>
                 <div class="video-card">
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/-CK0wYw9Wx0" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/-CK0wYw9Wx0" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <div class="video-info">
                         <h3>Scooby Showcase</h3>
@@ -1238,7 +1257,7 @@
                 </div>
                 <div class="video-card">
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/dqa92obnQmM" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/dqa92obnQmM" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <div class="video-info">
                         <h3>Scooby Showcase</h3>
@@ -1248,7 +1267,7 @@
                 </div>
                 <div class="video-card">
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/zo1K7ddtczc" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/zo1K7ddtczc" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <div class="video-info">
                         <h3>Scooby Showcase</h3>
@@ -1258,7 +1277,7 @@
                 </div>
                 <div class="video-card">
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/eyrvadXp8uA" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/eyrvadXp8uA" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <div class="video-info">
                         <h3>Scooby Showcase</h3>
@@ -1268,7 +1287,7 @@
                 </div>
                 <div class="video-card">
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/3f2Ti7LRie8" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/3f2Ti7LRie8" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <div class="video-info">
                         <h3>Scooby Showcase</h3>
@@ -1278,7 +1297,7 @@
                 </div>
                 <div class="video-card">
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/WwWNC7ViOcc" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/WwWNC7ViOcc" title="Scooby Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <div class="video-info">
                         <h3>Scooby Showcase</h3>
@@ -1288,7 +1307,7 @@
                 </div>
                 <div class="video-card">
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/XDO9P7amcW0" title="Scooby Video - French" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/XDO9P7amcW0" title="Scooby Video - French" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <div class="video-info">
                         <h3>Scooby Showcase</h3>
@@ -1298,7 +1317,7 @@
                 </div>
                 <div class="video-card">
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/DjJ23Rq905Y" title="Scooby Video - German" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/DjJ23Rq905Y" title="Scooby Video - German" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <div class="video-info">
                         <h3>Scooby Showcase</h3>

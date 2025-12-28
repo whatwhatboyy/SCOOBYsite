@@ -9,6 +9,10 @@
 <meta name="keywords" content="Scooby mod menu changelog, GTA 5 mod menu updates, Scooby version history">
 <link rel="shortcut icon" href="assets/images/icon.png">
 
+<!-- DNS Prefetch for external resources -->
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -927,6 +931,250 @@
         .version-content { padding: 20px; }
     }
 
+    /* ========================================
+       VERSION STATS SUMMARY
+       ======================================== */
+    .changelog-stats {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+        margin-bottom: 60px;
+        padding: 30px;
+        background: linear-gradient(145deg, rgba(20, 20, 28, 0.6) 0%, rgba(16, 16, 24, 0.7) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+    }
+
+    .stat-item {
+        text-align: center;
+        min-width: 100px;
+    }
+
+    .stat-value {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 2.5rem;
+        font-weight: 800;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 0 0 30px rgba(0, 212, 212, 0.3);
+    }
+
+    .stat-label {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 5px;
+    }
+
+    /* ========================================
+       VERSION QUICK JUMP
+       ======================================== */
+    .version-jump {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 50px;
+    }
+
+    .version-jump-btn {
+        padding: 10px 20px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 25px;
+        color: var(--text-secondary);
+        font-family: 'Orbitron', sans-serif;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        letter-spacing: 1px;
+    }
+
+    .version-jump-btn:hover {
+        background: rgba(0, 212, 212, 0.1);
+        border-color: rgba(0, 212, 212, 0.4);
+        color: var(--accent-cyan);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 20px rgba(0, 212, 212, 0.2);
+    }
+
+    .version-jump-btn.latest {
+        background: var(--accent-gradient);
+        border-color: transparent;
+        color: white;
+        box-shadow: 0 4px 15px rgba(0, 212, 212, 0.3);
+    }
+
+    .version-jump-btn.latest:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 212, 212, 0.4);
+    }
+
+    /* ========================================
+       CATEGORY ICONS
+       ======================================== */
+    .category-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 8px;
+        margin-right: 10px;
+    }
+
+    .category-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .category-icon.new {
+        background: rgba(0, 200, 100, 0.15);
+        color: #00c864;
+    }
+
+    .category-icon.improved {
+        background: rgba(0, 180, 255, 0.15);
+        color: #00b4ff;
+    }
+
+    .category-icon.fixed {
+        background: rgba(255, 180, 0, 0.15);
+        color: #ffb400;
+    }
+
+    .category-icon.updated {
+        background: rgba(160, 100, 255, 0.15);
+        color: #a064ff;
+    }
+
+    .category-icon.wip {
+        background: rgba(255, 100, 100, 0.15);
+        color: #ff6464;
+    }
+
+    /* ========================================
+       TIMELINE CONNECTOR
+       ======================================== */
+    .changelog-timeline {
+        position: relative;
+        padding-left: 30px;
+    }
+
+    .changelog-timeline::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: linear-gradient(180deg, var(--accent-cyan) 0%, rgba(0, 212, 212, 0.3) 50%, rgba(0, 212, 212, 0.1) 100%);
+        border-radius: 3px;
+    }
+
+    .changelog-timeline .version-card {
+        position: relative;
+    }
+
+    .changelog-timeline .version-card::after {
+        content: '';
+        position: absolute;
+        left: -30px;
+        top: 35px;
+        width: 15px;
+        height: 15px;
+        background: var(--accent-gradient);
+        border-radius: 50%;
+        border: 3px solid var(--bg-primary);
+        box-shadow: 0 0 15px rgba(0, 212, 212, 0.5);
+        z-index: 2;
+    }
+
+    .changelog-timeline .version-card:first-child::after {
+        width: 19px;
+        height: 19px;
+        left: -32px;
+        top: 33px;
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% { box-shadow: 0 0 15px rgba(0, 212, 212, 0.5); }
+        50% { box-shadow: 0 0 25px rgba(0, 212, 212, 0.8), 0 0 40px rgba(0, 212, 212, 0.4); }
+    }
+
+    /* ========================================
+       SEARCH/FILTER BAR
+       ======================================== */
+    .changelog-filter {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+
+    .filter-input {
+        width: 100%;
+        max-width: 400px;
+        padding: 14px 24px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 30px;
+        color: var(--text-primary);
+        font-family: 'Inter', sans-serif;
+        font-size: 0.95rem;
+        outline: none;
+        transition: all 0.3s ease;
+    }
+
+    .filter-input::placeholder {
+        color: var(--text-secondary);
+    }
+
+    .filter-input:focus {
+        border-color: rgba(0, 212, 212, 0.5);
+        box-shadow: 0 0 20px rgba(0, 212, 212, 0.15);
+        background: rgba(0, 212, 212, 0.03);
+    }
+
+    @media (max-width: 768px) {
+        .changelog-stats {
+            gap: 25px;
+            padding: 25px 20px;
+        }
+        .stat-value {
+            font-size: 2rem;
+        }
+        .changelog-timeline {
+            padding-left: 20px;
+        }
+        .changelog-timeline::before {
+            left: 0;
+        }
+        .changelog-timeline .version-card::after {
+            left: -20px;
+            width: 12px;
+            height: 12px;
+        }
+        .changelog-timeline .version-card:first-child::after {
+            width: 14px;
+            height: 14px;
+            left: -21px;
+        }
+        .version-jump {
+            gap: 8px;
+        }
+        .version-jump-btn {
+            padding: 8px 14px;
+            font-size: 0.75rem;
+        }
+    }
+
     /* Scroll animation for cards */
     .animate-card {
         opacity: 0;
@@ -1008,17 +1256,48 @@
     <section class="changelog-section">
         <div class="container">
 
+            <!--== Stats Summary ==-->
+            <div class="changelog-stats">
+                <div class="stat-item">
+                    <div class="stat-value">7</div>
+                    <div class="stat-label">Versions</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">200+</div>
+                    <div class="stat-label">Features</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">Dec</div>
+                    <div class="stat-label">Latest Update</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">2025</div>
+                    <div class="stat-label">Active Year</div>
+                </div>
+            </div>
 
+            <!--== Quick Jump Navigation ==-->
+            <div class="version-jump">
+                <a href="#v2.6" class="version-jump-btn latest">v2.6 Latest</a>
+                <a href="#v2.4" class="version-jump-btn">v2.4</a>
+                <a href="#v2.3" class="version-jump-btn">v2.3</a>
+                <a href="#v2.2" class="version-jump-btn">v2.2</a>
+                <a href="#v2.1" class="version-jump-btn">v2.1</a>
+                <a href="#v2.0" class="version-jump-btn">v2.0</a>
+                <a href="#loader" class="version-jump-btn">Loader</a>
+            </div>
+
+            <!--== Timeline Container ==-->
+            <div class="changelog-timeline">
 
             <!--== Version 2.6 ==-->
-<!--== Version 2.6 ==-->
-<div class="version-card">
+<div class="version-card" id="v2.6">
     <div class="version-header">
         <h2 class="version-title">v2.6</h2>
         <span class="version-date">December 18, 2025</span>
         <span class="version-badge">Latest</span>
     </div>
-
+    <div class="version-content">
     <div class="feature-category">
         <h3 class="category-title">UPDATED</h3>
         <ul class="feature-list">
@@ -1036,19 +1315,20 @@
             <li>Various minor improvements and refinements</li>
         </ul>
     </div>
+    </div>
 </div>
 
 
 			<!--== Version 2.4 ==-->
-            <div class="version-card">
+            <div class="version-card" id="v2.4">
                 <div class="version-header">
                     <h2 class="version-title">v2.4</h2>
                     <span class="version-date">December 10, 2025</span>
-                    <span class="version-badge">Latest</span>
+                    <span class="version-badge">Released</span>
                 </div>
-               
-                         <div class="feature-category">
-                        <h3 class="category-title">Updated</h3>
+                <div class="version-content">
+                    <div class="feature-category">
+                        <h3 class="category-title">UPDATED</h3>
                         <ul class="feature-list">
                             <li>Updated for After the Safehouse in the Hills DLC</li>
                            
@@ -1066,17 +1346,15 @@
                             <li>Much more improvements across the board</li>
                         </ul>
                     </div>
-
-    
                 </div>
             </div>
 
             <!--== Version 2.3 ==-->
-            <div class="version-card">
+            <div class="version-card" id="v2.3">
                 <div class="version-header">
                     <h2 class="version-title">v2.3</h2>
                     <span class="version-date">December 10, 2025</span>
-                    <span class="version-badge">Latest</span>
+                    <span class="version-badge">Released</span>
                 </div>
                 <div class="version-content">
                     <div class="feature-category">
@@ -1097,7 +1375,7 @@
                         <ul class="feature-list">
                             <li><strong>Zombie Mode</strong> - Survive waves of zombies</li>
                             <li><strong>Crazy Taxi</strong> - Classic taxi driving game</li>
-                            <li><strong>20+ mini gamescwas added</strong></li>
+                            <li><strong>20+ mini games</strong> were added</li>
                         </ul>
                     </div>
 
@@ -1148,7 +1426,7 @@
             </div>
 
             <!--== Version 2.2 ==-->
-            <div class="version-card">
+            <div class="version-card" id="v2.2">
                 <div class="version-header">
                     <h2 class="version-title">v2.2</h2>
                     <span class="version-date">December 8, 2025</span>
@@ -1196,7 +1474,7 @@
             </div>
 
             <!--== Version 2.1 ==-->
-            <div class="version-card">
+            <div class="version-card" id="v2.1">
                 <div class="version-header">
                     <h2 class="version-title">v2.1</h2>
                     <span class="version-date">December 5, 2025</span>
@@ -1287,7 +1565,7 @@
             </div>
 
             <!--== Version 2.0 ==-->
-            <div class="version-card">
+            <div class="version-card" id="v2.0">
                 <div class="version-header">
                     <h2 class="version-title">v2.0</h2>
                     <span class="version-date">December 1, 2025</span>
@@ -1312,7 +1590,7 @@
             </div>
 
             <!--== Loader Section ==-->
-            <div class="section-divider">
+            <div class="section-divider" id="loader">
                 <h2>LOADER</h2>
             </div>
 
@@ -1350,6 +1628,9 @@
                     </div>
                 </div>
             </div>
+
+            </div>
+            <!--== End Timeline Container ==-->
 
             <div style="text-align: center; margin-top: 50px;">
                 <a href="index.html" class="back-link">
@@ -1410,6 +1691,52 @@
                 p.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
             });
         });
+
+        // Smooth scroll for version jump buttons with offset for navbar
+        document.querySelectorAll('.version-jump-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = btn.getAttribute('href').substring(1);
+                const targetEl = document.getElementById(targetId);
+                if (targetEl) {
+                    const navbarHeight = 80;
+                    const targetPosition = targetEl.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Highlight active version in jump nav on scroll
+        const versionCards = document.querySelectorAll('.version-card[id], .section-divider[id]');
+        const jumpBtns = document.querySelectorAll('.version-jump-btn');
+
+        const highlightActiveVersion = () => {
+            let currentVersion = '';
+            versionCards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                if (rect.top <= 150) {
+                    currentVersion = card.id;
+                }
+            });
+
+            jumpBtns.forEach(btn => {
+                const href = btn.getAttribute('href').substring(1);
+                if (href === currentVersion) {
+                    btn.style.background = 'rgba(0, 212, 212, 0.2)';
+                    btn.style.borderColor = 'rgba(0, 212, 212, 0.5)';
+                    btn.style.color = '#00d4d4';
+                } else if (!btn.classList.contains('latest')) {
+                    btn.style.background = '';
+                    btn.style.borderColor = '';
+                    btn.style.color = '';
+                }
+            });
+        };
+
+        window.addEventListener('scroll', highlightActiveVersion);
     </script>
 </body>
 </html>
