@@ -1208,6 +1208,45 @@
     .version-card:hover::before {
         left: 100%;
     }
+
+    /* Blurred/Coming Soon Version Cards */
+    .version-card.blurred {
+        position: relative;
+    }
+
+    .version-card.blurred .version-content {
+        filter: blur(5px);
+        user-select: none;
+        pointer-events: none;
+    }
+
+    .version-card.blurred .blur-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(10, 10, 15, 0.6);
+        z-index: 10;
+        border-radius: 24px;
+    }
+
+    .blur-overlay-text {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--accent-cyan);
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        text-shadow: 0 0 20px rgba(0, 212, 212, 0.5);
+        padding: 20px 40px;
+        background: rgba(0, 212, 212, 0.1);
+        border: 2px solid rgba(0, 212, 212, 0.3);
+        border-radius: 12px;
+    }
 </style>
 </head>
 <body>
@@ -1260,11 +1299,11 @@
             <!--== Stats Summary ==-->
             <div class="changelog-stats">
                 <div class="stat-item">
-                    <div class="stat-value">10</div>
+                    <div class="stat-value">11</div>
                     <div class="stat-label">Versions</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-value">360+</div>
+                    <div class="stat-value">370+</div>
                     <div class="stat-label">Features</div>
                 </div>
                 <div class="stat-item">
@@ -1279,7 +1318,8 @@
 
             <!--== Quick Jump Navigation ==-->
             <div class="version-jump">
-                <a href="#v2.9.5" class="version-jump-btn latest">v2.9.5 Latest</a>
+                <a href="#v3.0" class="version-jump-btn latest">v3.0 Latest</a>
+                <a href="#v2.9.5" class="version-jump-btn">v2.9.5</a>
                 <a href="#v2.9" class="version-jump-btn">v2.9</a>
                 <a href="#v2.8" class="version-jump-btn">v2.8</a>
                 <a href="#v2.6" class="version-jump-btn">v2.6</a>
@@ -1294,12 +1334,38 @@
             <!--== Timeline Container ==-->
             <div class="changelog-timeline">
 
+            <!--== Version 3.0 ==-->
+<div class="version-card" id="v3.0">
+    <div class="version-header">
+        <h2 class="version-title">v3.0</h2>
+        <span class="version-date">January 2026</span>
+        <span class="version-badge">Latest</span>
+    </div>
+    <div class="version-content">
+        <div class="feature-category">
+            <h3 class="category-title">MAJOR UPDATE</h3>
+            <ul class="feature-list">
+                <li><strong>Public Session Support</strong> - Play in public sessions with BattlEye Disabled (Host is needed)</li>
+                <li><strong>Player Magnet</strong> - Pulls legit players into your lobby</li>
+            </ul>
+        </div>
+
+        <div class="feature-category">
+            <h3 class="category-title">NOTES</h3>
+            <ul class="feature-list">
+                <li>Major version release with significant improvements</li>
+                <li>More features and details coming soon</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
             <!--== Version 2.9.5 ==-->
-<div class="version-card" id="v2.9.5">
+<div class="version-card blurred" id="v2.9.5">
     <div class="version-header">
         <h2 class="version-title">v2.9.5</h2>
         <span class="version-date">January 2026</span>
-        <span class="version-badge">Latest</span>
+        <span class="version-badge">Released</span>
     </div>
     <div class="version-content">
         <div class="feature-category">
@@ -1356,7 +1422,7 @@
 </div>
 
             <!--== Version 2.9 ==-->
-<div class="version-card" id="v2.9">
+<div class="version-card blurred" id="v2.9">
     <div class="version-header">
         <h2 class="version-title">v2.9</h2>
         <span class="version-date">January 2026</span>
