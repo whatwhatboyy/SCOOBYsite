@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Setup Guide - Scooby GTA V Mod Menu</title>
+<meta name="description" content="Complete setup guide for Scooby mod menu. Learn how to install, use modded outfits, vehicles, money methods, and troubleshoot common issues.">
+<meta name="keywords" content="Scooby mod menu guide, GTA 5 mod menu setup, Scooby tutorial, mod menu installation, GTA 5 modded outfits, modded vehicles">
+<link rel="shortcut icon" href="assets/images/icon.png">
+
+<!-- DNS Prefetch for external resources -->
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+        --bg-primary: #0a0a0f;
+        --bg-secondary: #0f0f16;
+        --bg-card: #14141c;
+        --bg-card-hover: #1a1a24;
+        --accent-cyan: #00d4d4;
+        --accent-purple: #00b8b8;
+        --accent-pink: #009999;
+        --accent-gradient: linear-gradient(135deg, #00e5e5 0%, #00c8c8 50%, #00a0a0 100%);
+        --accent-glow: rgba(0, 212, 212, 0.5);
+        --text-primary: #ffffff;
+        --text-secondary: #8a8a9a;
+        --border-color: #2a2a3a;
+        --glass: rgba(20, 20, 30, 0.8);
+        --green-accent: #38761d;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        min-height: 100vh;
+        overflow-x: hidden;
+        position: relative;
+        line-height: 1.7;
+    }
+
+    /* Animated Background */
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:
+            radial-gradient(ellipse at 20% 20%, rgba(0, 212, 212, 0.08) 0%, transparent 50%),
+            radial-gradient(ellipse at 80% 80%, rgba(0, 180, 180, 0.06) 0%, transparent 50%),
+            radial-gradient(ellipse at 50% 50%, rgba(0, 150, 150, 0.04) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-primary); }
+    ::-webkit-scrollbar-thumb {
+        background: var(--accent-gradient);
+        border-radius: 10px;
+    }
+
+    /* Navbar */
+    .navbar-custom {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+        backdrop-filter: blur(25px) saturate(180%);
+        -webkit-backdrop-filter: blur(25px) saturate(180%);
+        background: linear-gradient(180deg, rgba(6, 6, 10, 0.95) 0%, rgba(10, 10, 16, 0.92) 100%);
+        padding: 0;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .navbar-custom::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent 0%, rgba(0, 212, 212, 0.3) 15%, var(--accent-cyan) 50%, rgba(0, 212, 212, 0.3) 85%, transparent 100%);
+    }
+
+    .navbar-inner {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 70px;
+    }
+
+    .navbar-nav {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(255, 255, 255, 0.02);
+        padding: 8px 12px;
+        border-radius: 50px;
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        list-style: none;
+        margin: 0;
+    }
+
+    .navbar-nav li a {
+        color: rgba(255, 255, 255, 0.7);
+        background: transparent;
+        padding: 10px 20px;
+        border-radius: 25px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
+        font-size: 13px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+
+    .navbar-nav li a:hover {
+        color: #ffffff;
+        background: rgba(0, 212, 212, 0.1);
+    }
+
+    .navbar-nav li a.active {
+        color: var(--accent-cyan);
+        background: rgba(0, 212, 212, 0.12);
+    }
+
+    .navbar-brand-text {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.6rem;
+        font-weight: 900;
+        background: linear-gradient(135deg, #00ffff 0%, #00d4d4 50%, #00b8b8 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        text-decoration: none;
+        letter-spacing: 5px;
+        filter: drop-shadow(0 0 15px rgba(0, 212, 212, 0.4));
+    }
+
+    /* Page Header */
+    .page-header {
+        padding: 160px 0 80px;
+        text-align: center;
+        position: relative;
+        background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+        z-index: 1;
+    }
+
+    .page-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 50% 0%, rgba(0, 212, 212, 0.15) 0%, transparent 50%);
+        pointer-events: none;
+    }
+
+    .page-title {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 3.5rem;
+        font-weight: 900;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 20px;
+        letter-spacing: 6px;
+    }
+
+    .page-subtitle {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .warning-banner {
+        background: linear-gradient(135deg, rgba(255, 200, 0, 0.15) 0%, rgba(255, 150, 0, 0.1) 100%);
+        border: 1px solid rgba(255, 200, 0, 0.3);
+        border-radius: 12px;
+        padding: 20px 30px;
+        max-width: 800px;
+        margin: 30px auto 0;
+        color: #ffcc00;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    /* Main Content */
+    .guide-section {
+        padding: 80px 0;
+        position: relative;
+        z-index: 1;
+    }
+
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 30px;
+    }
+
+    /* Section Cards */
+    .guide-card {
+        background: linear-gradient(145deg, rgba(20, 20, 28, 0.9) 0%, rgba(16, 16, 24, 0.95) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        padding: 40px;
+        margin-bottom: 40px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .guide-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--accent-gradient);
+    }
+
+    .guide-card h2 {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--green-accent);
+        margin-bottom: 25px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    .guide-card h3 {
+        font-family: 'Inter', sans-serif;
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--accent-cyan);
+        margin: 25px 0 15px;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+    }
+
+    .guide-card p {
+        color: var(--text-secondary);
+        font-size: 1rem;
+        margin-bottom: 15px;
+        line-height: 1.8;
+    }
+
+    .guide-card ul {
+        color: var(--text-secondary);
+        margin-left: 25px;
+        margin-bottom: 20px;
+    }
+
+    .guide-card li {
+        margin-bottom: 8px;
+    }
+
+    .guide-card code, .guide-card .path {
+        background: rgba(0, 212, 212, 0.1);
+        border: 1px solid rgba(0, 212, 212, 0.2);
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-family: 'Consolas', monospace;
+        color: var(--accent-cyan);
+        font-size: 0.9rem;
+    }
+
+    .guide-card a {
+        color: var(--accent-cyan);
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .guide-card a:hover {
+        text-decoration: underline;
+    }
+
+    /* Image Gallery */
+    .guide-image {
+        border: 3px solid var(--green-accent);
+        border-radius: 12px;
+        margin: 20px 0;
+        max-width: 100%;
+        display: block;
+    }
+
+    .image-row {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin: 20px 0;
+    }
+
+    .image-row img {
+        flex: 1;
+        min-width: 280px;
+        max-width: 100%;
+    }
+
+    /* Table of Contents */
+    .toc {
+        background: rgba(0, 212, 212, 0.05);
+        border: 1px solid rgba(0, 212, 212, 0.2);
+        border-radius: 16px;
+        padding: 30px;
+        margin-bottom: 40px;
+    }
+
+    .toc h3 {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.3rem;
+        color: var(--accent-cyan);
+        margin-bottom: 20px;
+        letter-spacing: 2px;
+    }
+
+    .toc ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .toc li {
+        margin-bottom: 12px;
+    }
+
+    .toc a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .toc a::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        background: var(--accent-cyan);
+        border-radius: 50%;
+        transition: all 0.3s ease;
+    }
+
+    .toc a:hover {
+        color: var(--accent-cyan);
+        padding-left: 10px;
+    }
+
+    /* Requirements Box */
+    .requirements-box {
+        background: rgba(56, 118, 29, 0.1);
+        border: 1px solid rgba(56, 118, 29, 0.3);
+        border-radius: 12px;
+        padding: 25px;
+        margin: 20px 0;
+    }
+
+    .requirements-box h4 {
+        color: var(--green-accent);
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+    }
+
+    .requirements-box a {
+        display: block;
+        margin-bottom: 10px;
+        word-break: break-all;
+    }
+
+    /* Error Solutions */
+    .error-card {
+        background: rgba(255, 50, 50, 0.05);
+        border: 1px solid rgba(255, 100, 100, 0.2);
+        border-radius: 12px;
+        padding: 25px;
+        margin: 20px 0;
+    }
+
+    .error-card h4 {
+        color: #ff6b6b;
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+    }
+
+    .error-card p {
+        color: var(--text-secondary);
+        margin-bottom: 0;
+    }
+
+    /* Footer */
+    .footer {
+        background: linear-gradient(180deg, var(--bg-primary) 0%, #060609 100%);
+        border-top: 1px solid rgba(0, 212, 212, 0.1);
+        padding: 60px 0 40px;
+        text-align: center;
+        position: relative;
+    }
+
+    .footer::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(0, 212, 212, 0.4), transparent);
+    }
+
+    .footer-brand {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.8rem;
+        font-weight: 900;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        letter-spacing: 5px;
+        display: inline-block;
+        margin-bottom: 15px;
+    }
+
+    .footer-text {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+    }
+
+    .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 25px;
+        flex-wrap: wrap;
+    }
+
+    .footer-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+    }
+
+    .footer-links a:hover {
+        color: var(--accent-cyan);
+    }
+
+    .footer-copyright {
+        margin-top: 40px;
+        padding-top: 25px;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        color: rgba(255, 255, 255, 0.3);
+        font-size: 0.8rem;
+    }
+
+    .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--accent-cyan);
+        text-decoration: none;
+        margin-top: 30px;
+        padding: 12px 24px;
+        border: 1px solid rgba(0, 212, 212, 0.3);
+        border-radius: 30px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        background: rgba(0, 212, 212, 0.05);
+    }
+
+    .back-link:hover {
+        background: rgba(0, 212, 212, 0.15);
+        border-color: var(--accent-cyan);
+        transform: translateX(-5px);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .navbar-inner {
+            padding: 0 20px;
+            flex-wrap: wrap;
+            height: auto;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        .navbar-nav {
+            width: 100%;
+            justify-content: center;
+            margin-top: 10px;
+            flex-wrap: wrap;
+            gap: 4px;
+            padding: 6px 10px;
+        }
+
+        .navbar-nav li a {
+            padding: 8px 14px;
+            font-size: 11px;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            letter-spacing: 4px;
+        }
+
+        .guide-card {
+            padding: 25px;
+        }
+
+        .guide-card h2 {
+            font-size: 1.4rem;
+        }
+
+        .container {
+            padding: 0 15px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .page-header {
+            padding: 130px 0 60px;
+        }
+
+        .page-title {
+            font-size: 2rem;
+        }
+
+        .guide-section {
+            padding: 50px 0;
+        }
+    }
+</style>
+</head>
+<body>
+
+    <!--== Header ==-->
+    <nav class="navbar-custom">
+        <div class="navbar-inner">
+            <a href="index.html" class="navbar-brand-text">SCOOBY</a>
+            <ul class="navbar-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#pricing">Purchase</a></li>
+                <li><a href="index.html#faq">FAQ</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="changelog.html">Changelog</a></li>
+                <li><a href="guides.html" class="active">Guides</a></li>
+                <li><a href="resellers.html">Resellers</a></li>
+                <li><a href="https://whatwhatboy.com/fsl" target="_blank">FSL</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--== Page Header ==-->
+    <div class="page-header">
+        <div class="container">
+            <h1 class="page-title">SETUP GUIDE</h1>
+            <p class="page-subtitle">Complete guide for installing and using Scooby mod menu</p>
+            <div class="warning-banner">
+                Please read the whole thing before asking for help - everything is covered here!
+            </div>
+        </div>
+    </div>
+
+    <!--== Guide Content ==-->
+    <section class="guide-section">
+        <div class="container">
+
+            <!--== Table of Contents ==-->
+            <div class="toc">
+                <h3>TABLE OF CONTENTS</h3>
+                <ul>
+                    <li><a href="#introduction">Introduction</a></li>
+                    <li><a href="#first-time">First Time Setup</a></li>
+                    <li><a href="#outfits">Modding Outfits</a></li>
+                    <li><a href="#vehicles">Modding Vehicles</a></li>
+                    <li><a href="#money">Money Making Methods</a></li>
+                    <li><a href="#public">Playing in Public Servers</a></li>
+                    <li><a href="#troubleshooting">Troubleshooting</a></li>
+                </ul>
+            </div>
+
+            <!--== Introduction ==-->
+            <div class="guide-card" id="introduction">
+                <h2>Introduction</h2>
+                <p>Welcome to the Scooby Mod Menu Guide! This guide covers everything you need to know:</p>
+                <ul>
+                    <li>Modded Outfits</li>
+                    <li>Modded Vehicles</li>
+                    <li>Playing in public servers</li>
+                    <li>Troubleshooting common issues</li>
+                </ul>
+                <p>Please make sure to follow this guide step by step. We are not responsible for any bans, so please use at your own caution.</p>
+                <img src="assets/images/menu.png" alt="Scooby Menu Interface" class="guide-image" style="max-width: 600px; margin: 30px auto;">
+            </div>
+
+            <!--== First Time Setup ==-->
+            <div class="guide-card" id="first-time">
+                <h2>First Time Setup</h2>
+                <p>When installing Scooby for the first time, follow these steps:</p>
+
+                <h3>Step 1: Download</h3>
+                <p>Head over to <a href="index.html">scoobymenu.com</a> and find the download button. Download the menu using the Mega file. <strong>Make sure your anti-virus is turned off.</strong></p>
+
+                <h3>Step 2: Extract & Run</h3>
+                <p>Extract the files into any folder. After that, run the <code>.exe</code> as an administrator. This ensures the launcher will run successfully.</p>
+
+                <h3>Step 3: Install Requirements</h3>
+                <div class="requirements-box">
+                    <h4>Required Software:</h4>
+                    <p><strong>VC Runtimes:</strong></p>
+                    <a href="https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/" target="_blank">https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/</a>
+                    <p style="margin-top: 15px;"><strong>DirectX:</strong></p>
+                    <a href="https://www.microsoft.com/en-gb/download/details.aspx?id=6812" target="_blank">https://www.microsoft.com/en-gb/download/details.aspx?id=6812</a>
+                </div>
+                <p>Make sure you have your graphics drivers up to date.</p>
+
+                <h3>Step 4: Inject</h3>
+                <p>Load up GTA and wait for it to be on the main menu or in story mode. Then go back to the launcher, get a free license, and follow the steps.</p>
+                <p>When you have acquired your free license, click <strong>Inject</strong>. This should inject the menu into the game. Then press <strong>Insert</strong> to open the menu - congratulations, you're done!</p>
+            </div>
+
+            <!--== Modding Outfits ==-->
+            <div class="guide-card" id="outfits">
+                <h2>Modding Outfits</h2>
+                <p>Modding outfits with Scooby is very simple! The menu includes a saved outfits section.</p>
+
+                <h3>Using Shared Outfits</h3>
+                <p>To use other people's saved outfits, find the file they share (many outfits can be found in the Scooby Discord) and save it to:</p>
+                <p><code>C:\scooby\GTA5\outfits</code></p>
+                <p>When you load in-game, use the menu to navigate to the outfits section and you will find the modded outfits there!</p>
+
+                <h3>Creating Your Own Outfits</h3>
+                <p>You can also mod outfits yourself! Head to the Outfit Editor in the Scooby menu. You can change the numbers on your character's clothing, and when you've found your perfect outfit, save it!</p>
+            </div>
+
+            <!--== Modding Vehicles ==-->
+            <div class="guide-card" id="vehicles">
+                <h2>Modding Vehicles</h2>
+                <p>Modding vehicles with Scooby is also very simple!</p>
+
+                <h3>Creating Modded Vehicles</h3>
+                <p>Open the menu and head to the Vehicles icon, then click Vehicle Editor at the bottom. This will allow you to mod your vehicle. To save it, head to Saved Vehicles, click Save Vehicle, name it, and save!</p>
+
+                <h3>Using Shared Vehicles</h3>
+                <p>Similar to outfits, you can use others' saved vehicles. Head to the Discord, find the vehicles thread, and download a file you want. Then drop it into:</p>
+                <p><code>C:\scooby\GTA5\vehicles</code></p>
+            </div>
+
+            <!--== Money Making Methods ==-->
+            <div class="guide-card" id="money">
+                <h2>Money Making Methods</h2>
+                <p>Within the Scooby menu there are many ways to make money if you don't want to do it legitimately.</p>
+
+                <h3>Heist Method</h3>
+                <p>Make sure to enable <strong>Solo Hosting</strong> in the Recovery tab. This lets you do heists that require more than 1 person. Head to the Heists tab, set up your heist accordingly, and start it. When the heist starts, click <strong>Insta Finish</strong> to end it immediately - you'll receive 100% of the cut!</p>
+
+                <h3>Casino Method</h3>
+                <p>Head to the casino and enable <strong>Manipulate Slot Machines</strong> in the Recovery > Casino option. Go to the slots, bet the max, and you'll hit the jackpot! Disable the option, force yourself to fail a slot, then turn it back on and repeat.</p>
+
+                <h3>Business Method</h3>
+                <p>Head to the Business tab on the menu and find the <strong>Fill Supplies</strong> button. Your supplies will be maxed out, ready for you to sell!</p>
+            </div>
+
+            <!--== Playing in Public Servers ==-->
+            <div class="guide-card" id="public">
+                <h2>Playing in Public Servers</h2>
+                <p>Scooby V3 introduced the ability to play in public servers with friends!</p>
+
+                <h3>How to Set Up</h3>
+                <ol style="color: var(--text-secondary); margin-left: 25px; margin-bottom: 20px;">
+                    <li style="margin-bottom: 10px;">Join a public server and wait for everyone to get kicked out so you become the host <strong>(YOU MUST BE THE HOST)</strong></li>
+                    <li style="margin-bottom: 10px;">Turn on <strong>Player Magnet</strong> found in the Network tab</li>
+                    <li style="margin-bottom: 10px;">This will make players join your server</li>
+                </ol>
+
+                <h3>Playing with Friends</h3>
+                <p>Follow the same steps and ensure you are the host. Then simply invite your friends to the server!</p>
+            </div>
+
+            <!--== Troubleshooting ==-->
+            <div class="guide-card" id="troubleshooting">
+                <h2>Troubleshooting</h2>
+                <p>Here are solutions to common issues you may encounter:</p>
+
+                <div class="error-card">
+                    <h4>Failed to allocate memory in target process</h4>
+                    <p>Head to your Rockstar Launcher, click on Settings, and <strong>disable BattlEye</strong>. This will fix the issue.</p>
+                </div>
+
+                <div class="error-card">
+                    <h4>Please return to Grand Theft Auto V (Black Screen)</h4>
+                    <p>You must inject the menu during the loading screen. This message means the game is signifying you're going back to story mode.</p>
+                </div>
+
+                <div class="error-card">
+                    <h4>BattlEye is required to play GTA V Online</h4>
+                    <p>Same solution - inject the menu during the loading screen, not when you're already in the game.</p>
+                </div>
+
+                <div class="error-card">
+                    <h4>Black screen with an error message</h4>
+                    <p>Restart your game without opening Scooby, go to story mode, and turn off <strong>Frame Generator</strong> in the GTA graphics settings.</p>
+                </div>
+
+                <div class="error-card">
+                    <h4>Failed to write process memory</h4>
+                    <p>Turn off BattlEye in the Rockstar Launcher settings.</p>
+                </div>
+
+                <div class="error-card">
+                    <h4>Launcher closes after opening</h4>
+                    <p>Use a VPN - your ISP may be blocking the menu. If that doesn't work, delete the <code>C:\scooby</code> folder to clear your cache, then restart Scooby.</p>
+                </div>
+
+                <div class="error-card">
+                    <h4>Free key website unreachable</h4>
+                    <p>Your internet is blocking it - use a VPN.</p>
+                </div>
+
+                <div class="error-card">
+                    <h4>Injection success but doesn't work in game</h4>
+                    <p>Use a VPN - your ISP may be interfering with the connection.</p>
+                </div>
+
+                <div class="error-card">
+                    <h4>Injection Failed</h4>
+                    <p>There are several fixes:</p>
+                    <ul style="margin-top: 10px; margin-left: 20px;">
+                        <li>Use a VPN</li>
+                        <li>Ensure all anti-virus software is disabled</li>
+                        <li>Reset the Scooby cache by deleting the <code>C:\scooby</code> folder and restarting</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="index.html" class="back-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    Back to Home
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!--== Footer ==-->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">SCOOBY</div>
+                <p class="footer-text">Premium GTA V Enhancement Menu</p>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#about">About</a>
+                    <a href="index.html#pricing">Purchase</a>
+                    <a href="videos.html">Videos</a>
+                    <a href="changelog.html">Changelog</a>
+                    <a href="guides.html">Guides</a>
+                </div>
+                <p class="footer-copyright">&copy; 2025 Scooby. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
