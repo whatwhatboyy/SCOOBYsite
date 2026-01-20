@@ -1296,10 +1296,10 @@
     <section class="changelog-section">
         <div class="container">
 
-            <!--== Stats Summary ==-->
-            <div class="changelog-stats">
+            <!--== Stats Summary (Dynamic) ==-->
+            <div class="changelog-stats" id="changelog-stats">
                 <div class="stat-item">
-                    <div class="stat-value">11</div>
+                    <div class="stat-value" id="stat-versions">...</div>
                     <div class="stat-label">Versions</div>
                 </div>
                 <div class="stat-item">
@@ -1307,7 +1307,7 @@
                     <div class="stat-label">Features</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-value">Jan</div>
+                    <div class="stat-value" id="stat-latest">...</div>
                     <div class="stat-label">Latest Update</div>
                 </div>
                 <div class="stat-item">
@@ -1316,23 +1316,22 @@
                 </div>
             </div>
 
-            <!--== Quick Jump Navigation ==-->
-            <div class="version-jump">
-                <a href="#v3.0" class="version-jump-btn latest" style="background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);">v3.0 Beta</a>
-                <a href="#loader-v1.4" class="version-jump-btn">Loader v1.4</a>
-                <a href="#v2.9.5" class="version-jump-btn">v2.9.5</a>
-                <a href="#v2.9" class="version-jump-btn">v2.9</a>
-                <a href="#v2.8" class="version-jump-btn">v2.8</a>
-                <a href="#v2.6" class="version-jump-btn">v2.6</a>
-                <a href="#v2.4" class="version-jump-btn">v2.4</a>
-                <a href="#v2.3" class="version-jump-btn">v2.3</a>
-                <a href="#v2.2" class="version-jump-btn">v2.2</a>
-                <a href="#v2.1" class="version-jump-btn">v2.1</a>
-                <a href="#v2.0" class="version-jump-btn">v2.0</a>
-                <a href="#loader" class="version-jump-btn">Loader</a>
+            <!--== Quick Jump Navigation (Dynamic) ==-->
+            <div class="version-jump" id="version-jump">
+                <span style="color: var(--text-secondary);">Loading...</span>
             </div>
 
-            <!--== Timeline Container ==-->
+            <!--== Timeline Container (Dynamic) ==-->
+            <div class="changelog-timeline" id="changelog-timeline">
+                <div style="text-align: center; padding: 60px 20px;">
+                    <div style="width: 50px; height: 50px; border: 3px solid var(--border-color); border-top-color: var(--accent-cyan); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px;"></div>
+                    <p style="color: var(--text-secondary);">Loading changelog...</p>
+                </div>
+            </div>
+            <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
+
+            <!--== Static content below for SEO (hidden, replaced by JS) ==-->
+            <noscript>
             <div class="changelog-timeline">
 
             <!--== Version 3.0 ==-->
@@ -2115,25 +2114,169 @@
     </footer>
 
     <script>
-        // Scroll animations for version cards
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        // Load changelog from JSON
+        async function loadChangelog() {
+            try {
+                const response = await fetch('changelog.json');
+                const data = await response.json();
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                // Update stats
+                if (data.stats) {
+                    document.getElementById('stat-versions').textContent = data.stats.totalVersions;
+                    document.getElementById('stat-latest').textContent = data.stats.latestUpdate;
                 }
-            });
-        }, observerOptions);
 
-        document.querySelectorAll('.version-card').forEach((el, index) => {
-            el.classList.add('animate-card');
-            el.style.transitionDelay = `${index * 0.1}s`;
-            observer.observe(el);
-        });
+                // Build version jump navigation
+                const jumpContainer = document.getElementById('version-jump');
+                let jumpHTML = '';
+                data.versions.forEach((v, i) => {
+                    const isLatest = i === 0;
+                    jumpHTML += `<a href="#${v.id}" class="version-jump-btn${isLatest ? ' latest' : ''}">${v.version}</a>`;
+                });
+                jumpHTML += '<a href="#loader" class="version-jump-btn">Loader</a>';
+                jumpContainer.innerHTML = jumpHTML;
+
+                // Build timeline
+                const timeline = document.getElementById('changelog-timeline');
+                let timelineHTML = '';
+
+                // Menu versions
+                data.versions.forEach(v => {
+                    timelineHTML += renderVersionCard(v);
+                });
+
+                // Loader section divider
+                timelineHTML += `
+                    <div class="section-divider" id="loader">
+                        <h2>LOADER</h2>
+                    </div>
+                `;
+
+                // Loader versions
+                data.loader.forEach(v => {
+                    timelineHTML += renderVersionCard(v);
+                });
+
+                timeline.innerHTML = timelineHTML;
+
+                // Initialize animations
+                initAnimations();
+
+            } catch (error) {
+                console.error('Failed to load changelog:', error);
+                document.getElementById('changelog-timeline').innerHTML = `
+                    <div style="text-align: center; padding: 60px 20px;">
+                        <p style="color: #ff6b6b;">Failed to load changelog</p>
+                        <button onclick="loadChangelog()" style="margin-top: 20px; padding: 12px 24px; background: var(--accent-gradient); border: none; border-radius: 8px; color: white; cursor: pointer;">Retry</button>
+                    </div>
+                `;
+            }
+        }
+
+        function renderVersionCard(v) {
+            const badgeStyle = v.badgeStyle === 'beta'
+                ? 'background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);'
+                : v.badgeStyle === 'latest'
+                ? 'background: var(--accent-gradient);'
+                : '';
+
+            let categoriesHTML = '';
+            v.categories.forEach(cat => {
+                let featuresHTML = '';
+                cat.features.forEach(feat => {
+                    // Handle features with bold parts
+                    const boldMatch = feat.match(/^(.+?) - (.+)$/);
+                    if (boldMatch) {
+                        featuresHTML += `<li><strong>${boldMatch[1]}</strong> - ${boldMatch[2]}</li>`;
+                    } else {
+                        featuresHTML += `<li>${feat}</li>`;
+                    }
+                });
+
+                categoriesHTML += `
+                    <div class="feature-category">
+                        <h3 class="category-title">${cat.title}</h3>
+                        <ul class="feature-list">${featuresHTML}</ul>
+                    </div>
+                `;
+            });
+
+            return `
+                <div class="version-card" id="${v.id}">
+                    <div class="version-header">
+                        <h2 class="version-title">${v.version}</h2>
+                        <span class="version-date">${v.date}</span>
+                        <span class="version-badge" style="${badgeStyle}">${v.badge}</span>
+                    </div>
+                    <div class="version-content">
+                        ${categoriesHTML}
+                    </div>
+                </div>
+            `;
+        }
+
+        function initAnimations() {
+            // Scroll animations for version cards
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.version-card').forEach((el, index) => {
+                el.classList.add('animate-card');
+                el.style.transitionDelay = `${index * 0.1}s`;
+                observer.observe(el);
+            });
+
+            // Smooth scroll for version jump buttons
+            document.querySelectorAll('.version-jump-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = btn.getAttribute('href').substring(1);
+                    const targetEl = document.getElementById(targetId);
+                    if (targetEl) {
+                        const navbarHeight = 80;
+                        const targetPosition = targetEl.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // Highlight active version on scroll
+            const highlightActiveVersion = () => {
+                const versionCards = document.querySelectorAll('.version-card[id], .section-divider[id]');
+                const jumpBtns = document.querySelectorAll('.version-jump-btn');
+                let currentVersion = '';
+
+                versionCards.forEach(card => {
+                    const rect = card.getBoundingClientRect();
+                    if (rect.top <= 150) currentVersion = card.id;
+                });
+
+                jumpBtns.forEach(btn => {
+                    const href = btn.getAttribute('href').substring(1);
+                    if (href === currentVersion) {
+                        btn.style.background = 'rgba(0, 212, 212, 0.2)';
+                        btn.style.borderColor = 'rgba(0, 212, 212, 0.5)';
+                        btn.style.color = '#00d4d4';
+                    } else if (!btn.classList.contains('latest')) {
+                        btn.style.background = '';
+                        btn.style.borderColor = '';
+                        btn.style.color = '';
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', highlightActiveVersion);
+        }
 
         // Parallax effect on mouse move
         document.addEventListener('mousemove', (e) => {
@@ -2146,51 +2289,8 @@
             });
         });
 
-        // Smooth scroll for version jump buttons with offset for navbar
-        document.querySelectorAll('.version-jump-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = btn.getAttribute('href').substring(1);
-                const targetEl = document.getElementById(targetId);
-                if (targetEl) {
-                    const navbarHeight = 80;
-                    const targetPosition = targetEl.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Highlight active version in jump nav on scroll
-        const versionCards = document.querySelectorAll('.version-card[id], .section-divider[id]');
-        const jumpBtns = document.querySelectorAll('.version-jump-btn');
-
-        const highlightActiveVersion = () => {
-            let currentVersion = '';
-            versionCards.forEach(card => {
-                const rect = card.getBoundingClientRect();
-                if (rect.top <= 150) {
-                    currentVersion = card.id;
-                }
-            });
-
-            jumpBtns.forEach(btn => {
-                const href = btn.getAttribute('href').substring(1);
-                if (href === currentVersion) {
-                    btn.style.background = 'rgba(0, 212, 212, 0.2)';
-                    btn.style.borderColor = 'rgba(0, 212, 212, 0.5)';
-                    btn.style.color = '#00d4d4';
-                } else if (!btn.classList.contains('latest')) {
-                    btn.style.background = '';
-                    btn.style.borderColor = '';
-                    btn.style.color = '';
-                }
-            });
-        };
-
-        window.addEventListener('scroll', highlightActiveVersion);
+        // Load changelog when page loads
+        document.addEventListener('DOMContentLoaded', loadChangelog);
     </script>
 </body>
 </html>
