@@ -181,6 +181,30 @@
       ]
     },
     {
+      "id": "v2.8.2",
+      "version": "v2.8.2",
+      "date": "January 2026",
+      "badge": "Released",
+      "badgeStyle": "released",
+      "categories": [
+        {
+          "title": "RECOVERY TAB",
+          "features": [
+            "Redone Recovery Tab - Complete overhaul of the recovery section",
+            "Business Manager - Added back the business manager feature"
+          ]
+        },
+        {
+          "title": "NEW FEATURES",
+          "features": [
+            "Awards - Access and manage in-game awards",
+            "Gun Van - Gun Van features and options",
+            "Many other features and improvements"
+          ]
+        }
+      ]
+    },
+    {
       "id": "v2.8",
       "version": "v2.8",
       "date": "December 31, 2025",
@@ -466,11 +490,27 @@
   ],
   "loader": [
     {
-      "id": "loader-v1.4",
-      "version": "v1.4",
+      "id": "loader-v2.0",
+      "version": "v2.0",
       "date": "January 2026",
       "badge": "Latest",
       "badgeStyle": "latest",
+      "categories": [
+        {
+          "title": "REDESIGN",
+          "features": [
+            "Fully Redesigned Loader - Complete visual and functional overhaul",
+            "Improved user interface and experience"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "loader-v1.4",
+      "version": "v1.4",
+      "date": "January 2026",
+      "badge": "Released",
+      "badgeStyle": "released",
       "categories": [
         {
           "title": "NEW FEATURES",
@@ -539,7 +579,7 @@
     }
   ],
   "stats": {
-    "totalVersions": 11,
+    "totalVersions": 13,
     "totalFeatures": "370+",
     "latestUpdate": "Jan",
     "activeYear": "2026"
