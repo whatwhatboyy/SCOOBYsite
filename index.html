@@ -297,6 +297,149 @@
         }
     }
 
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 var(--accent-glow); }
+        50% { transform: scale(1.02); box-shadow: 0 0 20px 5px var(--accent-glow); }
+    }
+
+    @keyframes borderGlow {
+        0%, 100% { border-color: rgba(var(--accent-cyan), 0.3); }
+        50% { border-color: rgba(var(--accent-cyan), 0.8); }
+    }
+
+    @keyframes textGlow {
+        0%, 100% { text-shadow: 0 0 10px var(--accent-glow); }
+        50% { text-shadow: 0 0 30px var(--accent-glow), 0 0 60px var(--accent-glow); }
+    }
+
+    @keyframes floatRotate {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        25% { transform: translateY(-5px) rotate(1deg); }
+        75% { transform: translateY(-5px) rotate(-1deg); }
+    }
+
+    /* Glow text effect */
+    .glow-text {
+        animation: textGlow 2s ease-in-out infinite;
+    }
+
+    /* Pulse effect on hover */
+    .pulse-hover:hover {
+        animation: pulse 1s ease-in-out infinite;
+    }
+
+    /* Floating effect */
+    .float-effect {
+        animation: floatRotate 6s ease-in-out infinite;
+    }
+
+    /* Shine sweep effect on buttons */
+    .btn-modern::before,
+    .btn-primary-modern::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .btn-modern:hover::before,
+    .btn-primary-modern:hover::before {
+        left: 100%;
+    }
+
+    /* Card hover glow intensify */
+    .modern-card:hover,
+    .pricing-card-free:hover,
+    .pricing-card-premium:hover {
+        animation: none;
+        box-shadow:
+            0 25px 80px rgba(0, 0, 0, 0.4),
+            0 0 60px var(--accent-glow),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    /* Icon bounce on card hover */
+    .modern-card:hover .feature-icon,
+    .modern-card:hover svg {
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 10px var(--accent-glow));
+    }
+
+    .feature-icon, .modern-card svg {
+        transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    /* Link underline animation */
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: var(--accent-gradient);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+        width: 100%;
+    }
+
+    /* Ripple effect for buttons */
+    .ripple {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .ripple::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: width 0.6s ease, height 0.6s ease, opacity 0.6s ease;
+        opacity: 0;
+    }
+
+    .ripple:active::after {
+        width: 300px;
+        height: 300px;
+        opacity: 0;
+    }
+
+    /* Gradient border animation */
+    .gradient-border {
+        position: relative;
+    }
+
+    .gradient-border::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: var(--accent-gradient);
+        border-radius: inherit;
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .gradient-border:hover::before {
+        opacity: 1;
+    }
+
     @keyframes slideInLeft {
         from {
             opacity: 0;
@@ -2068,6 +2211,118 @@
         box-shadow: 0 8px 30px rgba(0, 200, 200, 0.5);
     }
 
+    /* Theme Picker */
+    .theme-picker {
+        position: fixed;
+        bottom: 100px;
+        right: 30px;
+        z-index: 998;
+    }
+
+    .theme-picker-btn {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: none;
+        background: var(--accent-gradient);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 20px var(--accent-glow);
+        transition: all 0.3s ease;
+    }
+
+    .theme-picker-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 30px var(--accent-glow);
+    }
+
+    .theme-picker-btn svg {
+        width: 24px;
+        height: 24px;
+        color: #0a0a0f;
+        transition: transform 0.3s ease;
+    }
+
+    .theme-picker-btn.active svg {
+        transform: rotate(180deg);
+    }
+
+    .theme-picker-panel {
+        position: absolute;
+        bottom: 60px;
+        right: 0;
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 16px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px) scale(0.95);
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .theme-picker-panel.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0) scale(1);
+    }
+
+    .theme-picker-title {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 12px;
+        text-align: center;
+    }
+
+    .theme-colors {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+    }
+
+    .theme-color {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        position: relative;
+    }
+
+    .theme-color:hover {
+        transform: scale(1.15);
+    }
+
+    .theme-color.active {
+        border-color: white;
+        box-shadow: 0 0 15px currentColor;
+    }
+
+    .theme-color::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        width: 12px;
+        height: 12px;
+        background: white;
+        border-radius: 50%;
+        transition: transform 0.2s ease;
+    }
+
+    .theme-color.active::after {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
     /* Free Key Modal */
     .freekey-modal-overlay {
         position: fixed;
@@ -2858,7 +3113,7 @@
 </style>
 
 <script>
-    // Random Color Theme on Page Load
+    // Color Theme on Page Load (saved preference or random)
     (function() {
         const colorThemes = [
             { name: 'cyan', primary: '#00d4d4', secondary: '#00b8b8', tertiary: '#009999', glow: 'rgba(0, 212, 212, 0.5)' },
@@ -2871,15 +3126,24 @@
             { name: 'yellow', primary: '#eab308', secondary: '#ca8a04', tertiary: '#a16207', glow: 'rgba(234, 179, 8, 0.5)' }
         ];
 
-        const randomTheme = colorThemes[Math.floor(Math.random() * colorThemes.length)];
-        window.currentColorTheme = randomTheme;
+        // Check for saved theme preference
+        const savedThemeName = localStorage.getItem('scoobyTheme');
+        let selectedTheme;
 
-        document.documentElement.style.setProperty('--accent-cyan', randomTheme.primary);
-        document.documentElement.style.setProperty('--accent-purple', randomTheme.secondary);
-        document.documentElement.style.setProperty('--accent-pink', randomTheme.tertiary);
-        document.documentElement.style.setProperty('--accent-glow', randomTheme.glow);
+        if (savedThemeName) {
+            selectedTheme = colorThemes.find(t => t.name === savedThemeName) || colorThemes[Math.floor(Math.random() * colorThemes.length)];
+        } else {
+            selectedTheme = colorThemes[Math.floor(Math.random() * colorThemes.length)];
+        }
+
+        window.currentColorTheme = selectedTheme;
+
+        document.documentElement.style.setProperty('--accent-cyan', selectedTheme.primary);
+        document.documentElement.style.setProperty('--accent-purple', selectedTheme.secondary);
+        document.documentElement.style.setProperty('--accent-pink', selectedTheme.tertiary);
+        document.documentElement.style.setProperty('--accent-glow', selectedTheme.glow);
         document.documentElement.style.setProperty('--accent-gradient',
-            `linear-gradient(135deg, ${randomTheme.primary} 0%, ${randomTheme.secondary} 50%, ${randomTheme.tertiary} 100%)`);
+            `linear-gradient(135deg, ${selectedTheme.primary} 0%, ${selectedTheme.secondary} 50%, ${selectedTheme.tertiary} 100%)`);
     })();
 </script>
 
@@ -3510,6 +3774,26 @@
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
     </a>
 
+    <!--== Theme Picker ==-->
+    <div class="theme-picker">
+        <button class="theme-picker-btn" id="themePickerBtn" title="Change Theme Color">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+        </button>
+        <div class="theme-picker-panel" id="themePickerPanel">
+            <div class="theme-picker-title">Choose Theme</div>
+            <div class="theme-colors">
+                <button class="theme-color" data-theme="cyan" style="background: #00d4d4;" title="Cyan"></button>
+                <button class="theme-color" data-theme="purple" style="background: #a855f7;" title="Purple"></button>
+                <button class="theme-color" data-theme="blue" style="background: #3b82f6;" title="Blue"></button>
+                <button class="theme-color" data-theme="red" style="background: #ef4444;" title="Red"></button>
+                <button class="theme-color" data-theme="green" style="background: #22c55e;" title="Green"></button>
+                <button class="theme-color" data-theme="pink" style="background: #ec4899;" title="Pink"></button>
+                <button class="theme-color" data-theme="orange" style="background: #f97316;" title="Orange"></button>
+                <button class="theme-color" data-theme="yellow" style="background: #eab308;" title="Yellow"></button>
+            </div>
+        </div>
+    </div>
+
     <!--== Javascript Plugins ==-->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/smoothscroll.js"></script>
@@ -3960,6 +4244,80 @@
             }, { threshold: 0.1 });
 
             staggerContainers.forEach(container => staggerObserver.observe(container));
+        }
+    })();
+
+    // Theme Picker Functionality
+    (function() {
+        const colorThemes = {
+            cyan: { primary: '#00d4d4', secondary: '#00b8b8', tertiary: '#009999', glow: 'rgba(0, 212, 212, 0.5)' },
+            purple: { primary: '#a855f7', secondary: '#9333ea', tertiary: '#7c3aed', glow: 'rgba(168, 85, 247, 0.5)' },
+            blue: { primary: '#3b82f6', secondary: '#2563eb', tertiary: '#1d4ed8', glow: 'rgba(59, 130, 246, 0.5)' },
+            red: { primary: '#ef4444', secondary: '#dc2626', tertiary: '#b91c1c', glow: 'rgba(239, 68, 68, 0.5)' },
+            green: { primary: '#22c55e', secondary: '#16a34a', tertiary: '#15803d', glow: 'rgba(34, 197, 94, 0.5)' },
+            pink: { primary: '#ec4899', secondary: '#db2777', tertiary: '#be185d', glow: 'rgba(236, 72, 153, 0.5)' },
+            orange: { primary: '#f97316', secondary: '#ea580c', tertiary: '#c2410c', glow: 'rgba(249, 115, 22, 0.5)' },
+            yellow: { primary: '#eab308', secondary: '#ca8a04', tertiary: '#a16207', glow: 'rgba(234, 179, 8, 0.5)' }
+        };
+
+        const pickerBtn = document.getElementById('themePickerBtn');
+        const pickerPanel = document.getElementById('themePickerPanel');
+        const colorBtns = document.querySelectorAll('.theme-color');
+
+        // Toggle panel
+        pickerBtn.addEventListener('click', () => {
+            pickerBtn.classList.toggle('active');
+            pickerPanel.classList.toggle('active');
+        });
+
+        // Close panel when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.theme-picker')) {
+                pickerBtn.classList.remove('active');
+                pickerPanel.classList.remove('active');
+            }
+        });
+
+        // Apply theme function
+        function applyTheme(themeName) {
+            const theme = colorThemes[themeName];
+            if (!theme) return;
+
+            document.documentElement.style.setProperty('--accent-cyan', theme.primary);
+            document.documentElement.style.setProperty('--accent-purple', theme.secondary);
+            document.documentElement.style.setProperty('--accent-pink', theme.tertiary);
+            document.documentElement.style.setProperty('--accent-glow', theme.glow);
+            document.documentElement.style.setProperty('--accent-gradient',
+                `linear-gradient(135deg, ${theme.primary} 0%, ${theme.secondary} 50%, ${theme.tertiary} 100%)`);
+
+            // Update active state
+            colorBtns.forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`[data-theme="${themeName}"]`)?.classList.add('active');
+
+            // Save preference
+            localStorage.setItem('scoobyTheme', themeName);
+            window.currentColorTheme = theme;
+        }
+
+        // Color button clicks
+        colorBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                applyTheme(btn.dataset.theme);
+            });
+        });
+
+        // Load saved theme or mark current random theme
+        const savedTheme = localStorage.getItem('scoobyTheme');
+        if (savedTheme && colorThemes[savedTheme]) {
+            applyTheme(savedTheme);
+        } else if (window.currentColorTheme) {
+            // Mark the randomly selected theme as active
+            const currentThemeName = Object.keys(colorThemes).find(key =>
+                colorThemes[key].primary === window.currentColorTheme.primary
+            );
+            if (currentThemeName) {
+                document.querySelector(`[data-theme="${currentThemeName}"]`)?.classList.add('active');
+            }
         }
     })();
     </script>
