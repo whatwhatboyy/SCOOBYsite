@@ -1,6 +1,33 @@
 {
   "versions": [
     {
+      "id": "v3.1",
+      "version": "v2.9",
+      "date": "February 2026",
+      "badge": "Latest",
+      "badgeStyle": "latest",
+      "categories": [
+        {
+          "title": "MENU IMPROVEMENTS",
+          "features": [
+            "Improvements for many options - Various options enhanced and optimized",
+            "Improved Lua Support & API - Better Lua scripting capabilities and API access",
+            "Layout Overview Improvements - Cleaner and more intuitive menu layout",
+            "Theme Loader for ClickUI - Added theme customization to ClickUI",
+            "List UI (WIP) - New List UI in development",
+            "Reorganized Options & Tabs - Moved around options and tabs for better organization"
+          ]
+        },
+        {
+          "title": "FIXES & CHANGES",
+          "features": [
+            "Various bug fixes and improvements",
+            "Other changes and optimizations"
+          ]
+        }
+      ]
+    },
+    {
       "id": "v3.0",
       "version": "v3.0",
       "date": "January 2026",
@@ -490,11 +517,27 @@
   ],
   "loader": [
     {
+      "id": "loader-v2.2",
+      "version": "v2.2",
+      "date": "February 2026",
+      "badge": "Latest",
+      "badgeStyle": "latest",
+      "categories": [
+        {
+          "title": "FIXES",
+          "features": [
+            "Fixed Issues - Various loader issues resolved",
+            "Fixed Overlapping - Fixed any overlapping UI elements"
+          ]
+        }
+      ]
+    },
+    {
       "id": "loader-v2.0",
       "version": "v2.0",
       "date": "January 2026",
-      "badge": "Latest",
-      "badgeStyle": "latest",
+      "badge": "Released",
+      "badgeStyle": "released",
       "categories": [
         {
           "title": "REDESIGN",
@@ -579,9 +622,9 @@
     }
   ],
   "stats": {
-    "totalVersions": 13,
-    "totalFeatures": "370+",
-    "latestUpdate": "Jan",
+    "totalVersions": 15,
+    "totalFeatures": "380+",
+    "latestUpdate": "Feb",
     "activeYear": "2026"
   }
 }

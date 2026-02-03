@@ -3,6 +3,32 @@
 ================================================================================
 
 ================================================================================
+v3.1 - February 2026
+================================================================================
+
+MENU IMPROVEMENTS
+- Improvements for many options - Various options enhanced and optimized
+- Improved Lua Support & API - Better Lua scripting capabilities and API access
+- Layout Overview Improvements - Cleaner and more intuitive menu layout
+- Theme Loader for ClickUI - Added theme customization to ClickUI
+- List UI (WIP) - New List UI in development
+- Reorganized Options & Tabs - Moved around options and tabs for better organization
+
+FIXES & CHANGES
+- Various bug fixes and improvements
+- Other changes and optimizations
+
+
+================================================================================
+LOADER v2.2 - February 2026
+================================================================================
+
+FIXES
+- Fixed Issues - Various loader issues resolved
+- Fixed Overlapping - Fixed any overlapping UI elements
+
+
+================================================================================
 v3.0 BETA - January 2026
 ================================================================================
 
