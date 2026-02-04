@@ -5,11 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scooby - Community Portal</title>
     <link rel="icon" href="assets/images/logo.png" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="portal.css">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="portal-loading" id="portalLoading">
+        <div class="loading-logo">SCOOBY</div>
+        <svg class="loading-paw" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="50" cy="70" rx="25" ry="20" fill="url(#pawGrad)"/>
+            <circle cx="25" cy="35" r="12" fill="url(#pawGrad)"/>
+            <circle cx="50" cy="25" r="12" fill="url(#pawGrad)"/>
+            <circle cx="75" cy="35" r="12" fill="url(#pawGrad)"/>
+            <circle cx="85" cy="55" r="10" fill="url(#pawGrad)"/>
+            <circle cx="15" cy="55" r="10" fill="url(#pawGrad)"/>
+            <defs>
+                <linearGradient id="pawGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#00e5e5"/>
+                    <stop offset="50%" style="stop-color:#00c8c8"/>
+                    <stop offset="100%" style="stop-color:#00a0a0"/>
+                </linearGradient>
+            </defs>
+        </svg>
+        <div class="loading-bar-container">
+            <div class="loading-bar" id="loadingBar"></div>
+        </div>
+    </div>
+
+    <!-- Floating Paw Prints -->
+    <div class="floating-paws">
+        <div class="paw">🐾</div>
+        <div class="paw">🐾</div>
+        <div class="paw">🐾</div>
+        <div class="paw">🐾</div>
+        <div class="paw">🐾</div>
+        <div class="paw">🐾</div>
+    </div>
+
     <!-- API Configuration -->
     <input type="hidden" id="apiUrl" value="https://proudlyauthentication.com/">
     <input type="hidden" id="portalKey" value="pk_gri2butNfQ28AWQqNTD5xLtQKwer2MNv">
@@ -1412,6 +1445,83 @@
             </div>
         </div>
     </div>
+
+    <!-- Scooby Mascot -->
+    <div class="scooby-mascot" id="scoobyMascot" onclick="scoobyWave()" title="Ruh-roh!">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Dog face -->
+            <ellipse cx="50" cy="55" rx="35" ry="30" fill="#B8860B"/>
+            <ellipse cx="50" cy="60" rx="28" ry="22" fill="#D4A84B"/>
+            <!-- Ears -->
+            <ellipse cx="20" cy="35" rx="15" ry="20" fill="#8B6914" transform="rotate(-15 20 35)"/>
+            <ellipse cx="80" cy="35" rx="15" ry="20" fill="#8B6914" transform="rotate(15 80 35)"/>
+            <!-- Eyes -->
+            <circle cx="35" cy="45" r="8" fill="white"/>
+            <circle cx="65" cy="45" r="8" fill="white"/>
+            <circle cx="37" cy="46" r="4" fill="#333"/>
+            <circle cx="67" cy="46" r="4" fill="#333"/>
+            <circle cx="38" cy="44" r="1.5" fill="white"/>
+            <circle cx="68" cy="44" r="1.5" fill="white"/>
+            <!-- Nose -->
+            <ellipse cx="50" cy="62" rx="8" ry="6" fill="#333"/>
+            <ellipse cx="48" cy="60" rx="2" ry="1.5" fill="#666"/>
+            <!-- Mouth -->
+            <path d="M 35 72 Q 50 82 65 72" stroke="#333" stroke-width="2" fill="none"/>
+            <!-- Tongue -->
+            <ellipse cx="50" cy="78" rx="6" ry="8" fill="#FF6B6B"/>
+            <!-- Collar -->
+            <rect x="30" y="82" width="40" height="8" rx="4" fill="#00d4d4"/>
+            <circle cx="50" cy="86" r="4" fill="#FFD700"/>
+        </svg>
+    </div>
+
+    <!-- Loading Screen Script -->
+    <script>
+        // Loading screen animation
+        (function() {
+            const loadingBar = document.getElementById('loadingBar');
+            const loadingScreen = document.getElementById('portalLoading');
+            let progress = 0;
+
+            const interval = setInterval(() => {
+                progress += Math.random() * 15 + 5;
+                if (progress >= 100) {
+                    progress = 100;
+                    loadingBar.style.width = '100%';
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        loadingScreen.classList.add('hidden');
+                    }, 300);
+                } else {
+                    loadingBar.style.width = progress + '%';
+                }
+            }, 100);
+
+            // Fallback - hide loading after 2 seconds max
+            setTimeout(() => {
+                loadingScreen.classList.add('hidden');
+            }, 2000);
+        })();
+
+        // Scooby mascot interaction
+        function scoobyWave() {
+            const mascot = document.getElementById('scoobyMascot');
+            mascot.style.transform = 'scale(1.2) rotate(-10deg)';
+
+            // Random Scooby sound
+            const sounds = ['Ruh-roh!', 'Scooby-Dooby-Doo!', 'Zoinks!', 'Yikes!'];
+            const randomSound = sounds[Math.floor(Math.random() * sounds.length)];
+
+            // Show toast with sound
+            if (typeof showToast === 'function') {
+                showToast(randomSound, 'info');
+            }
+
+            setTimeout(() => {
+                mascot.style.transform = '';
+            }, 500);
+        }
+    </script>
 
     <!-- Portal JS -->
     <script src="portal.js"></script>
