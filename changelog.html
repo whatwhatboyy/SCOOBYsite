@@ -7,7 +7,7 @@
 <title>Changelog - Scooby GTA V Mod Menu</title>
 <meta name="description" content="Scooby mod menu changelog and version history. See all updates, new features, and improvements for GTA 5.">
 <meta name="keywords" content="Scooby mod menu changelog, GTA 5 mod menu updates, Scooby version history">
-<link rel="shortcut icon" href="assets/images/icon.png">
+<link rel="shortcut icon" href="assets/images/logo.png">
 
 <!-- DNS Prefetch for external resources -->
 <link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -1247,6 +1247,100 @@
         border: 2px solid rgba(0, 212, 212, 0.3);
         border-radius: 12px;
     }
+
+    /* Product Tabs */
+    .product-tabs {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 40px;
+        padding: 15px;
+        background: rgba(20, 20, 30, 0.5);
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .product-tab {
+        padding: 12px 24px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+        color: var(--text-secondary);
+        font-family: 'Orbitron', sans-serif;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+    }
+
+    .product-tab:hover {
+        background: rgba(0, 212, 212, 0.1);
+        border-color: rgba(0, 212, 212, 0.3);
+        color: var(--text-primary);
+    }
+
+    .product-tab.active {
+        background: var(--accent-gradient);
+        border-color: transparent;
+        color: #000;
+        box-shadow: 0 4px 20px rgba(0, 212, 212, 0.3);
+    }
+
+    .product-content {
+        display: none;
+    }
+
+    .product-content.active {
+        display: block;
+        animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .coming-soon-msg {
+        text-align: center;
+        padding: 80px 20px;
+        background: rgba(20, 20, 30, 0.5);
+        border-radius: 20px;
+        border: 1px dashed rgba(255, 255, 255, 0.1);
+    }
+
+    .coming-soon-msg svg {
+        width: 60px;
+        height: 60px;
+        color: var(--text-secondary);
+        margin-bottom: 20px;
+        opacity: 0.5;
+    }
+
+    .coming-soon-msg h3 {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.3rem;
+        color: var(--text-primary);
+        margin-bottom: 10px;
+    }
+
+    .coming-soon-msg p {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+        .product-tabs {
+            gap: 8px;
+            padding: 10px;
+        }
+        .product-tab {
+            padding: 10px 14px;
+            font-size: 0.7rem;
+        }
+    }
 </style>
 </head>
 <body>
@@ -1296,6 +1390,20 @@
     <section class="changelog-section">
         <div class="container">
 
+            <!--== Product Tabs ==-->
+            <div class="product-tabs">
+                <button class="product-tab active" onclick="showProductTab('gta5')">GTA 5</button>
+                <button class="product-tab" onclick="showProductTab('loader')">Loader</button>
+                <button class="product-tab" onclick="showProductTab('spoofer')">Spoofer</button>
+                <button class="product-tab" onclick="showProductTab('rdr2')">RDR2</button>
+                <button class="product-tab" onclick="showProductTab('fivem')">FiveM</button>
+                <button class="product-tab" onclick="showProductTab('redm')">RedM</button>
+                <button class="product-tab" onclick="showProductTab('r6')">Rainbow Six</button>
+                <button class="product-tab" onclick="showProductTab('pubg')">PUBG</button>
+            </div>
+
+            <!--== GTA 5 Tab Content ==-->
+            <div id="gta5" class="product-content active">
             <!--== Stats Summary (Dynamic) ==-->
             <div class="changelog-stats" id="changelog-stats">
                 <div class="stat-item">
@@ -2177,6 +2285,95 @@
 
             </div>
             <!--== End Timeline Container ==-->
+            </div>
+            <!--== End GTA 5 Tab ==-->
+
+            <!--== Loader Tab ==-->
+            <div id="loader" class="product-content">
+                <div class="coming-soon-msg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                    </svg>
+                    <h3>Loader Changelog</h3>
+                    <p>Loader changelog will be displayed here. Check back soon for updates.</p>
+                </div>
+            </div>
+
+            <!--== Spoofer Tab ==-->
+            <div id="spoofer" class="product-content">
+                <div class="coming-soon-msg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    <h3>Spoofer Changelog</h3>
+                    <p>Spoofer changelog will be displayed here. Check back soon for updates.</p>
+                </div>
+            </div>
+
+            <!--== RDR2 Tab ==-->
+            <div id="rdr2" class="product-content">
+                <div class="coming-soon-msg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                    <h3>Coming Soon</h3>
+                    <p>RDR2 changelog will be added here once the product is released.</p>
+                </div>
+            </div>
+
+            <!--== FiveM Tab ==-->
+            <div id="fivem" class="product-content">
+                <div class="coming-soon-msg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                    <h3>Coming Soon</h3>
+                    <p>FiveM changelog will be added here once the product is released.</p>
+                </div>
+            </div>
+
+            <!--== RedM Tab ==-->
+            <div id="redm" class="product-content">
+                <div class="coming-soon-msg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                    <h3>Coming Soon</h3>
+                    <p>RedM changelog will be added here once the product is released.</p>
+                </div>
+            </div>
+
+            <!--== R6 Tab ==-->
+            <div id="r6" class="product-content">
+                <div class="coming-soon-msg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                    <h3>Coming Soon</h3>
+                    <p>Rainbow Six changelog will be added here once the product is released.</p>
+                </div>
+            </div>
+
+            <!--== PUBG Tab ==-->
+            <div id="pubg" class="product-content">
+                <div class="coming-soon-msg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                    <h3>Coming Soon</h3>
+                    <p>PUBG changelog will be added here once the product is released.</p>
+                </div>
+            </div>
 
             <div style="text-align: center; margin-top: 50px;">
                 <a href="index.html" class="back-link">
@@ -2201,7 +2398,7 @@
                     <a href="videos.html">Videos</a>
                     <a href="changelog.html">Changelog</a>
                 </div>
-                <p class="footer-copyright">&copy; 2025 Scooby. All rights reserved.</p>
+                <p class="footer-copyright">&copy; 2026 Scooby. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -2384,6 +2581,25 @@
 
         // Load changelog when page loads
         document.addEventListener('DOMContentLoaded', loadChangelog);
+
+        // Product Tab Switching
+        function showProductTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.product-content').forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all tabs
+            document.querySelectorAll('.product-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected tab content
+            document.getElementById(tabId).classList.add('active');
+
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
     </script>
 </body>
 </html>
