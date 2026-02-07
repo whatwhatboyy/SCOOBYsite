@@ -2,14 +2,15 @@
   "versions": [
     {
       "id": "v3.1",
-      "version": "v2.9",
+      "version": "v3.1",
       "date": "February 2026",
       "badge": "Latest",
       "badgeStyle": "latest",
       "categories": [
         {
-          "title": "MENU IMPROVEMENTS",
+          "title": "NEW FEATURES & IMPROVEMENTS",
           "features": [
+            "Readded Business Manager - Business Manager has been readded and improved",
             "Improvements for many options - Various options enhanced and optimized",
             "Improved Lua Support & API - Better Lua scripting capabilities and API access",
             "Layout Overview Improvements - Cleaner and more intuitive menu layout",
@@ -21,8 +22,9 @@
         {
           "title": "FIXES & CHANGES",
           "features": [
+            "Fixed problems with the Lua API",
             "Various bug fixes and improvements",
-            "Other changes and optimizations"
+            "Other misc fixes and optimizations"
           ]
         }
       ]
@@ -517,11 +519,26 @@
   ],
   "loader": [
     {
-      "id": "loader-v2.2",
-      "version": "v2.2",
+      "id": "loader-v2.5",
+      "version": "v2.5",
       "date": "February 2026",
       "badge": "Latest",
       "badgeStyle": "latest",
+      "categories": [
+        {
+          "title": "NEW FEATURES",
+          "features": [
+            "Game Selector - Added game selector for GTA5/RDR2/FIVEM/REDM"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "loader-v2.2",
+      "version": "v2.2",
+      "date": "February 2026",
+      "badge": "Released",
+      "badgeStyle": "released",
       "categories": [
         {
           "title": "FIXES",
@@ -621,9 +638,26 @@
       ]
     }
   ],
+  "rdr2": [
+    {
+      "id": "rdr2-v1.0",
+      "version": "v1.0",
+      "date": "February 2026",
+      "badge": "Released",
+      "badgeStyle": "latest",
+      "categories": [
+        {
+          "title": "INITIAL RELEASE",
+          "features": [
+            "RDR2 Support - Red Dead Redemption 2 mod menu released"
+          ]
+        }
+      ]
+    }
+  ],
   "stats": {
-    "totalVersions": 15,
-    "totalFeatures": "380+",
+    "totalVersions": 18,
+    "totalFeatures": "390+",
     "latestUpdate": "Feb",
     "activeYear": "2026"
   }

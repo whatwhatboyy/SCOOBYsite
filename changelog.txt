@@ -6,7 +6,8 @@
 v3.1 - February 2026
 ================================================================================
 
-MENU IMPROVEMENTS
+NEW FEATURES & IMPROVEMENTS
+- Readded Business Manager - Business Manager has been readded and improved
 - Improvements for many options - Various options enhanced and optimized
 - Improved Lua Support & API - Better Lua scripting capabilities and API access
 - Layout Overview Improvements - Cleaner and more intuitive menu layout
@@ -15,8 +16,25 @@ MENU IMPROVEMENTS
 - Reorganized Options & Tabs - Moved around options and tabs for better organization
 
 FIXES & CHANGES
+- Fixed problems with the Lua API
 - Various bug fixes and improvements
-- Other changes and optimizations
+- Other misc fixes and optimizations
+
+
+================================================================================
+RDR2 Released - v1.0 - February 2026
+================================================================================
+
+INITIAL RELEASE
+- RDR2 Support - Red Dead Redemption 2 mod menu released
+
+
+================================================================================
+LOADER v2.5 - February 2026
+================================================================================
+
+NEW FEATURES
+- Game Selector - Added game selector for GTA5/RDR2/FIVEM/REDM
 
 
 ================================================================================

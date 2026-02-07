@@ -1445,14 +1445,15 @@
             <!--== Version 3.1 ==-->
 <div class="version-card" id="v3.1">
     <div class="version-header">
-        <h2 class="version-title">v2.9</h2>
+        <h2 class="version-title">v3.1</h2>
         <span class="version-date">February 2026</span>
         <span class="version-badge">Latest</span>
     </div>
     <div class="version-content">
         <div class="feature-category">
-            <h3 class="category-title">MENU IMPROVEMENTS</h3>
+            <h3 class="category-title">NEW FEATURES & IMPROVEMENTS</h3>
             <ul class="feature-list">
+                <li><strong>Readded Business Manager</strong> - Business Manager has been readded and improved</li>
                 <li><strong>Improvements for many options</strong> - Various options enhanced and optimized</li>
                 <li><strong>Improved Lua Support & API</strong> - Better Lua scripting capabilities and API access</li>
                 <li><strong>Layout Overview Improvements</strong> - Cleaner and more intuitive menu layout</li>
@@ -1465,8 +1466,43 @@
         <div class="feature-category">
             <h3 class="category-title">FIXES & CHANGES</h3>
             <ul class="feature-list">
+                <li>Fixed problems with the Lua API</li>
                 <li>Various bug fixes and improvements</li>
-                <li>Other changes and optimizations</li>
+                <li>Other misc fixes and optimizations</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--== Loader v2.5 ==-->
+<div class="version-card" id="loader-v2.5">
+    <div class="version-header">
+        <h2 class="version-title">Loader v2.5</h2>
+        <span class="version-date">February 2026</span>
+        <span class="version-badge">Latest</span>
+    </div>
+    <div class="version-content">
+        <div class="feature-category">
+            <h3 class="category-title">NEW FEATURES</h3>
+            <ul class="feature-list">
+                <li><strong>Game Selector</strong> - Added game selector for GTA5/RDR2/FIVEM/REDM</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--== RDR2 v1.0 ==-->
+<div class="version-card" id="rdr2-v1.0">
+    <div class="version-header">
+        <h2 class="version-title">RDR2 v1.0</h2>
+        <span class="version-date">February 2026</span>
+        <span class="version-badge">Released</span>
+    </div>
+    <div class="version-content">
+        <div class="feature-category">
+            <h3 class="category-title">INITIAL RELEASE</h3>
+            <ul class="feature-list">
+                <li><strong>RDR2 Support</strong> - Red Dead Redemption 2 mod menu released</li>
             </ul>
         </div>
     </div>
@@ -1477,7 +1513,7 @@
     <div class="version-header">
         <h2 class="version-title">Loader v2.2</h2>
         <span class="version-date">February 2026</span>
-        <span class="version-badge">Latest</span>
+        <span class="version-badge">Released</span>
     </div>
     <div class="version-content">
         <div class="feature-category">
@@ -2312,14 +2348,22 @@
 
             <!--== RDR2 Tab ==-->
             <div id="rdr2" class="product-content">
-                <div class="coming-soon-msg">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <line x1="12" y1="8" x2="12" y2="12"></line>
-                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                    </svg>
-                    <h3>Coming Soon</h3>
-                    <p>RDR2 changelog will be added here once the product is released.</p>
+                <div class="changelog-timeline">
+                    <div class="version-card" id="rdr2-v1.0-tab">
+                        <div class="version-header">
+                            <h2 class="version-title">v1.0</h2>
+                            <span class="version-date">February 2026</span>
+                            <span class="version-badge">Released</span>
+                        </div>
+                        <div class="version-content">
+                            <div class="feature-category">
+                                <h3 class="category-title">INITIAL RELEASE</h3>
+                                <ul class="feature-list">
+                                    <li><strong>RDR2 Support</strong> - Red Dead Redemption 2 mod menu released</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -2446,6 +2490,18 @@
                 data.loader.forEach(v => {
                     timelineHTML += renderVersionCard(v);
                 });
+
+                // RDR2 section divider
+                if (data.rdr2 && data.rdr2.length > 0) {
+                    timelineHTML += `
+                        <div class="section-divider" id="rdr2-section">
+                            <h2>RDR2</h2>
+                        </div>
+                    `;
+                    data.rdr2.forEach(v => {
+                        timelineHTML += renderVersionCard(v);
+                    });
+                }
 
                 timeline.innerHTML = timelineHTML;
 
