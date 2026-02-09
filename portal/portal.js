@@ -191,6 +191,15 @@ async function fetchSubscriptionsConfig() {
         return subscriptionsCache;
     }
 
+    // Local subscription image map
+    const subscriptionImages = {
+        'GTALegacy': 'images/GTA5.jpg',
+        'GTAEnhanced': 'images/GTA5Enhanced.jpg',
+        'RDR': 'images/RDR2.jpg',
+        'FiveM': 'images/FIVEM.jpg',
+        'Spoofer': 'images/Spoofer.jpg'
+    };
+
     try {
         const result = await api('GET', '/subscriptions');
         console.log('Subscriptions API response:', result);
@@ -200,7 +209,7 @@ async function fetchSubscriptionsConfig() {
                 key: sub.public_id,
                 name: sub.display_name || sub.name || `Subscription ${sub.public_id}`,
                 description: sub.description || '',
-                image: sub.image || ''
+                image: sub.image || subscriptionImages[sub.name] || subscriptionImages[sub.display_name] || ''
             }));
             console.log('Loaded subscriptions from API:', subscriptionsCache);
             return subscriptionsCache;
