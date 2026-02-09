@@ -3329,17 +3329,37 @@
         pointer-events: none;
     }
 
-    .testimonials-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 30px;
+    .testimonials-scroll-wrapper {
         max-width: 1200px;
         margin: 0 auto;
+        overflow: hidden;
         position: relative;
         z-index: 1;
+        mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+    }
+
+    .testimonials-grid {
+        display: flex;
+        gap: 30px;
+        width: max-content;
+        animation: scrollTestimonials 40s linear infinite;
+    }
+
+    .testimonials-grid:hover {
+        animation-play-state: paused;
+    }
+
+    @keyframes scrollTestimonials {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
     }
 
     .testimonial-card {
+        min-width: 340px;
+        max-width: 340px;
+        flex-shrink: 0;
+        scroll-snap-align: start;
         background: rgba(12, 12, 18, 0.8);
         border: 1px solid rgba(255, 255, 255, 0.04);
         border-radius: 20px;
@@ -3386,6 +3406,15 @@
         font-size: 1.2rem;
         color: white;
         box-shadow: 0 4px 15px rgba(0, 212, 212, 0.3);
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .testimonial-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
     }
 
     .testimonial-info h4 {
@@ -3857,12 +3886,13 @@
                 <h2 class="modern-title text-center section-animate">WHAT USERS SAY</h2>
                 <p class="modern-subtitle text-center section-animate" style="margin-bottom: 50px;">Join thousands of satisfied users who trust Scooby for their GTA V experience</p>
 
-                <div class="testimonials-grid">
+                <div class="testimonials-scroll-wrapper">
+                <div class="testimonials-grid" id="testimonials-grid">
                     <div class="testimonial-card section-animate">
                         <div class="testimonial-header">
-                            <div class="testimonial-avatar">J</div>
+                            <div class="testimonial-avatar"><img src="https://ui-avatars.com/api/?name=xNightRider&background=0d1117&color=00d4d4&bold=true&size=100" alt="xNightRider"></div>
                             <div class="testimonial-info">
-                                <h4>Jake</h4>
+                                <h4>xNightRider</h4>
                                 <span>Premium User</span>
                             </div>
                         </div>
@@ -3879,9 +3909,9 @@
 
                     <div class="testimonial-card section-animate">
                         <div class="testimonial-header">
-                            <div class="testimonial-avatar">M</div>
+                            <div class="testimonial-avatar"><img src="https://ui-avatars.com/api/?name=Drizzle&background=1a1a2e&color=00c8c8&bold=true&size=100" alt="Drizzle"></div>
                             <div class="testimonial-info">
-                                <h4>Mike</h4>
+                                <h4>Drizzle</h4>
                                 <span>Premium User</span>
                             </div>
                         </div>
@@ -3892,15 +3922,15 @@
                             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                         </div>
-                        <p class="testimonial-text">Switched from another menu and never looked back. Updates are frequent, stability is amazing, and the UI is so clean. $10 lifetime is a steal!</p>
+                        <p class="testimonial-text">Switched from another menu and never looked back. Updates are frequent, stability is amazing, and the UI is so clean. Lifetime is a steal!</p>
                         <span class="testimonial-badge">Verified Purchase</span>
                     </div>
 
                     <div class="testimonial-card section-animate">
                         <div class="testimonial-header">
-                            <div class="testimonial-avatar">A</div>
+                            <div class="testimonial-avatar"><img src="https://ui-avatars.com/api/?name=SkullzFN&background=16213e&color=00e5e5&bold=true&size=100" alt="SkullzFN"></div>
                             <div class="testimonial-info">
-                                <h4>Alex</h4>
+                                <h4>SkullzFN</h4>
                                 <span>Free User</span>
                             </div>
                         </div>
@@ -3911,12 +3941,135 @@
                             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                         </div>
-                        <p class="testimonial-text">Started with free version and was impressed by how much is included. The community on Discord is super active and helpful. Planning to upgrade soon!</p>
+                        <p class="testimonial-text">Started with the free version and was impressed by how much is included. The community on Discord is super active and helpful. Planning to upgrade soon!</p>
                         <span class="testimonial-badge">Free Version</span>
                     </div>
+
+                    <div class="testimonial-card section-animate">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar"><img src="https://ui-avatars.com/api/?name=Zynx&background=0a0a1a&color=00ffcc&bold=true&size=100" alt="Zynx"></div>
+                            <div class="testimonial-info">
+                                <h4>Zynx</h4>
+                                <span>Premium User</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="testimonial-text">Hands down the smoothest menu out there. No crashes, no lag, just works every time. The vehicle spawner and modded outfits are my favourite features.</p>
+                        <span class="testimonial-badge">Verified Purchase</span>
+                    </div>
+
+                    <div class="testimonial-card section-animate">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar"><img src="https://ui-avatars.com/api/?name=ToxicVibez&background=121220&color=00d4d4&bold=true&size=100" alt="ToxicVibez"></div>
+                            <div class="testimonial-info">
+                                <h4>ToxicVibez</h4>
+                                <span>Premium User</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="testimonial-text">The Lua scripting support is insane. I've made custom scripts for my crew and everyone loves it. Dev team actually listens to feedback too. 10/10 menu.</p>
+                        <span class="testimonial-badge">Verified Purchase</span>
+                    </div>
+
+                    <div class="testimonial-card section-animate">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar"><img src="https://ui-avatars.com/api/?name=Frosty&background=0e1628&color=00b8ff&bold=true&size=100" alt="Frosty"></div>
+                            <div class="testimonial-info">
+                                <h4>Frosty</h4>
+                                <span>Premium User</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="testimonial-text">Been using Scooby for months on Enhanced and it's been undetected the entire time. Works on both Legacy and Enhanced flawlessly. Best money I've spent.</p>
+                        <span class="testimonial-badge">Verified Purchase</span>
+                    </div>
+
+                    <div class="testimonial-card section-animate">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar"><img src="https://ui-avatars.com/api/?name=RazorX&background=1a0a2e&color=c084fc&bold=true&size=100" alt="RazorX"></div>
+                            <div class="testimonial-info">
+                                <h4>RazorX</h4>
+                                <span>Free User</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="testimonial-text">Can't believe this is free honestly. The free version has more features than most paid menus. The teleport options and vehicle spawner work perfectly. Upgrading to premium soon.</p>
+                        <span class="testimonial-badge">Free Version</span>
+                    </div>
+
+                    <div class="testimonial-card section-animate">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar"><img src="https://ui-avatars.com/api/?name=Kenzo&background=0d1b2a&color=00d4d4&bold=true&size=100" alt="Kenzo"></div>
+                            <div class="testimonial-info">
+                                <h4>Kenzo</h4>
+                                <span>Premium User</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="testimonial-text">The heist editor is a game changer. Made millions in a day with the Cayo setup. Menu is super easy to use even for beginners. Highly recommend to anyone.</p>
+                        <span class="testimonial-badge">Verified Purchase</span>
+                    </div>
+
+                    <div class="testimonial-card section-animate">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar"><img src="https://ui-avatars.com/api/?name=Blitz&background=141428&color=ff6b6b&bold=true&size=100" alt="Blitz"></div>
+                            <div class="testimonial-info">
+                                <h4>Blitz</h4>
+                                <span>Premium User</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="testimonial-text">Tried like 5 different menus before finding Scooby. Nothing else comes close. The protections are solid and the trolling features are hilarious. Worth every penny.</p>
+                        <span class="testimonial-badge">Verified Purchase</span>
+                    </div>
+                </div>
                 </div>
             </div>
         </section>
+        <script>
+            // Duplicate testimonial cards for seamless infinite scroll
+            const grid = document.getElementById('testimonials-grid');
+            if (grid) {
+                const cards = grid.innerHTML;
+                grid.innerHTML = cards + cards;
+            }
+        </script>
         <!--== Testimonials Section End ==-->
 
 
