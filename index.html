@@ -113,9 +113,12 @@
         --accent-gradient: linear-gradient(135deg, #00e5e5 0%, #00c8c8 50%, #00a0a0 100%);
         --accent-glow: rgba(0, 212, 212, 0.5);
         --text-primary: #ffffff;
-        --text-secondary: #8a8a9a;
+        --text-secondary: #a0a0b0;
         --border-color: #2a2a3a;
         --glass: rgba(20, 20, 30, 0.8);
+        --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.3);
+        --shadow-md: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 212, 212, 0.1);
+        --shadow-lg: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 212, 212, 0.15);
     }
 
     * {
@@ -269,7 +272,7 @@
         background: rgba(8, 8, 12, 0.9);
         padding: 0;
         transition: all 0.3s ease;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .navbar-inner {
@@ -597,8 +600,8 @@
         background: rgba(20, 20, 30, 0.6);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        border-radius: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
     }
 
     /* ========================================
@@ -618,7 +621,7 @@
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         background: rgba(10, 10, 15, 0.85) !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         transition: all 0.3s ease;
         border: none !important;
     }
@@ -822,6 +825,19 @@
             radial-gradient(circle at 20% 30%, rgba(0, 212, 212, 0.06) 0%, transparent 40%),
             radial-gradient(circle at 80% 70%, rgba(0, 180, 180, 0.06) 0%, transparent 40%);
         pointer-events: none;
+    }
+
+    .modern-section::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        max-width: 1000px;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(0,212,212,0.25) 50%, transparent);
+        z-index: 2;
     }
 
     .section-dark {
@@ -1039,7 +1055,7 @@
         -webkit-text-fill-color: transparent;
         background-clip: text;
         text-align: center;
-        margin-bottom: 25px;
+        margin-bottom: 20px;
         letter-spacing: 3px;
         position: relative;
         text-shadow: 0 0 80px var(--accent-glow);
@@ -1071,7 +1087,7 @@
         font-size: 3rem;
         font-weight: 700;
         text-align: center;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
         font-style: italic;
         background: linear-gradient(135deg, #ff69b4 0%, #ff1493 50%, #db7093 100%);
         -webkit-background-clip: text;
@@ -1097,14 +1113,14 @@
     .products-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
+        gap: 30px;
         max-width: 1200px;
         margin: 0 auto;
     }
 
     .product-card {
         position: relative;
-        border-radius: 16px;
+        border-radius: 14px;
         overflow: hidden;
         aspect-ratio: 16/10;
         background-size: cover;
@@ -1134,8 +1150,14 @@
     .product-card:hover {
         transform: translateY(-8px);
         border-color: rgba(0, 212, 212, 0.6);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 212, 212, 0.2);
+        box-shadow: var(--shadow-md);
     }
+
+    .product-card:nth-child(2) { transition-delay: 0.1s; }
+    .product-card:nth-child(3) { transition-delay: 0.15s; }
+    .product-card:nth-child(4) { transition-delay: 0.2s; }
+    .product-card:nth-child(5) { transition-delay: 0.25s; }
+    .product-card:nth-child(6) { transition-delay: 0.3s; }
 
     .product-card-overlay {
         position: absolute;
@@ -1276,14 +1298,14 @@
     @media (max-width: 1024px) {
         .products-grid {
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            gap: 24px;
         }
     }
 
     @media (max-width: 640px) {
         .products-grid {
             grid-template-columns: 1fr;
-            gap: 16px;
+            gap: 20px;
         }
         .products-title {
             font-size: 2rem;
@@ -1295,10 +1317,10 @@
         background: linear-gradient(145deg, rgba(26, 26, 36, 0.9) 0%, rgba(20, 20, 30, 0.95) 100%);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        border-radius: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
         padding: 40px;
-        transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+        transition: all 0.4s cubic-bezier(0.22, 0.68, 0, 1);
         position: relative;
         overflow: hidden;
     }
@@ -1329,12 +1351,9 @@
     }
 
     .modern-card:hover {
-        transform: translateY(-12px) scale(1.01);
+        transform: translateY(-8px) scale(1.01);
         border-color: rgba(0, 212, 212, 0.3);
-        box-shadow:
-            0 25px 80px rgba(0, 0, 0, 0.4),
-            0 0 40px rgba(0, 212, 212, 0.15),
-            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        box-shadow: var(--shadow-lg);
     }
 
     .modern-card:hover::before {
@@ -1371,17 +1390,17 @@
         font-family: 'Orbitron', sans-serif;
         font-size: 1.5rem;
         color: var(--text-primary);
-        margin-bottom: 10px;
+        margin-bottom: 20px;
         letter-spacing: 2px;
     }
 
     /* Enhanced Pricing Cards - Redesigned */
     .pricing-card-free {
         background: linear-gradient(180deg, #13131a 0%, #0d0d12 100%) !important;
-        border: 1px solid rgba(255, 255, 255, 0.06) !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
         position: relative;
         overflow: hidden;
-        border-radius: 24px !important;
+        border-radius: 20px !important;
     }
 
     .pricing-card-free::after {
@@ -1397,7 +1416,7 @@
 
     .pricing-card-free:hover {
         border-color: rgba(255, 255, 255, 0.12) !important;
-        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4) !important;
+        box-shadow: var(--shadow-lg) !important;
         transform: translateY(-8px) !important;
     }
 
@@ -1406,7 +1425,7 @@
         border: 1px solid rgba(0, 212, 212, 0.3) !important;
         position: relative;
         overflow: hidden;
-        border-radius: 24px !important;
+        border-radius: 20px !important;
     }
 
     .pricing-card-premium::before {
@@ -1433,8 +1452,8 @@
 
     .pricing-card-premium:hover {
         border-color: var(--accent-cyan) !important;
-        box-shadow: 0 0 80px rgba(0, 212, 212, 0.2), 0 30px 60px rgba(0, 0, 0, 0.4) !important;
-        transform: translateY(-12px) !important;
+        box-shadow: 0 0 80px rgba(0, 212, 212, 0.2), var(--shadow-lg) !important;
+        transform: translateY(-8px) !important;
     }
 
     /* Feature list improvements */
@@ -1702,7 +1721,8 @@
     }
 
     .btn-modern:active {
-        transform: translateY(-2px) scale(0.98);
+        transform: translateY(1px) scale(0.97);
+        transition-duration: 0.1s;
     }
 
     .btn-primary-modern {
@@ -2274,7 +2294,7 @@
 
     /* Footer - Premium Redesign */
     .modern-footer {
-        background: transparent;
+        background: linear-gradient(180deg, transparent 0%, rgba(0,212,212,0.02) 50%, rgba(0,212,212,0.04) 100%);
         border-top: none;
         padding: 80px 0 0;
         position: relative;
@@ -2282,7 +2302,14 @@
     }
 
     .modern-footer::before {
-        display: none;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(0,212,212,0.3), transparent);
     }
 
     .modern-footer::after {
@@ -2300,6 +2327,11 @@
 
     .footer-section {
         min-width: 0;
+    }
+
+    .footer-section:not(:last-child) {
+        border-right: 1px solid rgba(255, 255, 255, 0.06);
+        padding-right: 30px;
     }
 
     .footer-section h4 {
@@ -2335,7 +2367,7 @@
     }
 
     .footer-section ul li a {
-        color: rgba(255, 255, 255, 0.6);
+        color: rgba(255, 255, 255, 0.7);
         text-decoration: none;
         transition: all 0.3s ease;
         font-size: 0.95rem;
@@ -2408,7 +2440,7 @@
         background: var(--accent-gradient);
         border-color: transparent;
         color: #000;
-        transform: translateY(-3px);
+        transform: translateY(-4px);
         box-shadow: 0 8px 25px rgba(0, 212, 212, 0.3);
     }
 
@@ -2427,7 +2459,7 @@
     }
 
     .footer-copyright {
-        color: rgba(255, 255, 255, 0.5);
+        color: rgba(255, 255, 255, 0.6);
         font-size: 0.9rem;
         background-color: transparent !important;
         padding: 0 !important;
@@ -2439,7 +2471,7 @@
     }
 
     .footer-bottom-links a {
-        color: rgba(255, 255, 255, 0.5);
+        color: rgba(255, 255, 255, 0.6);
         text-decoration: none;
         font-size: 0.9rem;
         transition: all 0.3s ease;
@@ -2458,6 +2490,12 @@
             grid-template-columns: 1fr 1fr;
             gap: 40px;
         }
+        .footer-section:not(:last-child) {
+            border-right: none;
+            padding-right: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding-bottom: 30px;
+        }
     }
 
     @media (max-width: 768px) {
@@ -2468,6 +2506,12 @@
             grid-template-columns: 1fr;
             text-align: center;
             gap: 35px;
+        }
+        .footer-section:not(:last-child) {
+            border-right: none;
+            padding-right: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding-bottom: 30px;
         }
         .footer-section h4::after {
             left: 50%;
@@ -2518,11 +2562,11 @@
 
     .faq-item {
         background: rgba(15, 15, 20, 0.6);
-        border: 1px solid rgba(255, 255, 255, 0.04);
-        border-radius: 16px;
-        margin-bottom: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 14px;
+        margin-bottom: 20px;
         overflow: hidden;
-        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        transition: all 0.35s cubic-bezier(0.22, 0.68, 0, 1);
         position: relative;
     }
 
@@ -2541,7 +2585,7 @@
     .faq-item:hover {
         border-color: rgba(0, 212, 212, 0.15);
         background: rgba(20, 20, 28, 0.8);
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        box-shadow: var(--shadow-sm);
     }
 
     .faq-item:hover::before {
@@ -2603,7 +2647,7 @@
 
     .faq-item.active .faq-answer {
         max-height: 400px;
-        padding: 0 28px 24px;
+        padding: 0 28px 28px;
     }
 
     .faq-answer p {
@@ -2611,9 +2655,14 @@
         line-height: 1.8;
         font-size: 0.95rem;
         border-left: 2px solid rgba(0, 212, 212, 0.3);
-        padding-left: 16px;
+        padding-left: 20px;
         margin-left: 4px;
     }
+
+    .faq-item.section-animate:nth-child(2) { transition-delay: 0.05s; }
+    .faq-item.section-animate:nth-child(3) { transition-delay: 0.1s; }
+    .faq-item.section-animate:nth-child(4) { transition-delay: 0.15s; }
+    .faq-item.section-animate:nth-child(5) { transition-delay: 0.2s; }
 
     /* Floating Particles */
     .floating-particles {
@@ -3373,8 +3422,8 @@
         flex-shrink: 0;
         scroll-snap-align: start;
         background: rgba(12, 12, 18, 0.8);
-        border: 1px solid rgba(255, 255, 255, 0.04);
-        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 14px;
         padding: 28px;
         transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         position: relative;
@@ -3393,9 +3442,9 @@
     }
 
     .testimonial-card:hover {
-        transform: translateY(-6px);
+        transform: translateY(-4px) scale(1.02);
         border-color: rgba(0, 212, 212, 0.15);
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        box-shadow: var(--shadow-md);
     }
 
     .testimonial-header {
@@ -3838,7 +3887,7 @@
                 <p class="modern-subtitle animate-in">Frequently asked questions about Scooby mod menu</p>
 
                 <div class="faq-container">
-                    <div class="faq-item">
+                    <div class="faq-item section-animate">
                         <div class="faq-question" onclick="toggleFaq(this)">
                             Is Scooby safe to use?
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -3848,7 +3897,7 @@
                         </div>
                     </div>
 
-                    <div class="faq-item">
+                    <div class="faq-item section-animate">
                         <div class="faq-question" onclick="toggleFaq(this)">
                             What's the difference between Free and Premium?
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -3858,7 +3907,7 @@
                         </div>
                     </div>
 
-                    <div class="faq-item">
+                    <div class="faq-item section-animate">
                         <div class="faq-question" onclick="toggleFaq(this)">
                             Does it work on GTA Legacy and Enhanced?
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -3868,7 +3917,7 @@
                         </div>
                     </div>
 
-                    <div class="faq-item">
+                    <div class="faq-item section-animate">
                         <div class="faq-question" onclick="toggleFaq(this)">
                             How do I install Scooby?
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -3878,7 +3927,7 @@
                         </div>
                     </div>
 
-                    <div class="faq-item">
+                    <div class="faq-item section-animate">
                         <div class="faq-question" onclick="toggleFaq(this)">
                             Where can I read the Terms of Service?
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
