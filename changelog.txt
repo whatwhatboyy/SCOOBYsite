@@ -3,10 +3,35 @@
 ================================================================================
 
 ================================================================================
+CS2 Beta Released - February 2026
+================================================================================
+
+CS2 BETA RELEASED
+- Scooby CS2 Beta Released - Counter-Strike 2 mod menu now available as a free beta
+- ESP / Wallhacks - See enemies through walls with health bars, distance, and weapon info
+- Aimbot - Precision aim assistance with configurable FOV, smoothing, and bone selection
+- Triggerbot - Automatically fires when crosshair is on an enemy
+- No Recoil - Eliminate weapon recoil and spread for perfect accuracy
+- Radar - Enhanced radar showing all enemy positions
+- Bhop - Automated bunny hopping for maximum movement speed
+- Chams - Colored player models visible through walls
+
+COMING SOON
+- Skinchanger - Use any skin in-game including knives and gloves (In Development)
+- Paid Early Access - Premium tier with additional features coming soon
+
+NOTES
+- This is a BETA release - report any bugs on Discord
+- Currently available for free via the Get Free Key system
+- More features and improvements coming in future updates
+
+
+================================================================================
 v3.1 - February 2026
 ================================================================================
 
 NEW FEATURES & IMPROVEMENTS
+
 - Readded Business Manager - Business Manager has been readded and improved
 - Improvements for many options - Various options enhanced and optimized
 - Improved Lua Support & API - Better Lua scripting capabilities and API access

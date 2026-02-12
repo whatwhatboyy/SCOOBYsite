@@ -10,6 +10,7 @@
         {
           "title": "NEW FEATURES & IMPROVEMENTS",
           "features": [
+            "Scooby - RDR2 Released",
             "Readded Business Manager - Business Manager has been readded and improved",
             "Improvements for many options - Various options enhanced and optimized",
             "Improved Lua Support & API - Better Lua scripting capabilities and API access",
@@ -650,6 +651,45 @@
           "title": "INITIAL RELEASE",
           "features": [
             "RDR2 Support - Red Dead Redemption 2 mod menu released"
+          ]
+        }
+      ]
+    }
+  ],
+  "cs2": [
+    {
+      "id": "cs2-beta",
+      "version": "Beta",
+      "date": "February 2026",
+      "badge": "Beta",
+      "badgeStyle": "beta",
+      "categories": [
+        {
+          "title": "CS2 BETA RELEASED",
+          "features": [
+            "Scooby CS2 Beta Released - Counter-Strike 2 mod menu now available as a free beta",
+            "ESP / Wallhacks - See enemies through walls with health bars, distance, and weapon info",
+            "Aimbot - Precision aim assistance with configurable FOV, smoothing, and bone selection",
+            "Triggerbot - Automatically fires when crosshair is on an enemy",
+            "No Recoil - Eliminate weapon recoil and spread for perfect accuracy",
+            "Radar - Enhanced radar showing all enemy positions",
+            "Bhop - Automated bunny hopping for maximum movement speed",
+            "Chams - Colored player models visible through walls"
+          ]
+        },
+        {
+          "title": "COMING SOON",
+          "features": [
+            "Skinchanger - Use any skin in-game including knives and gloves (In Development)",
+            "Paid Early Access - Premium tier with additional features coming soon"
+          ]
+        },
+        {
+          "title": "NOTES",
+          "features": [
+            "This is a BETA release - report any bugs on Discord",
+            "Currently available for free via the Get Free Key system",
+            "More features and improvements coming in future updates"
           ]
         }
       ]

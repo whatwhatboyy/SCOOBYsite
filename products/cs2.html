@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CS2 Mod Menu - Scooby | Counter-Strike 2</title>
+    <meta name="description" content="Scooby CS2 Mod Menu - Premium Counter-Strike 2 enhancement with ESP, aimbot, triggerbot, skinchanger, and advanced competitive features.">
+    <link rel="shortcut icon" href="../assets/images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/product.css">
+    <style>
+        .freekey-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(15px);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .freekey-modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+        .freekey-modal {
+            background: linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 100%);
+            border: 1px solid rgba(0, 200, 200, 0.3);
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 480px;
+            width: 90%;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            text-align: center;
+            box-shadow: 0 0 60px rgba(0, 200, 200, 0.15);
+        }
+        .freekey-modal-overlay.active .freekey-modal {
+            transform: scale(1);
+        }
+        .freekey-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 50%;
+            color: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .freekey-modal-close:hover {
+            background: rgba(255, 0, 110, 0.3);
+            color: white;
+        }
+        .freekey-countdown {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(0, 200, 200, 0.2) 0%, rgba(0, 180, 180, 0.2) 100%);
+            border: 3px solid #00d4d4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #00d4d4;
+            box-shadow: 0 0 30px rgba(0, 200, 200, 0.3);
+        }
+        .freekey-modal h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, #00c8c8 0%, #009999 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        .freekey-steps {
+            text-align: left;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 16px;
+            padding: 20px 25px;
+            margin-bottom: 25px;
+        }
+        .freekey-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .freekey-step:last-child {
+            border-bottom: none;
+        }
+        .freekey-step-num {
+            width: 24px;
+            height: 24px;
+            min-width: 24px;
+            background: linear-gradient(135deg, #00d4d4, #00a0a0);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: white;
+        }
+        .freekey-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, #00d4d4, #00a0a0);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 200, 200, 0.3);
+            margin-bottom: 20px;
+        }
+        .freekey-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 200, 200, 0.5);
+        }
+        .freekey-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .freekey-tip {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            border-radius: 12px;
+            padding: 12px 16px;
+            color: #ffc107;
+            font-size: 0.85rem;
+        }
+        .freekey-tip svg {
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="../index.html" class="logo">SCOOBY</a>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#features">Features</a></li>
+            <li><a href="../index.html#pricing">Pricing</a></li>
+            <li><a href="../videos.html">Videos</a></li>
+            <li><a href="https://discord.gg/XDwmFTJW2P" target="_blank">Discord</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="images/CS2.jpg" alt="Counter-Strike 2" class="hero-image">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="badge-group">
+                <span class="product-badge free">Free Product</span>
+                <span class="product-badge" style="background: rgba(139, 92, 246, 0.15); border-color: rgba(139, 92, 246, 0.4); color: #a78bfa;">Paid Coming Soon</span>
+            </div>
+            <h1>CS2 Mod Menu</h1>
+            <p>Premium Counter-Strike 2 enhancement featuring ESP, aimbot, triggerbot, skinchanger, and advanced competitive features for dominating every match.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="content-grid">
+            <!-- Screenshots Section -->
+            <div class="screenshots-section">
+                <h2 class="section-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                        <polyline points="21 15 16 10 5 21"></polyline>
+                    </svg>
+                    Screenshots
+                </h2>
+                <div class="screenshot-gallery">
+                    <div class="screenshot-item main placeholder">
+                        <div class="placeholder-content">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                <polyline points="21 15 16 10 5 21"></polyline>
+                            </svg>
+                            <span>Screenshots Coming Soon</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Purchase Card -->
+                <div class="purchase-card">
+                    <div class="status-badge">
+                        <span class="status-dot"></span>
+                        Online & Undetected
+                    </div>
+
+                    <div class="price-display">
+                        <div class="price-label">Current Access</div>
+                        <div class="price" style="color: #4ade80;">FREE</div>
+                        <div class="price-note">Paid early access coming soon</div>
+                    </div>
+
+                    <div style="position: relative;">
+                        <button class="purchase-btn" disabled style="filter: blur(3px); opacity: 0.4; pointer-events: none; cursor: not-allowed;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                            Purchase Now
+                        </button>
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: 'Orbitron', sans-serif; font-size: 0.75rem; font-weight: 600; color: #a78bfa; letter-spacing: 1px; text-transform: uppercase; white-space: nowrap;">Coming Soon</div>
+                    </div>
+                    <a href="#" onclick="openFreeKeyModal(); return false;" class="purchase-btn free-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                            <polyline points="10 17 15 12 10 7"></polyline>
+                            <line x1="15" y1="12" x2="3" y2="12"></line>
+                        </svg>
+                        Get Free Key
+                    </a>
+
+                    <ul class="features-list">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            ESP / Wallhacks
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Aimbot
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Triggerbot
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Skinchanger <span style="font-size: 0.65rem; color: #a78bfa; margin-left: 4px; opacity: 0.8;">(Coming Soon)</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            No Recoil
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Instant Delivery
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video Section -->
+        <div class="video-section">
+            <h2 class="section-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                Showcase Video
+            </h2>
+            <div class="video-container">
+                <div class="video-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    <span>Video coming soon</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Description Section -->
+        <div class="description-section">
+            <h2 class="section-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+                Product Description
+            </h2>
+            <div class="description-content">
+                <h3>Overview</h3>
+                <p>Scooby CS2 is a premium enhancement tool for Counter-Strike 2. Designed for competitive and casual players alike, it delivers powerful features with a clean, easy-to-use interface. Dominate every match with our advanced ESP, precision aimbot, and much more.</p>
+
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>ESP / Wallhacks</strong> - See enemies through walls with health bars, distance, and weapon info</li>
+                    <li><strong>Aimbot</strong> - Precision aim assistance with configurable FOV, smoothing, and bone selection</li>
+                    <li><strong>Triggerbot</strong> - Automatically fires when crosshair is on an enemy</li>
+                    <li><strong>No Recoil</strong> - Eliminate weapon recoil and spread for perfect accuracy</li>
+                    <li><strong>Skinchanger</strong> <em style="color: #a78bfa;">(Coming Soon)</em> - Use any skin in-game including knives and gloves</li>
+                    <li><strong>Radar</strong> - Enhanced radar showing all enemy positions</li>
+                    <li><strong>Bhop</strong> - Automated bunny hopping for maximum movement speed</li>
+                    <li><strong>Chams</strong> - Colored player models visible through walls</li>
+                </ul>
+
+                <h3>Compatibility</h3>
+                <p>Scooby CS2 works with the latest version of Counter-Strike 2. Compatible with Matchmaking, Premier, Wingman, and casual game modes. Regularly updated to stay undetected after game patches.</p>
+
+                <h3>Safety</h3>
+                <p>Our CS2 enhancement is built with security as a top priority. We use advanced anti-detection methods to keep you safe from VAC and other anti-cheat systems. Regular updates ensure continued protection.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Free Key Modal -->
+    <div class="freekey-modal-overlay" id="freeKeyModal">
+        <div class="freekey-modal">
+            <button class="freekey-modal-close" onclick="closeFreeKeyModal()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+
+            <div class="freekey-countdown" id="freeKeyCountdown">3</div>
+
+            <h3>GETTING YOUR FREE KEY</h3>
+
+            <div class="freekey-steps">
+                <div class="freekey-step">
+                    <span class="freekey-step-num">1</span>
+                    <span>Complete all the required steps on the page</span>
+                </div>
+                <div class="freekey-step">
+                    <span class="freekey-step-num">2</span>
+                    <span>Wait for the unlock progress to reach 3/3</span>
+                </div>
+                <div class="freekey-step">
+                    <span class="freekey-step-num">3</span>
+                    <span>Click the <strong style="color: #00c8c8;">"Unlock Link"</strong> button to reveal your key</span>
+                </div>
+            </div>
+
+            <div class="freekey-warning" style="display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 8px; color: #f87171; font-size: 0.85rem; margin-bottom: 20px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                <span>Ads may popup - close them and press the button again</span>
+            </div>
+
+            <a href="https://whatwhatboy.com/scoobyontop.html" target="_blank" class="freekey-btn" id="freeKeyBtn" disabled>
+                CONTINUE TO GET KEY
+            </a>
+
+            <div class="freekey-tip">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                <span>Having issues? Try using <strong>Microsoft Edge</strong> or <strong>Chrome</strong> for the best experience</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Scooby. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Free Key Modal
+        let freeKeyCountdownInterval;
+
+        function openFreeKeyModal() {
+            const modal = document.getElementById('freeKeyModal');
+            const countdown = document.getElementById('freeKeyCountdown');
+            const btn = document.getElementById('freeKeyBtn');
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            countdown.textContent = '3';
+            countdown.style.color = '#00d4d4';
+            btn.disabled = true;
+            btn.textContent = 'PLEASE WAIT...';
+
+            let count = 3;
+            freeKeyCountdownInterval = setInterval(() => {
+                count--;
+                countdown.textContent = count;
+
+                if (count <= 0) {
+                    clearInterval(freeKeyCountdownInterval);
+                    countdown.innerHTML = '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+                    countdown.style.color = '#00c8c8';
+                    btn.disabled = false;
+                    btn.textContent = 'CONTINUE TO GET KEY';
+                }
+            }, 1000);
+        }
+
+        function closeFreeKeyModal() {
+            const modal = document.getElementById('freeKeyModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            clearInterval(freeKeyCountdownInterval);
+        }
+
+        document.getElementById('freeKeyModal').addEventListener('click', function(e) {
+            if (e.target === this) closeFreeKeyModal();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && document.getElementById('freeKeyModal').classList.contains('active')) {
+                closeFreeKeyModal();
+            }
+        });
+    </script>
+</body>
+</html>
