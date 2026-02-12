@@ -3740,6 +3740,7 @@
                     <li><a href="videos.html" target="_blank">Videos</a></li>
                     <li><a href="changelog.html" target="_blank">Changelog</a></li>
                     <li><a href="resellers.html" target="_blank">Resellers</a></li>
+                    <li><a href="#download" onclick="openDownloadModal()" class="login-btn" style="background: linear-gradient(135deg, #ff5555 0%, #cc4444 100%);">Download</a></li>
                     <li><a href="portal/index.html" target="_blank" class="login-btn">Login</a></li>
                 </ul>
             </div>
@@ -4591,6 +4592,11 @@
             const modal = document.getElementById('downloadModal');
             modal.classList.remove('active');
             document.body.style.overflow = '';
+        }
+
+        // Auto-open download modal if URL has #download
+        if (window.location.hash === '#download') {
+            openDownloadModal();
         }
 
         // Close download modal when clicking outside
