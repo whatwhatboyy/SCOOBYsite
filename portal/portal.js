@@ -928,9 +928,9 @@ function startOAuth(provider, action) {
     let base = document.getElementById('apiUrl').value.trim();
     if (base.endsWith('/')) base = base.slice(0, -1);
 
-    // Build redirect URI to return to current page (must be relative path for server validation)
-    const currentPath = window.location.pathname;
-    const redirectUri = encodeURIComponent(currentPath + '?portal_key=' + portalKey);
+    // Build redirect URI to return to current page (full URL for cross-domain portals)
+    const currentUrl = window.location.href.split('?')[0].split('#')[0];
+    const redirectUri = encodeURIComponent(currentUrl + '?portal_key=' + portalKey);
 
     // Build authorize URL
     let authUrl = `${base}/api/portal/v1/${portalKey}/auth/oauth/${provider}/authorize?action=${action}&redirect_uri=${redirectUri}`;
