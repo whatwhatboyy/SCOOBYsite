@@ -197,7 +197,8 @@ async function fetchSubscriptionsConfig() {
         'GTAEnhanced': 'images/GTA5Enhanced.jpg',
         'RDR': 'images/RDR2.jpg',
         'FiveM': 'images/FIVEM.jpg',
-        'Spoofer': 'images/Spoofer.jpg'
+        'Spoofer': 'images/Spoofer.jpg',
+        'GTA5BE': 'images/GTA5BE.png'
     };
 
     try {
