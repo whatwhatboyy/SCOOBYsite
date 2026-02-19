@@ -958,21 +958,6 @@ body::before {
     box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
 }
 
-@media (max-width: 700px) {
-    .tier-modal-content {
-        padding: 25px 16px;
-    }
-
-    .tier-cards {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .tier-card {
-        padding: 20px 16px;
-    }
-}
-
 @media (max-width: 480px) {
     .payment-modal-content {
         padding: 25px 20px;
