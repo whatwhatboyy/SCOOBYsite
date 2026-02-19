@@ -172,7 +172,12 @@
     <!-- Navbar -->
     <nav class="navbar">
         <a href="../index.html" class="logo">SCOOBY</a>
-        <ul class="nav-links">
+        <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMobileNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
             <li><a href="../index.html">Home</a></li>
             <li><a href="../index.html#features">Features</a></li>
             <li><a href="../index.html#pricing">Pricing</a></li>
@@ -258,8 +263,8 @@
 
                     <div class="price-display">
                         <div class="price-label">Lifetime Access</div>
-                        <div class="price"><span class="price-old">$30</span> $15</div>
-                        <div class="price-note">50% OFF - Limited Time</div>
+                        <div class="price"><span class="price-old">$25</span> $15</div>
+                        <div class="price-note">Starting Price - Limited Time</div>
                     </div>
 
                     <button onclick="openPaymentModal()" class="purchase-btn">
@@ -360,25 +365,169 @@
             </h2>
             <div class="description-content">
                 <h3>Overview</h3>
-                <p>Scooby GTA V is a premium modification menu designed for Grand Theft Auto V Online. Originally started in 2022 as a private project, it has evolved into one of the most feature-rich and user-friendly mod menus available. With over 200 features, Scooby provides everything you need for the ultimate GTA experience.</p>
+                <p>Scooby GTA V is a premium modification menu designed for Grand Theft Auto V Online. Originally started in 2022 as a private project, it has evolved into one of the most feature-rich and user-friendly mod menus available. With over 1350+ features across 8 tabs and 70+ categories, Scooby provides everything you need for the ultimate GTA experience.</p>
 
-                <h3>Key Features</h3>
+                <h3>Self & Player Options</h3>
                 <ul>
-                    <li><strong>Heist Editor</strong> - Customize and modify heist payouts including Cayo Perico and Casino heists</li>
-                    <li><strong>Money Recovery</strong> - Safely boost your in-game finances with our recovery options</li>
-                    <li><strong>Modded Vehicles</strong> - Spawn and customize vehicles with exclusive modifications</li>
-                    <li><strong>Modded Outfits</strong> - Access exclusive clothing combinations and rare items</li>
-                    <li><strong>Teleportation</strong> - Instantly travel anywhere on the map</li>
-                    <li><strong>Player Options</strong> - Godmode, super jump, fast run, and more</li>
-                    <li><strong>Vehicle Options</strong> - Vehicle godmode, speed boost, fly mode</li>
-                    <li><strong>Lua Scripts</strong> - Extend functionality with custom scripts</li>
+                    <li><strong>Godmode & Health</strong> - Godmode, no ragdoll, anti-headshot, health regen, auto heal, auto armor, and more</li>
+                    <li><strong>Movement</strong> - Super run, super jump, beast jump, noclip, and movement multipliers</li>
+                    <li><strong>Powers</strong> - Invisibility, off-radar, ghost mode, never wanted, and ped control options</li>
+                    <li><strong>Model Changer</strong> - Change your player model to any ped, animal, or custom model in the game</li>
+                    <li><strong>Outfit Editor</strong> - Access exclusive clothing combinations, rare items, and modded outfits</li>
+                    <li><strong>Teleportation</strong> - Instantly travel anywhere on the map with preset locations and custom coordinates</li>
                 </ul>
 
+                <h3>Weapons & Combat</h3>
+                <ul>
+                    <li><strong>Weapon Mods</strong> - Infinite ammo, rapid fire, explosive ammo, fire ammo, no recoil, no spread, and damage overrides</li>
+                    <li><strong>Aimbot Suite</strong> - Full aimbot with rage/legit presets, silent aim, triggerbot, and magic bullet</li>
+                    <li><strong>Custom Weapons</strong> - Gravity gun, vehicle gun, paint gun, teleport gun, delete gun, airstrike gun, money gun, and repair gun</li>
+                    <li><strong>Visuals</strong> - Laser sight, tracer rounds with rainbow mode, and explosive headshots</li>
+                    <li><strong>ESP System</strong> - Full ESP for players, peds, vehicles, weapons, and objects with box, skeleton, traceline, health bars, and chams</li>
+                    <li><strong>Crosshair</strong> - Custom crosshair overlay with full customization</li>
+                </ul>
+
+                <h3>Vehicle Features</h3>
+                <ul>
+                    <li><strong>Vehicle Mods</strong> - Vehicle godmode, speed boost, fly mode, and handling editor</li>
+                    <li><strong>Vehicle Spawner</strong> - Spawn any vehicle in the game with instant delivery</li>
+                    <li><strong>Vehicle Editor (LSC Style)</strong> - Full Los Santos Customs style editor for paint, wheels, performance, and more</li>
+                    <li><strong>Saved Vehicles</strong> - Save and load your favorite vehicle configurations</li>
+                    <li><strong>Handling Editor</strong> - Fine-tune acceleration, braking, traction, suspension, and all vehicle physics</li>
+                </ul>
+
+                <h3>Recovery & Money</h3>
+                <ul>
+                    <li><strong>Money Recovery</strong> - 500K and 750K money loops, nightclub safe loop ($300K/cycle)</li>
+                    <li><strong>Rank Editor</strong> - Set your rank instantly (1-8000), crew rank, LS Car Meet rep, and Arena War AP</li>
+                    <li><strong>Stats Editor</strong> - K/D editor, max all stats, and individual stat controls</li>
+                    <li><strong>Unlocks</strong> - Unlock all weapons, seasonal items, GTA+, and more</li>
+                    <li><strong>Cooldowns</strong> - Reset and bypass various in-game cooldowns</li>
+                </ul>
+
+                <h3>Heist Tools</h3>
+                <ul>
+                    <li><strong>Cayo Perico</strong> - Custom cuts, primary target selection, skip hacking, instant finish, and value editing</li>
+                    <li><strong>Diamond Casino</strong> - Player cuts, approach/target/difficulty selection</li>
+                    <li><strong>Doomsday</strong> - Full heist control with act selection and cut editing</li>
+                    <li><strong>Apartment Heists</strong> - Custom setups, loots, and player cuts</li>
+                    <li><strong>Mission Manager</strong> - Skip to checkpoints, instant finish, solo missions, RP/money multipliers</li>
+                </ul>
+
+                <h3>Business Manager</h3>
+                <ul>
+                    <li><strong>Business Controls</strong> - Register as CEO/VIP/MC President, claim safe earnings from all businesses</li>
+                    <li><strong>Nightclub, Bunker, MC</strong> - Manage stock, supplies, and production for all your businesses</li>
+                    <li><strong>Business Teleports</strong> - Instantly teleport to any owned business property</li>
+                </ul>
+
+                <h3>Network & Session</h3>
+                <ul>
+                    <li><strong>Session Control</strong> - Join any session type, join by username or Rockstar ID, fast join</li>
+                    <li><strong>Player Actions</strong> - Friendly options (heal all, give weapons, clear wanted) and lobby controls</li>
+                    <li><strong>Spoofing</strong> - Spoof your name, Rockstar ID, and other player info</li>
+                    <li><strong>Services</strong> - Request MOC, Avenger, Terrorbyte, Kosatka, and more instantly</li>
+                </ul>
+
+                <h3>Protection</h3>
+                <ul>
+                    <li><strong>Anti-Kick</strong> - Block all kicks including host kick, vote kick, script kick, and desync kick</li>
+                    <li><strong>Anti-Crash</strong> - Block all crash attempts, invalid models, invalid syncs, and task crashes</li>
+                    <li><strong>Anti-Modder</strong> - Detect modders, mark them on player list, auto-kick, and notification alerts</li>
+                    <li><strong>Event Filtering</strong> - Full script event and network event filtering with logging</li>
+                    <li><strong>Misc Protection</strong> - Block remote teleport, cages, bounty setting, sound spam, explosions, and more</li>
+                </ul>
+
+                <h3>World & Fun</h3>
+                <ul>
+                    <li><strong>World Control</strong> - Time/weather control, blackout, gravity modification, and chaos mode</li>
+                    <li><strong>Destruction</strong> - Black hole, tsunami, nuke, meteor, airstrike, angry planes, and fireworks</li>
+                    <li><strong>Spawner & Creator</strong> - Spawn and manipulate objects, peds, and props in the world</li>
+                    <li><strong>Lua Scripts</strong> - Extend functionality with custom Lua scripts and community-created content</li>
+                </ul>
+
+                <h3>Premium vs Premium Plus</h3>
+                <p><strong>Premium</strong> includes all 1350+ features, heist editor, money recovery, modded vehicles, and works on both Legacy and Enhanced editions with BattlEye Disabled (Host) mode.</p>
+                <p><strong>Premium Plus</strong> unlocks everything in Premium along with full BattlEye Enabled support, allowing you to play in public lobbies and with friends without restrictions. You also get exclusive features not available in the standard Premium tier.</p>
+                <p>Already own Premium? You can upgrade to Premium Plus at a discounted rate without losing your existing license.</p>
+
                 <h3>Compatibility</h3>
-                <p>Scooby works with both GTA V Legacy and GTA V Enhanced editions. It's designed to work in public lobbies, allowing you to play with friends and other players. The menu supports BattlEye Disabled (Host) and BattlEye Enabled modes.</p>
+                <p>Scooby works with both GTA V Legacy and GTA V Enhanced editions. Premium supports BattlEye Disabled (Host) mode, while Premium Plus adds full BattlEye Enabled support for public lobbies and playing with friends.</p>
 
                 <h3>Safety</h3>
                 <p>Our menu is regularly updated to maintain undetected status. We take security seriously and continuously work to keep our users safe while using Scooby.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tier Selection Modal -->
+    <div class="payment-modal" id="tierModal">
+        <div class="tier-modal-content">
+            <button class="payment-modal-close" onclick="closeTierModal()">&times;</button>
+
+            <div class="payment-modal-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+            </div>
+
+            <h2 class="payment-modal-title">Choose Your Plan</h2>
+
+            <div class="tier-cards">
+                <!-- Premium -->
+                <div class="tier-card" onclick="selectTier('premium')">
+                    <div class="tier-card-badge">Popular</div>
+                    <h3 class="tier-card-name">Premium</h3>
+                    <div class="tier-card-price">
+                        <span class="tier-price-old">$25</span>
+                        <span class="tier-price-current">$15</span>
+                    </div>
+                    <ul class="tier-card-features">
+                        <li>500+ Features</li>
+                        <li>Heist Editor</li>
+                        <li>Money Recovery</li>
+                        <li>Legacy & Enhanced</li>
+                        <li>Lifetime Access</li>
+                    </ul>
+                    <div class="tier-card-btn">Purchase</div>
+                </div>
+
+                <!-- Premium Plus -->
+                <div class="tier-card tier-card-featured" onclick="selectTier('premium-plus')">
+                    <div class="tier-card-badge featured">Best Value</div>
+                    <h3 class="tier-card-name">Premium Plus</h3>
+                    <div class="tier-card-price">
+                        <span class="tier-price-old">$40</span>
+                        <span class="tier-price-current">$25</span>
+                    </div>
+                    <ul class="tier-card-features">
+                        <li>Everything in Premium</li>
+                        <li>Battleye Enabled Support</li>
+                        <li>Public Lobbies & Play with Friends</li>
+                        <li>Exclusive Features</li>
+                        <li>Lifetime Access</li>
+                    </ul>
+                    <div class="tier-card-btn">Purchase</div>
+                </div>
+
+                <!-- Upgrade -->
+                <div class="tier-card tier-card-upgrade" onclick="selectTier('upgrade')">
+                    <div class="tier-card-badge upgrade">Upgrade</div>
+                    <div class="tier-card-upgrade-note">Already have Premium?</div>
+                    <h3 class="tier-card-name">Upgrade to Plus</h3>
+                    <div class="tier-card-price">
+                        <span class="tier-price-old">$15</span>
+                        <span class="tier-price-current">$10</span>
+                    </div>
+                    <ul class="tier-card-features">
+                        <li>Unlock Plus Features</li>
+                        <li>Battleye Enabled Support</li>
+                        <li>Public Lobbies & Play with Friends</li>
+                    </ul>
+                    <div class="tier-card-btn">Purchase</div>
+                </div>
             </div>
         </div>
     </div>
@@ -403,7 +552,7 @@
                     <h3>Credit Card & Digital Wallets</h3>
                     <p>Instant Delivery • Secure Payment</p>
                 </div>
-                <a href="https://fusiondash.myshopify.com/products/scooby-premium" target="_blank" class="payment-btn card-btn">
+                <a id="cardPaymentLink" href="https://fusiondash.myshopify.com/products/scooby-premium" target="_blank" class="payment-btn card-btn">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="9" cy="21" r="1"></circle>
                         <circle cx="20" cy="21" r="1"></circle>
@@ -550,24 +699,52 @@
             if (e.key === 'ArrowLeft') prevImage();
         });
 
-        // Payment Modal
+        // Tier URLs
+        const tierLinks = {
+            'premium': 'https://fusiondash.myshopify.com/products/scooby-premium',
+            'premium-plus': 'https://fusiondash.myshopify.com/products/scooby-premium-plus-gta-legacy-enhanced',
+            'upgrade': 'https://fusiondash.myshopify.com/products/upgrade-from-premium-to-premium-plus-scoobygta'
+        };
+
+        // Tier Selection Modal
         function openPaymentModal() {
+            document.getElementById('tierModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeTierModal() {
+            document.getElementById('tierModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function selectTier(tier) {
+            document.getElementById('cardPaymentLink').href = tierLinks[tier];
+            closeTierModal();
             document.getElementById('paymentModal').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
 
+        // Payment Modal
         function closePaymentModal() {
             document.getElementById('paymentModal').classList.remove('active');
             document.body.style.overflow = '';
         }
+
+        document.getElementById('tierModal').addEventListener('click', function(e) {
+            if (e.target === this) closeTierModal();
+        });
 
         document.getElementById('paymentModal').addEventListener('click', function(e) {
             if (e.target === this) closePaymentModal();
         });
 
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && document.getElementById('paymentModal').classList.contains('active')) {
-                closePaymentModal();
+            if (e.key === 'Escape') {
+                if (document.getElementById('paymentModal').classList.contains('active')) {
+                    closePaymentModal();
+                } else if (document.getElementById('tierModal').classList.contains('active')) {
+                    closeTierModal();
+                }
             }
         });
 
@@ -654,6 +831,10 @@
                 closeFreeKeyModal();
             }
         });
+    </script>
+    <script>
+    function toggleMobileNav(){var b=document.getElementById('hamburgerBtn'),n=document.getElementById('navLinks');b.classList.toggle('active');n.classList.toggle('mobile-open');document.body.style.overflow=n.classList.contains('mobile-open')?'hidden':'';}
+    document.querySelectorAll('#navLinks a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('hamburgerBtn').classList.remove('active');document.getElementById('navLinks').classList.remove('mobile-open');document.body.style.overflow='';});});
     </script>
 </body>
 </html>

@@ -168,7 +168,12 @@
     <!-- Navbar -->
     <nav class="navbar">
         <a href="../index.html" class="logo">SCOOBY</a>
-        <ul class="nav-links">
+        <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMobileNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
             <li><a href="../index.html">Home</a></li>
             <li><a href="../index.html#features">Features</a></li>
             <li><a href="../index.html#pricing">Pricing</a></li>
@@ -308,11 +313,8 @@
                 Showcase Video
             </h2>
             <div class="video-container">
-                <div class="video-placeholder">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                    <span>Video coming soon</span>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/5DdZtnQuK9k" title="Scooby RDR2 Mod Menu Showcase" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -330,16 +332,93 @@
             </h2>
             <div class="description-content">
                 <h3>Overview</h3>
-                <p>Scooby RDR2 is a premium Red Dead Redemption 2 Online mod menu with the same quality and features you've come to expect from Scooby.</p>
+                <p>Scooby RDR2 is a premium Red Dead Redemption 2 Online mod menu packed with features across 6 main tabs. From self protection and weapons to world control, recovery, and a full Lua scripting engine, Scooby delivers the most complete RDR2 Online experience available.</p>
 
-                <h3>Features</h3>
+                <h3>Self & Player Options</h3>
                 <ul>
-                    <li><strong>Money Recovery</strong> - Boost your in-game gold and cash safely</li>
-                    <li><strong>Horse Spawner</strong> - Spawn any horse including rare breeds</li>
-                    <li><strong>Outfit Editor</strong> - Create unique outfits with exclusive items</li>
-                    <li><strong>Weapon Modifications</strong> - Enhanced weapons with special abilities</li>
-                    <li><strong>Player Options</strong> - Godmode, infinite stamina, and more</li>
-                    <li><strong>Teleportation</strong> - Fast travel anywhere on the map</li>
+                    <li><strong>Protection</strong> - God mode, no ragdoll, anti lasso, anti hogtie, anti melee, and anti AFK</li>
+                    <li><strong>Visibility</strong> - Invisible, off the radar, and never wanted</li>
+                    <li><strong>Health & Stamina</strong> - Keep all bars and cores filled, auto heal, infinite stamina, unlimited oxygen, fireproof, explosion proof</li>
+                    <li><strong>Movement</strong> - Super run, super jump, walk on water, swim fast, superman flight, noclip, and free cam</li>
+                    <li><strong>Tools</strong> - Clone self, NPC ignore, whistle override, player scale (0.1 - 5.0), slow motion, and eagle eye</li>
+                    <li><strong>Animations</strong> - Play any animation or emote with full dictionary support</li>
+                </ul>
+
+                <h3>Weapons & Combat</h3>
+                <ul>
+                    <li><strong>Ammo Types</strong> - Infinite ammo/clip, fire, explosive, electric, poison, penetration, and homing ammo</li>
+                    <li><strong>Accuracy & Damage</strong> - No spread, no recoil, steady aim, one hit kill, and damage scale overrides</li>
+                    <li><strong>Special Guns</strong> - Delete gun, teleport gun, gravity gun, freeze gun, heal gun, burn gun, launch gun, push gun, ragdoll gun, shrink/enlarge gun, and airstrike gun</li>
+                    <li><strong>Aimbot Suite</strong> - Full aimbot with FOV, smoothing, and auto fire. Silent aim with through-walls support. Magic bullet with custom range and damage. Triggerbot with burst fire and magnet aim</li>
+                    <li><strong>Combat Features</strong> - Auto cock, rapid fire, quick draw, keep guns clean, and infinite dead eye</li>
+                </ul>
+
+                <h3>Horse & Vehicle</h3>
+                <ul>
+                    <li><strong>Horse Protection</strong> - Horse god mode, no ragdoll, no fall damage, never buck</li>
+                    <li><strong>Horse Movement</strong> - Super run, infinite stamina, climb steep slopes, walk on water</li>
+                    <li><strong>Horse Appearance</strong> - Keep clean, flaming hooves, horse scale, and auto-filled bars and cores</li>
+                    <li><strong>Vehicle Options</strong> - Vehicle god mode, invisible, no collision, lock doors, super drive, fly mode, and speed boost</li>
+                </ul>
+
+                <h3>Teleportation</h3>
+                <ul>
+                    <li><strong>Quick Teleport</strong> - TP to waypoint, mount, Madam Nazar, camp, moonshine shack, and train track</li>
+                    <li><strong>Towns</strong> - Instant teleport to Valentine, Saint Denis, Blackwater, Rhodes, Strawberry, Annesburg, Van Horn, Tumbleweed, Armadillo, and more</li>
+                    <li><strong>Saved Locations</strong> - Save and organize custom teleport locations with categories</li>
+                </ul>
+
+                <h3>Player Management</h3>
+                <ul>
+                    <li><strong>Player Info</strong> - View name, health, distance, rank, honor, language, Rockstar ID, IP address (with spoof detection), latency, packet loss, region, and more</li>
+                    <li><strong>Player Actions</strong> - Spectate, ghost mode, teleport to/behind player, bring player, spawn gold chest, spawn bounty/hunting wagons</li>
+                    <li><strong>Trolling</strong> - Kill, explode, lightning, remote bolas, cages, attachments (spank, ride on shoulders, slap), kick off horse, and more</li>
+                    <li><strong>Kick Methods</strong> - Split kick, pop kick, and ice kick</li>
+                    <li><strong>Moderation</strong> - Mark as modder, trusted flag, block join, and full player database</li>
+                </ul>
+
+                <h3>World & Fun</h3>
+                <ul>
+                    <li><strong>World Control</strong> - Weather/time control, blackout, disable guard zones, ped control, honor editing, and map editor</li>
+                    <li><strong>Bodyguard System</strong> - Spawn ped or animal bodyguards with weapon selection, formations, combat styles, god mode, and per-bodyguard management</li>
+                    <li><strong>Spawners</strong> - Full ped, animal (12 categories including legendaries), vehicle, object (11 categories), and train spawners with preview and customization</li>
+                    <li><strong>Theater Shows</strong> - Trigger 13 different shows including cancan, fire dance, snake dance, sword dance, and more</li>
+                    <li><strong>Minigames</strong> - Undead Nightmare mode with zombie variety and boss zombies, quick draw duels, and hunting challenges with legendary spawns</li>
+                    <li><strong>Fun Features</strong> - Hot air balloon, ragdoll/launch/ignite peds, chaos mode, bar fight, stampede, tornado, meteor shower, reverse gravity, and matrix mode</li>
+                </ul>
+
+                <h3>Visuals & ESP</h3>
+                <ul>
+                    <li><strong>Player ESP</strong> - Box, name, distance, health bar, skeleton, traceline, weapon name, head dot, and chams</li>
+                    <li><strong>Ped & Animal ESP</strong> - Full ESP support for all peds and animals with customizable display</li>
+                    <li><strong>Vehicle & Object ESP</strong> - Track vehicles and objects with box, name, distance, and traceline</li>
+                    <li><strong>ESP Settings</strong> - Per-type range control, color customization, text settings, performance options, and keybinds</li>
+                </ul>
+
+                <h3>Network & Session</h3>
+                <ul>
+                    <li><strong>Session Control</strong> - New session, posse session, reveal all players, lock lobby, and disable camp raids</li>
+                    <li><strong>All Players Actions</strong> - Bring all, heal all, give weapons, explode all, cage all, and more</li>
+                    <li><strong>Voice Chat</strong> - Hear all, force send, hide sender, voice spoofing, and voice file playback</li>
+                    <li><strong>Spoofing</strong> - Spoof name (with color/icon prefix), IP, Rockstar ID, map blip, and session discriminator</li>
+                    <li><strong>Protection</strong> - Block spectate, attach, vehicle flood, explosions, PTFX, honor manipulation, ticker spam, and more</li>
+                </ul>
+
+                <h3>Recovery</h3>
+                <ul>
+                    <li><strong>Spawn Items</strong> - 17 item types including heirlooms, coins, tarot cards, fossils, eggs, treasure, capitale, and 40+ herbs</li>
+                    <li><strong>XP Loops</strong> - 25K XP loop plus role-specific XP loops for Moonshiner, Trader, Collector, Naturalist, and Bounty Hunter</li>
+                    <li><strong>Collectible Loops</strong> - Auto-collect coins, heirlooms, tarot cards, alcohol, arrowheads, bracelets, earrings, necklaces, rings, fossils, and eggs</li>
+                    <li><strong>Unlocks</strong> - Unlock all roles, outlaw passes (1-5), Halloween pass, quick draw passes, free roam awards, competitive awards, and role awards</li>
+                    <li><strong>Misc Unlocks</strong> - Wilderness camp, stew pot, weapon locker, dog, fast travel post, hunting/bounty/delivery wagons, metal detector, and more</li>
+                </ul>
+
+                <h3>Settings & Customization</h3>
+                <ul>
+                    <li><strong>GUI</strong> - Overlay with FPS counter, session info, pool info, hotkey list, and context menu for players/peds/vehicles/objects</li>
+                    <li><strong>Lua Scripts</strong> - Full script manager with syntax-highlighted editor, 26 API modules, console output, and documentation</li>
+                    <li><strong>Language Support</strong> - Multi-language selector with font download manager</li>
+                    <li><strong>Hotkeys</strong> - Fully customizable keybinds for all commands</li>
                 </ul>
             </div>
         </div>
@@ -571,6 +650,10 @@
         document.getElementById('freeKeyModal').addEventListener('click', function(e) {
             if (e.target === this) closeFreeKeyModal();
         });
+    </script>
+    <script>
+    function toggleMobileNav(){var b=document.getElementById('hamburgerBtn'),n=document.getElementById('navLinks');b.classList.toggle('active');n.classList.toggle('mobile-open');document.body.style.overflow=n.classList.contains('mobile-open')?'hidden':'';}
+    document.querySelectorAll('#navLinks a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('hamburgerBtn').classList.remove('active');document.getElementById('navLinks').classList.remove('mobile-open');document.body.style.overflow='';});});
     </script>
 </body>
 </html>

@@ -15,7 +15,12 @@
     <!-- Navbar -->
     <nav class="navbar">
         <a href="../index.html" class="logo">SCOOBY</a>
-        <ul class="nav-links">
+        <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMobileNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
             <li><a href="../index.html">Home</a></li>
             <li><a href="../index.html#features">Features</a></li>
             <li><a href="../index.html#pricing">Pricing</a></li>
@@ -176,5 +181,9 @@
     <footer class="footer">
         <p>&copy; 2026 Scooby. All rights reserved.</p>
     </footer>
+    <script>
+    function toggleMobileNav(){var b=document.getElementById('hamburgerBtn'),n=document.getElementById('navLinks');b.classList.toggle('active');n.classList.toggle('mobile-open');document.body.style.overflow=n.classList.contains('mobile-open')?'hidden':'';}
+    document.querySelectorAll('#navLinks a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('hamburgerBtn').classList.remove('active');document.getElementById('navLinks').classList.remove('mobile-open');document.body.style.overflow='';});});
+    </script>
 </body>
 </html>
