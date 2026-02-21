@@ -96,6 +96,21 @@ body::before {
     color: var(--accent-cyan);
 }
 
+.nav-links a.download-btn {
+    background: linear-gradient(135deg, #ff5555 0%, #cc4444 100%);
+    color: #fff;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 85, 85, 0.35);
+    color: #fff;
+}
+
 /* Hero Section */
 .hero {
     position: relative;
