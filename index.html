@@ -336,6 +336,23 @@
         color: var(--accent-cyan);
     }
 
+    .navbar-nav-custom li a.download-btn {
+        background: rgba(0, 212, 212, 0.1);
+        border: 1px solid rgba(0, 212, 212, 0.4);
+        color: var(--accent-cyan);
+        font-weight: 600;
+        padding: 10px 22px;
+        border-radius: 8px;
+        margin-left: 8px;
+    }
+
+    .navbar-nav-custom li a.download-btn:hover {
+        background: rgba(0, 212, 212, 0.2);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 212, 212, 0.25);
+        color: var(--accent-cyan);
+    }
+
     .navbar-nav-custom li a.login-btn {
         background: var(--accent-gradient);
         color: #000;
@@ -425,6 +442,10 @@
             padding: 14px 20px;
             font-size: 1rem;
             border-radius: 10px;
+        }
+        .navbar-nav-custom li a.download-btn {
+            margin-left: 0;
+            margin-top: 5px;
         }
         .navbar-nav-custom li a.login-btn {
             margin-left: 0;
@@ -4254,6 +4275,7 @@
                     <li><a href="videos.html" target="_blank" rel="noopener noreferrer">Videos</a></li>
                     <li><a href="changelog.html" target="_blank" rel="noopener noreferrer">Changelog</a></li>
                     <li><a href="resellers.html" target="_blank" rel="noopener noreferrer">Resellers</a></li>
+                    <li><a href="#" onclick="openDownloadModal(); return false;" class="download-btn">Download</a></li>
                     <li><a href="portal/index.html" target="_blank" rel="noopener noreferrer" class="login-btn">Login</a></li>
                 </ul>
             </div>
