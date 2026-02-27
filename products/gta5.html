@@ -700,11 +700,26 @@
             if (e.key === 'ArrowLeft') prevImage();
         });
 
-        // Tier URLs
+        // Tier URLs - rotates between two stores every 10 hours
+        const tierStores = {
+            'premium': [
+                'https://fusiondash.myshopify.com/products/scooby-premium',
+                'https://scoobyfunny.myshopify.com/products/scooby-gta-v-lifetime-legacy-enhanced'
+            ],
+            'premium-plus': [
+                'https://fusiondash.myshopify.com/products/scooby-premium-plus-gta-legacy-enhanced',
+                'https://scoobyfunny.myshopify.com/products/scooby-premium-plus-gta'
+            ],
+            'upgrade': [
+                'https://fusiondash.myshopify.com/products/upgrade-from-premium-to-premium-plus-scoobygta',
+                'https://scoobyfunny.myshopify.com/products/upgrade-from-premium-to-premium-plus-scooby-gta'
+            ]
+        };
+        const storeIndex = Math.floor(Date.now() / (10 * 60 * 60 * 1000)) % 2;
         const tierLinks = {
-            'premium': 'https://scoobyfunny.myshopify.com/products/scooby-gta-v-lifetime-legacy-enhanced',
-            'premium-plus': 'https://scoobyfunny.myshopify.com/products/scooby-premium-plus-gta',
-            'upgrade': 'https://scoobyfunny.myshopify.com/products/upgrade-from-premium-to-premium-plus-scooby-gta'
+            'premium': tierStores['premium'][storeIndex],
+            'premium-plus': tierStores['premium-plus'][storeIndex],
+            'upgrade': tierStores['upgrade'][storeIndex]
         };
 
         // Tier Selection Modal
@@ -749,25 +764,25 @@
             }
         });
 
-        // Countdown Timer - 10 hours from first visit
+        // Countdown Timer - 22 hours, auto-resets when expired
         function initCountdown() {
             const storageKey = 'scooby_sale_end';
-            let endTime = localStorage.getItem(storageKey);
+            const duration = 22 * 60 * 60 * 1000;
+            let endTime = Number(localStorage.getItem(storageKey));
 
-            if (!endTime) {
-                endTime = Date.now() + (10 * 60 * 60 * 1000);
+            if (!endTime || Date.now() >= endTime) {
+                endTime = Date.now() + duration;
                 localStorage.setItem(storageKey, endTime);
             }
 
             function updateCountdown() {
                 const now = Date.now();
-                const remaining = endTime - now;
+                let remaining = endTime - now;
 
                 if (remaining <= 0) {
-                    document.getElementById('hours').textContent = '00';
-                    document.getElementById('minutes').textContent = '00';
-                    document.getElementById('seconds').textContent = '00';
-                    return;
+                    endTime = now + duration;
+                    localStorage.setItem(storageKey, endTime);
+                    remaining = endTime - now;
                 }
 
                 const hours = Math.floor(remaining / (1000 * 60 * 60));
