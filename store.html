@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Store - Scooby | Purchase Mod Menus</title>
+<meta name="description" content="Browse and purchase Scooby mod menus for GTA 5, RDR2, CS2, GMOD, FiveM, RedM and more. Premium game enhancements with instant delivery.">
+<link rel="shortcut icon" href="assets/images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --bg-primary: #0a0a0f;
+        --bg-secondary: #0f0f16;
+        --bg-card: #14141c;
+        --bg-card-hover: #1a1a24;
+        --accent-cyan: #00d4d4;
+        --accent-purple: #00b8b8;
+        --accent-pink: #009999;
+        --accent-gradient: linear-gradient(135deg, #00e5e5 0%, #00c8c8 50%, #00a0a0 100%);
+        --accent-glow: rgba(0, 212, 212, 0.5);
+        --text-primary: #ffffff;
+        --text-secondary: #8a8a9a;
+        --border-color: #2a2a3a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--bg-primary); color: var(--text-primary);
+        min-height: 100vh; overflow-x: hidden;
+    }
+
+    body::before {
+        content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background:
+            radial-gradient(ellipse at 20% 20%, rgba(0, 212, 212, 0.08) 0%, transparent 50%),
+            radial-gradient(ellipse at 80% 80%, rgba(0, 180, 180, 0.06) 0%, transparent 50%),
+            radial-gradient(ellipse at 50% 50%, rgba(0, 150, 150, 0.04) 0%, transparent 70%);
+        pointer-events: none; z-index: 0;
+        animation: bgPulse 15s ease-in-out infinite alternate;
+    }
+
+    @keyframes bgPulse { 0% { opacity: 0.6; } 100% { opacity: 1; } }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-primary); }
+    ::-webkit-scrollbar-thumb { background: var(--accent-gradient); border-radius: 10px; }
+
+    /* Particles */
+    .particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: hidden; }
+    .particle {
+        position: absolute; width: 4px; height: 4px; background: var(--accent-cyan);
+        border-radius: 50%; opacity: 0; animation: floatP 20s infinite;
+        box-shadow: 0 0 10px var(--accent-glow);
+    }
+    @keyframes floatP {
+        0% { opacity: 0; transform: translateY(100vh) scale(0); }
+        10% { opacity: 0.5; } 90% { opacity: 0.5; }
+        100% { opacity: 0; transform: translateY(-100vh) scale(1); }
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar-custom {
+        position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+        backdrop-filter: blur(25px) saturate(180%);
+        -webkit-backdrop-filter: blur(25px) saturate(180%);
+        background: linear-gradient(180deg, rgba(6, 6, 10, 0.95) 0%, rgba(10, 10, 16, 0.92) 100%);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+    }
+    .navbar-custom::before {
+        content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+        background: linear-gradient(90deg, transparent 0%, rgba(0, 212, 212, 0.3) 15%, var(--accent-cyan) 50%, rgba(0, 212, 212, 0.3) 85%, transparent 100%);
+        animation: navGlow 3s ease-in-out infinite;
+    }
+    @keyframes navGlow { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+    .navbar-inner {
+        max-width: 1400px; margin: 0 auto; padding: 0 40px;
+        display: flex; align-items: center; justify-content: space-between; height: 70px;
+    }
+    .navbar-brand-text {
+        font-family: 'Orbitron', sans-serif; font-size: 1.6rem; font-weight: 900;
+        color: transparent !important;
+        background: linear-gradient(135deg, #00ffff, #00d4d4 50%, #00b8b8);
+        -webkit-background-clip: text; background-clip: text;
+        text-decoration: none; letter-spacing: 5px;
+        filter: drop-shadow(0 0 15px rgba(0, 212, 212, 0.4));
+        transition: all 0.4s ease;
+    }
+    .navbar-brand-text:hover { letter-spacing: 7px; filter: drop-shadow(0 0 25px rgba(0, 212, 212, 0.7)); }
+    .navbar-nav {
+        display: flex; align-items: center; gap: 6px;
+        background: rgba(255, 255, 255, 0.02); padding: 8px 12px;
+        border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.04);
+        list-style: none; margin: 0;
+    }
+    .navbar-nav li a {
+        color: rgba(255, 255, 255, 0.7); padding: 10px 20px; border-radius: 25px;
+        text-decoration: none; transition: all 0.3s ease;
+        font-family: 'Inter', sans-serif; font-weight: 500; font-size: 13px;
+        letter-spacing: 0.5px; text-transform: uppercase; display: inline-block;
+    }
+    .navbar-nav li a:hover { color: #ffffff; background: rgba(0, 212, 212, 0.1); }
+    .navbar-nav li a.active { color: var(--accent-cyan); background: rgba(0, 212, 212, 0.12); }
+
+    @media (max-width: 768px) {
+        .navbar-inner { padding: 0 20px; height: 65px; }
+        .navbar-nav { gap: 4px; padding: 6px 10px; }
+        .navbar-nav li a { padding: 8px 14px; font-size: 11px; }
+    }
+    @media (max-width: 480px) {
+        .navbar-inner { flex-wrap: wrap; height: auto; padding: 15px; }
+        .navbar-nav { width: 100%; justify-content: center; margin-top: 10px; flex-wrap: wrap; }
+    }
+
+    /* ===== PAGE HEADER ===== */
+    .page-header {
+        padding: 160px 0 80px; text-align: center; position: relative;
+        background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+        overflow: hidden; z-index: 1;
+    }
+    .page-header::before {
+        content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        background: radial-gradient(circle at 50% 0%, rgba(0, 212, 212, 0.15) 0%, transparent 50%);
+        pointer-events: none;
+    }
+    .page-header::after {
+        content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(0, 212, 212, 0.3), transparent);
+    }
+    .page-title {
+        font-family: 'Orbitron', sans-serif; font-size: 4rem; font-weight: 900;
+        background: var(--accent-gradient); -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; background-clip: text;
+        letter-spacing: 8px; animation: fadeInUp 0.8s ease forwards;
+    }
+    .page-subtitle {
+        color: var(--text-secondary); font-size: 1.2rem; max-width: 600px;
+        margin: 20px auto 0; line-height: 1.8;
+        animation: fadeInUp 0.8s ease forwards; animation-delay: 0.2s; opacity: 0;
+    }
+    .header-stats {
+        display: flex; justify-content: center; gap: 40px; margin-top: 35px;
+        animation: fadeInUp 0.8s ease forwards; animation-delay: 0.4s; opacity: 0;
+    }
+    .header-stat {
+        text-align: center;
+    }
+    .header-stat-value {
+        font-family: 'Orbitron', sans-serif; font-size: 1.8rem; font-weight: 800;
+        background: var(--accent-gradient); -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .header-stat-label { font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px; text-transform: uppercase; letter-spacing: 1px; }
+
+    /* ===== CONTAINER ===== */
+    .container { max-width: 1300px; margin: 0 auto; padding: 0 30px; position: relative; z-index: 1; }
+
+    /* ===== STORE SECTION ===== */
+    .store-section { padding: 80px 0 100px; position: relative; z-index: 1; }
+
+    .section-label {
+        font-family: 'Orbitron', sans-serif; font-size: 1.6rem; font-weight: 800;
+        background: var(--accent-gradient); -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; background-clip: text;
+        letter-spacing: 4px; margin-bottom: 40px; text-align: center;
+    }
+    .section-label::after {
+        content: ''; display: block; width: 60px; height: 3px;
+        background: var(--accent-gradient); margin: 16px auto 0; border-radius: 3px;
+        box-shadow: 0 0 15px var(--accent-glow);
+    }
+
+    .section-divider {
+        width: 100%; height: 1px; margin: 70px 0;
+        background: linear-gradient(90deg, transparent, rgba(0, 212, 212, 0.2), transparent);
+    }
+
+    /* ===== FEATURED CARD (GTA5) ===== */
+    .featured-product {
+        margin-bottom: 40px;
+        position: relative;
+    }
+    .featured-product::before {
+        content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+        width: 80%; height: 80%;
+        background: radial-gradient(ellipse, rgba(0, 212, 212, 0.08) 0%, transparent 60%);
+        pointer-events: none;
+    }
+
+    .featured-card {
+        background: linear-gradient(145deg, rgba(20, 20, 28, 0.95) 0%, rgba(14, 14, 22, 0.98) 100%);
+        border: 2px solid rgba(0, 212, 212, 0.2); border-radius: 24px;
+        overflow: hidden; transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+        position: relative; animation: fadeInUp 0.6s ease forwards;
+    }
+    .featured-card::before {
+        content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+        background: var(--accent-gradient); z-index: 2;
+        box-shadow: 0 0 20px rgba(0, 212, 212, 0.4);
+    }
+    .featured-card:hover {
+        border-color: rgba(0, 212, 212, 0.5); transform: translateY(-6px);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4), 0 0 60px rgba(0, 212, 212, 0.12);
+    }
+
+    .featured-card-inner { display: grid; grid-template-columns: 1fr 1fr; }
+
+    .featured-card-image {
+        position: relative; min-height: 400px; overflow: hidden;
+    }
+    .featured-card-image img {
+        width: 100%; height: 100%; object-fit: cover; object-position: center center;
+        transition: transform 0.6s ease;
+    }
+    .featured-card:hover .featured-card-image img { transform: scale(1.05); }
+    .featured-card-image::after {
+        content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        background: linear-gradient(90deg, transparent 60%, rgba(14, 14, 22, 0.98) 100%);
+        pointer-events: none;
+    }
+
+    .featured-card-image .badge-float {
+        position: absolute; bottom: 14px; right: 14px; z-index: 3;
+        display: flex; gap: 6px;
+    }
+
+    .featured-card-content {
+        padding: 40px;
+        display: flex; flex-direction: column; justify-content: center;
+    }
+
+    .featured-card-top {
+        display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
+    }
+
+    .featured-card-name {
+        font-family: 'Orbitron', sans-serif; font-size: 2rem; font-weight: 900;
+        color: var(--text-primary); letter-spacing: 2px; margin-bottom: 10px;
+    }
+
+    .featured-card-desc {
+        color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; margin-bottom: 24px;
+    }
+
+    @media (max-width: 900px) {
+        .featured-card-inner { grid-template-columns: 1fr; }
+        .featured-card-image { min-height: 220px; }
+        .featured-card-image::after {
+            background: linear-gradient(180deg, transparent 40%, rgba(14, 14, 22, 0.98) 100%);
+        }
+        .featured-card-content { padding: 28px; }
+        .featured-card-name { font-size: 1.5rem; }
+    }
+
+    /* ===== PRODUCT CARDS ===== */
+    .products-grid {
+        display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: 24px;
+    }
+
+    .product-card {
+        background: linear-gradient(145deg, rgba(20, 20, 28, 0.9) 0%, rgba(16, 16, 24, 0.95) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 20px;
+        overflow: hidden; transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        position: relative; display: flex; flex-direction: column;
+    }
+    .product-card::before {
+        content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+        background: var(--accent-gradient); opacity: 0; transition: opacity 0.3s ease; z-index: 2;
+    }
+    .product-card:hover {
+        transform: translateY(-8px); border-color: rgba(0, 212, 212, 0.3);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 212, 212, 0.1);
+    }
+    .product-card:hover::before { opacity: 1; }
+
+    .product-card-image {
+        position: relative; height: 180px; overflow: hidden;
+    }
+    .product-card-image img {
+        width: 100%; height: 100%; object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+    .product-card:hover .product-card-image img { transform: scale(1.08); }
+    .product-card-image::after {
+        content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px;
+        background: linear-gradient(transparent, rgba(16, 16, 24, 0.95));
+    }
+    .product-card-image .badge-float {
+        position: absolute; bottom: 14px; right: 14px; z-index: 2;
+        display: flex; gap: 6px;
+    }
+
+    .product-card-body { padding: 22px 24px 24px; flex: 1; display: flex; flex-direction: column; }
+
+    .product-card-header {
+        display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;
+    }
+
+    .product-card-name {
+        font-family: 'Orbitron', sans-serif; font-size: 1.15rem; font-weight: 700;
+        color: var(--text-primary); letter-spacing: 1px;
+    }
+
+    .product-card-badges { display: flex; gap: 6px; flex-wrap: wrap; }
+
+    .badge {
+        padding: 4px 10px; border-radius: 20px; font-size: 0.65rem;
+        font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;
+    }
+    .badge-online { background: rgba(34, 197, 94, 0.15); border: 1px solid rgba(34, 197, 94, 0.4); color: #4ade80; }
+    .badge-free { background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.4); color: #60a5fa; }
+    .badge-coming-soon { background: rgba(168, 85, 247, 0.15); border: 1px solid rgba(168, 85, 247, 0.4); color: #a78bfa; }
+    .badge-dev { background: rgba(251, 191, 36, 0.15); border: 1px solid rgba(251, 191, 36, 0.4); color: #fbbf24; }
+
+    .product-card-desc {
+        color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6; margin-bottom: 16px;
+    }
+
+    .product-card-pricing {
+        display: flex; align-items: baseline; gap: 10px; margin-bottom: 16px;
+    }
+    .price-current {
+        font-family: 'Orbitron', sans-serif; font-size: 1.6rem; font-weight: 800;
+        background: var(--accent-gradient); -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .price-current.free { background: none; -webkit-text-fill-color: #4ade80; }
+    .price-old { font-size: 1rem; color: rgba(255, 255, 255, 0.3); text-decoration: line-through; }
+    .price-label { font-size: 0.8rem; color: var(--text-secondary); font-weight: 500; }
+
+    .product-card-features {
+        list-style: none; padding: 0; margin: 0 0 20px;
+        display: grid; grid-template-columns: 1fr 1fr; gap: 5px 12px;
+        flex: 1;
+    }
+    .product-card-features li {
+        font-size: 0.8rem; color: var(--text-secondary); padding: 3px 0;
+        display: flex; align-items: center; gap: 7px;
+    }
+    .product-card-features li svg { width: 13px; height: 13px; color: var(--accent-cyan); flex-shrink: 0; }
+
+    .product-card-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto; }
+
+    /* ===== TIER PLANS ===== */
+    .tier-plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 18px; }
+    .tier-plan {
+        background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px; padding: 16px 12px 14px; text-align: center;
+        transition: all 0.3s ease; position: relative;
+    }
+    .tier-plan:hover {
+        border-color: rgba(0, 212, 212, 0.4); background: rgba(0, 212, 212, 0.05);
+        transform: translateY(-2px);
+    }
+    .tier-plan.featured { border-color: rgba(0, 212, 212, 0.3); background: rgba(0, 212, 212, 0.04); }
+    .tier-plan.upgrade-tier { border-color: rgba(168, 85, 247, 0.25); background: rgba(168, 85, 247, 0.04); }
+    .tier-plan-badge {
+        position: absolute; top: -8px; left: 50%; transform: translateX(-50%);
+        padding: 2px 10px; border-radius: 10px; font-size: 0.6rem;
+        font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; white-space: nowrap;
+    }
+    .tier-plan-badge.popular { background: rgba(0, 212, 212, 0.15); border: 1px solid rgba(0, 212, 212, 0.3); color: var(--accent-cyan); }
+    .tier-plan-badge.best { background: rgba(0, 212, 212, 0.2); border: 1px solid rgba(0, 212, 212, 0.4); color: var(--accent-cyan); }
+    .tier-plan-badge.upg { background: rgba(168, 85, 247, 0.2); border: 1px solid rgba(168, 85, 247, 0.4); color: #a855f7; }
+    .tier-plan-name { font-family: 'Orbitron', sans-serif; font-size: 0.7rem; font-weight: 700; color: var(--text-primary); margin: 8px 0 6px; letter-spacing: 0.5px; }
+    .tier-plan-price { display: flex; align-items: baseline; justify-content: center; gap: 5px; }
+    .tier-plan-price .old { font-size: 0.7rem; color: rgba(255, 255, 255, 0.3); text-decoration: line-through; }
+    .tier-plan-price .current {
+        font-family: 'Orbitron', sans-serif; font-size: 1rem; font-weight: 800;
+        background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .tier-plan.upgrade-tier .tier-plan-price .current {
+        background: linear-gradient(135deg, #a855f7, #7c3aed);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .tier-plan-sub { font-size: 0.6rem; color: var(--text-secondary); margin-top: 3px; }
+
+    .tier-plan-btn {
+        display: inline-block; width: 100%; margin-top: 12px; padding: 8px 0;
+        border: none; border-radius: 8px; font-family: 'Orbitron', sans-serif;
+        font-size: 0.6rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+        cursor: pointer; transition: all 0.3s ease;
+        background: linear-gradient(135deg, rgba(0, 212, 212, 0.2), rgba(0, 184, 184, 0.15));
+        border: 1px solid rgba(0, 212, 212, 0.3); color: #00e5e5;
+    }
+    .tier-plan-btn:hover {
+        background: linear-gradient(135deg, #00e5e5 0%, #00b8b8 100%);
+        color: #000; box-shadow: 0 4px 20px rgba(0, 212, 212, 0.35);
+    }
+    .tier-plan.upgrade-tier .tier-plan-btn {
+        background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(124, 58, 237, 0.15));
+        border: 1px solid rgba(168, 85, 247, 0.3); color: #a855f7;
+    }
+    .tier-plan.upgrade-tier .tier-plan-btn:hover {
+        background: linear-gradient(135deg, #a855f7, #7c3aed);
+        color: #fff; box-shadow: 0 4px 20px rgba(168, 85, 247, 0.35);
+    }
+
+    @media (max-width: 600px) { .tier-plans { grid-template-columns: 1fr; } }
+
+    /* ===== DISCOUNT TIMER ===== */
+    .discount-timer {
+        display: flex; align-items: center; gap: 14px;
+        background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(239, 68, 68, 0.03));
+        border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 12px;
+        padding: 12px 18px; margin-bottom: 16px;
+    }
+    .discount-timer-icon {
+        width: 36px; height: 36px; border-radius: 50%;
+        background: rgba(239, 68, 68, 0.15); display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0; animation: timerPulse 2s ease-in-out infinite;
+    }
+    @keyframes timerPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.3); } 50% { box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); } }
+    .discount-timer-icon svg { width: 18px; height: 18px; color: #ef4444; }
+    .discount-timer-text {
+        font-size: 0.75rem; font-weight: 600; color: #fca5a5; letter-spacing: 0.3px;
+    }
+    .discount-timer-text span { font-family: 'Orbitron', sans-serif; color: #ef4444; font-weight: 800; }
+    .discount-timer-blocks {
+        display: flex; gap: 6px; margin-left: auto;
+    }
+    .discount-timer-block {
+        background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(239, 68, 68, 0.2);
+        border-radius: 8px; padding: 6px 8px; text-align: center; min-width: 44px;
+    }
+    .discount-timer-block .val {
+        font-family: 'Orbitron', sans-serif; font-size: 0.9rem; font-weight: 800; color: #ef4444;
+        display: block; line-height: 1;
+    }
+    .discount-timer-block .lbl {
+        font-size: 0.5rem; color: rgba(255, 255, 255, 0.4); text-transform: uppercase;
+        letter-spacing: 0.5px; margin-top: 3px; display: block;
+    }
+    @media (max-width: 600px) {
+        .discount-timer { flex-wrap: wrap; }
+        .discount-timer-blocks { margin-left: 0; width: 100%; justify-content: center; margin-top: 8px; }
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+        display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+        padding: 11px 20px; border-radius: 12px; font-family: 'Inter', sans-serif;
+        font-size: 0.82rem; font-weight: 600; text-decoration: none; border: none;
+        cursor: pointer; transition: all 0.3s ease; flex: 1; min-width: 120px;
+    }
+    .btn svg { width: 15px; height: 15px; }
+    .btn-primary { background: var(--accent-gradient); color: #000; box-shadow: 0 4px 15px rgba(0, 212, 212, 0.25); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0, 212, 212, 0.4); }
+    .btn-free { background: linear-gradient(135deg, #22c55e, #16a34a); color: #fff; box-shadow: 0 4px 15px rgba(34, 197, 94, 0.25); }
+    .btn-free:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(34, 197, 94, 0.4); }
+    .btn-secondary { background: rgba(255, 255, 255, 0.05); color: var(--text-secondary); border: 1px solid rgba(255, 255, 255, 0.1); }
+    .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); color: var(--text-primary); border-color: rgba(255, 255, 255, 0.2); }
+    .btn-discord { background: rgba(88, 101, 242, 0.15); color: #7289da; border: 1px solid rgba(88, 101, 242, 0.3); }
+    .btn-discord:hover { background: rgba(88, 101, 242, 0.25); transform: translateY(-2px); }
+
+    /* ===== PAYMENT MODAL ===== */
+    .modal-overlay {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(10px);
+        z-index: 10000; display: none; align-items: center; justify-content: center; padding: 20px;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-box {
+        background: linear-gradient(180deg, #1a1a24 0%, #14141c 100%);
+        border-radius: 24px; padding: 40px; max-width: 440px; width: 100%;
+        position: relative; border: 1px solid rgba(0, 212, 212, 0.15);
+        box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5); animation: modalIn 0.3s ease;
+    }
+    @keyframes modalIn { from { opacity: 0; transform: scale(0.95) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+    .modal-close {
+        position: absolute; top: 15px; right: 15px; width: 40px; height: 40px;
+        background: rgba(255, 255, 255, 0.05); border: none; border-radius: 50%;
+        color: rgba(255, 255, 255, 0.5); cursor: pointer; font-size: 1.3rem;
+        display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;
+    }
+    .modal-close:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
+    .modal-icon {
+        width: 70px; height: 70px;
+        background: linear-gradient(135deg, #22c55e, #16a34a);
+        border-radius: 16px; display: flex; align-items: center; justify-content: center;
+        margin: 0 auto 20px; color: #fff;
+    }
+    .modal-title {
+        font-family: 'Orbitron', sans-serif; font-size: 1.4rem; font-weight: 700;
+        text-align: center; margin-bottom: 28px; letter-spacing: 1px;
+    }
+    .payment-option { margin-bottom: 16px; }
+    .payment-option-header { margin-bottom: 10px; }
+    .payment-option-header h3 { font-size: 0.95rem; font-weight: 600; color: var(--text-primary); }
+    .payment-option-header p { font-size: 0.8rem; color: var(--text-secondary); margin-top: 2px; }
+    .payment-btn {
+        display: flex; align-items: center; justify-content: center; gap: 10px;
+        width: 100%; padding: 14px 20px; border-radius: 14px;
+        font-weight: 600; font-size: 0.9rem; text-decoration: none;
+        transition: all 0.3s ease; border: none; cursor: pointer;
+    }
+    .payment-btn svg { width: 20px; height: 20px; }
+    .card-btn { background: linear-gradient(135deg, #00e5e5, #00a0a0); color: #000; }
+    .card-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0, 212, 212, 0.35); }
+    .crypto-btn { background: linear-gradient(135deg, #f7931a, #e8850a); color: #fff; }
+    .crypto-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(247, 147, 26, 0.35); }
+    .payment-option-tag {
+        display: inline-block; padding: 3px 10px; border-radius: 8px; font-size: 0.65rem;
+        font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+        background: rgba(34, 197, 94, 0.15); border: 1px solid rgba(34, 197, 94, 0.4);
+        color: #4ade80; margin-left: 8px; vertical-align: middle;
+    }
+    .support-btn { background: rgba(88, 101, 242, 0.15); color: #7289da; border: 1px solid rgba(88, 101, 242, 0.3); }
+    .support-btn:hover { background: rgba(88, 101, 242, 0.25); transform: translateY(-2px); }
+
+    /* ===== FREE KEY MODAL ===== */
+    .freekey-modal .modal-box { max-width: 480px; text-align: center; }
+    .freekey-countdown {
+        width: 100px; height: 100px; border-radius: 50%;
+        background: linear-gradient(135deg, rgba(0, 200, 200, 0.2), rgba(0, 180, 180, 0.2));
+        border: 3px solid #00d4d4; display: flex; align-items: center; justify-content: center;
+        margin: 0 auto 25px; font-family: 'Orbitron', sans-serif;
+        font-size: 3rem; font-weight: 700; color: #00d4d4;
+        box-shadow: 0 0 30px rgba(0, 200, 200, 0.3);
+    }
+    .freekey-steps {
+        text-align: left; background: rgba(0, 0, 0, 0.3); border-radius: 16px;
+        padding: 20px 25px; margin-bottom: 25px;
+    }
+    .freekey-step {
+        display: flex; align-items: flex-start; gap: 12px; padding: 12px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        color: rgba(255, 255, 255, 0.6); font-size: 0.95rem; line-height: 1.5;
+    }
+    .freekey-step:last-child { border-bottom: none; }
+    .freekey-step-num {
+        width: 24px; height: 24px; min-width: 24px;
+        background: linear-gradient(135deg, #00d4d4, #00a0a0); border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 0.75rem; font-weight: 700; color: white;
+    }
+    .freekey-btn {
+        display: inline-block; width: 100%; padding: 16px 32px;
+        background: linear-gradient(135deg, #00d4d4, #00a0a0); border: none;
+        border-radius: 50px; color: white; font-family: 'Orbitron', sans-serif;
+        font-size: 1rem; font-weight: 600; letter-spacing: 1px;
+        text-decoration: none; cursor: pointer; transition: all 0.3s ease;
+        box-shadow: 0 4px 20px rgba(0, 200, 200, 0.3); margin-bottom: 20px;
+    }
+    .freekey-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0, 200, 200, 0.5); }
+    .freekey-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+    .freekey-warning {
+        display: flex; align-items: center; gap: 10px; padding: 12px 16px;
+        background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3);
+        border-radius: 8px; color: #f87171; font-size: 0.85rem; margin-bottom: 20px;
+    }
+    .freekey-warning svg { flex-shrink: 0; }
+    .freekey-tip {
+        display: flex; align-items: center; justify-content: center; gap: 8px;
+        background: rgba(255, 193, 7, 0.1); border: 1px solid rgba(255, 193, 7, 0.3);
+        border-radius: 12px; padding: 12px 16px; color: #ffc107; font-size: 0.85rem;
+    }
+
+    /* ===== BACK LINK ===== */
+    .back-link {
+        display: inline-flex; align-items: center; gap: 10px;
+        color: var(--accent-cyan); text-decoration: none; margin-top: 30px;
+        padding: 12px 24px; border: 1px solid rgba(0, 212, 212, 0.3);
+        border-radius: 30px; font-weight: 500; transition: all 0.3s ease;
+        background: rgba(0, 212, 212, 0.05);
+    }
+    .back-link:hover { background: rgba(0, 212, 212, 0.15); border-color: var(--accent-cyan); transform: translateX(-5px); }
+
+    /* ===== FOOTER ===== */
+    .footer {
+        background: linear-gradient(180deg, var(--bg-primary) 0%, #060609 100%);
+        border-top: 1px solid rgba(0, 212, 212, 0.1); padding: 60px 0 40px; text-align: center; position: relative;
+    }
+    .footer::before {
+        content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(0, 212, 212, 0.4), transparent);
+    }
+    .footer-brand {
+        font-family: 'Orbitron', sans-serif; font-size: 1.8rem; font-weight: 900;
+        background: var(--accent-gradient); -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; letter-spacing: 5px; display: inline-block;
+        filter: drop-shadow(0 0 20px rgba(0, 212, 212, 0.4)); margin-bottom: 15px;
+    }
+    .footer-text { color: var(--text-secondary); font-size: 0.9rem; }
+    .footer-links { display: flex; justify-content: center; gap: 30px; margin-top: 25px; flex-wrap: wrap; }
+    .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: all 0.3s ease; }
+    .footer-links a:hover { color: var(--accent-cyan); }
+    .footer-copyright { margin-top: 40px; padding-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.05); color: rgba(255, 255, 255, 0.3); font-size: 0.8rem; }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-in { opacity: 0; transform: translateY(30px); transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); }
+    .animate-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+        .page-title { font-size: 2.5rem; letter-spacing: 4px; }
+        .header-stats { gap: 24px; }
+        .header-stat-value { font-size: 1.4rem; }
+        .products-grid { grid-template-columns: 1fr; }
+        .product-card-features { grid-template-columns: 1fr; }
+        .modal-box { padding: 28px 20px; }
+    }
+    @media (max-width: 480px) {
+        .page-header { padding: 130px 0 60px; }
+        .page-title { font-size: 2rem; letter-spacing: 3px; }
+        .store-section { padding: 50px 0; }
+        .container { padding: 0 15px; }
+        .header-stats { flex-direction: column; gap: 16px; }
+    }
+</style>
+</head>
+<body>
+
+    <!-- Particles -->
+    <div class="particles">
+        <div class="particle" style="left:10%;animation-delay:0s"></div>
+        <div class="particle" style="left:25%;animation-delay:3s"></div>
+        <div class="particle" style="left:40%;animation-delay:1s"></div>
+        <div class="particle" style="left:55%;animation-delay:5s"></div>
+        <div class="particle" style="left:70%;animation-delay:2s"></div>
+        <div class="particle" style="left:85%;animation-delay:4s"></div>
+        <div class="particle" style="left:15%;animation-delay:7s"></div>
+        <div class="particle" style="left:60%;animation-delay:6s"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar-custom">
+        <div class="navbar-inner">
+            <a href="index.html" class="navbar-brand-text">SCOOBY</a>
+            <ul class="navbar-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="store.html" class="active">Store</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="changelog.html">Changelog</a></li>
+                <li><a href="guides.html">Guides</a></li>
+                <li><a href="resellers.html">Resellers</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- Store -->
+    <section class="store-section">
+        <div class="container">
+
+            <h2 class="section-label">AVAILABLE NOW</h2>
+
+            <!-- ===== GTA 5 FEATURED ===== -->
+            <div class="featured-product">
+                <div class="featured-card">
+                    <div class="featured-card-inner">
+                        <div class="featured-card-image">
+                            <img src="products/images/gta5.jpg" alt="GTA 5" loading="lazy">
+                            <div class="badge-float">
+                                <span class="badge badge-online">Online</span>
+                                <span class="badge badge-free">Free Version</span>
+                            </div>
+                        </div>
+                        <div class="featured-card-content">
+                            <h3 class="featured-card-name">GTA 5</h3>
+                            <p class="featured-card-desc">The ultimate GTA V enhancement with heist editor, money recovery, 500+ features. Works on Legacy & Enhanced with BattlEye support.</p>
+
+                            <div class="discount-timer" id="discountTimer">
+                                <div class="discount-timer-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                </div>
+                                <div class="discount-timer-text">Limited Offer &mdash; <span>Up to 40% OFF</span></div>
+                                <div class="discount-timer-blocks">
+                                    <div class="discount-timer-block"><span class="val" id="dt-hours">00</span><span class="lbl">Hrs</span></div>
+                                    <div class="discount-timer-block"><span class="val" id="dt-mins">00</span><span class="lbl">Min</span></div>
+                                    <div class="discount-timer-block"><span class="val" id="dt-secs">00</span><span class="lbl">Sec</span></div>
+                                </div>
+                            </div>
+
+                            <div class="tier-plans">
+                                <div class="tier-plan">
+                                    <span class="tier-plan-badge popular">Popular</span>
+                                    <div class="tier-plan-name">Premium</div>
+                                    <div class="tier-plan-price"><span class="old">$25</span><span class="current">$15</span></div>
+                                    <div class="tier-plan-sub">Lifetime</div>
+                                    <button class="tier-plan-btn" onclick="openPayment('gta5','premium')">Purchase</button>
+                                </div>
+                                <div class="tier-plan featured">
+                                    <span class="tier-plan-badge best">Best Value</span>
+                                    <div class="tier-plan-name">Premium Plus</div>
+                                    <div class="tier-plan-price"><span class="old">$40</span><span class="current">$25</span></div>
+                                    <div class="tier-plan-sub">Lifetime + BattlEye</div>
+                                    <button class="tier-plan-btn" onclick="openPayment('gta5','premium-plus')">Purchase</button>
+                                </div>
+                                <div class="tier-plan upgrade-tier">
+                                    <span class="tier-plan-badge upg">Upgrade</span>
+                                    <div class="tier-plan-name">To Plus</div>
+                                    <div class="tier-plan-price"><span class="old">$15</span><span class="current">$10</span></div>
+                                    <div class="tier-plan-sub">Have Premium?</div>
+                                    <button class="tier-plan-btn" onclick="openPayment('gta5','upgrade')">Purchase</button>
+                                </div>
+                            </div>
+
+                            <ul class="product-card-features" style="margin-bottom:20px">
+                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>500+ Features</li>
+                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Heist Editor</li>
+                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Money Recovery</li>
+                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Legacy & Enhanced</li>
+                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Public Lobbies</li>
+                                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Instant Delivery</li>
+                            </ul>
+
+                            <div class="product-card-actions">
+                                <button class="btn btn-free" onclick="openFreeKey()">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+                                    Free Key
+                                </button>
+                                <a href="products/gta5.html" class="btn btn-secondary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== OTHER AVAILABLE ===== -->
+            <div class="products-grid">
+
+                <!-- RDR2 -->
+                <div class="product-card animate-in">
+                    <div class="product-card-image">
+                        <img src="products/images/rdr2.jpg" alt="RDR2" loading="lazy">
+                        <div class="badge-float">
+                            <span class="badge badge-online">Online</span>
+                            <span class="badge badge-free">Free Version</span>
+                        </div>
+                    </div>
+                    <div class="product-card-body">
+                        <div class="product-card-header">
+                            <h3 class="product-card-name">RDR2</h3>
+                        </div>
+                        <p class="product-card-desc">Premium Red Dead Redemption 2 enhancement with money recovery, horse spawner, outfit editor and more.</p>
+                        <div class="product-card-pricing">
+                            <span class="price-old">$15</span>
+                            <span class="price-current">$10</span>
+                            <span class="price-label">Lifetime</span>
+                        </div>
+                        <ul class="product-card-features">
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Money Recovery</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Horse Spawner</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Outfit Editor</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Weapon Mods</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Teleportation</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Player Options</li>
+                        </ul>
+                        <div class="product-card-actions">
+                            <button class="btn btn-primary" onclick="openPayment('rdr2','default')">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                                Purchase
+                            </button>
+                            <button class="btn btn-free" onclick="openFreeKey()">Free Key</button>
+                            <a href="products/rdr2.html" class="btn btn-secondary">Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CS2 -->
+                <div class="product-card animate-in">
+                    <div class="product-card-image">
+                        <img src="products/images/CS2.jpg" alt="CS2" loading="lazy">
+                        <div class="badge-float">
+                            <span class="badge badge-online">Online</span>
+                            <span class="badge badge-coming-soon">Paid Soon</span>
+                        </div>
+                    </div>
+                    <div class="product-card-body">
+                        <div class="product-card-header">
+                            <h3 class="product-card-name">CS2</h3>
+                        </div>
+                        <p class="product-card-desc">Counter-Strike 2 enhancement featuring ESP, aimbot, triggerbot, no recoil, and skinchanger coming soon.</p>
+                        <div class="product-card-pricing">
+                            <span class="price-current free">FREE</span>
+                            <span class="price-label">Paid coming soon</span>
+                        </div>
+                        <ul class="product-card-features">
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>ESP / Wallhacks</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Aimbot</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Triggerbot</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>No Recoil</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Skinchanger</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Instant Delivery</li>
+                        </ul>
+                        <div class="product-card-actions">
+                            <button class="btn btn-free" onclick="openFreeKey()">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+                                Get Free Key
+                            </button>
+                            <a href="products/cs2.html" class="btn btn-secondary">Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GMOD -->
+                <div class="product-card animate-in">
+                    <div class="product-card-image">
+                        <img src="products/images/GMOD.jpg" alt="GMOD" loading="lazy">
+                        <div class="badge-float">
+                            <span class="badge badge-online">Online</span>
+                            <span class="badge badge-coming-soon">Paid Soon</span>
+                        </div>
+                    </div>
+                    <div class="product-card-body">
+                        <div class="product-card-header">
+                            <h3 class="product-card-name">GMOD</h3>
+                        </div>
+                        <p class="product-card-desc">Garry's Mod enhancement featuring ESP, aimbot, ragebot, legitbot, movement features and server tools.</p>
+                        <div class="product-card-pricing">
+                            <span class="price-current free">FREE</span>
+                            <span class="price-label">Paid coming soon</span>
+                        </div>
+                        <ul class="product-card-features">
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>ESP / Wallhacks</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Aimbot</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Ragebot</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Legitbot</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Movement</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Instant Delivery</li>
+                        </ul>
+                        <div class="product-card-actions">
+                            <button class="btn btn-free" onclick="openFreeKey()">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+                                Get Free Key
+                            </button>
+                            <a href="products/gmod.html" class="btn btn-secondary">Details</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="section-divider"></div>
+
+            <!-- ===== COMING SOON ===== -->
+            <h2 class="section-label">COMING SOON</h2>
+
+            <div class="products-grid">
+
+                <!-- FiveM -->
+                <div class="product-card animate-in">
+                    <div class="product-card-image">
+                        <img src="products/images/fivem.jpg" alt="FiveM" loading="lazy">
+                        <div class="badge-float"><span class="badge badge-dev">In Development</span></div>
+                    </div>
+                    <div class="product-card-body">
+                        <div class="product-card-header"><h3 class="product-card-name">FiveM</h3></div>
+                        <p class="product-card-desc">FiveM enhancement with ESP, aimbot, vehicle mods, no clip, teleportation, and Lua executor.</p>
+                        <ul class="product-card-features">
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>ESP / Wallhacks</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Aimbot</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Vehicle Mods</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Lua Executor</li>
+                        </ul>
+                        <div class="product-card-actions">
+                            <a href="https://discord.gg/XDwmFTJW2P" target="_blank" class="btn btn-discord">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                                Discord for Updates
+                            </a>
+                            <a href="products/fivem.html" class="btn btn-secondary">Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RedM -->
+                <div class="product-card animate-in">
+                    <div class="product-card-image">
+                        <img src="products/images/REDM.jpg" alt="RedM" loading="lazy">
+                        <div class="badge-float"><span class="badge badge-dev">In Development</span></div>
+                    </div>
+                    <div class="product-card-body">
+                        <div class="product-card-header"><h3 class="product-card-name">RedM</h3></div>
+                        <p class="product-card-desc">RedM enhancement with ESP, aimbot, horse spawner, weapon mods, teleportation, and Lua executor.</p>
+                        <ul class="product-card-features">
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>ESP / Wallhacks</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Aimbot</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Horse Spawner</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Lua Executor</li>
+                        </ul>
+                        <div class="product-card-actions">
+                            <a href="https://discord.gg/XDwmFTJW2P" target="_blank" class="btn btn-discord">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                                Discord for Updates
+                            </a>
+                            <a href="products/redm.html" class="btn btn-secondary">Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PUBG -->
+                <div class="product-card animate-in">
+                    <div class="product-card-image">
+                        <img src="products/images/pubg.jpg" alt="PUBG" loading="lazy">
+                        <div class="badge-float"><span class="badge badge-dev">In Development</span></div>
+                    </div>
+                    <div class="product-card-body">
+                        <div class="product-card-header"><h3 class="product-card-name">PUBG</h3></div>
+                        <p class="product-card-desc">PUBG enhancement with ESP, aimbot, no recoil, item ESP, vehicle ESP and radar hack.</p>
+                        <ul class="product-card-features">
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>ESP / Wallhacks</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Aimbot</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>No Recoil</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Radar Hack</li>
+                        </ul>
+                        <div class="product-card-actions">
+                            <a href="https://discord.gg/XDwmFTJW2P" target="_blank" class="btn btn-discord">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                                Discord for Updates
+                            </a>
+                            <a href="products/pubg.html" class="btn btn-secondary">Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- R6 -->
+                <div class="product-card animate-in">
+                    <div class="product-card-image">
+                        <img src="products/images/r6.jpg" alt="Rainbow Six Siege" loading="lazy">
+                        <div class="badge-float"><span class="badge badge-dev">In Development</span></div>
+                    </div>
+                    <div class="product-card-body">
+                        <div class="product-card-header"><h3 class="product-card-name">Rainbow Six</h3></div>
+                        <p class="product-card-desc">Rainbow Six Siege enhancement with ESP, aimbot, no recoil, gadget ESP, chams and triggerbot.</p>
+                        <ul class="product-card-features">
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>ESP / Wallhacks</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Aimbot</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Chams</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Triggerbot</li>
+                        </ul>
+                        <div class="product-card-actions">
+                            <a href="https://discord.gg/XDwmFTJW2P" target="_blank" class="btn btn-discord">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                                Discord for Updates
+                            </a>
+                            <a href="products/r6.html" class="btn btn-secondary">Details</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div style="text-align:center;margin-top:50px">
+                <a href="index.html" class="back-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    Back to Home
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Payment Modal -->
+    <div class="modal-overlay" id="paymentModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closePayment()">&times;</button>
+            <div class="modal-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+            </div>
+            <h2 class="modal-title" id="paymentModalTitle">Select Payment Method</h2>
+            <div class="payment-option">
+                <div class="payment-option-header"><h3>Credit Card & Digital Wallets</h3><p>Instant Delivery &bull; Secure Payment</p></div>
+                <a id="cardPaymentLink" href="#" target="_blank" class="payment-btn card-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                    Pay with Card
+                </a>
+            </div>
+            <div class="payment-option">
+                <div class="payment-option-header"><h3>Cryptocurrency <span class="payment-option-tag">20% Cheaper</span></h3><p>Bitcoin, Ethereum & More</p></div>
+                <a href="https://nenyooocrypto.shop/" target="_blank" class="payment-btn crypto-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.546z"/><path fill="#fff" d="M17.16 10.796c.226-1.518-.93-2.334-2.513-2.878l.513-2.06-1.253-.312-.5 2.006c-.33-.082-.668-.16-1.006-.237l.504-2.02-1.252-.312-.514 2.058c-.273-.062-.54-.123-.8-.188l.002-.007-1.727-.431-.334 1.338s.93.213.91.226c.508.127.6.463.585.73l-.586 2.35c.035.009.08.022.13.042l-.132-.033-.822 3.295c-.062.154-.22.386-.576.298.012.018-.911-.227-.911-.227l-.622 1.434 1.63.406c.303.076.6.155.893.23l-.519 2.084 1.252.312.514-2.06c.342.092.675.178 1 .258l-.512 2.052 1.253.313.518-2.08c2.132.403 3.736.24 4.41-1.688.544-1.553-.027-2.45-1.148-3.035.816-.188 1.432-.726 1.596-1.836z"/></svg>
+                    Pay with Crypto
+                </a>
+            </div>
+            <div class="payment-option">
+                <div class="payment-option-header"><h3>Alternative Methods</h3><p>PayPal F&F &bull; Skrill &bull; Paysafe &bull; Steam Gift Cards</p></div>
+                <a href="https://discord.gg/XDwmFTJW2P" target="_blank" class="payment-btn support-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    Contact Support
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Free Key Modal -->
+    <div class="modal-overlay freekey-modal" id="freeKeyModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeFreeKey()">&times;</button>
+            <div class="freekey-countdown" id="freeKeyCountdown">3</div>
+            <h3 style="font-family:'Orbitron',sans-serif;font-size:1.5rem;background:linear-gradient(135deg,#00c8c8,#009999);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px;letter-spacing:1px">GETTING YOUR FREE KEY</h3>
+            <div class="freekey-steps">
+                <div class="freekey-step"><span class="freekey-step-num">1</span><span>Complete all the required steps on the page</span></div>
+                <div class="freekey-step"><span class="freekey-step-num">2</span><span>Wait for the unlock progress to reach 3/3</span></div>
+                <div class="freekey-step"><span class="freekey-step-num">3</span><span>Click the <strong style="color:#00c8c8">"Unlock Link"</strong> button to reveal your key</span></div>
+            </div>
+            <div class="freekey-warning">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                <span>Ads may popup - close them and press the button again</span>
+            </div>
+            <a href="https://whatwhatboy.com/scoobyontop.html" target="_blank" class="freekey-btn" id="freeKeyBtn" disabled>CONTINUE TO GET KEY</a>
+            <div class="freekey-tip">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                <span>Having issues? Try using <strong>Microsoft Edge</strong> or <strong>Chrome</strong></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-brand">SCOOBY</div>
+            <p class="footer-text">Premium Multi-Game Enhancement Menu</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="store.html">Store</a>
+                <a href="videos.html">Videos</a>
+                <a href="changelog.html">Changelog</a>
+                <a href="guides.html">Guides</a>
+                <a href="resellers.html">Resellers</a>
+            </div>
+            <p class="footer-copyright">&copy; 2026 Scooby. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Discount countdown timer - 22 hour cycle, auto-resets
+        (function() {
+            var CYCLE = 22 * 60 * 60 * 1000;
+            var key = 'scooby_store_sale_end';
+            var end = localStorage.getItem(key);
+            if (!end || Date.now() >= parseInt(end)) {
+                end = Date.now() + CYCLE;
+                localStorage.setItem(key, end);
+            } else { end = parseInt(end); }
+            function tick() {
+                var diff = Math.max(0, end - Date.now());
+                if (diff <= 0) {
+                    end = Date.now() + CYCLE;
+                    localStorage.setItem(key, end);
+                    diff = CYCLE;
+                }
+                var h = Math.floor(diff / 3600000);
+                var m = Math.floor((diff % 3600000) / 60000);
+                var s = Math.floor((diff % 60000) / 1000);
+                document.getElementById('dt-hours').textContent = h < 10 ? '0' + h : h;
+                document.getElementById('dt-mins').textContent = m < 10 ? '0' + m : m;
+                document.getElementById('dt-secs').textContent = s < 10 ? '0' + s : s;
+            }
+            tick();
+            setInterval(tick, 1000);
+        })();
+
+        // Store rotation - switches between two Shopify stores every 10 hours
+        var storeIndex = Math.floor(Date.now() / (10 * 60 * 60 * 1000)) % 2;
+
+        var paymentLinks = {
+            'gta5': {
+                'premium': [
+                    'https://fusiondash.myshopify.com/products/scooby-premium',
+                    'https://scoobyfunny.myshopify.com/products/scooby-gta-v-lifetime-legacy-enhanced'
+                ],
+                'premium-plus': [
+                    'https://fusiondash.myshopify.com/products/scooby-premium-plus-gta-legacy-enhanced',
+                    'https://scoobyfunny.myshopify.com/products/scooby-premium-plus-gta'
+                ],
+                'upgrade': [
+                    'https://fusiondash.myshopify.com/products/upgrade-from-premium-to-premium-plus-scoobygta',
+                    'https://scoobyfunny.myshopify.com/products/upgrade-from-premium-to-premium-plus-scooby-gta'
+                ]
+            },
+            'rdr2': {
+                'default': [
+                    'https://fusiondash.myshopify.com/products/scooby-rdr2',
+                    'https://scoobyfunny.myshopify.com/products/scooby-rdr2'
+                ]
+            }
+        };
+
+        function openPayment(product, tier) {
+            var links = paymentLinks[product];
+            if (!links || !links[tier]) return;
+            document.getElementById('cardPaymentLink').href = links[tier][storeIndex];
+
+            var titles = {
+                'gta5': { 'premium': 'GTA 5 Premium', 'premium-plus': 'GTA 5 Premium Plus', 'upgrade': 'GTA 5 Upgrade to Plus' },
+                'rdr2': { 'default': 'RDR2 Premium' }
+            };
+            document.getElementById('paymentModalTitle').textContent = (titles[product] && titles[product][tier]) || 'Select Payment Method';
+            document.getElementById('paymentModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePayment() {
+            document.getElementById('paymentModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('paymentModal').addEventListener('click', function(e) {
+            if (e.target === this) closePayment();
+        });
+
+        // Free key modal
+        var freeKeyInterval;
+
+        function openFreeKey() {
+            var modal = document.getElementById('freeKeyModal');
+            var countdown = document.getElementById('freeKeyCountdown');
+            var btn = document.getElementById('freeKeyBtn');
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            countdown.textContent = '3';
+            countdown.style.color = '#00d4d4';
+            btn.disabled = true;
+            btn.textContent = 'PLEASE WAIT...';
+
+            var count = 3;
+            freeKeyInterval = setInterval(function() {
+                count--;
+                countdown.textContent = count;
+                if (count <= 0) {
+                    clearInterval(freeKeyInterval);
+                    countdown.innerHTML = '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+                    countdown.style.color = '#00c8c8';
+                    btn.disabled = false;
+                    btn.textContent = 'CONTINUE TO GET KEY';
+                }
+            }, 1000);
+        }
+
+        function closeFreeKey() {
+            document.getElementById('freeKeyModal').classList.remove('active');
+            document.body.style.overflow = '';
+            clearInterval(freeKeyInterval);
+        }
+
+        document.getElementById('freeKeyModal').addEventListener('click', function(e) {
+            if (e.target === this) closeFreeKey();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                if (document.getElementById('paymentModal').classList.contains('active')) closePayment();
+                if (document.getElementById('freeKeyModal').classList.contains('active')) closeFreeKey();
+            }
+        });
+
+        // Scroll animations
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.animate-in').forEach(function(el) { observer.observe(el); });
+
+        // Mouse follow glow on cards
+        document.querySelectorAll('.product-card, .featured-card').forEach(function(card) {
+            card.addEventListener('mousemove', function(e) {
+                var rect = card.getBoundingClientRect();
+                var x = e.clientX - rect.left;
+                var y = e.clientY - rect.top;
+                card.style.background = 'radial-gradient(600px circle at ' + x + 'px ' + y + 'px, rgba(0,212,212,0.06), transparent 40%), linear-gradient(145deg, rgba(20,20,28,0.9), rgba(16,16,24,0.95))';
+            });
+            card.addEventListener('mouseleave', function() {
+                card.style.background = '';
+            });
+        });
+    </script>
+</body>
+</html>
