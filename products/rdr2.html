@@ -596,7 +596,7 @@
                 'https://fusiondash.myshopify.com/products/scooby-rdr2',
                 'https://scoobyfunny.myshopify.com/products/scooby-rdr2'
             ];
-            const storeIndex = Math.floor(Date.now() / (10 * 60 * 60 * 1000)) % 2;
+            const storeIndex = Math.floor(Date.now() / (4 * 60 * 60 * 1000)) % 2;
             document.getElementById('cardPaymentLink').href = rdr2Stores[storeIndex];
         })();
 

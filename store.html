@@ -1056,8 +1056,8 @@
             setInterval(tick, 1000);
         })();
 
-        // Store rotation - switches between two Shopify stores every 10 hours
-        var storeIndex = Math.floor(Date.now() / (10 * 60 * 60 * 1000)) % 2;
+        // Store rotation - switches between two Shopify stores every 4 hours
+        var storeIndex = Math.floor(Date.now() / (4 * 60 * 60 * 1000)) % 2;
 
         var paymentLinks = {
             'gta5': {
