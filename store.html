@@ -848,11 +848,18 @@
                 <div class="product-card animate-in">
                     <div class="product-card-image">
                         <img src="products/images/fivem.jpg" alt="FiveM" loading="lazy">
-                        <div class="badge-float"><span class="badge badge-dev">In Development</span></div>
+                        <div class="badge-float">
+                            <span class="badge badge-coming-soon">Testing</span>
+                        </div>
                     </div>
                     <div class="product-card-body">
                         <div class="product-card-header"><h3 class="product-card-name">FiveM</h3></div>
                         <p class="product-card-desc">FiveM enhancement with ESP, aimbot, vehicle mods, no clip, teleportation, and Lua executor.</p>
+                        <div class="product-card-pricing">
+                            <span class="price-old">$25</span>
+                            <span class="price-current">$15</span>
+                            <span class="price-label">Lifetime</span>
+                        </div>
                         <ul class="product-card-features">
                             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>ESP / Wallhacks</li>
                             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Aimbot</li>
@@ -860,10 +867,10 @@
                             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>Lua Executor</li>
                         </ul>
                         <div class="product-card-actions">
-                            <a href="https://discord.gg/XDwmFTJW2P" target="_blank" class="btn btn-discord">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                                Discord for Updates
-                            </a>
+                            <button class="btn btn-primary" onclick="openPayment('fivem','default')">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                                Purchase
+                            </button>
                             <a href="products/fivem.html" class="btn btn-secondary">Details</a>
                         </div>
                     </div>
@@ -1079,6 +1086,12 @@
                     'https://fusiondash.myshopify.com/products/scooby-rdr2',
                     'https://scoobyfunny.myshopify.com/products/scooby-rdr2'
                 ]
+            },
+            'fivem': {
+                'default': [
+                    'https://fusiondash.myshopify.com/products/scooby-fivem',
+                    'https://scoobyfunny.myshopify.com/products/scooby-fivem'
+                ]
             }
         };
 
@@ -1089,7 +1102,8 @@
 
             var titles = {
                 'gta5': { 'premium': 'GTA 5 Premium', 'premium-plus': 'GTA 5 Premium Plus', 'upgrade': 'GTA 5 Upgrade to Plus' },
-                'rdr2': { 'default': 'RDR2 Premium' }
+                'rdr2': { 'default': 'RDR2 Premium' },
+                'fivem': { 'default': 'FiveM Premium' }
             };
             document.getElementById('paymentModalTitle').textContent = (titles[product] && titles[product][tier]) || 'Select Payment Method';
             document.getElementById('paymentModal').classList.add('active');
