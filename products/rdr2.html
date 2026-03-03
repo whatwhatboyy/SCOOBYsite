@@ -590,15 +590,6 @@
             if (e.key === 'ArrowLeft') prevImage();
         });
 
-        // Card link rotation - switches between stores every 10 hours
-        (function() {
-            const rdr2Stores = [
-                'https://fusiondash.myshopify.com/products/scooby-rdr2',
-                'https://scoobyfunny.myshopify.com/products/scooby-rdr2'
-            ];
-            const storeIndex = Math.floor(Date.now() / (4 * 60 * 60 * 1000)) % 2;
-            document.getElementById('cardPaymentLink').href = rdr2Stores[storeIndex];
-        })();
 
         // Payment Modal
         function openPaymentModal() {

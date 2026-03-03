@@ -1065,42 +1065,24 @@
             setInterval(tick, 1000);
         })();
 
-        // Store rotation - switches between two Shopify stores every 4 hours
-        var storeIndex = Math.floor(Date.now() / (4 * 60 * 60 * 1000)) % 2;
-
         var paymentLinks = {
             'gta5': {
-                'premium': [
-                    'https://fusiondash.myshopify.com/products/scooby-premium',
-                    'https://scoobyfunny.myshopify.com/products/scooby-gta-v-lifetime-legacy-enhanced'
-                ],
-                'premium-plus': [
-                    'https://fusiondash.myshopify.com/products/scooby-premium-plus-gta-legacy-enhanced',
-                    'https://scoobyfunny.myshopify.com/products/scooby-premium-plus-gta'
-                ],
-                'upgrade': [
-                    'https://fusiondash.myshopify.com/products/upgrade-from-premium-to-premium-plus-scoobygta',
-                    'https://scoobyfunny.myshopify.com/products/upgrade-from-premium-to-premium-plus-scooby-gta'
-                ]
+                'premium': 'https://fusiondash.myshopify.com/products/scooby-premium',
+                'premium-plus': 'https://fusiondash.myshopify.com/products/scooby-premium-plus-gta-legacy-enhanced',
+                'upgrade': 'https://fusiondash.myshopify.com/products/upgrade-from-premium-to-premium-plus-scoobygta'
             },
             'rdr2': {
-                'default': [
-                    'https://fusiondash.myshopify.com/products/scooby-rdr2',
-                    'https://scoobyfunny.myshopify.com/products/scooby-rdr2'
-                ]
+                'default': 'https://fusiondash.myshopify.com/products/scooby-rdr2'
             },
             'fivem': {
-                'default': [
-                    'https://fusiondash.myshopify.com/products/scooby-fivem',
-                    'https://scoobyfunny.myshopify.com/products/scooby-fivem'
-                ]
+                'default': 'https://fusiondash.myshopify.com/products/scooby-fivem'
             }
         };
 
         function openPayment(product, tier) {
             var links = paymentLinks[product];
             if (!links || !links[tier]) return;
-            document.getElementById('cardPaymentLink').href = links[tier][storeIndex];
+            document.getElementById('cardPaymentLink').href = links[tier];
 
             var titles = {
                 'gta5': { 'premium': 'GTA 5 Premium', 'premium-plus': 'GTA 5 Premium Plus', 'upgrade': 'GTA 5 Upgrade to Plus' },
