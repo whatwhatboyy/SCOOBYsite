@@ -250,6 +250,11 @@
     </footer>
 
     <script>
+        // Card link rotation
+        (function() {
+            var stores = ['https://fusiondash.myshopify.com/products/scooby-fivem','https://zscooby.myshopify.com/products/scooby-fivem'];
+            document.getElementById('cardPaymentLink').href = stores[Math.floor(Date.now()/(4*3600000))%2];
+        })();
 
         // Payment Modal
         function openPaymentModal() {
