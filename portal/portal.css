@@ -628,7 +628,7 @@ h1, h2, h3, .page-title h1, .banner-title, .auth-header h1, .profile-name {
     right: 0;
     bottom: 0;
     background-size: cover;
-    background-position: center;
+    background-position: center 30%;
     opacity: 0.15;
     transition: transform 0.5s ease;
 }
