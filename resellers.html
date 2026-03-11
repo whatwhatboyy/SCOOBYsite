@@ -286,7 +286,7 @@
         <div id="international" class="tab-content active">
             <div class="reseller-list">
 
-                <a href="https://fusiondash.myshopify.com/products/scooby-premium" target="_blank" class="reseller-item">
+                <a id="officialStoreLink" href="https://zscooby.myshopify.com/products/scooby-premium" target="_blank" class="reseller-item">
                     <div class="reseller-avatar">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
@@ -393,6 +393,12 @@
     </footer>
 
     <script>
+        // Store link rotation
+        (function() {
+            var stores = ['https://fusiondash.myshopify.com/products/scooby-premium','https://zscooby.myshopify.com/products/scooby-premium'];
+            document.getElementById('officialStoreLink').href = stores[Math.floor(Date.now()/(4*3600000))%2];
+        })();
+
         function showTab(tabId) {
             // Hide all tabs
             document.querySelectorAll('.tab-content').forEach(content => {
