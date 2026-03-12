@@ -591,10 +591,10 @@
             if (e.key === 'ArrowLeft') prevImage();
         });
 
-        // Card link rotation
+        // Card link
         (function() {
-            var stores = ['https://fusiondash.myshopify.com/products/scooby-rdr2','https://zscooby.myshopify.com/products/scooby-rdr2'];
-            document.getElementById('cardPaymentLink').href = stores[Math.floor(Date.now()/(4*3600000))%2];
+            // var stores = ['https://zscooby.myshopify.com/products/scooby-rdr2'];
+            document.getElementById('cardPaymentLink').href = 'https://fusiondash.myshopify.com/products/scooby-rdr2';
         })();
 
         // Payment Modal

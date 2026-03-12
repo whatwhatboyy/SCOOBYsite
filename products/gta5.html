@@ -701,11 +701,13 @@
             if (e.key === 'ArrowLeft') prevImage();
         });
 
-        const _r = Math.floor(Date.now()/(4*3600000))%2;
         const tierLinks = {
-            'premium': ['https://fusiondash.myshopify.com/products/scooby-premium','https://zscooby.myshopify.com/products/scooby-premium'][_r],
-            'premium-plus': ['https://fusiondash.myshopify.com/products/scooby-premium-plus-gta-legacy-enhanced','https://zscooby.myshopify.com/products/scooby-premium-plus-gta-legacy-enhanced'][_r],
-            'upgrade': ['https://fusiondash.myshopify.com/products/upgrade-from-premium-to-premium-plus-scoobygta','https://zscooby.myshopify.com/products/upgrade-from-premium-to-premium-plus-scoobygta'][_r]
+            'premium': 'https://fusiondash.myshopify.com/products/scooby-premium',
+            // 'premium': 'https://zscooby.myshopify.com/products/scooby-premium',
+            'premium-plus': 'https://fusiondash.myshopify.com/products/scooby-premium-plus-gta-legacy-enhanced',
+            // 'premium-plus': 'https://zscooby.myshopify.com/products/scooby-premium-plus-gta-legacy-enhanced',
+            'upgrade': 'https://fusiondash.myshopify.com/products/upgrade-from-premium-to-premium-plus-scoobygta'
+            // 'upgrade': 'https://zscooby.myshopify.com/products/upgrade-from-premium-to-premium-plus-scoobygta'
         };
 
         // Tier Selection Modal
