@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat:*)",
+      "Bash(git checkout:*)",
+      "Bash(dir:*)",
+      "Bash(xcopy:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(ls:*)",
+      "Bash(while read file)",
+      "Bash(do sed -i 's|</head>|<script src=\"\"https://aloudalimonyexplosion.com/ca/8b/51/ca8b5147d5b46238726f3d8f790975c8.js\"\"></script>\\\\n</head>|' \"$file\")",
+      "Bash(done)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
