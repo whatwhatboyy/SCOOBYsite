@@ -22,27 +22,23 @@
         --text-secondary: #8a8a9a;
         --border-color: #1a1a24;
     }
-
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
-
     body {
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         background: var(--bg-primary);
         color: var(--text-primary);
         min-height: 100vh;
     }
-
     ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: var(--bg-primary); }
     ::-webkit-scrollbar-thumb {
         background: linear-gradient(135deg, #00e5e5, #00a0a0);
         border-radius: 10px;
     }
-
     /* Navbar */
     .navbar {
         position: fixed;
@@ -58,7 +54,6 @@
         background: rgba(10, 10, 15, 0.9);
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
-
     .logo {
         font-family: 'Orbitron', sans-serif;
         font-size: 1.5rem;
@@ -68,31 +63,26 @@
         -webkit-text-fill-color: transparent;
         text-decoration: none;
     }
-
     .nav-links {
         display: flex;
         gap: 30px;
         list-style: none;
     }
-
     .nav-links a {
         color: var(--text-secondary);
         text-decoration: none;
         font-size: 0.95rem;
         transition: color 0.3s;
     }
-
     .nav-links a:hover {
         color: var(--accent-cyan);
     }
-
     /* Main Content */
     .main-content {
         max-width: 900px;
         margin: 0 auto;
         padding: 120px 20px 60px;
     }
-
     .page-title {
         font-family: 'Orbitron', sans-serif;
         font-size: 2.5rem;
@@ -103,7 +93,6 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
-
     /* Tabs */
     .tabs {
         display: flex;
@@ -112,7 +101,6 @@
         border-bottom: 1px solid var(--border-color);
         padding-bottom: 15px;
     }
-
     .tab {
         background: none;
         border: none;
@@ -123,15 +111,12 @@
         position: relative;
         transition: color 0.3s;
     }
-
     .tab:hover {
         color: var(--text-primary);
     }
-
     .tab.active {
         color: var(--text-primary);
     }
-
     .tab.active::after {
         content: '';
         position: absolute;
@@ -141,13 +126,11 @@
         height: 2px;
         background: var(--accent-cyan);
     }
-
     /* Reseller List */
     .reseller-list {
         display: flex;
         flex-direction: column;
     }
-
     .reseller-item {
         display: flex;
         align-items: center;
@@ -158,7 +141,6 @@
         transition: all 0.3s ease;
         cursor: pointer;
     }
-
     .reseller-item:hover {
         background: rgba(255, 255, 255, 0.02);
         padding-left: 10px;
@@ -167,7 +149,6 @@
         margin-right: -10px;
         border-radius: 12px;
     }
-
     .reseller-avatar {
         width: 56px;
         height: 56px;
@@ -179,60 +160,49 @@
         flex-shrink: 0;
         overflow: hidden;
     }
-
     .reseller-avatar img {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
-
     .reseller-avatar svg {
         width: 28px;
         height: 28px;
         color: var(--accent-cyan);
     }
-
     .reseller-info {
         flex: 1;
         min-width: 0;
     }
-
     .reseller-name {
         font-size: 1.1rem;
         font-weight: 600;
         color: var(--accent-cyan);
         margin-bottom: 5px;
     }
-
     .reseller-name.pink {
         color: var(--accent-pink);
     }
-
     .reseller-description {
         color: var(--text-secondary);
         font-size: 0.9rem;
         line-height: 1.5;
     }
-
     .reseller-link {
         color: var(--text-secondary);
         transition: color 0.3s;
         flex-shrink: 0;
     }
-
     .reseller-item:hover .reseller-link {
         color: var(--accent-cyan);
     }
-
     /* Tab Content */
     .tab-content {
         display: none;
     }
-
     .tab-content.active {
         display: block;
     }
-
     /* Footer */
     .footer {
         text-align: center;
@@ -242,7 +212,6 @@
         font-size: 0.9rem;
         margin-top: 60px;
     }
-
     /* Product Select Modal */
     .product-modal-overlay {
         position: fixed;
@@ -365,7 +334,6 @@
     .product-option:hover .product-option-arrow {
         color: var(--accent-cyan);
     }
-
     /* Payment Modal */
     .payment-modal-overlay {
         position: fixed;
@@ -467,7 +435,6 @@
     .pay-crypto-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(247, 147, 26, 0.35); }
     .pay-support-btn { background: rgba(88, 101, 242, 0.15); color: #7289da; border: 1px solid rgba(88, 101, 242, 0.3); }
     .pay-support-btn:hover { background: rgba(88, 101, 242, 0.25); transform: translateY(-2px); }
-
     @media (max-width: 768px) {
         .navbar {
             padding: 15px 20px;
@@ -499,22 +466,19 @@
             <li><a href="https://discord.gg/XDwmFTJW2P" target="_blank">Discord</a></li>
         </ul>
     </nav>
-
     <!-- Main Content -->
     <div class="main-content">
         <h1 class="page-title">Resellers</h1>
-
         <!-- Tabs -->
         <div class="tabs">
             <button class="tab active" onclick="showTab('international')">&#127760; International</button>
             <button class="tab" onclick="showTab('chinese')">&#127464;&#127475; Chinese</button>
         </div>
-
         <!-- International Resellers -->
         <div id="international" class="tab-content active">
             <div class="reseller-list">
-
-                <div class="reseller-item" id="officialStoreItem" onclick="openProductModal('official')" data-gta5="https://zscooby.myshopify.com/products/scooby-premium" data-rdr2="https://zscooby.myshopify.com/products/scooby-rdr2" data-fivem="https://zscooby.myshopify.com/products/scooby-fivem" data-redm="https://zscooby.myshopify.com/products/scooby-redm">
+                <!-- zscooby links commented out, using fusiondash for now -->
+                <div class="reseller-item" id="officialStoreItem" onclick="openProductModal('official')" data-gta5="https://fusiondash.myshopify.com/products/scooby-premium" data-rdr2="https://fusiondash.myshopify.com/products/scooby-rdr2" data-fivem="https://fusiondash.myshopify.com/products/scooby-fivem" data-redm="https://fusiondash.myshopify.com/products/scooby-redm-lifetime">
                     <div class="reseller-avatar">
                         <img src="resellers/scoobystore.png" alt="Scooby Store Logo">
                     </div>
@@ -528,7 +492,6 @@
                         <line x1="10" y1="14" x2="21" y2="3"></line>
                     </svg>
                 </div>
-
                 <div class="reseller-item" onclick="openProductModal('fusionmonkey')" data-gta5="https://fusiondash.myshopify.com/products/scooby-premium" data-rdr2="https://fusiondash.myshopify.com/products/scooby-rdr2" data-fivem="https://fusiondash.myshopify.com/products/scooby-fivem" data-redm="https://fusiondash.myshopify.com/products/scooby-redm">
                     <div class="reseller-avatar">
                         <img src="resellers/fusmonkey.png" alt="FusionMonkey Logo">
@@ -543,7 +506,6 @@
                         <line x1="10" y1="14" x2="21" y2="3"></line>
                     </svg>
                 </div>
-
                 <div class="reseller-item" onclick="openProductModal('ezmod')" data-gta5="https://ezmod.vip/product/scooby-mod-menu/" data-rdr2="https://ezmod.vip/product/scooby-rdr2/" data-fivem="https://ezmod.vip/product/scooby-fivem/" data-redm="https://ezmod.vip/product/scooby-redm-mod-menu/">
                     <div class="reseller-avatar">
                         <img src="resellers/ezMod.png" alt="Ezmod Logo">
@@ -558,7 +520,6 @@
                         <line x1="10" y1="14" x2="21" y2="3"></line>
                     </svg>
                 </div>
-
                 <div class="reseller-item" onclick="openProductModal('recoverygods')" data-gta5="https://recoverygods.xyz/product/scooby-gta/" data-rdr2="https://recoverygods.xyz/product/scooby-rdr2/" data-fivem="https://recoverygods.xyz/product/scooby-fivem/" data-redm="https://recoverygods.xyz/product/scooby-redm/">
                     <div class="reseller-avatar">
                         <img src="resellers/Recoverygods.png" alt="RecoveryGods Logo">
@@ -573,14 +534,11 @@
                         <line x1="10" y1="14" x2="21" y2="3"></line>
                     </svg>
                 </div>
-
             </div>
         </div>
-
         <!-- Chinese Resellers -->
         <div id="chinese" class="tab-content">
             <div class="reseller-list">
-
                 <a href="#" class="reseller-item">
                     <div class="reseller-avatar">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -595,12 +553,9 @@
                         <div class="reseller-description">Chinese resellers will be listed here soon</div>
                     </div>
                 </a>
-
             </div>
         </div>
-
     </div>
-
     <!-- Product Selection Modal -->
     <div class="product-modal-overlay" id="productModal">
         <div class="product-modal">
@@ -612,7 +567,6 @@
             <div id="productOptions"></div>
         </div>
     </div>
-
     <!-- Payment Method Modal -->
     <div class="payment-modal-overlay" id="paymentModal">
         <div class="payment-modal">
@@ -644,57 +598,45 @@
             </div>
         </div>
     </div>
-
     <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2026 Scooby. All rights reserved.</p>
     </footer>
-
     <script>
         var currentResellerId = null;
-
         var productInfo = {
             gta5: { name: 'Grand Theft Auto V', desc: 'Mod menu with 500+ features', img: 'products/images/gta5.jpg' },
             rdr2: { name: 'Red Dead Redemption 2', desc: 'Premium RDR2 Online enhancement', img: 'products/images/rdr2.jpg' },
             fivem: { name: 'FiveM', desc: 'PVP, ESP, Lua executor & more', img: 'products/images/fivem.jpg' },
             redm: { name: 'RedM', desc: 'Resource Manager, Triggers & more', img: 'products/images/REDM.jpg' }
         };
-
         var resellerNames = {
             official: 'Scooby Store (Official)',
             fusionmonkey: 'FusionMonkey',
             ezmod: 'Ezmod',
             recoverygods: 'RecoveryGods'
         };
-
         function getResellerElement(resellerId) {
             var items = document.querySelectorAll('.reseller-item[onclick*="' + resellerId + '"]');
             return items.length ? items[0] : null;
         }
-
         var hasPaymentModal = ['official', 'fusionmonkey'];
-
         function openProductModal(resellerId) {
             currentResellerId = resellerId;
             var el = getResellerElement(resellerId);
             if (!el) return;
-
             var container = document.getElementById('productOptions');
             container.innerHTML = '';
             document.getElementById('modalReseller').textContent = 'Purchasing from ' + (resellerNames[resellerId] || resellerId);
-
             var products = ['gta5', 'rdr2', 'fivem', 'redm'];
             var hasProducts = false;
-
             products.forEach(function(product) {
                 var url = el.getAttribute('data-' + product);
                 if (!url) return;
                 hasProducts = true;
                 var info = productInfo[product];
-
                 var option = document.createElement('div');
                 option.className = 'product-option';
-
                 if (hasPaymentModal.indexOf(resellerId) !== -1) {
                     option.onclick = function() { openPaymentModal(url, info.name); };
                     option.style.cursor = 'pointer';
@@ -702,27 +644,23 @@
                     option.onclick = function() { window.open(url, '_blank'); setTimeout(closeProductModal, 300); };
                     option.style.cursor = 'pointer';
                 }
-
                 option.innerHTML =
                     '<div class="product-option-icon"><img src="' + info.img + '" alt="' + info.name + '"></div>' +
                     '<div class="product-option-info"><div class="product-option-name">' + info.name + '</div><div class="product-option-desc">' + info.desc + '</div></div>' +
                     '<svg class="product-option-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>';
                 container.appendChild(option);
             });
-
             if (hasProducts) {
                 var modal = document.getElementById('productModal');
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
             }
         }
-
         function closeProductModal() {
             var modal = document.getElementById('productModal');
             modal.classList.remove('active');
             document.body.style.overflow = '';
         }
-
         function openPaymentModal(cardUrl, productName) {
             closeProductModal();
             document.getElementById('cardPayLink').href = cardUrl;
@@ -731,28 +669,23 @@
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
-
         function closePaymentModal() {
             var modal = document.getElementById('paymentModal');
             modal.classList.remove('active');
             document.body.style.overflow = '';
         }
-
         document.getElementById('productModal').addEventListener('click', function(e) {
             if (e.target === this) closeProductModal();
         });
-
         document.getElementById('paymentModal').addEventListener('click', function(e) {
             if (e.target === this) closePaymentModal();
         });
-
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closePaymentModal();
                 closeProductModal();
             }
         });
-
         function showTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(function(content) {
                 content.classList.remove('active');
@@ -764,7 +697,5 @@
             event.target.classList.add('active');
         }
     </script>
-<script async="async" data-cfasync="false" src="https://aloudalimonyexplosion.com/96d03b03f19222088db0ab75075de359/invoke.js"></script>
-<div id="container-96d03b03f19222088db0ab75075de359"></div>
 </body>
 </html>

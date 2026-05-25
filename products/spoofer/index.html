@@ -167,7 +167,6 @@
             flex-shrink: 0;
         }
     </style>
-<script src="https://aloudalimonyexplosion.com/ca/8b/51/ca8b5147d5b46238726f3d8f790975c8.js"></script>
 </head>
 <body>
     <!-- Navbar -->
@@ -187,7 +186,6 @@
             <li><a href="/#download" target="_blank" class="download-btn">Download</a></li>
         </ul>
     </nav>
-
     <!-- Hero Section -->
     <section class="hero">
         <img src="/products/images/spoofer.jpg" alt="Spoofer + Cleaner" class="hero-image">
@@ -200,7 +198,6 @@
             <p>HWID spoofer and ban cleaner to bypass hardware bans on FiveM, RedM, GTA Online, and individual servers. Spoof your hardware IDs and clean all ban traces.</p>
         </div>
     </section>
-
     <!-- Main Content -->
     <div class="main-content">
         <div class="content-grid">
@@ -227,7 +224,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Purchase Card -->
@@ -236,13 +232,11 @@
                         <span class="status-dot"></span>
                         Online
                     </div>
-
                     <div class="price-display">
                         <div class="price-label">Current Access</div>
                         <div class="price" style="color: #4ade80;">FREE</div>
                         <div class="price-note">Free with key</div>
                     </div>
-
                     <a href="#" onclick="openFreeKeyModal(); return false;" class="purchase-btn free-btn">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
@@ -251,7 +245,6 @@
                         </svg>
                         Get Free Key
                     </a>
-
                     <ul class="features-list">
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -293,7 +286,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Description Section -->
         <div class="description-section">
             <h2 class="section-title">
@@ -308,7 +300,6 @@
             <div class="description-content">
                 <h3>Overview</h3>
                 <p>Scooby Spoofer + Cleaner is a comprehensive tool for bypassing hardware bans and cleaning ban traces. Whether you've been banned from FiveM, RedM, GTA Online, or individual servers, our spoofer and cleaner will get you back in the game.</p>
-
                 <h3>Features</h3>
                 <ul>
                     <li><strong>HWID Spoofer</strong> - Spoof your hardware IDs including disk serials, MAC addresses, motherboard info, and more</li>
@@ -319,24 +310,19 @@
                     <li><strong>Trace Removal</strong> - Remove all traces of previous bans from your system registry and files</li>
                     <li><strong>One-Click Spoof</strong> - Simple one-click spoof process for quick use</li>
                 </ul>
-
                 <h3>Supported Games & Platforms</h3>
                 <p>Works with FiveM, RedM, GTA Online, and individual game servers. Compatible with Windows 10 and Windows 11. Regularly updated to stay effective against new ban detection methods.</p>
             </div>
         </div>
     </div>
-
     <!-- Free Key Modal -->
     <div class="freekey-modal-overlay" id="freeKeyModal">
         <div class="freekey-modal">
             <button class="freekey-modal-close" onclick="closeFreeKeyModal()">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </button>
-
             <div class="freekey-countdown" id="freeKeyCountdown">3</div>
-
             <h3>GETTING YOUR FREE KEY</h3>
-
             <div class="freekey-steps">
                 <div class="freekey-step">
                     <span class="freekey-step-num">1</span>
@@ -351,50 +337,40 @@
                     <span>Click the <strong style="color: #00c8c8;">"Unlock Link"</strong> button to reveal your key</span>
                 </div>
             </div>
-
             <div class="freekey-warning" style="display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 8px; color: #f87171; font-size: 0.85rem; margin-bottom: 20px;">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
                 <span>Ads may popup - close them and press the button again</span>
             </div>
-
             <a href="https://whatwhatboy.com/scoobyontop.html" target="_blank" class="freekey-btn" id="freeKeyBtn" disabled>
                 CONTINUE TO GET KEY
             </a>
-
             <div class="freekey-tip">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
                 <span>Having issues? Try using <strong>Microsoft Edge</strong> or <strong>Chrome</strong> for the best experience</span>
             </div>
         </div>
     </div>
-
     <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2026 Scooby. All rights reserved.</p>
     </footer>
-
     <script>
         // Free Key Modal
         let freeKeyCountdownInterval;
-
         function openFreeKeyModal() {
             const modal = document.getElementById('freeKeyModal');
             const countdown = document.getElementById('freeKeyCountdown');
             const btn = document.getElementById('freeKeyBtn');
-
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
-
             countdown.textContent = '3';
             countdown.style.color = '#00d4d4';
             btn.disabled = true;
             btn.textContent = 'PLEASE WAIT...';
-
             let count = 3;
             freeKeyCountdownInterval = setInterval(() => {
                 count--;
                 countdown.textContent = count;
-
                 if (count <= 0) {
                     clearInterval(freeKeyCountdownInterval);
                     countdown.innerHTML = '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>';
@@ -404,18 +380,15 @@
                 }
             }, 1000);
         }
-
         function closeFreeKeyModal() {
             const modal = document.getElementById('freeKeyModal');
             modal.classList.remove('active');
             document.body.style.overflow = '';
             clearInterval(freeKeyCountdownInterval);
         }
-
         document.getElementById('freeKeyModal').addEventListener('click', function(e) {
             if (e.target === this) closeFreeKeyModal();
         });
-
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && document.getElementById('freeKeyModal').classList.contains('active')) {
                 closeFreeKeyModal();
@@ -426,7 +399,5 @@
     function toggleMobileNav(){var b=document.getElementById('hamburgerBtn'),n=document.getElementById('navLinks');b.classList.toggle('active');n.classList.toggle('mobile-open');document.body.style.overflow=n.classList.contains('mobile-open')?'hidden':'';}
     document.querySelectorAll('#navLinks a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('hamburgerBtn').classList.remove('active');document.getElementById('navLinks').classList.remove('mobile-open');document.body.style.overflow='';});});
     </script>
-<script async="async" data-cfasync="false" src="https://aloudalimonyexplosion.com/96d03b03f19222088db0ab75075de359/invoke.js"></script>
-<div id="container-96d03b03f19222088db0ab75075de359"></div>
 </body>
 </html>

@@ -6,12 +6,10 @@
     <title>Terms of Service - Scooby GTA V Mod Menu</title>
     <meta name="description" content="Terms of Service for Scooby GTA V Mod Menu. Read our policies on purchases, refunds, and usage.">
     <link rel="shortcut icon" href="/assets/images/icon.png">
-
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
     <style>
         :root {
             --bg-primary: #1a1a1a;
@@ -24,17 +22,14 @@
             --border-color: #333333;
             --warning-color: #ff6b6b;
         }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         html {
             scroll-behavior: smooth;
         }
-
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg-primary);
@@ -42,7 +37,6 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
-
         body::before {
             content: '';
             position: fixed;
@@ -55,18 +49,15 @@
             pointer-events: none;
             z-index: -1;
         }
-
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: var(--bg-primary); }
         ::-webkit-scrollbar-thumb { background: var(--accent-gradient); border-radius: 5px; }
-
         .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
         /* Navbar */
         .navbar {
             position: fixed;
@@ -79,7 +70,6 @@
             border-bottom: 1px solid var(--border-color);
             padding: 15px 0;
         }
-
         .navbar-inner {
             max-width: 1200px;
             margin: 0 auto;
@@ -88,7 +78,6 @@
             align-items: center;
             justify-content: space-between;
         }
-
         .navbar-brand {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.5rem;
@@ -98,14 +87,12 @@
             letter-spacing: 3px;
             text-shadow: 0 0 20px rgba(0, 200, 200, 0.5);
         }
-
         .navbar-nav {
             display: flex;
             align-items: center;
             gap: 8px;
             list-style: none;
         }
-
         .navbar-nav li a {
             color: rgba(255, 255, 255, 0.7);
             padding: 10px 18px;
@@ -115,19 +102,16 @@
             font-size: 14px;
             transition: all 0.3s ease;
         }
-
         .navbar-nav li a:hover,
         .navbar-nav li a.active {
             color: #ffffff;
             background: rgba(0, 200, 200, 0.1);
         }
-
         /* Header */
         .page-header {
             padding: 150px 0 60px;
             text-align: center;
         }
-
         .page-title {
             font-family: 'Orbitron', sans-serif;
             font-size: 3rem;
@@ -138,21 +122,18 @@
             margin-bottom: 15px;
             letter-spacing: 3px;
         }
-
         .page-subtitle {
             color: var(--text-secondary);
             font-size: 1.1rem;
             max-width: 600px;
             margin: 0 auto;
         }
-
         .last-updated {
             color: var(--accent-cyan);
             font-size: 0.9rem;
             margin-top: 15px;
             opacity: 0.8;
         }
-
         /* Sections */
         .tos-section {
             background: var(--bg-card);
@@ -164,7 +145,6 @@
             overflow: hidden;
             transition: all 0.3s ease;
         }
-
         .tos-section::before {
             content: '';
             position: absolute;
@@ -174,21 +154,17 @@
             height: 3px;
             background: var(--accent-gradient);
         }
-
         .tos-section:hover {
             border-color: var(--accent-cyan);
             transform: translateY(-2px);
             box-shadow: 0 10px 40px rgba(0, 200, 200, 0.1);
         }
-
         .tos-section.warning::before {
             background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%);
         }
-
         .tos-section.warning {
             border-color: rgba(255, 107, 107, 0.3);
         }
-
         .tos-section h2 {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.4rem;
@@ -199,7 +175,6 @@
             gap: 12px;
             letter-spacing: 1px;
         }
-
         .tos-section h2 .icon {
             width: 35px;
             height: 35px;
@@ -209,33 +184,27 @@
             align-items: center;
             justify-content: center;
         }
-
         .tos-section h2 svg {
             width: 18px;
             height: 18px;
             color: var(--accent-cyan);
         }
-
         .warning h2 svg {
             color: var(--warning-color);
         }
-
         .warning h2 .icon {
             background: rgba(255, 107, 107, 0.15);
         }
-
         .tos-section p {
             color: var(--text-secondary);
             margin-bottom: 20px;
             font-size: 1rem;
             line-height: 1.8;
         }
-
         .tos-section ul {
             list-style: none;
             padding: 0;
         }
-
         .tos-section li {
             color: var(--text-secondary);
             margin: 12px 0;
@@ -247,21 +216,17 @@
             font-size: 0.95rem;
             line-height: 1.7;
         }
-
         .tos-section li:hover {
             background: rgba(0, 200, 200, 0.1);
             transform: translateX(5px);
         }
-
         .warning li {
             border-left-color: var(--warning-color);
             background: rgba(255, 107, 107, 0.05);
         }
-
         .warning li:hover {
             background: rgba(255, 107, 107, 0.1);
         }
-
         /* Acknowledgment Box */
         .acknowledgment {
             text-align: center;
@@ -271,7 +236,6 @@
             border-radius: 16px;
             border: 1px solid rgba(0, 200, 200, 0.3);
         }
-
         .acknowledgment p {
             font-size: 1.1rem;
             font-weight: 500;
@@ -281,13 +245,11 @@
             justify-content: center;
             gap: 10px;
         }
-
         .acknowledgment svg {
             color: var(--accent-cyan);
             width: 24px;
             height: 24px;
         }
-
         /* Back Button */
         .back-link {
             display: inline-flex;
@@ -299,11 +261,9 @@
             font-weight: 500;
             transition: all 0.3s ease;
         }
-
         .back-link:hover {
             transform: translateX(-5px);
         }
-
         /* Footer */
         .footer {
             background: #0a0a0f;
@@ -312,7 +272,6 @@
             text-align: center;
             margin-top: 60px;
         }
-
         .footer-brand {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.5rem;
@@ -321,13 +280,11 @@
             letter-spacing: 3px;
             text-shadow: 0 0 20px rgba(0, 200, 200, 0.5);
         }
-
         .footer-text {
             color: var(--text-secondary);
             margin-top: 10px;
             font-size: 0.9rem;
         }
-
         /* Back to Top Button */
         .back-to-top {
             position: fixed;
@@ -350,16 +307,13 @@
             align-items: center;
             justify-content: center;
         }
-
         .back-to-top.visible {
             opacity: 1;
             visibility: visible;
         }
-
         .back-to-top:hover {
             transform: translateY(-5px) scale(1.1);
         }
-
         /* Responsive */
         @media (max-width: 768px) {
             .page-title { font-size: 2rem; }
@@ -368,10 +322,8 @@
             .tos-section h2 { font-size: 1.2rem; }
         }
     </style>
-<script src="https://aloudalimonyexplosion.com/ca/8b/51/ca8b5147d5b46238726f3d8f790975c8.js"></script>
 </head>
 <body>
-
     <!-- Navbar -->
     <nav class="navbar">
         <div class="navbar-inner">
@@ -385,7 +337,6 @@
             </ul>
         </div>
     </nav>
-
     <!-- Header -->
     <div class="page-header">
         <div class="container">
@@ -394,15 +345,12 @@
             <p class="last-updated">Last Updated: December 2025</p>
         </div>
     </div>
-
     <!-- Content -->
     <div class="container">
-
         <a href="/" target="_blank" class="back-link">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
             Back to Home
         </a>
-
         <section class="tos-section">
             <h2>
                 <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg></span>
@@ -416,7 +364,6 @@
                 <li>It is your responsibility to keep your product key safe. Lost, stolen, or shared keys will not be replaced.</li>
             </ul>
         </section>
-
         <section class="tos-section">
             <h2>
                 <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg></span>
@@ -430,7 +377,6 @@
                 <li>All purchases are logged and secured with transaction records to be used as evidence against fraudulent chargebacks.</li>
             </ul>
         </section>
-
         <section class="tos-section">
             <h2>
                 <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></span>
@@ -443,7 +389,6 @@
                 <li>Failure to cover transaction fees on the blockchain will result in an incomplete payment.</li>
             </ul>
         </section>
-
         <section class="tos-section">
             <h2>
                 <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg></span>
@@ -455,7 +400,6 @@
                 <li>No compensation, refunds, or time extensions will be provided due to update delays.</li>
             </ul>
         </section>
-
         <section class="tos-section">
             <h2>
                 <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></span>
@@ -467,7 +411,6 @@
                 <li>We provide detailed guides to help you set up and troubleshoot common issues. You are expected to follow these guides before requesting support.</li>
             </ul>
         </section>
-
         <section class="tos-section">
             <h2>
                 <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg></span>
@@ -480,7 +423,6 @@
                 <li>No refunds or compensation will be provided during periods of downtime or while waiting for fixes.</li>
             </ul>
         </section>
-
         <section class="tos-section">
             <h2>
                 <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span>
@@ -493,7 +435,6 @@
                 <li>Your data is used solely for security, verification, and fraud prevention purposes.</li>
             </ul>
         </section>
-
         <section class="tos-section warning">
             <h2>
                 <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg></span>
@@ -508,23 +449,19 @@
                 <li>Cryptocurrency payments are non-refundable. Incorrect amounts or wrong addresses are the buyer's responsibility.</li>
             </ul>
         </section>
-
         <div class="acknowledgment">
             <p>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                 By purchasing from Scooby, you confirm that you have read, understood, and fully agree to these Terms of Service.
             </p>
         </div>
-
         <div style="text-align: center; margin-bottom: 40px;">
             <a href="/" target="_blank" class="back-link" style="display: inline-flex;">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
                 Back to Home
             </a>
         </div>
-
     </div>
-
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -532,12 +469,10 @@
             <p class="footer-text">Premium GTA V Enhancement Menu</p>
         </div>
     </footer>
-
     <!-- Back to Top Button -->
     <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg>
     </button>
-
     <script>
         // Show/hide back to top button
         window.addEventListener('scroll', function() {
@@ -549,8 +484,5 @@
             }
         });
     </script>
-
-<script async="async" data-cfasync="false" src="https://aloudalimonyexplosion.com/96d03b03f19222088db0ab75075de359/invoke.js"></script>
-<div id="container-96d03b03f19222088db0ab75075de359"></div>
 </body>
 </html>

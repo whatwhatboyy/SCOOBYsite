@@ -39,7 +39,6 @@
 body{background:var(--bg-primary);color:#e0e0e0;font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;min-height:100vh;position:relative;overflow-x:hidden;padding-top:70px}
 body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse at 20% 20%,rgba(0,212,212,0.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 80%,rgba(0,180,180,0.04) 0%,transparent 50%);pointer-events:none;z-index:0}
 body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background-image:linear-gradient(rgba(0,212,212,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,212,0.03) 1px,transparent 1px);background-size:60px 60px;opacity:0.4;pointer-events:none;z-index:0}
-
 .header{position:relative;padding:60px 20px 50px;text-align:center;overflow:hidden;z-index:1}
 .header::before{content:'';position:absolute;top:50%;left:50%;width:600px;height:600px;background:radial-gradient(circle,rgba(0,212,212,0.12) 0%,transparent 70%);transform:translate(-50%,-50%);animation:heroGlow 8s ease-in-out infinite;pointer-events:none}
 .header::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(0,212,212,0.4),transparent)}
@@ -92,12 +91,10 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 .search-bar:focus{border-color:rgba(0,212,212,0.5);box-shadow:0 0 20px rgba(0,212,212,0.15)}
 .search-bar::placeholder{color:var(--text-secondary)}
 .highlight{background:rgba(0,212,212,0.3);border-radius:2px}
-
 @keyframes heroGlow{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:0.6}50%{transform:translate(-50%,-50%) scale(1.3);opacity:1}}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 @keyframes fadeInUp{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
 @keyframes badgePulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(0,212,212,0.4)}50%{opacity:0.8;box-shadow:0 0 0 6px rgba(0,212,212,0)}}
-
 .navbar-custom{position:fixed;top:0;left:0;right:0;z-index:9999;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(8,8,12,0.9);padding:0;transition:all 0.3s ease;border-bottom:1px solid rgba(255,255,255,0.05)}
 .navbar-inner{max-width:1400px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:70px}
 .navbar-brand-text{font-family:'Orbitron',sans-serif;font-size:1.5rem;font-weight:700;background:var(--accent-gradient);-webkit-background-clip:text;background-clip:text;color:transparent;text-decoration:none;letter-spacing:3px;transition:all 0.3s ease}
@@ -108,7 +105,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 .navbar-nav-custom li a.active{color:var(--accent-cyan)}
 .navbar-nav-custom li a.login-btn{background:var(--accent-gradient);color:#000;font-weight:600;padding:10px 22px;border-radius:8px;margin-left:8px}
 .navbar-nav-custom li a.login-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,212,212,0.35);color:#000}
-
 @-moz-document url-prefix(){*{backdrop-filter:none !important;-webkit-backdrop-filter:none !important}}
 @media(max-width:768px){
 .header h1{font-size:2.2rem}
@@ -124,7 +120,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 .navbar-inner{padding:0 15px}
 }
 </style>
-<script src="https://aloudalimonyexplosion.com/ca/8b/51/ca8b5147d5b46238726f3d8f790975c8.js"></script>
 </head>
 <body>
 <nav class="navbar-custom">
@@ -166,10 +161,8 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="main-tab" data-tab="night">Night</div>
 <div class="main-tab" data-tab="settings">Settings</div>
 </div>
-
 <!-- ==================== SELF TAB ==================== -->
 <div class="tab-content active" id="tab-self">
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Main</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -178,7 +171,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="sub-tab" data-sub="self-anim">Animations</div>
 </div>
 <div class="sub-content active" id="sub-self-main">
-
 <div class="group"><div class="group-header"><span class="icon"></span>Health</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Godmode</div>
 <div class="feature"><span class="dot toggle"></span>No Ragdoll</div>
@@ -191,7 +183,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot toggle"></span>Auto Armor</div>
 <div class="feature"><span class="dot toggle"></span>Auto Kill Enemies</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Movement</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Stand on Vehicles</div>
 <div class="feature"><span class="dot toggle"></span>Disable Action Mode</div>
@@ -223,21 +214,18 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot conditional"></span>Freecam Speed</div>
 <div class="feature"><span class="dot conditional"></span>Freecam Controls</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Visibility</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Invisibility</div>
 <div class="feature"><span class="dot conditional"></span>Local Visibility</div>
 <div class="feature"><span class="dot toggle"></span>Off The Radar</div>
 <div class="feature"><span class="dot toggle"></span>Ghost Mode</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Vision &amp; HUD</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Night Vision</div>
 <div class="feature"><span class="dot toggle"></span>Thermal Vision</div>
 <div class="feature"><span class="dot toggle"></span>Hide Radar</div>
 <div class="feature"><span class="dot toggle"></span>Hide HUD</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Wanted</div><div class="features">
 <div class="feature"><span class="dot button"></span>Clear Wanted</div>
 <div class="feature"><span class="dot toggle"></span>Never Wanted</div>
@@ -245,13 +233,11 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Set Wanted</div>
 <div class="feature"><span class="dot toggle"></span>Freeze Wanted</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Special Ability</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Infinite Special Ability</div>
 <div class="feature"><span class="dot toggle"></span>Enable in MP</div>
 <div class="feature"><span class="dot conditional"></span>Select Special Ability</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Tools</div><div class="features">
 <div class="feature"><span class="dot button"></span>Skip Cutscene</div>
 <div class="feature"><span class="dot button"></span>Skip Conversation</div>
@@ -261,14 +247,12 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Fill Inventory</div>
 <div class="feature"><span class="dot button"></span>Open Wardrobe</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Effects</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Drunk</div>
 <div class="feature"><span class="dot toggle"></span>Shrink</div>
 <div class="feature"><span class="dot toggle"></span>Adrenaline</div>
 <div class="feature"><span class="dot toggle"></span>Slow Motion</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Misc</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>No Idle Kick</div>
 <div class="feature"><span class="dot toggle"></span>Unlimited Oxygen</div>
@@ -280,7 +264,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Clone Self</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-self-anim">
 <div class="group"><div class="group-header"><span class="icon"></span>Dance</div><div class="features">
 <div class="feature"><span class="dot select"></span>Dance Selector</div>
@@ -304,11 +287,9 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 </div></div>
 </div>
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Powers</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
-
 <div class="group"><div class="group-header"><span class="icon"></span>Force Field</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Force Field Peds</div>
 <div class="feature"><span class="dot conditional"></span>Force Field Radius</div>
@@ -317,21 +298,18 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot conditional"></span>Force Field Ragdoll</div>
 <div class="feature"><span class="dot conditional"></span>Force Field Kill</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Matrix &amp; Air</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Matrix</div>
 <div class="feature"><span class="dot toggle"></span>Walk on Air</div>
 <div class="feature"><span class="dot conditional"></span>Walk on Air Height</div>
 <div class="feature"><span class="dot conditional"></span>Walk on Air Show</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Telekinesis</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Telekinesis</div>
 <div class="feature"><span class="dot conditional"></span>Telekinesis Force</div>
 <div class="feature"><span class="dot conditional"></span>Telekinesis Always Show HUD</div>
 <div class="feature"><span class="dot conditional"></span>Telekinesis Funny Launch</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Aura</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Aura</div>
 <div class="feature"><span class="dot conditional"></span>Aura Size</div>
@@ -343,14 +321,12 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot conditional"></span>Aura Push Objects</div>
 <div class="feature"><span class="dot conditional"></span>Aura Push Force</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Electric Touch</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Electric Touch</div>
 <div class="feature"><span class="dot conditional"></span>Electric Touch Range</div>
 <div class="feature"><span class="dot conditional"></span>Electric Touch Effect</div>
 <div class="feature"><span class="dot conditional"></span>Electric Touch Kill</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Flaming Fists</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Flaming Fists</div>
 <div class="feature"><span class="dot conditional"></span>Fist Effect</div>
@@ -362,7 +338,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot conditional"></span>Flaming Fists Size</div>
 <div class="feature"><span class="dot conditional"></span>Punch Force</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Dash</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Dash</div>
 <div class="feature"><span class="dot conditional"></span>Dash Mode</div>
@@ -372,7 +347,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot conditional"></span>Dash Invincible</div>
 <div class="feature"><span class="dot conditional"></span>Dash Show HUD</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Paraglider</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Paraglider</div>
 <div class="feature"><span class="dot conditional"></span>Paraglider Speed</div>
@@ -380,7 +354,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot conditional"></span>Paraglider Show HUD</div>
 <div class="feature"><span class="dot conditional"></span>Paraglider Auto</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Shockwave Ball</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Shockwave Ball</div>
 <div class="feature"><span class="dot conditional"></span>Shockwave Ball Mode</div>
@@ -393,7 +366,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot conditional"></span>Shockwave Ball Trail</div>
 <div class="feature"><span class="dot conditional"></span>Shockwave Ball Indicator</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>God Slap</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>God Slap</div>
 <div class="feature"><span class="dot conditional"></span>God Slap Force</div>
@@ -409,7 +381,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot conditional"></span>God Slap Vehicles</div>
 <div class="feature"><span class="dot conditional"></span>God Slap Indicator</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Wall Runner</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Wall Runner</div>
 <div class="feature"><span class="dot conditional"></span>Wall Run Speed</div>
@@ -417,13 +388,10 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot conditional"></span>Wall Run Auto Detect</div>
 <div class="feature"><span class="dot conditional"></span>Wall Run Jump Off</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Other Powers</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Vehicle Magnet</div>
 </div></div>
-
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Weapons</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -431,7 +399,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="sub-tab active" data-sub="wep-main">Main</div>
 <div class="sub-tab" data-sub="wep-aimbot">Aimbot</div>
 </div>
-
 <div class="sub-content active" id="sub-wep-main">
 <div class="group"><div class="group-header"><span class="icon"></span>Globals</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Infinite Ammo</div>
@@ -511,7 +478,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Remove Selected Weapon</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-wep-aimbot">
 <div class="sub-tabs">
 <div class="sub-tab active" data-sub="aim-presets">Presets</div>
@@ -520,7 +486,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="sub-tab" data-sub="aim-trigger">Triggerbot</div>
 <div class="sub-tab" data-sub="aim-magic">Magic Bullet</div>
 </div>
-
 <div class="sub-content active" id="sub-aim-presets">
 <div class="group"><div class="group-header"><span class="icon"></span>Aimbot Presets</div><div class="features">
 <div class="feature"><span class="dot button"></span>Rage</div>
@@ -555,7 +520,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Off (Reset All)</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-aim-aimbot">
 <div class="group"><div class="group-header"><span class="icon"></span>Aimbot Core</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Enable Aimbot</div>
@@ -583,7 +547,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot conditional"></span>Target Color</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-aim-silent">
 <div class="group"><div class="group-header"><span class="icon"></span>Silent Aim</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Enable Silent Aim</div>
@@ -602,7 +565,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot conditional"></span>FOV Color</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-aim-trigger">
 <div class="group"><div class="group-header"><span class="icon"></span>Triggerbot Core</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Enable Triggerbot</div>
@@ -631,7 +593,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot conditional"></span>Smooth Aim</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-aim-magic">
 <div class="group"><div class="group-header"><span class="icon"></span>Magic Bullet Core</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Enable Magic Bullet</div>
@@ -660,7 +621,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 </div>
 </div>
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Outfit Editor</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -698,7 +658,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot select"></span>Saved Outfits List</div>
 </div></div>
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Model Changer</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -730,7 +689,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Delete Saved Model</div>
 </div></div>
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Teleport</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -776,23 +734,18 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 </div></div>
 </div>
 </div></div>
-
 </div>
-
 <!-- ==================== VEHICLE TAB ==================== -->
 <div class="tab-content" id="tab-vehicle">
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Main</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
-
 <div class="group"><div class="group-header"><span class="icon"></span>Globals</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Vehicle Godmode</div>
 <div class="feature"><span class="dot toggle"></span>Keep Fixed</div>
 <div class="feature"><span class="dot toggle"></span>Modify Boost Behavior</div>
 <div class="feature"><span class="dot conditional"></span>Boost Behavior</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Tools</div><div class="features">
 <div class="feature"><span class="dot button"></span>Open Vehicle Spawner</div>
 <div class="feature"><span class="dot button"></span>Enter Last Vehicle</div>
@@ -806,7 +759,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Save Personal Vehicle</div>
 <div class="feature"><span class="dot button"></span>Teleport Vehicle Forward</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Speed &amp; Boost</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Nitro</div>
 <div class="feature"><span class="dot conditional"></span>Nitro Speed</div>
@@ -822,7 +774,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot toggle"></span>Wheelie</div>
 <div class="feature"><span class="dot toggle"></span>Tornado</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Handling</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Drive on Water</div>
 <div class="feature"><span class="dot toggle"></span>Vehicle Jump</div>
@@ -835,7 +786,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot toggle"></span>Hydraulics</div>
 <div class="feature"><span class="dot toggle"></span>Instant Brake</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Auto Pilot</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Drive to Waypoint</div>
 <div class="feature"><span class="dot toggle"></span>Auto Pilot Wander</div>
@@ -844,7 +794,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot select"></span>Auto Pilot Drive Style</div>
 <div class="feature"><span class="dot button"></span>Stop Vehicle</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Movement</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Vehicle Fly</div>
 <div class="feature"><span class="dot conditional"></span>Vehicle Fly Mode</div>
@@ -866,7 +815,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot conditional"></span>Tank Flip</div>
 <div class="feature"><span class="dot conditional"></span>Tank Camera Shake</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Actions</div><div class="features">
 <div class="feature"><span class="dot button"></span>Kick from Vehicle</div>
 <div class="feature"><span class="dot button"></span>Flip Vehicle</div>
@@ -874,14 +822,12 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Burnout</div>
 <div class="feature"><span class="dot button"></span>Spinout</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Appearance</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Rainbow Paint</div>
 <div class="feature"><span class="dot toggle"></span>Vehicle Invisible</div>
 <div class="feature"><span class="dot toggle"></span>Lower Stance</div>
 <div class="feature"><span class="dot toggle"></span>Keep Vehicle Clean</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Misc</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Speedometer</div>
 <div class="feature"><span class="dot toggle"></span>Seatbelt</div>
@@ -891,9 +837,7 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot toggle"></span>Keep Engine Running</div>
 <div class="feature"><span class="dot toggle"></span>Mute Siren</div>
 </div></div>
-
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Spawn Vehicle</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -966,7 +910,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 </div></div>
 </div>
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Vehicle Editor (LSC Style)</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -1027,7 +970,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot toggle"></span>Extra 1-14</div>
 </div></div>
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Saved Vehicles</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -1038,7 +980,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot select"></span>Saved Vehicle List</div>
 </div></div>
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Handling Editor</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -1110,12 +1051,9 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Apply to Current Vehicle</div>
 </div></div>
 </div></div>
-
 </div>
-
 <!-- ==================== NETWORK TAB ==================== -->
 <div class="tab-content" id="tab-network">
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Session</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -1222,7 +1160,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 </div></div>
 </div>
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Gun Van</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -1273,7 +1210,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 </div></div>
 </div>
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Spoofing</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -1284,7 +1220,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot toggle"></span>Spoof Crew</div>
 </div></div>
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Random Events</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -1293,7 +1228,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot select"></span>Event Type</div>
 </div></div>
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Protection</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -1366,7 +1300,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 </div></div>
 </div>
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Saved Players</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -1387,12 +1320,9 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot select"></span>Notification Style</div>
 </div></div>
 </div></div>
-
 </div>
-
 <!-- ==================== PLAYERS TAB ==================== -->
 <div class="tab-content" id="tab-players">
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Player Manager</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -1404,7 +1334,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Weapon Info</div>
 </div></div>
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Info</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -1428,7 +1357,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Copy RID to Clipboard</div>
 </div></div>
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Spectate &amp; Teleport</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -1443,7 +1371,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Teleport to Custom Coords</div>
 </div></div>
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Friendly</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -1455,7 +1382,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Give Parachute</div>
 </div></div>
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Kick</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -1467,7 +1393,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Desync Kick</div>
 </div></div>
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Toxic</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -1479,7 +1404,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot toggle"></span>Kill Loop Exploit</div>
 </div></div>
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Troll</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -1557,12 +1481,9 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 </div></div>
 </div>
 </div></div>
-
 </div>
-
 <!-- ==================== WORLD TAB ==================== -->
 <div class="tab-content" id="tab-world">
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Main</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -1572,7 +1493,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="sub-tab" data-sub="world-mini">Mini Games</div>
 <div class="sub-tab" data-sub="world-maps">Maps</div>
 </div>
-
 <div class="sub-content active" id="sub-world-main">
 <div class="group"><div class="group-header"><span class="icon"></span>Time</div><div class="features">
 <div class="feature"><span class="dot slider"></span>Hour</div>
@@ -1581,31 +1501,26 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Set Time</div>
 <div class="feature"><span class="dot toggle"></span>Freeze Time</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Weather</div><div class="features">
 <div class="feature"><span class="dot select"></span>Weather Selector</div>
 <div class="feature"><span class="dot button"></span>Set Weather</div>
 <div class="feature"><span class="dot toggle"></span>Force Weather</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Kill</div><div class="features">
 <div class="feature"><span class="dot button"></span>Kill All Peds</div>
 <div class="feature"><span class="dot button"></span>Kill All Enemies</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Delete</div><div class="features">
 <div class="feature"><span class="dot button"></span>Delete Peds</div>
 <div class="feature"><span class="dot button"></span>Delete Vehicles</div>
 <div class="feature"><span class="dot button"></span>Delete Objects</div>
 <div class="feature"><span class="dot button"></span>Delete Cameras</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Bring</div><div class="features">
 <div class="feature"><span class="dot button"></span>Bring Peds</div>
 <div class="feature"><span class="dot button"></span>Bring Vehicles</div>
 <div class="feature"><span class="dot button"></span>Bring Objects</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Chaos &amp; Destruction</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Peds Ignore Player</div>
 <div class="feature"><span class="dot toggle"></span>Ped Riot Mode</div>
@@ -1640,7 +1555,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot toggle"></span>Attract Peds</div>
 <div class="feature"><span class="dot button"></span>Scare All</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Nearby Peds</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Auto Disarm</div>
 <div class="feature"><span class="dot toggle"></span>High Alert</div>
@@ -1652,7 +1566,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Delete Nearby Peds</div>
 <div class="feature"><span class="dot button"></span>All Peds Ragdoll</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Nearby Vehicles</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Freeze Vehicles</div>
 <div class="feature"><span class="dot toggle"></span>Vehicle Rain</div>
@@ -1664,7 +1577,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot conditional"></span>Angry Planes Spawn</div>
 <div class="feature"><span class="dot button"></span>Explode Vehicles</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Pickups Rain</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Money Rain</div>
 <div class="feature"><span class="dot conditional"></span>Money Rain Model</div>
@@ -1678,13 +1590,11 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot conditional"></span>Rain Pickups Ammo</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-world-misc">
 <div class="group"><div class="group-header"><span class="icon"></span>Physics</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Low Gravity</div>
 <div class="feature"><span class="dot conditional"></span>Gravity Level</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Traffic Control</div><div class="features">
 <div class="feature"><span class="dot slider"></span>Traffic Density</div>
 <div class="feature"><span class="dot conditional"></span>Ped Density</div>
@@ -1694,7 +1604,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot toggle"></span>No Vehicles</div>
 <div class="feature"><span class="dot toggle"></span>No Cops</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Clear Area</div><div class="features">
 <div class="feature"><span class="dot button"></span>Clear Area</div>
 <div class="feature"><span class="dot slider"></span>Clear Area Radius</div>
@@ -1702,7 +1611,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot toggle"></span>Clear Area Vehicles</div>
 <div class="feature"><span class="dot toggle"></span>Clear Area Objects</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Time Control</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Slow Motion World</div>
 <div class="feature"><span class="dot conditional"></span>Slow Motion Scale</div>
@@ -1711,7 +1619,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot toggle"></span>Bullet Time</div>
 <div class="feature"><span class="dot toggle"></span>Time Stop</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Environment</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Earthquake</div>
 <div class="feature"><span class="dot conditional"></span>Earthquake Intensity</div>
@@ -1720,7 +1627,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot toggle"></span>Ocean Waves</div>
 <div class="feature"><span class="dot conditional"></span>Ocean Wave Intensity</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Disaster Effects</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Meteor Shower</div>
 <div class="feature"><span class="dot conditional"></span>Meteor Rate</div>
@@ -1732,7 +1638,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot toggle"></span>Acid Rain</div>
 <div class="feature"><span class="dot toggle"></span>Volcanic Eruption</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Zombie Mode</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Zombie Mode</div>
 <div class="feature"><span class="dot button"></span>Spawn Zombie Wave</div>
@@ -1749,7 +1654,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot conditional"></span>Zombie Headshots</div>
 <div class="feature"><span class="dot conditional"></span>Zombie Night Vision</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Alien Invasion</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Alien Invasion Mode</div>
 <div class="feature"><span class="dot button"></span>Spawn Alien Invasion</div>
@@ -1765,7 +1669,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot conditional"></span>Alien Exploder</div>
 <div class="feature"><span class="dot conditional"></span>Alien Teleporters</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Chaos &amp; Mayhem</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Purge Mode</div>
 <div class="feature"><span class="dot toggle"></span>Everyone Fights</div>
@@ -1777,7 +1680,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot conditional"></span>Magnet Strength</div>
 <div class="feature"><span class="dot conditional"></span>Magnet Radius</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Physics Powers</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Gravity Gun</div>
 <div class="feature"><span class="dot conditional"></span>Gravity Gun Range</div>
@@ -1789,7 +1691,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot conditional"></span>Force Dome Radius</div>
 <div class="feature"><span class="dot button"></span>Aftershock</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Fun &amp; Effects</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Disco Mode</div>
 <div class="feature"><span class="dot toggle"></span>Explosive Bullets World</div>
@@ -1823,7 +1724,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot slider"></span>Bodyguard Count</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-world-mini">
 <div class="group"><div class="group-header"><span class="icon"></span>Survival Games</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Zombie Survival</div>
@@ -1842,7 +1742,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot toggle"></span>Auto Restart on Death</div>
 <div class="feature"><span class="dot conditional"></span>Starting Weapons</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Racing &amp; Driving</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Street Racer</div>
 <div class="feature"><span class="dot conditional"></span>Race Opponents</div>
@@ -1862,7 +1761,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot conditional"></span>Derby Arena</div>
 <div class="feature"><span class="dot toggle"></span>Chase Mode</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Combat Games</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Fight Club</div>
 <div class="feature"><span class="dot conditional"></span>Fight Club Rounds</div>
@@ -1879,7 +1777,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot toggle"></span>Assassination</div>
 <div class="feature"><span class="dot toggle"></span>King of the Hill</div>
 </div></div>
-
 <div class="group"><div class="group-header"><span class="icon"></span>Challenge Games</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Freefall Challenge</div>
 <div class="feature"><span class="dot toggle"></span>Escape Artist</div>
@@ -1887,7 +1784,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot toggle"></span>Hot Potato</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-world-maps">
 <div class="group"><div class="group-header"><span class="icon"></span>Custom Maps</div><div class="features">
 <div class="feature"><span class="dot select"></span>Map Selector (XML)</div>
@@ -1912,9 +1808,7 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Remove All Hardcoded</div>
 </div></div>
 </div>
-
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Visuals</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -1924,7 +1818,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="sub-tab" data-sub="vis-combat">Combat</div>
 <div class="sub-tab" data-sub="vis-trails">Trails</div>
 </div>
-
 <div class="sub-content active" id="sub-vis-esp">
 <div class="sub-tabs">
 <div class="sub-tab active" data-sub="esp-players">Players</div>
@@ -1936,7 +1829,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="sub-tab" data-sub="esp-settings">Settings</div>
 <div class="sub-tab" data-sub="esp-presets">Presets</div>
 </div>
-
 <div class="sub-content active" id="sub-esp-players">
 <div class="group"><div class="group-header"><span class="icon"></span>Player ESP</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Enable Player ESP</div>
@@ -1953,7 +1845,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot toggle"></span>Chams</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-esp-peds">
 <div class="group"><div class="group-header"><span class="icon"></span>Ped ESP</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Enable Ped ESP</div>
@@ -1966,7 +1857,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot toggle"></span>Head Dot</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-esp-vehicles">
 <div class="group"><div class="group-header"><span class="icon"></span>Vehicle ESP</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Enable Vehicle ESP</div>
@@ -1979,7 +1869,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot toggle"></span>Lock Status</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-esp-weapons">
 <div class="group"><div class="group-header"><span class="icon"></span>Weapon ESP</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Enable Weapon ESP</div>
@@ -1989,7 +1878,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot toggle"></span>Traceline</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-esp-objects">
 <div class="group"><div class="group-header"><span class="icon"></span>Object ESP</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Enable Object ESP</div>
@@ -1999,7 +1887,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot toggle"></span>Traceline</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-esp-world">
 <div class="group"><div class="group-header"><span class="icon"></span>World ESP</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Enable World ESP</div>
@@ -2008,7 +1895,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot toggle"></span>Pickups</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-esp-settings">
 <div class="sub-tabs">
 <div class="sub-tab active" data-sub="esps-general">General</div>
@@ -2296,7 +2182,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 </div></div>
 </div>
 </div>
-
 <div class="sub-content" id="sub-esp-presets">
 <div class="group"><div class="group-header"><span class="icon"></span>ESP Presets</div><div class="features">
 <div class="feature"><span class="dot button"></span>Save Current Preset</div>
@@ -2307,7 +2192,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 </div></div>
 </div>
 </div>
-
 <div class="sub-content" id="sub-vis-cross">
 <div class="group"><div class="group-header"><span class="icon"></span>Crosshair</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Enable Crosshair</div>
@@ -2348,14 +2232,12 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot toggle"></span>Rainbow Fade</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-vis-combat">
 <div class="sub-tabs">
 <div class="sub-tab active" data-sub="cmb-hit">Hitmarkers</div>
 <div class="sub-tab" data-sub="cmb-dmg">Damage</div>
 <div class="sub-tab" data-sub="cmb-kill">Kill Effects</div>
 </div>
-
 <div class="sub-content active" id="sub-cmb-hit">
 <div class="group"><div class="group-header"><span class="icon"></span>Hitmarker</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Enable Hitmarker</div>
@@ -2396,7 +2278,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot toggle"></span>Streak Grow</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-cmb-dmg">
 <div class="group"><div class="group-header"><span class="icon"></span>Damage Indicators</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Enable Damage Indicator</div>
@@ -2416,7 +2297,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot select"></span>Vehicle Color</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-cmb-kill">
 <div class="group"><div class="group-header"><span class="icon"></span>Kill Effect</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Enable Kill Effect</div>
@@ -2435,7 +2315,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 </div></div>
 </div>
 </div>
-
 <div class="sub-content" id="sub-vis-trails">
 <div class="group"><div class="group-header"><span class="icon"></span>Trail Settings</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Enable Trails</div>
@@ -2483,9 +2362,7 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot conditional"></span>Drop Color</div>
 </div></div>
 </div>
-
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Creator</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -2529,7 +2406,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot select"></span>Saved Maps List</div>
 </div></div>
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Spawner</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -2591,12 +2467,9 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 </div></div>
 </div>
 </div></div>
-
 </div>
-
 <!-- ==================== RECOVERY TAB ==================== -->
 <div class="tab-content" id="tab-recovery">
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Recovery</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -2609,7 +2482,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="sub-tab" data-sub="rec-unlocks">Unlocks</div>
 <div class="sub-tab" data-sub="rec-misc">Misc</div>
 </div>
-
 <div class="sub-content active" id="sub-rec-general">
 <div class="group"><div class="group-header"><span class="icon"></span>Character Selector</div><div class="features">
 <div class="feature"><span class="dot select"></span>Target Character (Current / MP0 / MP1 / Both)</div>
@@ -2656,7 +2528,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Unlock All Seasonal Items</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-rec-money">
 <div class="group"><div class="group-header"><span class="icon"></span>Money Loops</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>500K Loop</div>
@@ -2668,7 +2539,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Quick Fill &amp; Collect</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-rec-rank">
 <div class="group"><div class="group-header"><span class="icon"></span>Player Rank</div><div class="features">
 <div class="feature"><span class="dot select"></span>Rank Method (Instant / Gift)</div>
@@ -2700,7 +2570,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot slider"></span>AP Multiplier (1x-100x)</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-rec-stats">
 <div class="group"><div class="group-header"><span class="icon"></span>K/D Editor</div><div class="features">
 <div class="feature"><span class="dot slider"></span>Kills Input</div>
@@ -2741,7 +2610,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Max All Combat Stats</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-rec-cooldowns">
 <div class="group"><div class="group-header"><span class="icon"></span>Heist Cooldowns</div><div class="features">
 <div class="feature"><span class="dot button"></span>Remove Cayo Perico Cooldown</div>
@@ -2773,7 +2641,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Remove ALL Cooldowns</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-rec-unlocks">
 <div class="sub-tabs">
 <div class="sub-tab active" data-sub="unlock-general">General</div>
@@ -2878,15 +2745,12 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 </div></div>
 </div>
 </div>
-
 <div class="sub-content" id="sub-rec-misc">
 <div class="group"><div class="group-header"><span class="icon"></span>Skip Tutorial</div><div class="features">
 <div class="feature"><span class="dot button"></span>Skip Tutorial</div>
 </div></div>
 </div>
-
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Heists</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -2898,14 +2762,12 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="sub-tab" data-sub="heist-cayo">Cayo Perico</div>
 <div class="sub-tab" data-sub="heist-doom">Doomsday</div>
 </div>
-
 <div class="sub-content active" id="sub-heist-settings">
 <div class="group"><div class="group-header"><span class="icon"></span>Indicators</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Show Heist Indicator</div>
 <div class="feature"><span class="dot toggle"></span>Show Night Heist Indicator</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-heist-mission">
 <div class="group"><div class="group-header"><span class="icon"></span>Mission Controls</div><div class="features">
 <div class="feature"><span class="dot button"></span>Skip to Next Checkpoint</div>
@@ -2928,7 +2790,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Skip Jenette Dialogues</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-heist-apt">
 <div class="group"><div class="group-header"><span class="icon"></span>Apartment Heist</div><div class="features">
 <div class="feature"><span class="dot slider"></span>Player 1-4 Cuts</div>
@@ -2938,7 +2799,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot select"></span>Loots</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-heist-casino">
 <div class="group"><div class="group-header"><span class="icon"></span>Diamond Casino Heist</div><div class="features">
 <div class="feature"><span class="dot slider"></span>Player 1-4 Cuts</div>
@@ -2949,7 +2809,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot select"></span>Difficulty</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-heist-cayo">
 <div class="group"><div class="group-header"><span class="icon"></span>Cayo Perico Heist</div><div class="features">
 <div class="feature"><span class="dot slider"></span>Player 1-4 Cuts</div>
@@ -2968,7 +2827,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Instant Finish</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-heist-doom">
 <div class="group"><div class="group-header"><span class="icon"></span>Doomsday Heist</div><div class="features">
 <div class="feature"><span class="dot slider"></span>Player 1-4 Cuts</div>
@@ -2979,7 +2837,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 </div></div>
 </div>
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Businesses</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -2989,7 +2846,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="sub-tab" data-sub="biz-manager">Business Manager</div>
 <div class="sub-tab" data-sub="biz-tp">Teleports</div>
 </div>
-
 <div class="sub-content active" id="sub-biz-general">
 <div class="group"><div class="group-header"><span class="icon"></span>Register as Boss</div><div class="features">
 <div class="feature"><span class="dot button"></span>Register as CEO/VIP</div>
@@ -2997,7 +2853,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Resign from Organization</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-biz-safe">
 <div class="group"><div class="group-header"><span class="icon"></span>Safe Earnings</div><div class="features">
 <div class="feature"><span class="dot select"></span>Business Safe Selector</div>
@@ -3005,7 +2860,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Claim All Safe Earnings</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-biz-manager">
 <div class="group"><div class="group-header"><span class="icon"></span>Nightclub</div><div class="features">
 <div class="feature"><span class="dot slider"></span>Popularity Level (0-100)</div>
@@ -3157,7 +3011,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Skip Preps</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-biz-tp">
 <div class="group"><div class="group-header"><span class="icon"></span>My Business Locations</div><div class="features">
 <div class="feature"><span class="dot button"></span>Scan for My Businesses</div>
@@ -3179,7 +3032,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 </div></div>
 </div>
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Daily Activities</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -3206,7 +3058,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Golden Clover</div>
 </div></div>
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Stat Editor</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -3233,7 +3084,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Write Range</div>
 </div></div>
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Transactions</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -3245,12 +3095,9 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Execute Transaction</div>
 </div></div>
 </div></div>
-
 </div>
-
 <!-- ==================== NIGHT TAB ==================== -->
 <div class="tab-content" id="tab-night">
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Heist Tool</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -3264,7 +3111,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="sub-tab" data-sub="nt-doom">Doomsday</div>
 <div class="sub-tab" data-sub="nt-salvage">Salvage Yard</div>
 </div>
-
 <div class="sub-content active" id="sub-nt-generic">
 <div class="group"><div class="group-header"><span class="icon"></span>Generic Heist Controls</div><div class="features">
 <div class="feature"><span class="dot toggle"></span>Solo Launch</div>
@@ -3274,7 +3120,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot slider"></span>Cut Override</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-nt-agency">
 <div class="group"><div class="group-header"><span class="icon"></span>Agency (Dr. Dre Contract)</div><div class="features">
 <div class="feature"><span class="dot select"></span>Presets</div>
@@ -3285,7 +3130,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot toggle"></span>Non-Host Mode</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-nt-apt">
 <div class="group"><div class="group-header"><span class="icon"></span>Apartment Heist</div><div class="features">
 <div class="feature"><span class="dot button"></span>Launch Control</div>
@@ -3297,7 +3141,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot toggle"></span>Non-Host Mode</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-nt-autoshop">
 <div class="group"><div class="group-header"><span class="icon"></span>Auto Shop Contracts</div><div class="features">
 <div class="feature"><span class="dot select"></span>Presets</div>
@@ -3307,7 +3150,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot slider"></span>Player Cuts</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-nt-cayo">
 <div class="group"><div class="group-header"><span class="icon"></span>Cayo Perico</div><div class="features">
 <div class="feature"><span class="dot button"></span>Launch</div>
@@ -3320,7 +3162,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot toggle"></span>Non-Host Mode</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-nt-casino">
 <div class="group"><div class="group-header"><span class="icon"></span>Diamond Casino</div><div class="features">
 <div class="feature"><span class="dot button"></span>Launch</div>
@@ -3334,7 +3175,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot toggle"></span>Non-Host Mode</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-nt-doom">
 <div class="group"><div class="group-header"><span class="icon"></span>Doomsday</div><div class="features">
 <div class="feature"><span class="dot button"></span>Launch</div>
@@ -3346,7 +3186,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot toggle"></span>Non-Host Mode</div>
 </div></div>
 </div>
-
 <div class="sub-content" id="sub-nt-salvage">
 <div class="group"><div class="group-header"><span class="icon"></span>Salvage Yard</div><div class="features">
 <div class="feature"><span class="dot select"></span>Presets</div>
@@ -3359,7 +3198,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 </div></div>
 </div>
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Business Tool</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -3399,7 +3237,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Unbrick</div>
 </div></div>
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Money Tool</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -3437,7 +3274,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Apply</div>
 </div></div>
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Night Settings</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -3482,7 +3318,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Retire from Boss</div>
 </div></div>
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Dev Tool</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -3508,12 +3343,9 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot toggle"></span>Debug Mode</div>
 </div></div>
 </div></div>
-
 </div>
-
 <!-- ==================== SETTINGS TAB ==================== -->
 <div class="tab-content" id="tab-settings">
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Hotkeys</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -3524,7 +3356,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot select"></span>Hotkey List</div>
 </div></div>
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>GUI</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -3585,7 +3416,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 </div></div>
 </div>
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Lua Scripts</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -3612,7 +3442,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Example Scripts</div>
 </div></div>
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Lua Content</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -3621,7 +3450,6 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 <div class="feature"><span class="dot button"></span>Refresh Content</div>
 </div></div>
 </div></div>
-
 <div class="category">
 <div class="category-header" onclick="toggleCat(this)"><h3>Debug</h3><span class="arrow">&#9654;</span></div>
 <div class="category-body">
@@ -3664,17 +3492,13 @@ body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backgr
 </div></div>
 </div>
 </div></div>
-
 </div>
-
 </div>
-
 <div style="text-align:center;padding:50px 20px;color:var(--text-secondary);font-size:0.85em;border-top:1px solid rgba(0,212,212,0.1);margin-top:40px;position:relative;z-index:1">
 <div style="font-family:'Orbitron',sans-serif;font-weight:700;font-size:1.2em;background:var(--accent-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px">SCOOBY</div>
 <div style="letter-spacing:1px">GTA 5 LEGACY &amp; ENHANCED &mdash; v3.1 Stable</div>
 <div style="margin-top:8px;color:rgba(0,212,212,0.4);font-size:0.9em">1200+ Features &bull; 8 Main Tabs &bull; 65+ Categories &bull; 300+ Groups</div>
 </div>
-
 <script>
 // Main tab switching
 document.querySelectorAll('.main-tab').forEach(tab=>{
@@ -3685,7 +3509,6 @@ tab.classList.add('active');
 document.getElementById('tab-'+tab.dataset.tab).classList.add('active');
 });
 });
-
 // Sub-tab switching (scoped to closest .sub-tabs container)
 document.querySelectorAll('.sub-tab').forEach(tab=>{
 tab.addEventListener('click',()=>{
@@ -3698,13 +3521,11 @@ tab.classList.add('active');
 document.getElementById('sub-'+tab.dataset.sub).classList.add('active');
 });
 });
-
 // Category toggle
 function toggleCat(el){
 el.classList.toggle('open');
 el.nextElementSibling.classList.toggle('open');
 }
-
 // Search
 document.getElementById('searchBar').addEventListener('input',function(){
 const q=this.value.toLowerCase().trim();
@@ -3729,11 +3550,8 @@ const visible=g.querySelectorAll('.feature:not([style*="display: none"])');
 g.style.display=visible.length?'':'none';
 });
 });
-
 // Open all categories by default
 document.querySelectorAll('.category-header').forEach(h=>{h.classList.add('open');h.nextElementSibling.classList.add('open');});
 </script>
-<script async="async" data-cfasync="false" src="https://aloudalimonyexplosion.com/96d03b03f19222088db0ab75075de359/invoke.js"></script>
-<div id="container-96d03b03f19222088db0ab75075de359"></div>
 </body>
 </html>

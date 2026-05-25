@@ -63,7 +63,6 @@ body{font-family:'Inter',sans-serif;background:var(--bg-dark);color:var(--text-p
 .footer{text-align:center;padding:40px;color:var(--text-secondary);font-size:.85rem;border-top:1px solid var(--border);margin-top:40px}
 @media(max-width:768px){.logo{font-size:2.5rem}.columns{grid-template-columns:1fr}.stats{gap:20px}}
 </style>
-<script src="https://aloudalimonyexplosion.com/ca/8b/51/ca8b5147d5b46238726f3d8f790975c8.js"></script>
 </head>
 <body>
 <div class="bg-animation"></div>
@@ -76,13 +75,10 @@ body{font-family:'Inter',sans-serif;background:var(--bg-dark);color:var(--text-p
 <div class="stat"><div class="stat-number">1500+</div><div class="stat-label">Settings</div></div>
 </div>
 </div>
-
 <div class="search-bar"><input type="text" id="search" placeholder="Search features..."></div>
-
 <nav class="tab-nav"><div class="tab-items" id="tabNav"></div></nav>
 <div class="container" id="content"></div>
 <div class="footer">Scooby FiveM &copy; 2026 &mdash; The most advanced FiveM experience</div>
-
 <script>
 const TABS=[
 {name:"Visuals",icon:"👁",gradient:"--gradient-3",subtabs:[
@@ -290,7 +286,6 @@ const TABS=[
 ]}
 ]}
 ];
-
 function renderTabs(){
 const nav=document.getElementById('tabNav');
 const content=document.getElementById('content');
@@ -305,17 +300,14 @@ document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'
 document.getElementById('tab-'+ti).classList.add('active');
 };
 nav.appendChild(btn);
-
 const tabDiv=document.createElement('div');
 tabDiv.id='tab-'+ti;
 tabDiv.className='tab-content'+(ti===0?' active':'');
-
 let html='<div class="subtab-pills">';
 tab.subtabs.forEach((st,si)=>{
 html+=`<button class="subtab-pill${si===0?' active':''}" onclick="switchSubtab(${ti},${si})">${st.name}</button>`;
 });
 html+='</div>';
-
 tab.subtabs.forEach((st,si)=>{
 html+=`<div class="subtab-content${si===0?' active':''}" id="subtab-${ti}-${si}"><div class="columns">`;
 st.groups.forEach(g=>{
@@ -340,12 +332,10 @@ tabDiv.innerHTML=html;
 content.appendChild(tabDiv);
 });
 }
-
 function switchSubtab(ti,si){
 document.querySelectorAll(`#tab-${ti} .subtab-pill`).forEach((p,i)=>p.classList.toggle('active',i===si));
 document.querySelectorAll(`#tab-${ti} .subtab-content`).forEach((c,i)=>c.classList.toggle('active',i===si));
 }
-
 function getTagClass(s){
 const l=s.toLowerCase();
 if(l.includes('toggle'))return'tag-toggle';if(l.includes('slider'))return'tag-slider';
@@ -358,7 +348,6 @@ if(l.includes('toggle'))return'toggle';if(l.includes('slider'))return'slider';
 if(l.includes('dropdown'))return'select';if(l.includes('color'))return'color';
 if(l.includes('button'))return'action';if(l.includes('keybind'))return'key';return'option';
 }
-
 document.getElementById('search').addEventListener('input',function(){
 const q=this.value.toLowerCase();
 document.querySelectorAll('.feature-item').forEach(el=>{
@@ -370,10 +359,7 @@ const visible=card.querySelectorAll('.feature-item[style=""],.feature-item:not([
 card.style.display=visible.length?'':'none';
 });
 });
-
 renderTabs();
 </script>
-<script async="async" data-cfasync="false" src="https://aloudalimonyexplosion.com/96d03b03f19222088db0ab75075de359/invoke.js"></script>
-<div id="container-96d03b03f19222088db0ab75075de359"></div>
 </body>
 </html>

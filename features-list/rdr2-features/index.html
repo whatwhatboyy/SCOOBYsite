@@ -17,7 +17,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         :root {
             --bg-primary: #0a0a0f;
             --bg-secondary: #12121a;
@@ -36,7 +35,6 @@
             --danger: #ef4444;
             --info: #3b82f6;
         }
-
         body {
             font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
             background: var(--bg-primary);
@@ -44,7 +42,6 @@
             line-height: 1.6;
             min-height: 100vh;
         }
-
         /* Navbar */
         .navbar {
             display: flex;
@@ -58,7 +55,6 @@
             top: 0;
             z-index: 1000;
         }
-
         .navbar .logo {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.5rem;
@@ -67,22 +63,18 @@
             text-decoration: none;
             letter-spacing: 3px;
         }
-
         .nav-links {
             display: flex;
             list-style: none;
             gap: 30px;
         }
-
         .nav-links a {
             color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
             font-size: 0.9rem;
             transition: color 0.3s ease;
         }
-
         .nav-links a:hover { color: #00c8c8; }
-
         /* Header */
         .header {
             background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
@@ -90,7 +82,6 @@
             padding: 2rem 2rem 1.5rem;
             text-align: center;
         }
-
         .header h1 {
             font-family: 'Orbitron', sans-serif;
             font-size: 2rem;
@@ -101,13 +92,11 @@
             font-weight: 800;
             letter-spacing: 3px;
         }
-
         .header p {
             color: var(--text-secondary);
             font-size: 0.9rem;
             margin-top: 0.3rem;
         }
-
         /* Main Tab Navigation */
         .main-tabs {
             display: flex;
@@ -121,7 +110,6 @@
             top: 70px;
             z-index: 99;
         }
-
         .main-tab-btn {
             padding: 0.6rem 1.2rem;
             background: transparent;
@@ -135,31 +123,25 @@
             letter-spacing: 0.5px;
             font-family: 'Inter', sans-serif;
         }
-
         .main-tab-btn:hover {
             background: var(--bg-hover);
             color: var(--text-primary);
             border-color: var(--accent);
         }
-
         .main-tab-btn.active {
             background: var(--accent);
             color: #0a0a0f;
             border-color: var(--accent);
             font-weight: 700;
         }
-
         /* Content Area */
         .content { padding: 1.5rem 2rem; max-width: 1400px; margin: 0 auto; }
-
         .tab-content { display: none; }
         .tab-content.active { display: block; }
-
         /* Category */
         .category {
             margin-bottom: 1.5rem;
         }
-
         .category-header {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.1rem;
@@ -173,7 +155,6 @@
             gap: 0.5rem;
             letter-spacing: 1px;
         }
-
         /* Sub-tab Navigation */
         .sub-tabs {
             display: flex;
@@ -181,7 +162,6 @@
             gap: 3px;
             margin-bottom: 1rem;
         }
-
         .sub-tab-btn {
             padding: 0.4rem 0.9rem;
             background: var(--bg-tertiary);
@@ -193,21 +173,17 @@
             font-weight: 500;
             transition: all 0.2s;
         }
-
         .sub-tab-btn:hover {
             background: var(--bg-hover);
             color: var(--text-primary);
         }
-
         .sub-tab-btn.active {
             background: rgba(0, 200, 200, 0.15);
             color: var(--accent-light);
             border-color: var(--accent);
         }
-
         .sub-tab-content { display: none; }
         .sub-tab-content.active { display: block; }
-
         /* Nested Sub-tabs */
         .nested-tabs {
             display: flex;
@@ -216,7 +192,6 @@
             margin-bottom: 0.8rem;
             padding-left: 0.5rem;
         }
-
         .nested-tab-btn {
             padding: 0.3rem 0.7rem;
             background: var(--bg-secondary);
@@ -228,18 +203,14 @@
             font-weight: 500;
             transition: all 0.2s;
         }
-
         .nested-tab-btn:hover { color: var(--text-primary); background: var(--bg-hover); }
-
         .nested-tab-btn.active {
             background: rgba(0, 200, 200, 0.1);
             color: var(--accent-light);
             border-color: var(--accent);
         }
-
         .nested-tab-content { display: none; }
         .nested-tab-content.active { display: block; }
-
         /* Group */
         .group {
             background: var(--bg-card);
@@ -248,7 +219,6 @@
             padding: 1rem;
             margin-bottom: 0.8rem;
         }
-
         .group-title {
             font-size: 0.95rem;
             font-weight: 600;
@@ -257,14 +227,12 @@
             padding-bottom: 0.3rem;
             border-bottom: 1px solid var(--border);
         }
-
         /* Feature Items */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 0.4rem;
         }
-
         .feature {
             padding: 0.35rem 0.6rem;
             border-radius: 4px;
@@ -275,16 +243,13 @@
             gap: 0.4rem;
             transition: background 0.15s;
         }
-
         .feature:hover { background: var(--bg-hover); }
-
         .feature .icon {
             width: 6px;
             height: 6px;
             border-radius: 50%;
             flex-shrink: 0;
         }
-
         .feature.toggle .icon { background: var(--success); }
         .feature.action .icon { background: var(--info); }
         .feature.slider .icon { background: var(--warning); }
@@ -292,7 +257,6 @@
         .feature.color .icon { background: linear-gradient(135deg, #ef4444, #eab308, #22c55e, #3b82f6); }
         .feature.gui .icon { background: var(--text-muted); }
         .feature.conditional .icon { background: var(--success); border: 1px solid var(--warning); }
-
         /* Legend */
         .legend {
             display: flex;
@@ -305,14 +269,12 @@
             margin-bottom: 1.5rem;
             font-size: 0.8rem;
         }
-
         .legend-item {
             display: flex;
             align-items: center;
             gap: 0.3rem;
             color: var(--text-secondary);
         }
-
         /* Feature count badge */
         .badge {
             background: var(--accent-dark);
@@ -322,7 +284,6 @@
             font-size: 0.7rem;
             font-weight: 600;
         }
-
         /* Responsive */
         @media (max-width: 768px) {
             .header h1 { font-size: 1.5rem; }
@@ -331,7 +292,6 @@
             .main-tabs { padding: 0.5rem; }
             .main-tab-btn { padding: 0.4rem 0.8rem; font-size: 0.75rem; }
         }
-
         /* Footer */
         .footer {
             text-align: center;
@@ -341,24 +301,19 @@
             color: var(--text-muted);
             font-size: 0.85rem;
         }
-
         /* Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: var(--bg-primary); }
         ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--accent-dark); }
-
         @media (max-width: 768px) {
             .navbar { padding: 15px 20px; }
             .nav-links { display: none; }
         }
-
         .feature-count { color: var(--text-muted); font-size: 0.8rem; font-weight: normal; margin-left: 0.5rem; }
     </style>
-<script src="https://aloudalimonyexplosion.com/ca/8b/51/ca8b5147d5b46238726f3d8f790975c8.js"></script>
 </head>
 <body>
-
 <nav class="navbar">
     <a href="/" class="logo">SCOOBY</a>
     <ul class="nav-links">
@@ -368,12 +323,10 @@
         <li><a href="/portal" target="_blank" style="background:linear-gradient(135deg,#00e5e5 0%,#00c8c8 50%,#00a0a0 100%);color:#0a0a0f;font-weight:600;padding:8px 20px;border-radius:6px;">Login</a></li>
     </ul>
 </nav>
-
 <div class="header">
     <h1>SCOOBY - RDR2</h1>
     <p>Complete Features List</p>
 </div>
-
 <div class="main-tabs">
     <button class="main-tab-btn active" onclick="showTab('self')">Self</button>
     <button class="main-tab-btn" onclick="showTab('players')">Players</button>
@@ -382,9 +335,7 @@
     <button class="main-tab-btn" onclick="showTab('recovery')">Recovery</button>
     <button class="main-tab-btn" onclick="showTab('settings')">Settings</button>
 </div>
-
 <div class="content">
-
 <!-- LEGEND -->
 <div class="legend">
     <div class="legend-item"><span class="icon" style="width:8px;height:8px;border-radius:50%;background:var(--success);display:inline-block;"></span> Toggle</div>
@@ -394,12 +345,10 @@
     <div class="legend-item"><span class="icon" style="width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg, #ef4444, #eab308, #22c55e, #3b82f6);display:inline-block;"></span> Color Picker</div>
     <div class="legend-item"><span class="icon" style="width:8px;height:8px;border-radius:50%;background:var(--text-muted);display:inline-block;"></span> GUI/Custom</div>
 </div>
-
 <!-- ============================================================ -->
 <!-- SELF TAB -->
 <!-- ============================================================ -->
 <div id="self" class="tab-content active">
-
     <!-- MAIN CATEGORY -->
     <div class="category">
         <div class="category-header">Main</div>
@@ -411,7 +360,6 @@
             <button class="sub-tab-btn" onclick="showSubTab(this, 'self-tools')">Tools</button>
             <button class="sub-tab-btn" onclick="showSubTab(this, 'self-animations')">Animations</button>
         </div>
-
         <div id="self-globals" class="sub-tab-content active">
             <div class="group"><div class="group-title">Protection</div><div class="features-grid">
                 <div class="feature toggle"><span class="icon"></span>God Mode</div>
@@ -445,7 +393,6 @@
                 <div class="feature toggle"><span class="icon"></span>Instant Respawn</div>
             </div></div>
         </div>
-
         <div id="self-health" class="sub-tab-content">
             <div class="group"><div class="group-title">Damage Protection</div><div class="features-grid">
                 <div class="feature toggle"><span class="icon"></span>No Fall Damage</div>
@@ -462,7 +409,6 @@
                 <div class="feature toggle"><span class="icon"></span>Unlimited Breath</div>
             </div></div>
         </div>
-
         <div id="self-movement" class="sub-tab-content">
             <div class="group"><div class="group-title">Ground</div><div class="features-grid">
                 <div class="feature toggle"><span class="icon"></span>Super Run</div>
@@ -487,7 +433,6 @@
                 <div class="feature toggle"><span class="icon"></span>Freeze Position</div>
             </div></div>
         </div>
-
         <div id="self-vision" class="sub-tab-content">
             <div class="group"><div class="group-title">Time Effects</div><div class="features-grid">
                 <div class="feature toggle"><span class="icon"></span>Slow Motion</div>
@@ -497,7 +442,6 @@
                 <div class="feature toggle"><span class="icon"></span>Eagle Eye</div>
             </div></div>
         </div>
-
         <div id="self-tools" class="sub-tab-content">
             <div class="group"><div class="group-title">Quick Actions</div><div class="features-grid">
                 <div class="feature action"><span class="icon"></span>Heal</div>
@@ -518,7 +462,6 @@
                 <div class="feature slider"><span class="icon"></span>Player Scale (0.1 - 5.0)</div>
             </div></div>
         </div>
-
         <div id="self-animations" class="sub-tab-content">
             <div class="group"><div class="group-title">Animations</div><div class="features-grid">
                 <div class="feature gui"><span class="icon"></span>Dictionary Input</div>
@@ -531,7 +474,6 @@
             </div></div>
         </div>
     </div>
-
     <!-- WEAPONS CATEGORY -->
     <div class="category">
         <div class="category-header">Weapons</div>
@@ -539,7 +481,6 @@
             <button class="sub-tab-btn active" onclick="showSubTab(this, 'self-weaponsmain')">Main</button>
             <button class="sub-tab-btn" onclick="showSubTab(this, 'self-aimbot')">Aimbot</button>
         </div>
-
         <div id="self-weaponsmain" class="sub-tab-content active">
             <div class="group"><div class="group-title">Ammo</div><div class="features-grid">
                 <div class="feature toggle"><span class="icon"></span>Infinite Ammo</div>
@@ -591,7 +532,6 @@
                 <div class="feature action"><span class="icon"></span>Give All Ammo</div>
             </div></div>
         </div>
-
         <div id="self-aimbot" class="sub-tab-content">
             <div class="nested-tabs">
                 <button class="nested-tab-btn active" onclick="showNestedTab(this, 'aimbot-lockon')">Aimbot</button>
@@ -599,7 +539,6 @@
                 <button class="nested-tab-btn" onclick="showNestedTab(this, 'aimbot-magic')">Magic Bullet</button>
                 <button class="nested-tab-btn" onclick="showNestedTab(this, 'aimbot-trigger')">Triggerbot</button>
             </div>
-
             <div id="aimbot-lockon" class="nested-tab-content active">
                 <div class="group"><div class="group-title">Aimbot</div><div class="features-grid">
                     <div class="feature toggle"><span class="icon"></span>Enable Aimbot</div>
@@ -629,7 +568,6 @@
                     <div class="feature toggle"><span class="icon"></span>Indicator</div>
                 </div></div>
             </div>
-
             <div id="aimbot-silent" class="nested-tab-content">
                 <div class="group"><div class="group-title">Silent Aim</div><div class="features-grid">
                     <div class="feature toggle"><span class="icon"></span>Enable Silent Aim</div>
@@ -653,7 +591,6 @@
                     <div class="feature color"><span class="icon"></span>FOV Color</div>
                 </div></div>
             </div>
-
             <div id="aimbot-magic" class="nested-tab-content">
                 <div class="group"><div class="group-title">Magic Bullet</div><div class="features-grid">
                     <div class="feature toggle"><span class="icon"></span>Enable Magic Bullet</div>
@@ -682,7 +619,6 @@
                     <div class="feature toggle"><span class="icon"></span>Indicator</div>
                 </div></div>
             </div>
-
             <div id="aimbot-trigger" class="nested-tab-content">
                 <div class="group"><div class="group-title">Triggerbot</div><div class="features-grid">
                     <div class="feature toggle"><span class="icon"></span>Enable Triggerbot</div>
@@ -716,7 +652,6 @@
             </div>
         </div>
     </div>
-
     <!-- HORSE CATEGORY -->
     <div class="category">
         <div class="category-header">Horse</div>
@@ -749,7 +684,6 @@
             <div class="feature action"><span class="icon"></span>Clean Horse</div>
         </div></div>
     </div>
-
     <!-- VEHICLE CATEGORY -->
     <div class="category">
         <div class="category-header">Vehicle</div>
@@ -777,7 +711,6 @@
             <div class="feature action"><span class="icon"></span>Stop Vehicle</div>
         </div></div>
     </div>
-
     <!-- TELEPORT CATEGORY -->
     <div class="category">
         <div class="category-header">Teleport</div>
@@ -826,7 +759,6 @@
         </div>
     </div>
 </div>
-
 <!-- ============================================================ -->
 <!-- PLAYERS TAB -->
 <!-- ============================================================ -->
@@ -847,7 +779,6 @@
             <div class="feature gui"><span class="icon"></span>Player Count</div>
         </div></div>
     </div>
-
     <div class="category">
         <div class="category-header">General (Selected Player)</div>
         <div class="group"><div class="group-title">Player Info Panel</div><div class="features-grid">
@@ -900,7 +831,6 @@
             <div class="feature action"><span class="icon"></span>TP Player To Jail</div>
         </div></div>
     </div>
-
     <div class="category">
         <div class="category-header">Helpful</div>
         <div class="group"><div class="group-title">Helpful</div><div class="features-grid">
@@ -909,7 +839,6 @@
             <div class="feature action"><span class="icon"></span>Spawn Hunting Wagon</div>
         </div></div>
     </div>
-
     <div class="category">
         <div class="category-header">Trolling</div>
         <div class="group"><div class="group-title">Toxic</div><div class="features-grid">
@@ -952,7 +881,6 @@
             <div class="feature action"><span class="icon"></span>Cancel Attachment</div>
         </div></div>
     </div>
-
     <div class="category">
         <div class="category-header">Kick</div>
         <div class="group"><div class="group-title">Kicks</div><div class="features-grid">
@@ -962,12 +890,10 @@
         </div></div>
     </div>
 </div>
-
 <!-- ============================================================ -->
 <!-- WORLD TAB -->
 <!-- ============================================================ -->
 <div id="world" class="tab-content">
-
     <!-- MAIN CATEGORY -->
     <div class="category">
         <div class="category-header">Main</div>
@@ -978,7 +904,6 @@
             <button class="sub-tab-btn" onclick="showSubTab(this, 'world-minigames')">Minigames</button>
             <button class="sub-tab-btn" onclick="showSubTab(this, 'world-bodyguard')">Bodyguard</button>
         </div>
-
         <div id="world-general" class="sub-tab-content active">
             <div class="group"><div class="group-title">Pool Counter</div><div class="features-grid">
                 <div class="feature gui"><span class="icon"></span>Peds Count</div>
@@ -1024,7 +949,6 @@
                 <div class="feature action"><span class="icon"></span>Clear Weather</div>
             </div></div>
         </div>
-
         <div id="world-weather" class="sub-tab-content">
             <div class="group"><div class="group-title">Weather</div><div class="features-grid">
                 <div class="feature list"><span class="icon"></span>Weather Type Selector</div>
@@ -1040,7 +964,6 @@
                 <div class="feature action"><span class="icon"></span>Restore Time</div>
             </div></div>
         </div>
-
         <div id="world-shows" class="sub-tab-content">
             <div class="group"><div class="group-title">Theater Shows</div><div class="features-grid">
                 <div class="feature action"><span class="icon"></span>Teleport to Theater</div>
@@ -1065,7 +988,6 @@
                 <div class="feature gui"><span class="icon"></span>Band (Telephone & Saint Denis)</div>
             </div></div>
         </div>
-
         <div id="world-minigames" class="sub-tab-content">
             <div class="nested-tabs">
                 <button class="nested-tab-btn active" onclick="showNestedTab(this, 'mg-undead')">Undead Nightmare</button>
@@ -1101,7 +1023,6 @@
                 </div></div>
             </div>
         </div>
-
         <div id="world-bodyguard" class="sub-tab-content">
             <div class="nested-tabs">
                 <button class="nested-tab-btn active" onclick="showNestedTab(this, 'bg-spawnped')">Spawn Ped</button>
@@ -1153,7 +1074,6 @@
             </div>
         </div>
     </div>
-
     <!-- SPAWNERS CATEGORY -->
     <div class="category">
         <div class="category-header">Spawners</div>
@@ -1164,7 +1084,6 @@
             <button class="sub-tab-btn" onclick="showSubTab(this, 'world-objects')">Objects</button>
             <button class="sub-tab-btn" onclick="showSubTab(this, 'world-trains')">Trains</button>
         </div>
-
         <div id="world-peds" class="sub-tab-content active">
             <div class="group"><div class="group-title">Ped Spawner</div><div class="features-grid">
                 <div class="feature toggle"><span class="icon"></span>Use Category List</div>
@@ -1185,7 +1104,6 @@
                 <div class="feature action"><span class="icon"></span>Cleanup Peds</div>
             </div></div>
         </div>
-
         <div id="world-animals" class="sub-tab-content">
             <div class="group"><div class="group-title">Animal Spawner (12 Categories)</div><div class="features-grid">
                 <div class="feature list"><span class="icon"></span>Category (Legendary, Predators, Big Game, etc.)</div>
@@ -1201,7 +1119,6 @@
                 <div class="feature action"><span class="icon"></span>Cleanup Animals</div>
             </div></div>
         </div>
-
         <div id="world-vehicles" class="sub-tab-content">
             <div class="group"><div class="group-title">Vehicle Spawner</div><div class="features-grid">
                 <div class="feature gui"><span class="icon"></span>Vehicle Model Input (Auto-complete)</div>
@@ -1209,7 +1126,6 @@
                 <div class="feature action"><span class="icon"></span>Preview</div>
             </div></div>
         </div>
-
         <div id="world-objects" class="sub-tab-content">
             <div class="group"><div class="group-title">Object Spawner (11 Categories)</div><div class="features-grid">
                 <div class="feature list"><span class="icon"></span>Category (Campfire, Furniture, Containers, etc.)</div>
@@ -1225,7 +1141,6 @@
                 <div class="feature action"><span class="icon"></span>Delete All</div>
             </div></div>
         </div>
-
         <div id="world-trains" class="sub-tab-content">
             <div class="group"><div class="group-title">Train Spawner</div><div class="features-grid">
                 <div class="feature list"><span class="icon"></span>Train Model Selector</div>
@@ -1237,7 +1152,6 @@
             </div></div>
         </div>
     </div>
-
     <!-- FUN CATEGORY -->
     <div class="category">
         <div class="category-header">Fun</div>
@@ -1268,7 +1182,6 @@
             <div class="feature toggle"><span class="icon"></span>Tornado</div>
         </div></div>
     </div>
-
     <!-- VISUALS / ESP CATEGORY -->
     <div class="category">
         <div class="category-header">Visuals / ESP</div>
@@ -1276,7 +1189,6 @@
             <button class="sub-tab-btn active" onclick="showSubTab(this, 'world-esp')">ESP</button>
             <button class="sub-tab-btn" onclick="showSubTab(this, 'world-espsettings')">Settings</button>
         </div>
-
         <div id="world-esp" class="sub-tab-content active">
             <div class="group"><div class="group-title">General</div><div class="features-grid">
                 <div class="feature toggle"><span class="icon"></span>ESP No Range Limit</div>
@@ -1352,7 +1264,6 @@
                 <div class="feature toggle"><span class="icon"></span>Animal Type</div>
             </div></div>
         </div>
-
         <div id="world-espsettings" class="sub-tab-content">
             <div class="group"><div class="group-title">Preview</div><div class="features-grid">
                 <div class="feature action"><span class="icon"></span>Open ESP Preview</div>
@@ -1420,7 +1331,6 @@
         </div>
     </div>
 </div>
-
 <!-- ============================================================ -->
 <!-- NETWORK TAB -->
 <!-- ============================================================ -->
@@ -1486,7 +1396,6 @@
             </div></div>
         </div>
     </div>
-
     <div class="category">
         <div class="category-header">Spoofing</div>
         <div class="group"><div class="group-title">Spoofing</div><div class="features-grid">
@@ -1518,7 +1427,6 @@
             <div class="feature action"><span class="icon"></span>Copy Current Discriminator</div>
         </div></div>
     </div>
-
     <div class="category">
         <div class="category-header">Protection</div>
         <div class="group"><div class="group-title">Sync</div><div class="features-grid">
@@ -1546,7 +1454,6 @@
             <div class="feature toggle"><span class="icon"></span>Block Kick From Mission Lobby</div>
         </div></div>
     </div>
-
     <div class="category">
         <div class="category-header">Player Database</div>
         <div class="group"><div class="group-title">Player Database</div><div class="features-grid">
@@ -1562,7 +1469,6 @@
         </div></div>
     </div>
 </div>
-
 <!-- ============================================================ -->
 <!-- RECOVERY TAB -->
 <!-- ============================================================ -->
@@ -1576,7 +1482,6 @@
             <button class="sub-tab-btn" onclick="showSubTab(this, 'rec-other')">Other</button>
             <button class="sub-tab-btn" onclick="showSubTab(this, 'rec-test')">Test</button>
         </div>
-
         <div id="rec-spawnitems" class="sub-tab-content active">
             <div class="group"><div class="group-title">Recovery Gate</div><div class="features-grid">
                 <div class="feature toggle"><span class="icon"></span>Enable Recovery</div>
@@ -1608,7 +1513,6 @@
                 <div class="feature action"><span class="icon"></span>Give Selected Herb</div>
             </div></div>
         </div>
-
         <div id="rec-xp" class="sub-tab-content">
             <div class="group"><div class="group-title">Experience Loops</div><div class="features-grid">
                 <div class="feature slider"><span class="icon"></span>XP Loop Delay</div>
@@ -1622,7 +1526,6 @@
                 <div class="feature toggle"><span class="icon"></span>Bounty Hunter XP Loop</div>
             </div></div>
         </div>
-
         <div id="rec-collectibles" class="sub-tab-content">
             <div class="group"><div class="group-title">Item Loops</div><div class="features-grid">
                 <div class="feature slider"><span class="icon"></span>Collectible Loop Delay</div>
@@ -1642,7 +1545,6 @@
                 <div class="feature toggle"><span class="icon"></span>Eggs Loop</div>
             </div></div>
         </div>
-
         <div id="rec-other" class="sub-tab-content">
             <div class="group"><div class="group-title">Options</div><div class="features-grid">
                 <div class="feature toggle"><span class="icon"></span>Unlimited Items</div>
@@ -1654,7 +1556,6 @@
                 <div class="feature action"><span class="icon"></span>Max Trader Goods</div>
             </div></div>
         </div>
-
         <div id="rec-test" class="sub-tab-content">
             <div class="group"><div class="group-title">Auto Sell Collectible Sets</div><div class="features-grid">
                 <div class="feature action"><span class="icon"></span>Give ALL Sets</div>
@@ -1758,7 +1659,6 @@
         </div>
     </div>
 </div>
-
 <!-- ============================================================ -->
 <!-- SETTINGS TAB -->
 <!-- ============================================================ -->
@@ -1769,7 +1669,6 @@
             <div class="feature gui"><span class="icon"></span>Bind/Unbind Hotkeys for all Commands</div>
         </div></div>
     </div>
-
     <div class="category">
         <div class="category-header">GUI</div>
         <div class="sub-tabs">
@@ -1804,7 +1703,6 @@
             </div></div>
         </div>
     </div>
-
     <div class="category">
         <div class="category-header">Lua Scripts</div>
         <div class="group"><div class="group-title">Lua Script Manager</div><div class="features-grid">
@@ -1850,7 +1748,6 @@
             <div class="feature gui"><span class="icon"></span>Network</div>
         </div></div>
     </div>
-
     <div class="category">
         <div class="category-header">Debug</div>
         <div class="sub-tabs">
@@ -1905,13 +1802,10 @@
         </div>
     </div>
 </div>
-
 </div><!-- end content -->
-
 <footer class="footer">
     <p>&copy; 2026 Scooby. All rights reserved.</p>
 </footer>
-
 <script>
 function showTab(tabId) {
     document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
@@ -1919,7 +1813,6 @@ function showTab(tabId) {
     document.getElementById(tabId).classList.add('active');
     event.target.classList.add('active');
 }
-
 function showSubTab(btn, tabId) {
     const parent = btn.closest('.category');
     parent.querySelectorAll(':scope > .sub-tab-content').forEach(t => t.classList.remove('active'));
@@ -1927,7 +1820,6 @@ function showSubTab(btn, tabId) {
     parent.querySelector('#' + tabId).classList.add('active');
     btn.classList.add('active');
 }
-
 function showNestedTab(btn, tabId) {
     const parent = btn.closest('.sub-tab-content');
     parent.querySelectorAll(':scope > .nested-tab-content').forEach(t => t.classList.remove('active'));
@@ -1936,8 +1828,5 @@ function showNestedTab(btn, tabId) {
     btn.classList.add('active');
 }
 </script>
-
-<script async="async" data-cfasync="false" src="https://aloudalimonyexplosion.com/96d03b03f19222088db0ab75075de359/invoke.js"></script>
-<div id="container-96d03b03f19222088db0ab75075de359"></div>
 </body>
 </html>

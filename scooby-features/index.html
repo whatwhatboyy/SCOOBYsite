@@ -27,13 +27,11 @@
             --gradient-5: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
             --gradient-6: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
         }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Inter', sans-serif;
             background: var(--bg-dark);
@@ -41,7 +39,6 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
-
         /* Animated Background */
         .bg-animation {
             position: fixed;
@@ -52,7 +49,6 @@
             z-index: -1;
             overflow: hidden;
         }
-
         .bg-animation::before {
             content: '';
             position: absolute;
@@ -65,20 +61,17 @@
                         radial-gradient(circle at 40% 40%, rgba(245, 158, 11, 0.1) 0%, transparent 40%);
             animation: bgPulse 15s ease-in-out infinite;
         }
-
         @keyframes bgPulse {
             0%, 100% { transform: translate(0, 0) rotate(0deg); }
             33% { transform: translate(-5%, -5%) rotate(5deg); }
             66% { transform: translate(5%, 5%) rotate(-5deg); }
         }
-
         /* Header */
         .header {
             text-align: center;
             padding: 80px 20px 60px;
             position: relative;
         }
-
         .logo {
             font-size: 4rem;
             font-weight: 800;
@@ -91,30 +84,25 @@
             margin-bottom: 15px;
             letter-spacing: -2px;
         }
-
         @keyframes gradientShift {
             0%, 100% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
         }
-
         .tagline {
             font-size: 1.3rem;
             color: var(--text-secondary);
             margin-bottom: 30px;
             font-weight: 300;
         }
-
         .stats {
             display: flex;
             justify-content: center;
             gap: 50px;
             flex-wrap: wrap;
         }
-
         .stat {
             text-align: center;
         }
-
         .stat-number {
             font-size: 2.5rem;
             font-weight: 700;
@@ -123,21 +111,18 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
         .stat-label {
             font-size: 0.9rem;
             color: var(--text-secondary);
             text-transform: uppercase;
             letter-spacing: 2px;
         }
-
         /* Container */
         .container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
         /* Category Navigation */
         .category-nav {
             position: sticky;
@@ -149,7 +134,6 @@
             border-bottom: 1px solid var(--border);
             margin-bottom: 40px;
         }
-
         .nav-items {
             display: flex;
             justify-content: center;
@@ -159,7 +143,6 @@
             margin: 0 auto;
             padding: 0 20px;
         }
-
         .nav-item {
             padding: 10px 20px;
             border-radius: 25px;
@@ -172,7 +155,6 @@
             transition: all 0.3s ease;
             text-decoration: none;
         }
-
         .nav-item:hover, .nav-item.active {
             background: var(--primary);
             border-color: var(--primary);
@@ -180,13 +162,11 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
         }
-
         /* Category Section */
         .category-section {
             margin-bottom: 60px;
             scroll-margin-top: 100px;
         }
-
         .category-header {
             display: flex;
             align-items: center;
@@ -195,7 +175,6 @@
             padding-bottom: 15px;
             border-bottom: 2px solid var(--border);
         }
-
         .category-icon {
             width: 50px;
             height: 50px;
@@ -205,12 +184,10 @@
             justify-content: center;
             font-size: 1.5rem;
         }
-
         .category-title {
             font-size: 2rem;
             font-weight: 700;
         }
-
         .category-count {
             margin-left: auto;
             background: var(--bg-card);
@@ -219,14 +196,12 @@
             font-size: 0.9rem;
             color: var(--text-secondary);
         }
-
         /* Feature Groups */
         .feature-groups {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 25px;
         }
-
         .feature-group {
             background: var(--bg-card);
             border-radius: 20px;
@@ -234,14 +209,12 @@
             border: 1px solid var(--border);
             transition: all 0.3s ease;
         }
-
         .feature-group:hover {
             background: var(--bg-card-hover);
             border-color: var(--primary);
             transform: translateY(-5px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
-
         .group-header {
             display: flex;
             align-items: center;
@@ -250,7 +223,6 @@
             padding-bottom: 12px;
             border-bottom: 1px solid var(--border);
         }
-
         .group-icon {
             width: 36px;
             height: 36px;
@@ -260,16 +232,13 @@
             justify-content: center;
             font-size: 1rem;
         }
-
         .group-title {
             font-size: 1.1rem;
             font-weight: 600;
         }
-
         .feature-list {
             list-style: none;
         }
-
         .feature-item {
             padding: 10px 0;
             display: flex;
@@ -280,16 +249,13 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.03);
             transition: all 0.2s ease;
         }
-
         .feature-item:last-child {
             border-bottom: none;
         }
-
         .feature-item:hover {
             color: var(--text-primary);
             padding-left: 8px;
         }
-
         .feature-item::before {
             content: '';
             width: 6px;
@@ -299,12 +265,10 @@
             margin-top: 8px;
             flex-shrink: 0;
         }
-
         .feature-item.highlight::before {
             background: var(--accent);
             box-shadow: 0 0 10px var(--accent);
         }
-
         .feature-options {
             font-size: 0.8rem;
             color: var(--text-secondary);
@@ -312,14 +276,12 @@
             margin-left: auto;
             white-space: nowrap;
         }
-
         /* Superhero Section Special Styling */
         .superhero-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
         }
-
         .hero-card {
             background: var(--bg-card);
             border-radius: 20px;
@@ -329,7 +291,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .hero-card::before {
             content: '';
             position: absolute;
@@ -339,15 +300,12 @@
             height: 4px;
             background: var(--gradient-1);
         }
-
         .hero-card.marvel::before { background: linear-gradient(90deg, #e23636, #ff6b6b); }
         .hero-card.dc::before { background: linear-gradient(90deg, #0077b6, #00b4d8); }
-
         .hero-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
-
         .hero-name {
             font-size: 1.3rem;
             font-weight: 700;
@@ -356,13 +314,11 @@
             align-items: center;
             gap: 10px;
         }
-
         .hero-abilities {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
         }
-
         .ability-tag {
             background: rgba(139, 92, 246, 0.2);
             color: var(--primary);
@@ -371,7 +327,6 @@
             font-size: 0.8rem;
             font-weight: 500;
         }
-
         /* Footer */
         .footer {
             text-align: center;
@@ -379,7 +334,6 @@
             border-top: 1px solid var(--border);
             margin-top: 60px;
         }
-
         .footer-logo {
             font-size: 2rem;
             font-weight: 700;
@@ -389,12 +343,10 @@
             background-clip: text;
             margin-bottom: 20px;
         }
-
         .footer-text {
             color: var(--text-secondary);
             font-size: 0.9rem;
         }
-
         /* Responsive */
         @media (max-width: 768px) {
             .logo { font-size: 2.5rem; }
@@ -405,30 +357,24 @@
             .feature-groups { grid-template-columns: 1fr; }
             .nav-items { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 10px; }
         }
-
         /* Scrollbar */
         ::-webkit-scrollbar {
             width: 10px;
         }
-
         ::-webkit-scrollbar-track {
             background: var(--bg-dark);
         }
-
         ::-webkit-scrollbar-thumb {
             background: var(--primary);
             border-radius: 5px;
         }
-
         ::-webkit-scrollbar-thumb:hover {
             background: var(--primary-dark);
         }
     </style>
-<script src="https://aloudalimonyexplosion.com/ca/8b/51/ca8b5147d5b46238726f3d8f790975c8.js"></script>
 </head>
 <body>
     <div class="bg-animation"></div>
-
     <header class="header">
         <h1 class="logo">ScoobyPaste Enhanced</h1>
         <p class="tagline">The Ultimate GTA V Enhancement Suite</p>
@@ -451,7 +397,6 @@
             </div>
         </div>
     </header>
-
     <nav class="category-nav">
         <div class="nav-items">
             <a href="#self" class="nav-item">Self</a>
@@ -465,9 +410,7 @@
             <a href="#teleport" class="nav-item">Teleport</a>
         </div>
     </nav>
-
     <div class="container">
-
         <!-- SELF SECTION -->
         <section id="self" class="category-section">
             <div class="category-header">
@@ -494,7 +437,6 @@
                         <li class="feature-item">Auto Kill Enemies</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(59, 130, 246, 0.2); color: #3b82f6;">&#127939;</div>
@@ -512,7 +454,6 @@
                         <li class="feature-item">Disable Action Mode</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(168, 85, 247, 0.2); color: #a855f7;">&#128065;</div>
@@ -529,7 +470,6 @@
                         <li class="feature-item">Hide HUD</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(245, 158, 11, 0.2); color: #f59e0b;">&#9733;</div>
@@ -543,7 +483,6 @@
                         <li class="feature-item">MP Special Ability</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(34, 197, 94, 0.2); color: #22c55e;">&#128295;</div>
@@ -561,7 +500,6 @@
                         <li class="feature-item">Format Money Display</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(236, 72, 153, 0.2); color: #ec4899;">&#127881;</div>
@@ -582,7 +520,6 @@
                 </div>
             </div>
         </section>
-
         <!-- POWERS SECTION -->
         <section id="powers" class="category-section">
             <div class="category-header">
@@ -604,7 +541,6 @@
                         <li class="feature-item">Vehicle Magnet</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(251, 146, 60, 0.2); color: #fb923c;">&#128293;</div>
@@ -619,7 +555,6 @@
                         <li class="feature-item">Launch Punch</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(6, 182, 212, 0.2); color: #06b6d4;">&#127776;</div>
@@ -633,7 +568,6 @@
                         <li class="feature-item">Trail Effect</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(34, 197, 94, 0.2); color: #22c55e;">&#127939;</div>
@@ -648,7 +582,6 @@
                 </div>
             </div>
         </section>
-
         <!-- VEHICLE SECTION -->
         <section id="vehicle" class="category-section">
             <div class="category-header">
@@ -669,7 +602,6 @@
                         <li class="feature-item">No Collision</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(251, 146, 60, 0.2); color: #fb923c;">&#128640;</div>
@@ -684,7 +616,6 @@
                         <li class="feature-item">Tornado Spin</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(59, 130, 246, 0.2); color: #3b82f6;">&#127919;</div>
@@ -699,7 +630,6 @@
                         <li class="feature-item">Instant Brake</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(168, 85, 247, 0.2); color: #a855f7;">&#9992;</div>
@@ -713,7 +643,6 @@
                         <li class="feature-item">Auto Level</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(34, 197, 94, 0.2); color: #22c55e;">&#129302;</div>
@@ -728,7 +657,6 @@
                         <li class="feature-item">Stop Vehicle</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(236, 72, 153, 0.2); color: #ec4899;">&#127912;</div>
@@ -747,7 +675,6 @@
                 </div>
             </div>
         </section>
-
         <!-- WEAPON SECTION -->
         <section id="weapon" class="category-section">
             <div class="category-header">
@@ -770,7 +697,6 @@
                         <li class="feature-item">Range Multiplier</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(251, 146, 60, 0.2); color: #fb923c;">&#128165;</div>
@@ -786,7 +712,6 @@
                         <li class="feature-item">Repair Gun</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(59, 130, 246, 0.2); color: #3b82f6;">&#128736;</div>
@@ -804,7 +729,6 @@
                 </div>
             </div>
         </section>
-
         <!-- NETWORK SECTION -->
         <section id="network" class="category-section">
             <div class="category-header">
@@ -828,7 +752,6 @@
                         <li class="feature-item">Player Magnet</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(168, 85, 247, 0.2); color: #a855f7;">&#128373;</div>
@@ -842,7 +765,6 @@
                         <li class="feature-item">Cheater Pool Detection</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(239, 68, 68, 0.2); color: #ef4444;">&#128683;</div>
@@ -858,7 +780,6 @@
                         <li class="feature-item">Set Bounty</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(251, 146, 60, 0.2); color: #fb923c;">&#128520;</div>
@@ -874,7 +795,6 @@
                         <li class="feature-item">Blackscreen</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(6, 182, 212, 0.2); color: #06b6d4;">&#128101;</div>
@@ -892,7 +812,6 @@
                 </div>
             </div>
         </section>
-
         <!-- WORLD SECTION -->
         <section id="world" class="category-section">
             <div class="category-header">
@@ -916,7 +835,6 @@
                         <li class="feature-item">Force Thunder</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(239, 68, 68, 0.2); color: #ef4444;">&#128128;</div>
@@ -932,7 +850,6 @@
                         <li class="feature-item">Exploding Peds</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(139, 92, 246, 0.2); color: #8b5cf6;">&#127754;</div>
@@ -950,7 +867,6 @@
                         <li class="feature-item">Sandstorm</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(34, 197, 94, 0.2); color: #22c55e;">&#129435;</div>
@@ -967,7 +883,6 @@
                         <li class="feature-item">Spawn Zombie Wave</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(6, 182, 212, 0.2); color: #06b6d4;">&#128125;</div>
@@ -983,7 +898,6 @@
                         <li class="feature-item">Alien Teleporters</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(236, 72, 153, 0.2); color: #ec4899;">&#127880;</div>
@@ -1000,7 +914,6 @@
                         <li class="feature-item">Tiny Peds</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(168, 85, 247, 0.2); color: #a855f7;">&#9881;</div>
@@ -1017,7 +930,6 @@
                         <li class="feature-item">Vehicle Pinball</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(251, 146, 60, 0.2); color: #fb923c;">&#128295;</div>
@@ -1036,7 +948,6 @@
                 </div>
             </div>
         </section>
-
         <!-- ESP & VISUALS SECTION -->
         <section id="esp" class="category-section">
             <div class="category-header">
@@ -1061,7 +972,6 @@
                         <li class="feature-item">Draw Dead Players</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(251, 146, 60, 0.2); color: #fb923c;">&#128694;</div>
@@ -1078,7 +988,6 @@
                         <li class="feature-item">Object ESP</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(6, 182, 212, 0.2); color: #06b6d4;">&#10010;</div>
@@ -1097,7 +1006,6 @@
                         <li class="feature-item">Dynamic Expansion</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(168, 85, 247, 0.2); color: #a855f7;">&#128293;</div>
@@ -1113,7 +1021,6 @@
                         <li class="feature-item">Trail Thickness</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(34, 197, 94, 0.2); color: #22c55e;">&#128165;</div>
@@ -1132,7 +1039,6 @@
                 </div>
             </div>
         </section>
-
         <!-- RECOVERY SECTION -->
         <section id="recovery" class="category-section">
             <div class="category-header">
@@ -1157,7 +1063,6 @@
                         <li class="feature-item">Override RP Multiplier</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(139, 92, 246, 0.2); color: #8b5cf6;">&#128275;</div>
@@ -1174,7 +1079,6 @@
                         <li class="feature-item">LS Car Meet Items</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(236, 72, 153, 0.2); color: #ec4899;">&#128085;</div>
@@ -1191,7 +1095,6 @@
                         <li class="feature-item">Chrome & All Wheels</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(59, 130, 246, 0.2); color: #3b82f6;">&#128299;</div>
@@ -1204,7 +1107,6 @@
                         <li class="feature-item">Parachute Bags</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(34, 197, 94, 0.2); color: #22c55e;">&#127873;</div>
@@ -1221,7 +1123,6 @@
                         <li class="feature-item">San Andreas Mercenaries</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(251, 146, 60, 0.2); color: #fb923c;">&#128188;</div>
@@ -1240,7 +1141,6 @@
                 </div>
             </div>
         </section>
-
         <!-- SUPERHERO SECTION -->
         <section id="superhero" class="category-section">
             <div class="category-header">
@@ -1248,7 +1148,6 @@
                 <h2 class="category-title">Superhero Powers</h2>
                 <span class="category-count">15+ Heroes</span>
             </div>
-
             <h3 style="color: #e23636; font-size: 1.5rem; margin: 30px 0 20px; display: flex; align-items: center; gap: 10px;">
                 <span style="background: linear-gradient(90deg, #e23636, #ff6b6b); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem;">MARVEL</span>
             </h3>
@@ -1264,7 +1163,6 @@
                         <span class="ability-tag">Shield</span>
                     </div>
                 </div>
-
                 <div class="hero-card marvel">
                     <div class="hero-name">&#128737; Captain America</div>
                     <div class="hero-abilities">
@@ -1274,7 +1172,6 @@
                         <span class="ability-tag">Super Soldier</span>
                     </div>
                 </div>
-
                 <div class="hero-card marvel">
                     <div class="hero-name">&#9889; Thor</div>
                     <div class="hero-abilities">
@@ -1284,7 +1181,6 @@
                         <span class="ability-tag">Flight</span>
                     </div>
                 </div>
-
                 <div class="hero-card marvel">
                     <div class="hero-name">&#128074; Hulk</div>
                     <div class="hero-abilities">
@@ -1294,7 +1190,6 @@
                         <span class="ability-tag">Super Jump</span>
                     </div>
                 </div>
-
                 <div class="hero-card marvel">
                     <div class="hero-name">&#128062; Black Panther</div>
                     <div class="hero-abilities">
@@ -1303,7 +1198,6 @@
                         <span class="ability-tag">Vibranium Claws</span>
                     </div>
                 </div>
-
                 <div class="hero-card marvel">
                     <div class="hero-name">&#10024; Scarlet Witch</div>
                     <div class="hero-abilities">
@@ -1313,7 +1207,6 @@
                         <span class="ability-tag">Reality Warp</span>
                     </div>
                 </div>
-
                 <div class="hero-card marvel">
                     <div class="hero-name">&#128568; Wolverine</div>
                     <div class="hero-abilities">
@@ -1322,7 +1215,6 @@
                         <span class="ability-tag">Berserker Rage</span>
                     </div>
                 </div>
-
                 <div class="hero-card marvel">
                     <div class="hero-name">&#127786; Storm</div>
                     <div class="hero-abilities">
@@ -1332,7 +1224,6 @@
                         <span class="ability-tag">Tornado</span>
                     </div>
                 </div>
-
                 <div class="hero-card marvel">
                     <div class="hero-name">&#129522; Magneto</div>
                     <div class="hero-abilities">
@@ -1342,7 +1233,6 @@
                         <span class="ability-tag">Lift Objects</span>
                     </div>
                 </div>
-
                 <div class="hero-card marvel">
                     <div class="hero-name">&#128375; Spider-Man</div>
                     <div class="hero-abilities">
@@ -1352,7 +1242,6 @@
                         <span class="ability-tag">Spider Sense</span>
                     </div>
                 </div>
-
                 <div class="hero-card marvel">
                     <div class="hero-name">&#128126; Venom</div>
                     <div class="hero-abilities">
@@ -1362,7 +1251,6 @@
                         <span class="ability-tag">Shapeshift</span>
                     </div>
                 </div>
-
                 <div class="hero-card marvel">
                     <div class="hero-name">&#128526; Deadpool</div>
                     <div class="hero-abilities">
@@ -1371,7 +1259,6 @@
                         <span class="ability-tag">Katanas</span>
                     </div>
                 </div>
-
                 <div class="hero-card marvel">
                     <div class="hero-name">&#128293; Ghost Rider</div>
                     <div class="hero-abilities">
@@ -1380,7 +1267,6 @@
                         <span class="ability-tag">Chain Whip</span>
                     </div>
                 </div>
-
                 <div class="hero-card marvel">
                     <div class="hero-name">&#128302; Dr. Strange</div>
                     <div class="hero-abilities">
@@ -1390,7 +1276,6 @@
                     </div>
                 </div>
             </div>
-
             <h3 style="color: #0077b6; font-size: 1.5rem; margin: 40px 0 20px; display: flex; align-items: center; gap: 10px;">
                 <span style="background: linear-gradient(90deg, #0077b6, #00b4d8); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem;">DC</span>
             </h3>
@@ -1404,7 +1289,6 @@
                         <span class="ability-tag">Freeze Breath</span>
                     </div>
                 </div>
-
                 <div class="hero-card dc">
                     <div class="hero-name">&#9889; The Flash</div>
                     <div class="hero-abilities">
@@ -1413,7 +1297,6 @@
                         <span class="ability-tag">Lightning</span>
                     </div>
                 </div>
-
                 <div class="hero-card dc">
                     <div class="hero-name">&#128081; Wonder Woman</div>
                     <div class="hero-abilities">
@@ -1423,7 +1306,6 @@
                         <span class="ability-tag">Flight</span>
                     </div>
                 </div>
-
                 <div class="hero-card dc">
                     <div class="hero-name">&#128154; Green Lantern</div>
                     <div class="hero-abilities">
@@ -1432,7 +1314,6 @@
                         <span class="ability-tag">Shield</span>
                     </div>
                 </div>
-
                 <div class="hero-card dc">
                     <div class="hero-name">&#129302; Cyborg</div>
                     <div class="hero-abilities">
@@ -1442,7 +1323,6 @@
                         <span class="ability-tag">Flight</span>
                     </div>
                 </div>
-
                 <div class="hero-card dc">
                     <div class="hero-name">&#129415; Batman</div>
                     <div class="hero-abilities">
@@ -1452,7 +1332,6 @@
                         <span class="ability-tag">Gadgets</span>
                     </div>
                 </div>
-
                 <div class="hero-card dc">
                     <div class="hero-name">&#128031; Aquaman</div>
                     <div class="hero-abilities">
@@ -1463,7 +1342,6 @@
                 </div>
             </div>
         </section>
-
         <!-- TELEPORT SECTION -->
         <section id="teleport" class="category-section">
             <div class="category-header">
@@ -1490,7 +1368,6 @@
                         <li class="feature-item highlight">Teleport Gun</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(245, 158, 11, 0.2); color: #f59e0b;">&#128197;</div>
@@ -1509,7 +1386,6 @@
                         <li class="feature-item">Products</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(34, 197, 94, 0.2); color: #22c55e;">&#127919;</div>
@@ -1523,7 +1399,6 @@
                         <li class="feature-item">Madrazzo Hit Target</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(6, 182, 212, 0.2); color: #06b6d4;">&#128190;</div>
@@ -1539,7 +1414,6 @@
                 </div>
             </div>
         </section>
-
         <!-- ADDITIONAL FEATURES -->
         <section class="category-section">
             <div class="category-header">
@@ -1563,7 +1437,6 @@
                         <li class="feature-item">UI Scale Options</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(59, 130, 246, 0.2); color: #3b82f6;">&#128187;</div>
@@ -1578,7 +1451,6 @@
                         <li class="feature-item">Pattern Scanning</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(34, 197, 94, 0.2); color: #22c55e;">&#128273;</div>
@@ -1592,7 +1464,6 @@
                         <li class="feature-item">Kick Protection</li>
                     </ul>
                 </div>
-
                 <div class="feature-group">
                     <div class="group-header">
                         <div class="group-icon" style="background: rgba(236, 72, 153, 0.2); color: #ec4899;">&#128190;</div>
@@ -1608,15 +1479,12 @@
                 </div>
             </div>
         </section>
-
     </div>
-
     <footer class="footer">
         <div class="footer-logo">ScoobyPaste Enhanced</div>
         <p class="footer-text">The most feature-rich GTA V enhancement suite available.</p>
         <p class="footer-text" style="margin-top: 10px; opacity: 0.6;">500+ Features | 15+ Superheroes | Regular Updates</p>
     </footer>
-
     <script>
         // Smooth scrolling for navigation
         document.querySelectorAll('.nav-item').forEach(item => {
@@ -1628,11 +1496,9 @@
                 }
             });
         });
-
         // Active navigation state
         const sections = document.querySelectorAll('.category-section');
         const navItems = document.querySelectorAll('.nav-item');
-
         window.addEventListener('scroll', () => {
             let current = '';
             sections.forEach(section => {
@@ -1641,7 +1507,6 @@
                     current = section.getAttribute('id');
                 }
             });
-
             navItems.forEach(item => {
                 item.classList.remove('active');
                 if (item.getAttribute('href') === '#' + current) {
@@ -1650,7 +1515,5 @@
             });
         });
     </script>
-<script async="async" data-cfasync="false" src="https://aloudalimonyexplosion.com/96d03b03f19222088db0ab75075de359/invoke.js"></script>
-<div id="container-96d03b03f19222088db0ab75075de359"></div>
 </body>
 </html>

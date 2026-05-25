@@ -16,13 +16,11 @@
         --text-primary: #ffffff;
         --text-secondary: #8a8a9a;
     }
-
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
-
     body {
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         background: var(--bg-primary);
@@ -34,7 +32,6 @@
         justify-content: center;
         padding: 20px;
     }
-
     body::before {
         content: '';
         position: fixed;
@@ -48,7 +45,6 @@
         pointer-events: none;
         z-index: 0;
     }
-
     .container {
         position: relative;
         z-index: 1;
@@ -56,7 +52,6 @@
         max-width: 600px;
         width: 100%;
     }
-
     .logo {
         font-family: 'Orbitron', sans-serif;
         font-size: 2.5rem;
@@ -68,19 +63,16 @@
         background-clip: text;
         margin-bottom: 30px;
     }
-
     h1 {
         font-family: 'Orbitron', sans-serif;
         font-size: 1.5rem;
         font-weight: 600;
         margin-bottom: 10px;
     }
-
     .subtitle {
         color: var(--text-secondary);
         margin-bottom: 30px;
     }
-
     .ad-container {
         background: var(--bg-secondary);
         border-radius: 12px;
@@ -88,7 +80,6 @@
         margin-bottom: 30px;
         border: 1px solid rgba(255, 255, 255, 0.1);
     }
-
     .countdown {
         font-family: 'Orbitron', sans-serif;
         font-size: 3rem;
@@ -99,7 +90,6 @@
         background-clip: text;
         margin-bottom: 20px;
     }
-
     .btn {
         display: inline-block;
         padding: 16px 40px;
@@ -115,28 +105,23 @@
         transition: all 0.3s ease;
         box-shadow: 0 4px 20px var(--accent-glow);
     }
-
     .btn:disabled {
         opacity: 0.5;
         cursor: not-allowed;
     }
-
     .btn:not(:disabled):hover {
         transform: translateY(-2px);
         box-shadow: 0 6px 30px var(--accent-glow);
     }
-
     .back-link {
         margin-top: 20px;
         color: var(--text-secondary);
         text-decoration: none;
         font-size: 0.9rem;
     }
-
     .back-link:hover {
         color: var(--accent-cyan);
     }
-
     .steps-container {
         background: var(--bg-secondary);
         border-radius: 12px;
@@ -145,7 +130,6 @@
         border: 1px solid rgba(255, 255, 255, 0.1);
         text-align: left;
     }
-
     .steps-title {
         font-family: 'Orbitron', sans-serif;
         font-size: 1.1rem;
@@ -156,12 +140,10 @@
         -webkit-text-fill-color: transparent;
         background-clip: text;
     }
-
     .steps-list {
         list-style: none;
         margin-bottom: 16px;
     }
-
     .steps-list li {
         display: flex;
         align-items: flex-start;
@@ -171,7 +153,6 @@
         font-size: 0.95rem;
         line-height: 1.5;
     }
-
     .step-number {
         display: flex;
         align-items: center;
@@ -185,7 +166,6 @@
         font-weight: 700;
         border-radius: 50%;
     }
-
     .ad-warning {
         display: flex;
         align-items: center;
@@ -197,12 +177,10 @@
         color: #f87171;
         font-size: 0.9rem;
     }
-
     .ad-warning svg {
         flex-shrink: 0;
     }
 </style>
-
 <script>
     // Random Color Theme
     (function() {
@@ -216,23 +194,19 @@
             { name: 'orange', primary: '#f97316', secondary: '#ea580c', tertiary: '#c2410c', glow: 'rgba(249, 115, 22, 0.5)' },
             { name: 'yellow', primary: '#eab308', secondary: '#ca8a04', tertiary: '#a16207', glow: 'rgba(234, 179, 8, 0.5)' }
         ];
-
         const randomTheme = colorThemes[Math.floor(Math.random() * colorThemes.length)];
-
         document.documentElement.style.setProperty('--accent-cyan', randomTheme.primary);
         document.documentElement.style.setProperty('--accent-glow', randomTheme.glow);
         document.documentElement.style.setProperty('--accent-gradient',
             `linear-gradient(135deg, ${randomTheme.primary} 0%, ${randomTheme.secondary} 50%, ${randomTheme.tertiary} 100%)`);
     })();
 </script>
-<script src="https://aloudalimonyexplosion.com/ca/8b/51/ca8b5147d5b46238726f3d8f790975c8.js"></script>
 </head>
 <body>
     <div class="container">
         <div class="logo">SCOOBY</div>
         <h1>GET YOUR FREE KEY</h1>
         <p class="subtitle">Please wait while we prepare your free key</p>
-
         <div class="steps-container">
             <div class="steps-title">HOW TO GET YOUR FREE KEY</div>
             <ol class="steps-list">
@@ -258,31 +232,22 @@
                 <span>Ads may popup - just close them and continue</span>
             </div>
         </div>
-
         <div class="ad-container">
-            <script async="async" data-cfasync="false" src="https://aloudalimonyexplosion.com/96d03b03f19222088db0ab75075de359/invoke.js"></script>
-            <div id="container-96d03b03f19222088db0ab75075de359"></div>
         </div>
-
         <div class="countdown" id="countdown">5</div>
-
         <button class="btn" id="continueBtn" disabled onclick="window.location.href='https://whatwhatboy.com/scoobyontop.html'">
             CONTINUE TO FREE KEY
         </button>
-
         <br>
         <a href="/" class="back-link">← Back to Home</a>
     </div>
-
     <script>
         let timeLeft = 5;
         const countdownEl = document.getElementById('countdown');
         const btn = document.getElementById('continueBtn');
-
         const timer = setInterval(() => {
             timeLeft--;
             countdownEl.textContent = timeLeft;
-
             if (timeLeft <= 0) {
                 clearInterval(timer);
                 countdownEl.textContent = '✓';
@@ -290,7 +255,5 @@
             }
         }, 1000);
     </script>
-<script async="async" data-cfasync="false" src="https://aloudalimonyexplosion.com/96d03b03f19222088db0ab75075de359/invoke.js"></script>
-<div id="container-96d03b03f19222088db0ab75075de359"></div>
 </body>
 </html>
