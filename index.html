@@ -4360,11 +4360,10 @@
             <h3>DOWNLOAD LAUNCHER</h3>
             <p style="color: #8a8a9a; text-align: center; margin-bottom: 25px; font-size: 0.95rem;">Click below to download the installer</p>
             <div class="freekey-steps" style="margin-bottom: 25px;">
-                <a href="https://mega.nz/file/taFGQQDQ#e3X9SPEMrOZ6cvt9uDJveFi72vPyswHCAZOwxVhj-DM" target="_blank" rel="noopener noreferrer" class="freekey-btn" style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 8px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); box-shadow: none; font-size: 0.88rem; padding: 12px 20px;" onclick="closeDownloadModal()">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
-                    Direct Download Link
+                <a href="https://proudlyauthentication.com/files/fpdlmixk5ccb2e" class="freekey-btn" style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 0;" onclick="downloadScoobyLauncher(event, this)">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <span class="dl-btn-label">Download Scooby Launcher</span>
                 </a>
-                <p style="color: #6a6a7a; text-align: center; margin: 0; font-size: 0.82rem;">If the installer is not working, use the direct link here.</p>
             </div>
             <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
                 <p style="color: #8a8a9a; text-align: center; margin-bottom: 12px; font-size: 0.85rem;">Recommended Tool</p>
@@ -4620,6 +4619,34 @@
             const modal = document.getElementById('downloadModal');
             modal.classList.remove('active');
             document.body.style.overflow = '';
+        }
+        async function downloadScoobyLauncher(e, btn) {
+            e.preventDefault();
+            const url = btn.getAttribute('href');
+            const label = btn.querySelector('.dl-btn-label');
+            const original = label ? label.textContent : '';
+            if (label) label.textContent = 'Downloading…';
+            btn.style.pointerEvents = 'none';
+            try {
+                const res = await fetch(url);
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                const blob = await res.blob();
+                const blobUrl = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = blobUrl;
+                a.download = 'ScoobyLauncher.exe';
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                setTimeout(() => URL.revokeObjectURL(blobUrl), 10000);
+                closeDownloadModal();
+            } catch (err) {
+                // Fallback: open the raw link directly if the in-page fetch fails
+                window.open(url, '_blank', 'noopener,noreferrer');
+            } finally {
+                if (label) label.textContent = original;
+                btn.style.pointerEvents = '';
+            }
         }
         // Auto-open download modal if URL has #download
         if (window.location.hash === '#download') {
