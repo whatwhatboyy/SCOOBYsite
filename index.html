@@ -4360,9 +4360,9 @@
             <h3>DOWNLOAD LAUNCHER</h3>
             <p style="color: #8a8a9a; text-align: center; margin-bottom: 25px; font-size: 0.95rem;">Click below to download the installer</p>
             <div class="freekey-steps" style="margin-bottom: 25px;">
-                <a href="https://proudlyauthentication.com/files/fpdlmixk5ccb2e" class="freekey-btn" style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 0;" onclick="downloadScoobyLauncher(event, this)">
+                <a href="https://mega.nz/file/BP8kEDoC#zlvWNfup0C5HUNyCPYJ05EfO8sR8xH0JCh8XNBdloOU" target="_blank" rel="noopener noreferrer" class="freekey-btn" style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 0;" onclick="closeDownloadModal()">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                    <span class="dl-btn-label">Download Scooby Launcher</span>
+                    Download Scooby Launcher
                 </a>
             </div>
             <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
@@ -4619,34 +4619,6 @@
             const modal = document.getElementById('downloadModal');
             modal.classList.remove('active');
             document.body.style.overflow = '';
-        }
-        async function downloadScoobyLauncher(e, btn) {
-            e.preventDefault();
-            const url = btn.getAttribute('href');
-            const label = btn.querySelector('.dl-btn-label');
-            const original = label ? label.textContent : '';
-            if (label) label.textContent = 'Downloading…';
-            btn.style.pointerEvents = 'none';
-            try {
-                const res = await fetch(url);
-                if (!res.ok) throw new Error('HTTP ' + res.status);
-                const blob = await res.blob();
-                const blobUrl = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = blobUrl;
-                a.download = 'ScoobyLauncher.exe';
-                document.body.appendChild(a);
-                a.click();
-                a.remove();
-                setTimeout(() => URL.revokeObjectURL(blobUrl), 10000);
-                closeDownloadModal();
-            } catch (err) {
-                // Fallback: open the raw link directly if the in-page fetch fails
-                window.open(url, '_blank', 'noopener,noreferrer');
-            } finally {
-                if (label) label.textContent = original;
-                btn.style.pointerEvents = '';
-            }
         }
         // Auto-open download modal if URL has #download
         if (window.location.hash === '#download') {
