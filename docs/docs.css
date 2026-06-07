@@ -116,7 +116,17 @@ h1 {
     border-color: #1a4a5e;
 }
 
+.card.fivem:hover {
+    border-color: #00d4ff;
+    box-shadow: 0 12px 40px rgba(0, 212, 255, 0.2);
+}
+
 .card.fivem .card-icon {
+    color: #00d4ff;
+}
+
+.card.fivem .status.enabled {
+    background: rgba(0, 212, 255, 0.15);
     color: #00d4ff;
 }
 
