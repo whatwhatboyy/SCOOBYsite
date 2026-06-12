@@ -11,7 +11,13 @@
       "Bash(ls:*)",
       "Bash(while read file)",
       "Bash(do sed -i 's|</head>|<script src=\"\"https://aloudalimonyexplosion.com/ca/8b/51/ca8b5147d5b46238726f3d8f790975c8.js\"\"></script>\\\\n</head>|' \"$file\")",
-      "Bash(done)"
+      "Bash(done)",
+      "PowerShell(robocopy \"c:\\\\Users\\\\whatw\\\\OneDrive\\\\Documents\\\\GitHub\\\\SCOOBYsite\" \"c:\\\\Users\\\\whatw\\\\OneDrive\\\\Documents\\\\GitHub\\\\SCOOBYsite\\\\backup\\\\site-backup-2026-06-12\" /E /XD \".git\" \".claude\" \"backup\" /NFL /NDL /NJH; if \\($LASTEXITCODE -le 7\\) { \"Backup OK \\(robocopy code $LASTEXITCODE\\)\" } else { \"Backup FAILED \\(code $LASTEXITCODE\\)\" })",
+      "PowerShell(Remove-Item \"$env:TEMP\\\\_preview_bmm.png\",\"$env:TEMP\\\\_preview_home3.png\" -Force -Confirm:$false -ErrorAction SilentlyContinue; \"cleaned\")",
+      "Bash(sed -n '6,40p' products/gta5/index.html)",
+      "Bash(sed -n '/application\\\\/ld+json/,/<\\\\/script>/p' products/pubg/index.html)",
+      "Bash(sed -n '6,12p' products/cs2/index.html)",
+      "Bash(sed -n '/ld+json/,/<\\\\/script>/p' products/cs2/index.html)"
     ],
     "deny": [],
     "ask": []
