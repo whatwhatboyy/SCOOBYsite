@@ -205,24 +205,24 @@
     .featured-product::before {
         content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
         width: 80%; height: 80%;
-        background: radial-gradient(ellipse, rgba(0, 212, 212, 0.08) 0%, transparent 60%);
+        background: radial-gradient(ellipse, rgba(79, 142, 245, 0.08) 0%, transparent 60%);
         pointer-events: none;
     }
 
     .featured-card {
         background: linear-gradient(145deg, rgba(20, 20, 28, 0.95) 0%, rgba(14, 14, 22, 0.98) 100%);
-        border: 2px solid rgba(0, 212, 212, 0.2); border-radius: 24px;
+        border: 2px solid rgba(79, 142, 245, 0.2); border-radius: 24px;
         overflow: hidden; transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
         position: relative; animation: fadeInUp 0.6s ease forwards;
     }
     .featured-card::before {
         content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
         background: var(--accent-gradient); z-index: 2;
-        box-shadow: 0 0 20px rgba(0, 212, 212, 0.4);
+        box-shadow: 0 0 20px rgba(79, 142, 245, 0.4);
     }
     .featured-card:hover {
-        border-color: rgba(0, 212, 212, 0.5); transform: translateY(-6px);
-        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4), 0 0 60px rgba(0, 212, 212, 0.12);
+        border-color: rgba(79, 142, 245, 0.5); transform: translateY(-6px);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4), 0 0 60px rgba(79, 142, 245, 0.12);
     }
 
     .featured-card-inner { display: grid; grid-template-columns: 1fr 1fr; }
@@ -256,7 +256,7 @@
     }
 
     .featured-card-name {
-        font-family: 'Orbitron', sans-serif; font-size: 2rem; font-weight: 900;
+        font-size: 2rem; font-weight: 900;
         color: var(--text-primary); letter-spacing: 2px; margin-bottom: 10px;
     }
 
@@ -291,8 +291,8 @@
         background: var(--accent-gradient); opacity: 0; transition: opacity 0.3s ease; z-index: 2;
     }
     .product-card:hover {
-        transform: translateY(-8px); border-color: rgba(0, 212, 212, 0.3);
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 212, 212, 0.1);
+        transform: translateY(-8px); border-color: rgba(79, 142, 245, 0.3);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 40px rgba(79, 142, 245, 0.1);
     }
     .product-card:hover::before { opacity: 1; }
 
@@ -320,7 +320,7 @@
     }
 
     .product-card-name {
-        font-family: 'Orbitron', sans-serif; font-size: 1.15rem; font-weight: 700;
+        font-size: 1.15rem; font-weight: 700;
         color: var(--text-primary); letter-spacing: 1px;
     }
 
@@ -344,7 +344,7 @@
         display: flex; align-items: baseline; gap: 10px; margin-bottom: 16px;
     }
     .price-current {
-        font-family: 'Orbitron', sans-serif; font-size: 1.6rem; font-weight: 800;
+        font-size: 1.6rem; font-weight: 800;
         background: var(--accent-gradient); -webkit-background-clip: text;
         -webkit-text-fill-color: transparent; background-clip: text;
     }
@@ -373,24 +373,24 @@
         transition: all 0.3s ease; position: relative;
     }
     .tier-plan:hover {
-        border-color: rgba(0, 212, 212, 0.4); background: rgba(0, 212, 212, 0.05);
+        border-color: rgba(79, 142, 245, 0.4); background: rgba(79, 142, 245, 0.05);
         transform: translateY(-2px);
     }
-    .tier-plan.featured { border-color: rgba(0, 212, 212, 0.3); background: rgba(0, 212, 212, 0.04); }
+    .tier-plan.featured { border-color: rgba(79, 142, 245, 0.3); background: rgba(79, 142, 245, 0.04); }
     .tier-plan.upgrade-tier { border-color: rgba(168, 85, 247, 0.25); background: rgba(168, 85, 247, 0.04); }
     .tier-plan-badge {
         position: absolute; top: -8px; left: 50%; transform: translateX(-50%);
         padding: 2px 10px; border-radius: 10px; font-size: 0.6rem;
         font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; white-space: nowrap;
     }
-    .tier-plan-badge.popular { background: rgba(0, 212, 212, 0.15); border: 1px solid rgba(0, 212, 212, 0.3); color: var(--accent-cyan); }
-    .tier-plan-badge.best { background: rgba(0, 212, 212, 0.2); border: 1px solid rgba(0, 212, 212, 0.4); color: var(--accent-cyan); }
+    .tier-plan-badge.popular { background: rgba(79, 142, 245, 0.15); border: 1px solid rgba(79, 142, 245, 0.3); color: var(--accent-cyan); }
+    .tier-plan-badge.best { background: rgba(79, 142, 245, 0.2); border: 1px solid rgba(79, 142, 245, 0.4); color: var(--accent-cyan); }
     .tier-plan-badge.upg { background: rgba(168, 85, 247, 0.2); border: 1px solid rgba(168, 85, 247, 0.4); color: #a855f7; }
-    .tier-plan-name { font-family: 'Orbitron', sans-serif; font-size: 0.7rem; font-weight: 700; color: var(--text-primary); margin: 8px 0 6px; letter-spacing: 0.5px; }
+    .tier-plan-name { font-size: 0.7rem; font-weight: 700; color: var(--text-primary); margin: 8px 0 6px; letter-spacing: 0.5px; }
     .tier-plan-price { display: flex; align-items: baseline; justify-content: center; gap: 5px; }
     .tier-plan-price .old { font-size: 0.7rem; color: rgba(255, 255, 255, 0.3); text-decoration: line-through; }
     .tier-plan-price .current {
-        font-family: 'Orbitron', sans-serif; font-size: 1rem; font-weight: 800;
+        font-size: 1rem; font-weight: 800;
         background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
     .tier-plan.upgrade-tier .tier-plan-price .current {
@@ -401,15 +401,15 @@
 
     .tier-plan-btn {
         display: inline-block; width: 100%; margin-top: 12px; padding: 8px 0;
-        border: none; border-radius: 8px; font-family: 'Orbitron', sans-serif;
+        border: none; border-radius: 8px;
         font-size: 0.6rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
         cursor: pointer; transition: all 0.3s ease;
-        background: linear-gradient(135deg, rgba(0, 212, 212, 0.2), rgba(0, 184, 184, 0.15));
-        border: 1px solid rgba(0, 212, 212, 0.3); color: #00e5e5;
+        background: linear-gradient(135deg, rgba(79, 142, 245, 0.2), rgba(37, 99, 235, 0.15));
+        border: 1px solid rgba(79, 142, 245, 0.3); color: #4f8ef5;
     }
     .tier-plan-btn:hover {
-        background: linear-gradient(135deg, #00e5e5 0%, #00b8b8 100%);
-        color: #000; box-shadow: 0 4px 20px rgba(0, 212, 212, 0.35);
+        background: linear-gradient(135deg, #6ba3f7 0%, #2563eb 100%);
+        color: #fff; box-shadow: 0 4px 20px rgba(79, 142, 245, 0.35);
     }
     .tier-plan.upgrade-tier .tier-plan-btn {
         background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(124, 58, 237, 0.15));
@@ -439,7 +439,7 @@
     .discount-timer-text {
         font-size: 0.75rem; font-weight: 600; color: #fca5a5; letter-spacing: 0.3px;
     }
-    .discount-timer-text span { font-family: 'Orbitron', sans-serif; color: #ef4444; font-weight: 800; }
+    .discount-timer-text span { color: #ef4444; font-weight: 800; }
     .discount-timer-blocks {
         display: flex; gap: 6px; margin-left: auto;
     }
@@ -448,7 +448,7 @@
         border-radius: 8px; padding: 6px 8px; text-align: center; min-width: 44px;
     }
     .discount-timer-block .val {
-        font-family: 'Orbitron', sans-serif; font-size: 0.9rem; font-weight: 800; color: #ef4444;
+        font-size: 0.9rem; font-weight: 800; color: #ef4444;
         display: block; line-height: 1;
     }
     .discount-timer-block .lbl {
@@ -468,8 +468,8 @@
         cursor: pointer; transition: all 0.3s ease; flex: 1; min-width: 120px;
     }
     .btn svg { width: 15px; height: 15px; }
-    .btn-primary { background: var(--accent-gradient); color: #000; box-shadow: 0 4px 15px rgba(0, 212, 212, 0.25); }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0, 212, 212, 0.4); }
+    .btn-primary { background: var(--accent-gradient); color: #fff; box-shadow: 0 4px 15px rgba(79, 142, 245, 0.25); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(79, 142, 245, 0.4); }
     .btn-free { background: linear-gradient(135deg, #22c55e, #16a34a); color: #fff; box-shadow: 0 4px 15px rgba(34, 197, 94, 0.25); }
     .btn-free:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(34, 197, 94, 0.4); }
     .btn-secondary { background: rgba(255, 255, 255, 0.05); color: var(--text-secondary); border: 1px solid rgba(255, 255, 255, 0.1); }
@@ -487,7 +487,7 @@
     .modal-box {
         background: linear-gradient(180deg, #1a1a24 0%, #14141c 100%);
         border-radius: 24px; padding: 40px; max-width: 440px; width: 100%;
-        position: relative; border: 1px solid rgba(0, 212, 212, 0.15);
+        position: relative; border: 1px solid rgba(79, 142, 245, 0.15);
         box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5); animation: modalIn 0.3s ease;
     }
     @keyframes modalIn { from { opacity: 0; transform: scale(0.95) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }
@@ -505,7 +505,7 @@
         margin: 0 auto 20px; color: #fff;
     }
     .modal-title {
-        font-family: 'Orbitron', sans-serif; font-size: 1.4rem; font-weight: 700;
+        font-size: 1.4rem; font-weight: 700;
         text-align: center; margin-bottom: 28px; letter-spacing: 1px;
     }
     .payment-option { margin-bottom: 16px; }
@@ -519,8 +519,8 @@
         transition: all 0.3s ease; border: none; cursor: pointer;
     }
     .payment-btn svg { width: 20px; height: 20px; }
-    .card-btn { background: linear-gradient(135deg, #00e5e5, #00a0a0); color: #000; }
-    .card-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0, 212, 212, 0.35); }
+    .card-btn { background: linear-gradient(135deg, #6ba3f7, #2563eb); color: #fff; }
+    .card-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(79, 142, 245, 0.35); }
     .crypto-btn { background: linear-gradient(135deg, #f7931a, #e8850a); color: #fff; }
     .crypto-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(247, 147, 26, 0.35); }
     .payment-option-tag {
@@ -536,11 +536,11 @@
     .freekey-modal .modal-box { max-width: 480px; text-align: center; }
     .freekey-countdown {
         width: 100px; height: 100px; border-radius: 50%;
-        background: linear-gradient(135deg, rgba(0, 200, 200, 0.2), rgba(0, 180, 180, 0.2));
-        border: 3px solid #00d4d4; display: flex; align-items: center; justify-content: center;
-        margin: 0 auto 25px; font-family: 'Orbitron', sans-serif;
-        font-size: 3rem; font-weight: 700; color: #00d4d4;
-        box-shadow: 0 0 30px rgba(0, 200, 200, 0.3);
+        background: linear-gradient(135deg, rgba(79, 142, 245, 0.2), rgba(37, 99, 235, 0.2));
+        border: 3px solid #4f8ef5; display: flex; align-items: center; justify-content: center;
+        margin: 0 auto 25px;
+        font-size: 3rem; font-weight: 700; color: #4f8ef5;
+        box-shadow: 0 0 30px rgba(79, 142, 245, 0.3);
     }
     .freekey-steps {
         text-align: left; background: rgba(0, 0, 0, 0.3); border-radius: 16px;
@@ -554,19 +554,19 @@
     .freekey-step:last-child { border-bottom: none; }
     .freekey-step-num {
         width: 24px; height: 24px; min-width: 24px;
-        background: linear-gradient(135deg, #00d4d4, #00a0a0); border-radius: 50%;
+        background: linear-gradient(135deg, #6ba3f7, #2563eb); border-radius: 50%;
         display: flex; align-items: center; justify-content: center;
         font-size: 0.75rem; font-weight: 700; color: white;
     }
     .freekey-btn {
         display: inline-block; width: 100%; padding: 16px 32px;
-        background: linear-gradient(135deg, #00d4d4, #00a0a0); border: none;
-        border-radius: 50px; color: white; font-family: 'Orbitron', sans-serif;
+        background: linear-gradient(135deg, #6ba3f7, #2563eb); border: none;
+        border-radius: 50px; color: white;
         font-size: 1rem; font-weight: 600; letter-spacing: 1px;
         text-decoration: none; cursor: pointer; transition: all 0.3s ease;
-        box-shadow: 0 4px 20px rgba(0, 200, 200, 0.3); margin-bottom: 20px;
+        box-shadow: 0 4px 20px rgba(79, 142, 245, 0.3); margin-bottom: 20px;
     }
-    .freekey-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0, 200, 200, 0.5); }
+    .freekey-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(79, 142, 245, 0.5); }
     .freekey-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
     .freekey-warning {
         display: flex; align-items: center; gap: 10px; padding: 12px 16px;
@@ -1026,7 +1026,7 @@
                 <div class="product-card animate-in">
                     <div class="product-card-image">
                         <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);display:flex;align-items:center;justify-content:center;">
-                            <span style="font-family:'Orbitron',sans-serif;font-size:2rem;font-weight:900;color:rgba(255,255,255,0.15);">S&BOX</span>
+                            <span style="font-size:2rem;font-weight:900;color:rgba(255,255,255,0.15);">S&BOX</span>
                         </div>
                         <div class="badge-float"><span class="badge badge-dev">In Development</span></div>
                     </div>
@@ -1052,7 +1052,7 @@
             </div>
 
             <div style="text-align:center;margin-top:50px;display:flex;flex-direction:column;align-items:center;gap:15px;">
-                <a href="/resellers" class="back-link" style="color:#00d4d4;">
+                <a href="/resellers" class="back-link" style="color:#4f8ef5;">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
                     Purchase from a Reseller
                 </a>
@@ -1102,11 +1102,11 @@
         <div class="modal-box">
             <button class="modal-close" onclick="closeFreeKey()">&times;</button>
             <div class="freekey-countdown" id="freeKeyCountdown">3</div>
-            <h3 style="font-family:'Orbitron',sans-serif;font-size:1.5rem;background:linear-gradient(135deg,#00c8c8,#009999);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px;letter-spacing:1px">GETTING YOUR FREE KEY</h3>
+            <h3 style="font-size:1.5rem;font-weight:900;color:#4f8ef5;margin-bottom:20px;letter-spacing:1px">GETTING YOUR FREE KEY</h3>
             <div class="freekey-steps">
                 <div class="freekey-step"><span class="freekey-step-num">1</span><span>Complete all the required steps on the page</span></div>
                 <div class="freekey-step"><span class="freekey-step-num">2</span><span>Wait for the unlock progress to reach 3/3</span></div>
-                <div class="freekey-step"><span class="freekey-step-num">3</span><span>Click the <strong style="color:#00c8c8">"Unlock Link"</strong> button to reveal your key</span></div>
+                <div class="freekey-step"><span class="freekey-step-num">3</span><span>Click the <strong style="color:#4f8ef5">"Unlock Link"</strong> button to reveal your key</span></div>
             </div>
             <div class="freekey-warning">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
@@ -1306,7 +1306,7 @@
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
             countdown.textContent = '3';
-            countdown.style.color = '#00d4d4';
+            countdown.style.color = '#4f8ef5';
             btn.disabled = true;
             btn.textContent = 'PLEASE WAIT...';
 
@@ -1317,7 +1317,7 @@
                 if (count <= 0) {
                     clearInterval(freeKeyInterval);
                     countdown.innerHTML = '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>';
-                    countdown.style.color = '#00c8c8';
+                    countdown.style.color = '#4f8ef5';
                     btn.disabled = false;
                     btn.textContent = 'CONTINUE TO GET KEY';
                 }
