@@ -362,7 +362,7 @@
                 </div>
                 <div class="freekey-step">
                     <span class="freekey-step-num">3</span>
-                    <span>Click the <strong style="color: #00c8c8;">"Unlock Link"</strong> button to reveal your key</span>
+                    <span>Click the <strong style="color: #4f8ef5;">"Unlock Link"</strong> button to reveal your key</span>
                 </div>
             </div>
             <div class="freekey-warning" style="display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 8px; color: #f87171; font-size: 0.85rem; margin-bottom: 20px;">
@@ -439,7 +439,7 @@
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
             countdown.textContent = '3';
-            countdown.style.color = '#00d4d4';
+            countdown.style.color = '#4f8ef5';
             btn.disabled = true;
             btn.textContent = 'PLEASE WAIT...';
             let count = 3;
@@ -449,7 +449,7 @@
                 if (count <= 0) {
                     clearInterval(freeKeyCountdownInterval);
                     countdown.innerHTML = '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>';
-                    countdown.style.color = '#00c8c8';
+                    countdown.style.color = '#4f8ef5';
                     btn.disabled = false;
                     btn.textContent = 'CONTINUE TO GET KEY';
                 }
@@ -471,8 +471,9 @@
         });
     </script>
     <script>
-    function toggleMobileNav(){var b=document.getElementById('hamburgerBtn'),n=document.getElementById('navLinks');b.classList.toggle('active');n.classList.toggle('mobile-open');document.body.style.overflow=n.classList.contains('mobile-open')?'hidden':'';}
-    document.querySelectorAll('#navLinks a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('hamburgerBtn').classList.remove('active');document.getElementById('navLinks').classList.remove('mobile-open');document.body.style.overflow='';});});
+    (function(){var n=document.getElementById('nav');window.addEventListener('scroll',function(){n.classList.toggle('scrolled',window.scrollY>60);},{passive:true});})();
+    function toggleMenu(){var l=document.getElementById('navLinks');l.classList.toggle('mobile-open');document.body.style.overflow=l.classList.contains('mobile-open')?'hidden':'';}
+    document.querySelectorAll('#navLinks a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('navLinks').classList.remove('mobile-open');document.body.style.overflow='';});});
     </script>
 </body>
 </html>
